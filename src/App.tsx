@@ -3,7 +3,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <p>tools</p>
+      <p>e tools</p>
     </>
   );
 }
