@@ -65,10 +65,6 @@ function App() {
     );
     const critDamage = total * params.critDamageMod;
 
-    //   var constant = CRIT_CONSTANT / crit_chance_multiplier
-    // var chance = unit.stats.luck / (constant + unit.stats.luck)
-    // return Probability.weighted_roll(chance)
-
     return {
       physAtk,
       physDef,
@@ -319,22 +315,6 @@ function App() {
 }
 
 export default App;
-
-// func _calculate_damage(target: Unit) -> float:
-// 	var total_phys_attack = (unit.stats.strength * unit_strength_modifier) + base_phys_damage
-// 	var total_phys_def = target.stats.physical_defense * target_phys_defense_modifier
-// 	var physical_damage = max(total_phys_attack - total_phys_def, 0)
-
-// 	var total_magic_attack = (unit.stats.intelligence * unit_int_modifier) + base_magic_damage
-// 	var total_spec_defense = target.stats.special_defense * target_spec_defense_modifier
-// 	var magic_damage = max(total_magic_attack - total_spec_defense, 0)
-
-// 	var total_dex_attack = (unit.stats.speed * unit_speed_modifier) + base_dex_damage
-// 	var total_speed_def = target.stats.speed * target_speed_modifier
-// 	var total_dex_def = (total_speed_def + total_phys_def) / 2
-// 	var dex_damage = max(total_dex_attack - total_dex_def, 0)
-
-// 	return (physical_damage + magic_damage + dex_damage + base_damage) * total_damage_multiplier
 
 const Plus = () => <p className="font-bold">+</p>;
 const Minus = () => <p className="font-bold">–</p>;
