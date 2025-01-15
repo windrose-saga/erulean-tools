@@ -1,15 +1,30 @@
 import { PropsWithChildren, useEffect, useMemo, useState } from "react";
-import UnitForm, { UnitStats } from "./components/UnitForm";
-import LabeledValue from "./components/LabeledValue";
-import ActionForm, { ActionParams } from "./components/ActionForm";
+import UnitForm from "../components/UnitForm";
+import LabeledValue from "../components/LabeledValue";
+import ActionForm, { ActionParams } from "../components/ActionForm";
+import { UnitStats } from "../types/unit";
 
 const DEFAULT_STATS: UnitStats = {
   strength: 10,
   intelligence: 10,
   speed: 10,
-  physicalDefense: 10,
-  specialDefense: 10,
+  physDefense: 10,
+  specDefense: 10,
   luck: 10,
+  manaGrowth: 0,
+  // not used from here down
+  maxHp: 100,
+  startingHp: 100,
+  maxMana: 10,
+  startingMana: 0,
+  pointValue: 1,
+  bravery: 99,
+  canFlee: true,
+  movement: 1,
+  movementStrategy: "ADVANCE",
+  holdingDistance: 0,
+  faithful: false,
+  inactionLimit: 20,
 };
 
 const DEFAULT_PARAMS: ActionParams = {
@@ -37,12 +52,12 @@ function DamageCalculator() {
   const results = useMemo(() => {
     const physAtk =
       unitStats.strength * params.actorStrMod + params.basePhysical;
-    const physDef = targetStats.physicalDefense * params.targetDefMod;
+    const physDef = targetStats.physDefense * params.targetDefMod;
     const physDmg = Math.max(physAtk - physDef, 0);
 
     const magAtk =
       unitStats.intelligence * params.actorIntMod + params.baseSpecial;
-    const magDef = targetStats.specialDefense * params.targetSpDefMod;
+    const magDef = targetStats.specDefense * params.targetSpDefMod;
     const magDmg = Math.max(magAtk - magDef, 0);
 
     const dexAtk = unitStats.speed * params.actorSpdMod + params.baseDex;
@@ -54,7 +69,7 @@ function DamageCalculator() {
       (physDmg + magDmg + dexDmg + params.baseDmg) * params.totalDmgMod;
 
     const hitChance = Math.min(
-      (unitStats.specialDefense / 2 + (100 - targetStats.speed)) *
+      (unitStats.specDefense / 2 + (100 - targetStats.speed)) *
         params.evasionMod,
       100
     );
@@ -126,7 +141,7 @@ function DamageCalculator() {
           <Equals />
           <LabeledValue
             label="Target Defense"
-            value={targetStats.physicalDefense}
+            value={targetStats.physDefense}
           />
           <Mult />
           <LabeledValue
@@ -166,7 +181,7 @@ function DamageCalculator() {
           <Equals />
           <LabeledValue
             label="Target Sp. Defense"
-            value={targetStats.specialDefense}
+            value={targetStats.specDefense}
           />
           <Mult />
           <LabeledValue
@@ -213,7 +228,7 @@ function DamageCalculator() {
             <Parens>
               <LabeledValue
                 label="Target Defense"
-                value={targetStats.physicalDefense}
+                value={targetStats.physDefense}
               />
               <Mult />
               <LabeledValue

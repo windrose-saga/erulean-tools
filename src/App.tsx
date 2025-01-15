@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./App.css";
-import DamageCalculator from "./DamageCalculator";
+import DamageCalculator from "./screens/DamageCalculator";
 import Nav, { Tabs } from "./components/Nav";
+import Upload from "./screens/Upload";
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tabs>("Upload");
@@ -13,7 +14,7 @@ function App() {
         <DamageCalculator />
       </Tab>
       <Tab tab="Upload" activeTab={activeTab}>
-        <p>'asdflkjasdf</p>
+        <Upload />
       </Tab>
     </div>
   );
