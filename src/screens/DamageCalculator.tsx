@@ -1,8 +1,9 @@
 import { PropsWithChildren, useEffect, useMemo, useState } from "react";
 import UnitForm from "../components/UnitForm";
 import LabeledValue from "../components/LabeledValue";
-import ActionForm, { ActionParams } from "../components/ActionForm";
+import ActionForm from "../components/ActionForm";
 import { UnitStats } from "../types/unit";
+import { DamageActionData } from "../types/action";
 
 const DEFAULT_STATS: UnitStats = {
   strength: 10,
@@ -27,57 +28,60 @@ const DEFAULT_STATS: UnitStats = {
   inactionLimit: 20,
 };
 
-const DEFAULT_PARAMS: ActionParams = {
-  basePhysical: 0,
-  baseSpecial: 0,
-  baseDex: 0,
-  baseDmg: 0,
-  totalDmgMod: 1,
-  actorStrMod: 1,
-  actorIntMod: 1,
-  actorSpdMod: 1,
-  targetDefMod: 1,
-  targetSpDefMod: 1,
-  targetSpdMod: 1,
-  evasionMod: 1,
-  critChanceMod: 1,
-  critDamageMod: 1.5,
+const DEFAULT_PARAMS: DamageActionData = {
+  basePhysDamage: 0,
+  unitStrengthModifier: 1,
+  targetPhysDefenseModifier: 1,
+  baseMagicDamage: 0,
+  unitIntModifier: 1,
+  targetSpecDefenseModifier: 1,
+  baseDexDamage: 0,
+  unitSpeedModifier: 1,
+  targetSpeedModifier: 1,
+  critModifier: 1.5,
+  baseDamage: 0,
+  totalDamageMultiplier: 1,
+  targetAugmentSelf: false,
+  augment: null,
+  critAugment: null,
 };
 
 function DamageCalculator() {
   const [unitStats, setUnitStats] = useState<UnitStats>(DEFAULT_STATS);
   const [targetStats, setTargetStats] = useState<UnitStats>(DEFAULT_STATS);
-  const [params, setParams] = useState<ActionParams>(DEFAULT_PARAMS);
+  const [params, setParams] = useState<DamageActionData>(DEFAULT_PARAMS);
 
   const results = useMemo(() => {
     const physAtk =
-      unitStats.strength * params.actorStrMod + params.basePhysical;
-    const physDef = targetStats.physDefense * params.targetDefMod;
+      unitStats.strength * params.unitStrengthModifier + params.basePhysDamage;
+    const physDef = targetStats.physDefense * params.targetPhysDefenseModifier;
     const physDmg = Math.max(physAtk - physDef, 0);
 
     const magAtk =
-      unitStats.intelligence * params.actorIntMod + params.baseSpecial;
-    const magDef = targetStats.specDefense * params.targetSpDefMod;
+      unitStats.intelligence * params.unitIntModifier + params.baseMagicDamage;
+    const magDef = targetStats.specDefense * params.targetSpecDefenseModifier;
     const magDmg = Math.max(magAtk - magDef, 0);
 
-    const dexAtk = unitStats.speed * params.actorSpdMod + params.baseDex;
-    const speedDef = targetStats.speed * params.targetSpdMod;
+    const dexAtk =
+      unitStats.speed * params.unitSpeedModifier + params.baseDexDamage;
+    const speedDef = targetStats.speed * params.targetSpeedModifier;
     const dexDef = (physDef + speedDef) / 2;
     const dexDmg = Math.max(dexAtk - dexDef, 0);
 
     const total =
-      (physDmg + magDmg + dexDmg + params.baseDmg) * params.totalDmgMod;
+      (physDmg + magDmg + dexDmg + params.baseDamage) *
+      params.totalDamageMultiplier;
 
     const hitChance = Math.min(
-      (unitStats.specDefense / 2 + (100 - targetStats.speed)) *
-        params.evasionMod,
+      (unitStats.specDefense / 2 + (100 - targetStats.speed)) * 1,
+      // params.evasionMod, fix this
       100
     );
-    const critConstant = 40 / params.critChanceMod;
+    const critConstant = 40 / 1; //params.critChanceMod; fix this
     const critChance = Math.floor(
       Math.min((unitStats.luck / (unitStats.luck + critConstant)) * 100, 100)
     );
-    const critDamage = total * params.critDamageMod;
+    const critDamage = total * params.critModifier;
 
     return {
       physAtk,
@@ -127,13 +131,13 @@ function DamageCalculator() {
             <Mult />
             <LabeledValue
               label="Actor Strength Modifier"
-              value={params.actorStrMod}
+              value={params.unitStrengthModifier}
             />
           </Parens>
           <Plus />
           <LabeledValue
             label="Base Physical Damage"
-            value={params.basePhysical}
+            value={params.basePhysDamage}
           />
         </div>
         <div className="flex flex-row gap-2">
@@ -146,7 +150,7 @@ function DamageCalculator() {
           <Mult />
           <LabeledValue
             label="Target Defense Modifier"
-            value={params.targetDefMod}
+            value={params.targetPhysDefenseModifier}
           />
         </div>
         <div className="flex flex-row gap-2">
@@ -170,11 +174,14 @@ function DamageCalculator() {
             <Mult />
             <LabeledValue
               label="Actor Intelligence Modifier"
-              value={params.actorIntMod}
+              value={params.unitIntModifier}
             />
           </Parens>
           <Plus />
-          <LabeledValue label="Base Magic Damage" value={params.baseSpecial} />
+          <LabeledValue
+            label="Base Magic Damage"
+            value={params.baseMagicDamage}
+          />
         </div>
         <div className="flex flex-row gap-2">
           <LabeledValue label="Magic Defense" value={results.magDef} />
@@ -186,7 +193,7 @@ function DamageCalculator() {
           <Mult />
           <LabeledValue
             label="Target Sp. Defense Modifier"
-            value={params.targetSpDefMod}
+            value={params.targetSpecDefenseModifier}
           />
         </div>
         <div className="flex flex-row gap-2">
@@ -206,11 +213,14 @@ function DamageCalculator() {
             <Mult />
             <LabeledValue
               label="Actor Intelligence Modifier"
-              value={params.actorSpdMod}
+              value={params.unitSpeedModifier}
             />
           </Parens>
           <Plus />
-          <LabeledValue label="Base Dexterity Damage" value={params.baseDex} />
+          <LabeledValue
+            label="Base Dexterity Damage"
+            value={params.baseDexDamage}
+          />
         </div>
         <div className="flex flex-row gap-2">
           <LabeledValue label="Dexterity Defense" value={results.dexDef} />
@@ -221,7 +231,7 @@ function DamageCalculator() {
               <Mult />
               <LabeledValue
                 label="Target Speed Modifier"
-                value={params.targetSpdMod}
+                value={params.targetSpeedModifier}
               />
             </Parens>
             <Plus />
@@ -233,7 +243,7 @@ function DamageCalculator() {
               <Mult />
               <LabeledValue
                 label="Target Defense Modifier"
-                value={params.targetDefMod}
+                value={params.targetPhysDefenseModifier}
               />
             </Parens>
           </Brackets>
@@ -259,12 +269,12 @@ function DamageCalculator() {
             <Plus />
             <LabeledValue label="Dexterity Damage" value={results.dexDmg} />
             <Plus />
-            <LabeledValue label="Base Damage" value={params.baseDmg} />
+            <LabeledValue label="Base Damage" value={params.baseDamage} />
           </Parens>
           <Mult />
           <LabeledValue
             label="Total Damage Multiplier"
-            value={params.totalDmgMod}
+            value={params.totalDamageMultiplier}
           />
         </div>
         <br></br>
@@ -286,7 +296,11 @@ function DamageCalculator() {
             </Parens>
           </Brackets>
           <Mult />
-          <LabeledValue label="Evasion Multiplier" value={params.evasionMod} />
+          <LabeledValue
+            label="Evasion Multiplier"
+            value={1}
+            //params.evasionMod}
+          />
         </div>
         <br></br>
 
@@ -303,7 +317,7 @@ function DamageCalculator() {
                 <Divide />
                 <LabeledValue
                   label="Crit Chance Modifier"
-                  value={params.critChanceMod}
+                  value={1} //params.critChanceMod
                 />
               </Parens>
               <Plus />
@@ -320,7 +334,7 @@ function DamageCalculator() {
           <Mult />
           <LabeledValue
             label="Crit Damage Multiplier"
-            value={params.critDamageMod}
+            value={params.critModifier}
           />
         </div>
       </div>
