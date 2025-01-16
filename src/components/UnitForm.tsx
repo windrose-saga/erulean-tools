@@ -1,4 +1,5 @@
 import { UnitStats } from "../types/unit";
+import UnitSelect from "./UnitSelect";
 
 type Props = {
   title: string;
@@ -18,6 +19,7 @@ const UnitForm: React.FC<Props> = ({ setStats, stats, title }) => {
         });
       }}
     >
+      <UnitSelect setUnit={(unit) => setStats(unit.stats)} />
       <h1 className="font-bold text-xl">{title}</h1>
       <label htmlFor="strength">Strength</label>
       <input

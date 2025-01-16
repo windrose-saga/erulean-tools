@@ -15,7 +15,7 @@ import {
 const Upload: React.FC = () => {
   const [file, setFile] = React.useState<File | null>(null);
 
-  const { setUnits } = useDataContext();
+  const { setUnits, setActions } = useDataContext();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -32,7 +32,7 @@ const Upload: React.FC = () => {
           try {
             const data = JSON.parse(fileReader.result as string);
             setUnits(getUnitLines(data.sheets).map(getUnitData));
-            console.log(getActionLines(data.sheets).map(getActionData));
+            setActions(getActionLines(data.sheets).map(getActionData));
             console.log(getUnitLines(data.sheets).map(getUnitData));
           } catch (error) {
             console.warn("Failed to parse JSON:", error);
