@@ -2547,13 +2547,48 @@
                         "augment": "",
                         "crit_augment": ""
                     },
-                    "heal_props": {},
-                    "basic_augment_action_props": {},
-                    "mana_action_props": {},
+                    "heal_props": {
+                        "guid": "2f98a0f5-e154-4a0b-a84a-07281e326bf8",
+                        "hp": 0,
+                        "decay": 0,
+                        "should_target_full_hp": false
+                    },
+                    "basic_augment_action_props": {
+                        "guid": "2913d43e-f277-472b-96b6-4a9ba0462ccc",
+                        "should_reapply": false,
+                        "augment": "",
+                        "should_target_enemy": false
+                    },
+                    "mana_action_props": {
+                        "guid": "eb66f64d-7144-493a-bc76-f0b35e5fddcb",
+                        "should_target_enemy": false,
+                        "mana_amount": 0,
+                        "should_target_full_mp": false,
+                        "tag_augment": ""
+                    },
                     "approach_strategy": "HOLD",
                     "target_self": false,
-                    "augment_action_props": {},
-                    "dispel_action_props": {},
+                    "augment_action_props": {
+                        "guid": "48cf8c44-dd99-4d62-9bef-be3114efb797",
+                        "augments": [],
+                        "crit_augments": [],
+                        "should_reapply": false,
+                        "should_target_enemy": false
+                    },
+                    "dispel_action_props": {
+                        "guid": "2d1e55a1-a91c-4554-b559-d4d6c019635c",
+                        "mode": "TARGET",
+                        "domain": "UNIT, ARMY, GLOBAL",
+                        "target": "PHYSICAL_DEFENSE",
+                        "augment_name": "",
+                        "unique_identifier": "",
+                        "type": "BUFF",
+                        "force_dispel": false,
+                        "force_on_crit": false,
+                        "should_target_enemy": false,
+                        "only_target_augmented_units": true,
+                        "ignore_target_allegiance": false
+                    },
                     "tag_action_props": {
                         "guid": "7d31b468-1ecb-4897-9687-5f1aac7cb6e1",
                         "tag_augment": "",
