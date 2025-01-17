@@ -1,13 +1,12 @@
-import { ActionData, DamageActionData } from "../types/action";
+import { ActionData } from "../types/action";
 import ActionSelect from "./ActionSelect";
 
 type Props = {
-  params: DamageActionData;
-  setParams(
-    val: DamageActionData | ((stats: DamageActionData) => DamageActionData)
-  ): void;
+  params: ActionData;
+  setParams(val: ActionData | ((stats: ActionData) => ActionData)): void;
 };
 const ActionForm: React.FC<Props> = ({ setParams, params }) => {
+  const damageParams = params.damageActionProps!;
   return (
     <form
       className="flex flex-col items-center"
@@ -15,14 +14,21 @@ const ActionForm: React.FC<Props> = ({ setParams, params }) => {
         setParams((curr) => {
           const updated = { ...curr };
           // @ts-expect-error event target fields
-          updated[e.nativeEvent.target.id] = parseFloat(e.target.value);
+          const fieldId = e.nativeEvent.target.id;
+          if (fieldId in updated) {
+            // @ts-expect-error event target fields
+            updated[fieldId] = parseFloat(e.target.value);
+          } else {
+            // @ts-expect-error event target fields
+            updated.damageActionProps![fieldId] = parseFloat(e.target.value);
+          }
           return updated;
         });
       }}
     >
       <ActionSelect
         typeFilter="DAMAGE_ACTION"
-        setAction={(action: ActionData) => setParams(action.damageActionProps!)}
+        setAction={(action: ActionData) => setParams(action!)}
       />
       <h1 className="font-bold text-xl">Action Parameters</h1>
       <div className="flex flex-row gap-4 items-start">
@@ -30,21 +36,21 @@ const ActionForm: React.FC<Props> = ({ setParams, params }) => {
           <h1 className="font-bold text-md">Actor</h1>
           <label htmlFor="unitStrengthModifier">Strength Modifier</label>
           <input
-            value={params.unitStrengthModifier}
+            value={damageParams.unitStrengthModifier}
             type="number"
             id="unitStrengthModifier"
             title="unitStrengthModifier"
           />
           <label htmlFor="unitIntModifier">Intelligence Modifier</label>
           <input
-            value={params.unitIntModifier}
+            value={damageParams.unitIntModifier}
             type="number"
             id="unitIntModifier"
             title="unitIntModifier"
           />
           <label htmlFor="unitSpeedModifier">Speed Modifier</label>
           <input
-            value={params.unitSpeedModifier}
+            value={damageParams.unitSpeedModifier}
             type="number"
             id="unitSpeedModifier"
             title="unitSpeedModifier"
@@ -54,28 +60,28 @@ const ActionForm: React.FC<Props> = ({ setParams, params }) => {
           <h1 className="font-bold text-md">Base Damage</h1>
           <label htmlFor="basePhysDamage">Base Physical Dmg</label>
           <input
-            value={params.basePhysDamage}
+            value={damageParams.basePhysDamage}
             type="number"
             id="basePhysDamage"
             title="basePhysDamage"
           />
           <label htmlFor="baseMagicDamage">Base Magic Dmg</label>
           <input
-            value={params.baseMagicDamage}
+            value={damageParams.baseMagicDamage}
             type="number"
             id="baseMagicDamage"
             title="baseMagicDamage"
           />
           <label htmlFor="baseDexDamage">Base Dexterity Dmg</label>
           <input
-            value={params.baseDexDamage}
+            value={damageParams.baseDexDamage}
             type="number"
             id="baseDexDamage"
             title="baseDexDamage"
           />
           <label htmlFor="baseDamage">Base Damage</label>
           <input
-            value={params.baseDamage}
+            value={damageParams.baseDamage}
             type="number"
             id="baseDamage"
             title="baseDamage"
@@ -85,28 +91,28 @@ const ActionForm: React.FC<Props> = ({ setParams, params }) => {
           <h1 className="font-bold text-md">General</h1>
           <label htmlFor="totalDamageMultiplier">Total Dmg Modifier</label>
           <input
-            value={params.totalDamageMultiplier}
+            value={damageParams.totalDamageMultiplier}
             type="number"
             id="totalDamageMultiplier"
             title="totalDamageMultiplier"
           />
-          {/* <label htmlFor="evasionMod">Evasion Modifier</label>
+          <label htmlFor="evasionMultiplier">Evasion Modifier</label>
           <input
-            value={params.evasionMod}
+            value={params.evasionMultiplier}
             type="number"
-            id="evasionMod"
-            title="evasionMod"
+            id="evasionMultiplier"
+            title="evasionMultiplier"
           />
-          <label htmlFor="critChanceMod">Crit Chance Modifier</label>
+          <label htmlFor="critChanceMultiplier">Crit Chance Modifier</label>
           <input
-            value={params.critChanceMod}
+            value={params.critChanceMultiplier}
             type="number"
-            id="critChanceMod"
-            title="critChanceMod"
-          /> */}
+            id="critChanceMultiplier"
+            title="critChanceMultiplier"
+          />
           <label htmlFor="critModifier">Crit Damage Modifier</label>
           <input
-            value={params.critModifier}
+            value={damageParams.critModifier}
             type="number"
             id="critModifier"
             title="critModifier"
@@ -116,7 +122,7 @@ const ActionForm: React.FC<Props> = ({ setParams, params }) => {
           <h1 className="font-bold text-md">Target</h1>
           <label htmlFor="targetPhysDefenseModifier">Defense Modifier</label>
           <input
-            value={params.targetPhysDefenseModifier}
+            value={damageParams.targetPhysDefenseModifier}
             type="number"
             id="targetPhysDefenseModifier"
             title="targetPhysDefenseModifier"
@@ -125,14 +131,14 @@ const ActionForm: React.FC<Props> = ({ setParams, params }) => {
             Sp. Defense Modifier
           </label>
           <input
-            value={params.targetSpecDefenseModifier}
+            value={damageParams.targetSpecDefenseModifier}
             type="number"
             id="targetSpecDefenseModifier"
             title="targetSpecDefenseModifier"
           />
           <label htmlFor="targetSpeedModifier">Speed Modifier</label>
           <input
-            value={params.targetSpeedModifier}
+            value={damageParams.targetSpeedModifier}
             type="number"
             id="targetSpeedModifier"
             title="targetSpeedModifier"
