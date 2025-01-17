@@ -44,7 +44,7 @@ const Upload: React.FC = () => {
 
   return (
     <div>
-      <input type="file" accept=".json" onChange={handleFileChange} />
+      <input type="file" accept=".json,.dpo" onChange={handleFileChange} />
       <button onClick={handleUpload} disabled={!file}>
         Upload
       </button>
