@@ -21,6 +21,7 @@ const UnitForm: React.FC<Props> = ({ setStats, stats, title }) => {
     >
       <UnitSelect setUnit={(unit) => setStats(unit.stats)} />
       <h1 className="font-bold text-xl">{title}</h1>
+      <p className="font-bold">Max HP: {stats.maxHp}</p>
       <label htmlFor="strength">Strength</label>
       <input
         value={stats.strength}
