@@ -11,7 +11,14 @@ export type ActionType =
   | "TAG_ACTION"
   | "SUMMON_ACTION";
 
-export type Action = {
+export type DispelActionMode =
+  | "TARGET"
+  | "ALL"
+  | "NAME"
+  | "UNIQUE_IDENTIFIER"
+  | "TYPE";
+
+export type ActionBase = {
   guid: string;
   id: string;
   name: string;
@@ -31,16 +38,10 @@ export type Action = {
   approach_strategy: ApproachStrategy;
   target_self: boolean;
   action_type: ActionType;
-  damage_action_props: DamageActionData | undefined;
-  heal_props: HealActionData | undefined;
-  mana_action_props: ManaActionData | undefined;
-  augment_action_props: AugmentActionData | undefined;
-  dispel_action_props: DispelActionData | undefined;
-  tag_action_props: TagActionData | undefined;
-  summon_action_props: SummonActionData | undefined;
 };
 
 export type DamageActionData = {
+  action_type: "DAMAGE_ACTION";
   base_phys_damage: number;
   unit_strength_modifier: number;
   target_phys_defense_modifier: number;
@@ -59,12 +60,14 @@ export type DamageActionData = {
 };
 
 export type HealActionData = {
+  action_type: "HEAL";
   hp: number;
   decay: number;
   should_target_full_hp: boolean;
 };
 
 export type ManaActionData = {
+  action_type: "MANA_ACTION";
   should_target_enemy: boolean;
   mana_amount: number;
   should_target_full_mp: boolean;
@@ -72,20 +75,15 @@ export type ManaActionData = {
 };
 
 export type AugmentActionData = {
+  action_type: "AUGMENT_ACTION";
   augments: Array<string>;
   crit_augments: Array<string>;
   should_reapply: boolean;
   should_target_enemy: boolean;
 };
 
-export type DispelActionMode =
-  | "TARGET"
-  | "ALL"
-  | "NAME"
-  | "UNIQUE_IDENTIFIER"
-  | "TYPE";
-
 export type DispelActionData = {
+  action_type: "DISPEL_ACTION";
   mode: DispelActionMode;
   domain: AugmentDomain;
   target: AugmentTarget;
@@ -100,12 +98,14 @@ export type DispelActionData = {
 };
 
 export type TagActionData = {
+  action_type: "TAG_ACTION";
   tag_augment: string;
   should_target_enemy: boolean;
   follow_tagged_unit: boolean;
 };
 
 export type SummonActionData = {
+  action_type: "SUMMON_ACTION";
   summons: Array<{
     guid: string;
     id: string;
@@ -116,3 +116,20 @@ export type SummonActionData = {
   summon_augment: string;
   should_summon_impact_morale: boolean;
 };
+
+export type DamageAction = ActionBase & DamageActionData;
+export type HealAction = ActionBase & HealActionData;
+export type ManaAction = ActionBase & ManaActionData;
+export type AugmentAction = ActionBase & AugmentActionData;
+export type DispelAction = ActionBase & DispelActionData;
+export type TagAction = ActionBase & TagActionData;
+export type SummonAction = ActionBase & SummonActionData;
+
+export type Action =
+  | DamageAction
+  | HealAction
+  | ManaAction
+  | AugmentAction
+  | DispelAction
+  | TagAction
+  | SummonAction;
