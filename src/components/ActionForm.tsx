@@ -1,9 +1,9 @@
-import { ActionData } from "../types/action";
+import { Action } from "../types/action";
 import ActionSelect from "./ActionSelect";
 
 type Props = {
-  params: ActionData;
-  setParams(val: ActionData | ((stats: ActionData) => ActionData)): void;
+  params: Action;
+  setParams(val: Action | ((stats: Action) => Action)): void;
 };
 const ActionForm: React.FC<Props> = ({ setParams, params }) => {
   const damageParams = params.damageActionProps!;
@@ -28,7 +28,7 @@ const ActionForm: React.FC<Props> = ({ setParams, params }) => {
     >
       <ActionSelect
         typeFilter="DAMAGE_ACTION"
-        setAction={(action: ActionData) => setParams(action!)}
+        setAction={(action: Action) => setParams(action!)}
       />
       <h1 className="font-bold text-xl">Action Parameters</h1>
       <div className="flex flex-row gap-4 items-start">

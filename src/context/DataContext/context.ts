@@ -1,12 +1,15 @@
 import * as React from "react";
-import { UnitData } from "../../types/unit";
-import { ActionData } from "../../types/action";
+import { Unit } from "../../types/unit";
+import { Action } from "../../types/action";
+import { Augment } from "../../types/augment";
 
 export type DataContextValues = {
-  units: UnitData[];
-  setUnits: (units: UnitData[]) => void;
-  actions: ActionData[];
-  setActions: (actions: ActionData[]) => void;
+  units: Unit[];
+  setUnits: (units: Unit[]) => void;
+  actions: Action[];
+  setActions: (actions: Action[]) => void;
+  augments: Augment[];
+  setAugments: (augments: Augment[]) => void;
 };
 
 export const DataContext = React.createContext<DataContextValues | undefined>(

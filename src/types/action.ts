@@ -1,3 +1,5 @@
+import { AugmentBuffType, AugmentTarget } from "./augment";
+
 export type TargetingType = "EXACT" | "UP_TO" | "SELF";
 export type ApproachStrategy = "HOLD" | "PROCEED";
 export type ActionType =
@@ -8,7 +10,7 @@ export type ActionType =
   | "DISPEL_ACTION"
   | "TAG_ACTION"
   | "SUMMON_ACTION";
-export type ActionData = {
+export type Action = {
   guid: string;
   id: string;
   name: string;
@@ -106,19 +108,3 @@ export type SummonActionData = {
   summonAugment: string;
   shouldSummonImpactMorale: boolean;
 };
-
-export type AugmentTarget =
-  | "PHYSICAL_DEFENSE"
-  | "SPECIAL_DEFENSE"
-  | "SPEED"
-  | "STRENGTH"
-  | "INTELLIGENCE"
-  | "LUCK"
-  | "BRAVERY"
-  | "MOVEMENT"
-  | "HEALTH"
-  | "MANA"
-  | "DAMAGE"
-  | "ALLEGIANCE";
-
-export type AugmentBuffType = "BUFF" | "DEBUFF";

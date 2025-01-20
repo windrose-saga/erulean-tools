@@ -1,8 +1,8 @@
 import * as React from "react";
-import { CommanderData, UnitData, UnitStats } from "../types/unit";
+import { CommanderData, Unit, UnitStats } from "../types/unit";
 import useDataContext from "../context/DataContext/useDataContext";
 import {
-  ActionData,
+  Action,
   AugmentActionData,
   DamageActionData,
   DispelActionData,
@@ -11,11 +11,21 @@ import {
   SummonActionData,
   TagActionData,
 } from "../types/action";
+import {
+  Augment,
+  DotAugmentProps,
+  FlatStatProps,
+  StatMultProps,
+} from "../types/augment";
+
+const ACTION_SHEET_GUID = "288ae487-6d6a-411e-b468-ab415b4ba7e6";
+const UNIT_SHEET_GUID = "c4ca663f-445a-4bcb-bf4e-4cd51455c0a5";
+const AUGMENT_SHEET_GUID = "4d53960f-f75e-4721-ad17-90d124808b18";
 
 const Upload: React.FC = () => {
   const [file, setFile] = React.useState<File | null>(null);
 
-  const { setUnits, setActions } = useDataContext();
+  const { setUnits, setActions, setAugments } = useDataContext();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -33,7 +43,7 @@ const Upload: React.FC = () => {
             const data = JSON.parse(fileReader.result as string);
             setUnits(getUnitLines(data.sheets).map(getUnitData));
             setActions(getActionLines(data.sheets).map(getActionData));
-            console.log(getUnitLines(data.sheets).map(getUnitData));
+            setAugments(getAugmentLines(data.sheets).map(getAugmentData));
           } catch (error) {
             console.warn("Failed to parse JSON:", error);
           }
@@ -55,18 +65,18 @@ const Upload: React.FC = () => {
 export default Upload;
 
 const getUnitLines = (data: Array<any>) => {
-  return data.find(
-    (sheet: any) => sheet.guid === "c4ca663f-445a-4bcb-bf4e-4cd51455c0a5"
-  ).lines;
+  return data.find((sheet: any) => sheet.guid === UNIT_SHEET_GUID).lines;
 };
 
 const getActionLines = (data: Array<any>) => {
-  return data.find(
-    (sheet: any) => sheet.guid === "288ae487-6d6a-411e-b468-ab415b4ba7e6"
-  ).lines;
+  return data.find((sheet: any) => sheet.guid === ACTION_SHEET_GUID).lines;
 };
 
-const getUnitData = (line: any): UnitData => {
+const getAugmentLines = (data: Array<any>) => {
+  return data.find((sheet: any) => sheet.guid === AUGMENT_SHEET_GUID).lines;
+};
+
+const getUnitData = (line: any): Unit => {
   const stats: UnitStats = {
     maxHp: line.max_hp,
     startingHp: line.starting_hp,
@@ -112,8 +122,8 @@ const getUnitData = (line: any): UnitData => {
   };
 };
 
-const getActionData = (line: any): ActionData => {
-  const action: ActionData = {
+const getActionData = (line: any): Action => {
+  const action: Action = {
     guid: line.guid,
     id: line.id,
     name: line.name,
@@ -236,3 +246,84 @@ const getSummonActionProps = (line: any): SummonActionData => ({
   summonAugment: line.summon_augment,
   shouldSummonImpactMorale: line.should_summon_impact_morale,
 });
+
+const getAugmentData = (line: any): Augment => {
+  const {
+    guid,
+    id,
+    name,
+    description,
+    type,
+    undispellable,
+    unique,
+    unique_identifier,
+    replenishable,
+    domain,
+    durational,
+    duration,
+    augment_class,
+  } = line;
+  const augment: Augment = {
+    guid,
+    id,
+    name,
+    description,
+    type,
+    undispellable,
+    unique,
+    unique_identifier,
+    replenishable,
+    domain,
+    durational,
+    duration,
+    augment_class,
+    dot_augment_props: null,
+    flat_stat_props: null,
+    stat_mult_props: null,
+  };
+
+  switch (augment.augment_class) {
+    case "DOT":
+      augment.dot_augment_props = getDotAugmentProps(line.dot_augment_props);
+      break;
+    case "FLAT_STAT":
+      augment.flat_stat_props = getFlatStatProps(line.flat_stat_props);
+      break;
+    case "STAT_MULT":
+      augment.stat_mult_props = getStatMultProps(line.stat_mult_props);
+      break;
+    case "ALLEGIANCE":
+    case "TAG":
+    case "DOOM":
+      break;
+  }
+
+  return augment;
+};
+
+const getDotAugmentProps = ({
+  flat_damage,
+  phys_def_reduction_modifier,
+  spec_def_reduction_modifier,
+  resource,
+  resolution_type,
+}: any): DotAugmentProps =>
+  ({
+    flat_damage,
+    phys_def_reduction_modifier,
+    spec_def_reduction_modifier,
+    resource,
+    resolution_type,
+  } as DotAugmentProps);
+
+const getFlatStatProps = ({ stat, amount }: any) =>
+  ({
+    stat,
+    amount,
+  } as FlatStatProps);
+
+const getStatMultProps = ({ stat, multiplier }: any) =>
+  ({
+    stat,
+    multiplier,
+  } as StatMultProps);

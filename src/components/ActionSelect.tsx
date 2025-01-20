@@ -1,9 +1,9 @@
 import * as React from "react";
-import { ActionData, ActionType } from "../types/action";
+import { Action, ActionType } from "../types/action";
 import useDataContext from "../context/DataContext/useDataContext";
 
 type Props = {
-  setAction: (action: ActionData) => void;
+  setAction: (action: Action) => void;
   typeFilter: ActionType;
 };
 

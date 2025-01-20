@@ -3,7 +3,7 @@ import UnitForm from "../components/UnitForm";
 import LabeledValue from "../components/LabeledValue";
 import ActionForm from "../components/ActionForm";
 import { UnitStats } from "../types/unit";
-import { ActionData } from "../types/action";
+import { Action } from "../types/action";
 
 const DEFAULT_STATS: UnitStats = {
   strength: 10,
@@ -28,7 +28,7 @@ const DEFAULT_STATS: UnitStats = {
   inactionLimit: 20,
 };
 
-const DEFAULT_PARAMS: ActionData = {
+const DEFAULT_PARAMS: Action = {
   actionType: "DAMAGE_ACTION",
   critChanceMultiplier: 1,
   evasionMultiplier: 1,
@@ -49,12 +49,12 @@ const DEFAULT_PARAMS: ActionData = {
     augment: null,
     critAugment: null,
   },
-} as ActionData;
+} as Action;
 
 function DamageCalculator() {
   const [unitStats, setUnitStats] = useState<UnitStats>(DEFAULT_STATS);
   const [targetStats, setTargetStats] = useState<UnitStats>(DEFAULT_STATS);
-  const [params, setParams] = useState<ActionData>(DEFAULT_PARAMS);
+  const [params, setParams] = useState<Action>(DEFAULT_PARAMS);
   const damageParams = params.damageActionProps!;
 
   const results = useMemo(() => {

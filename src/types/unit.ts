@@ -1,4 +1,4 @@
-export type UnitData = {
+export type Unit = {
   guid: string;
   id: string;
   name: string;
