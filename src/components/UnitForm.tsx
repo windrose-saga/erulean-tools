@@ -1,10 +1,10 @@
-import { UnitStats } from "../types/unit";
+import { Unit } from "../types/unit";
 import UnitSelect from "./UnitSelect";
 
 type Props = {
   title: string;
-  stats: UnitStats;
-  setStats(val: UnitStats | ((stats: UnitStats) => UnitStats)): void;
+  stats: Unit;
+  setStats(val: Unit | ((stats: Unit) => Unit)): void;
 };
 const UnitForm: React.FC<Props> = ({ setStats, stats, title }) => {
   return (
@@ -19,9 +19,9 @@ const UnitForm: React.FC<Props> = ({ setStats, stats, title }) => {
         });
       }}
     >
-      <UnitSelect setUnit={(unit) => setStats(unit.stats)} />
+      <UnitSelect setUnit={(unit) => setStats(unit)} />
       <h1 className="font-bold text-xl">{title}</h1>
-      <p className="font-bold">Max HP: {stats.maxHp}</p>
+      <p className="font-bold">Max HP: {stats.max_hp}</p>
       <label htmlFor="strength">Strength</label>
       <input
         value={stats.strength}
@@ -40,16 +40,16 @@ const UnitForm: React.FC<Props> = ({ setStats, stats, title }) => {
       <input value={stats.speed} type="number" id="speed" title="Speed" />
       <label htmlFor="physicalDefense">Physical Defense</label>
       <input
-        value={stats.physDefense}
+        value={stats.phys_defense}
         type="number"
-        id="physDefense"
+        id="phys_defense"
         title="Physical Defense"
       />
       <label htmlFor="specialDefense">Special Defense</label>
       <input
-        value={stats.specDefense}
+        value={stats.spec_defense}
         type="number"
-        id="specDefense"
+        id="spec_defense"
         title="Special Defense"
       />
       <label htmlFor="luck">Luck</label>

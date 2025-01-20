@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CommanderData, Unit, UnitStats } from "../types/unit";
+import { CommanderData, Unit } from "../types/unit";
 import useDataContext from "../context/DataContext/useDataContext";
 import {
   Action,
@@ -76,49 +76,87 @@ const getAugmentLines = (data: Array<any>) => {
   return data.find((sheet: any) => sheet.guid === AUGMENT_SHEET_GUID).lines;
 };
 
-const getUnitData = (line: any): Unit => {
-  const stats: UnitStats = {
-    maxHp: line.max_hp,
-    startingHp: line.starting_hp,
-    maxMana: line.max_mana,
-    startingMana: line.starting_mana,
-    manaGrowth: line.mana_growth,
-    physDefense: line.phys_defense,
-    specDefense: line.spec_defense,
-    speed: line.speed,
-    strength: line.strength,
-    intelligence: line.intelligence,
-    luck: line.luck,
-    bravery: line.bravery,
-    movement: line.movement,
-    pointValue: line.point_value,
-    canFlee: line.can_flee,
-    faithful: line.faithful,
-    movementStrategy: line.movement_strategy,
-    holdingDistance: line.holding_distance,
-    inactionLimit: line.inaction_limit,
-  };
-
-  const commanderData: CommanderData = {
-    leadership: line.commander_data.leadership,
-    pointLimit: line.commander_data.point_limit,
-    gridSizeX: line.commander_data.grid_size_x,
-    gridSizeY: line.commander_data.grid_size_y,
-    globalAugments: line.commander_data.global_augments,
-    armyAugments: line.commander_data.army_augments,
-    enemyArmyAugments: line.commander_data.enemy_army_augments,
-    armyName: line.commander_data.army_name,
-  };
+const getUnitData = ({
+  guid,
+  id,
+  name,
+  presentation,
+  is_commander,
+  max_hp,
+  starting_hp,
+  max_mana,
+  starting_mana,
+  mana_growth,
+  phys_defense,
+  spec_defense,
+  speed,
+  strength,
+  intelligence,
+  luck,
+  bravery,
+  movement,
+  point_value,
+  can_flee,
+  faithful,
+  movement_strategy,
+  holding_distance,
+  inaction_limit,
+  actions,
+  commander_data: raw_commander_data,
+}: any): Unit => {
+  const commanderData = is_commander
+    ? getCommanderData(raw_commander_data)
+    : null;
 
   return {
-    guid: line.guid,
-    id: line.id,
-    name: line.name,
-    description: line.presentation.description,
-    isCommander: line.is_commander,
-    commanderData,
-    stats,
-    actions: line.actions,
+    guid,
+    id,
+    name,
+    description: presentation.description,
+    is_commander,
+    commander_data: commanderData,
+    max_hp,
+    starting_hp,
+    max_mana,
+    starting_mana,
+    mana_growth,
+    phys_defense,
+    spec_defense,
+    speed,
+    strength,
+    intelligence,
+    luck,
+    bravery,
+    movement,
+    point_value,
+    can_flee,
+    faithful,
+    movement_strategy,
+    holding_distance,
+    inaction_limit,
+    actions,
+  };
+};
+
+const getCommanderData = ({
+  leadership,
+  point_limit,
+  grid_size_x,
+  grid_size_y,
+  global_augments,
+  army_augments,
+  enemy_army_augments,
+  army_name,
+}: any): CommanderData => {
+  return {
+    leadership,
+    point_limit,
+    grid_size_x,
+    grid_size_y,
+    global_augments,
+    army_augments,
+    enemy_army_augments,
+    army_name,
   };
 };
 

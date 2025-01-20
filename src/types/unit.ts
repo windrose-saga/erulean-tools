@@ -1,51 +1,48 @@
+/*************  ✨ Codeium Command 🌟  *************/
 export type Unit = {
   guid: string;
   id: string;
   name: string;
   description: string;
-  stats: UnitStats;
-  isCommander: boolean;
-  commanderData: CommanderData | null;
-  actions: Actions;
-};
-
-export type MovementStrategy = "ADVANCE" | "KEEP_DISTANCE";
-
-export type UnitStats = {
-  maxHp: number;
-  startingHp: number;
-  maxMana: number;
-  startingMana: number;
-  manaGrowth: number;
-  physDefense: number;
-  specDefense: number;
+  max_hp: number;
+  starting_hp: number;
+  max_mana: number;
+  starting_mana: number;
+  mana_growth: number;
+  phys_defense: number;
+  spec_defense: number;
   speed: number;
   strength: number;
   intelligence: number;
   luck: number;
   bravery: number;
   movement: number;
-  pointValue: number;
-  canFlee: boolean;
+  point_value: number;
+  can_flee: boolean;
   faithful: boolean;
-  movementStrategy: MovementStrategy;
-  holdingDistance: number;
-  inactionLimit: number;
+  movement_strategy: MovementStrategy;
+  holding_distance: number;
+  inaction_limit: number;
+  is_commander: boolean;
+  commander_data: CommanderData | null;
+  actions: Actions;
 };
+
+export type MovementStrategy = "ADVANCE" | "KEEP_DISTANCE";
 
 export type CommanderData = {
   leadership: number;
-  pointLimit: number;
-  gridSizeX: number;
-  gridSizeY: number;
-  globalAugments: Array<any>;
-  armyAugments: Array<any>;
-  enemyArmyAugments: Array<any>;
-  armyName: string;
+  point_limit: number;
+  grid_size_x: number;
+  grid_size_y: number;
+  global_augments: Array<any>;
+  army_augments: Array<any>;
+  enemy_army_augments: Array<any>;
+  army_name: string;
 };
 
 export type Actions = {
-  passiveAction: any;
-  primaryAction: any;
-  specialAction: any;
+  passive_action: any;
+  primary_action: any;
+  special_action: any;
 };

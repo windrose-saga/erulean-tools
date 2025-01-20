@@ -2,31 +2,31 @@ import { PropsWithChildren, useEffect, useMemo, useState } from "react";
 import UnitForm from "../components/UnitForm";
 import LabeledValue from "../components/LabeledValue";
 import ActionForm from "../components/ActionForm";
-import { UnitStats } from "../types/unit";
+import { Unit } from "../types/unit";
 import { Action } from "../types/action";
 
-const DEFAULT_STATS: UnitStats = {
+const DEFAULT_STATS: Unit = {
   strength: 10,
   intelligence: 10,
   speed: 10,
-  physDefense: 10,
-  specDefense: 10,
+  phys_defense: 10,
+  spec_defense: 10,
   luck: 10,
-  manaGrowth: 0,
+  mana_growth: 0,
   // not used from here down
-  maxHp: 100,
-  startingHp: 100,
-  maxMana: 10,
-  startingMana: 0,
-  pointValue: 1,
+  max_hp: 100,
+  starting_hp: 100,
+  max_mana: 10,
+  starting_mana: 0,
+  point_value: 1,
   bravery: 99,
-  canFlee: true,
+  can_flee: true,
   movement: 1,
-  movementStrategy: "ADVANCE",
-  holdingDistance: 0,
+  movement_strategy: "ADVANCE",
+  holding_distance: 0,
   faithful: false,
-  inactionLimit: 20,
-};
+  inaction_limit: 20,
+} as Unit;
 
 const DEFAULT_PARAMS: Action = {
   action_type: "DAMAGE_ACTION",
@@ -52,8 +52,8 @@ const DEFAULT_PARAMS: Action = {
 } as Action;
 
 function DamageCalculator() {
-  const [unitStats, setUnitStats] = useState<UnitStats>(DEFAULT_STATS);
-  const [targetStats, setTargetStats] = useState<UnitStats>(DEFAULT_STATS);
+  const [unitStats, setUnitStats] = useState<Unit>(DEFAULT_STATS);
+  const [targetStats, setTargetStats] = useState<Unit>(DEFAULT_STATS);
   const [params, setParams] = useState<Action>(DEFAULT_PARAMS);
   const damageParams = params.damage_action_props!;
 
@@ -62,14 +62,14 @@ function DamageCalculator() {
       unitStats.strength * damageParams.unit_strength_modifier +
       damageParams.base_phys_damage;
     const physDef =
-      targetStats.physDefense * damageParams.target_phys_defense_modifier;
+      targetStats.phys_defense * damageParams.target_phys_defense_modifier;
     const physDmg = Math.max(physAtk - physDef, 0);
 
     const magAtk =
       unitStats.intelligence * damageParams.unit_int_modifier +
       damageParams.base_magic_damage;
     const magDef =
-      targetStats.specDefense * damageParams.target_spec_defense_modifier;
+      targetStats.spec_defense * damageParams.target_spec_defense_modifier;
     const magDmg = Math.max(magAtk - magDef, 0);
 
     const dexAtk =
@@ -84,7 +84,7 @@ function DamageCalculator() {
       damageParams.total_damage_multiplier;
 
     const hitChance = Math.min(
-      (unitStats.specDefense / 2 + (100 - targetStats.speed)) *
+      (unitStats.spec_defense / 2 + (100 - targetStats.speed)) *
         params.evasion_multiplier,
       100
     );
@@ -156,7 +156,7 @@ function DamageCalculator() {
           <Equals />
           <LabeledValue
             label="Target Defense"
-            value={targetStats.physDefense}
+            value={targetStats.phys_defense}
           />
           <Mult />
           <LabeledValue
@@ -199,7 +199,7 @@ function DamageCalculator() {
           <Equals />
           <LabeledValue
             label="Target Sp. Defense"
-            value={targetStats.specDefense}
+            value={targetStats.spec_defense}
           />
           <Mult />
           <LabeledValue
@@ -249,7 +249,7 @@ function DamageCalculator() {
             <Parens>
               <LabeledValue
                 label="Target Defense"
-                value={targetStats.physDefense}
+                value={targetStats.phys_defense}
               />
               <Mult />
               <LabeledValue
