@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Action, ActionType } from "../types/action";
-import useDataContext from "../context/DataContext/useDataContext";
+import { useGameStore } from "../store/useGameStore";
 
 type Props = {
   setAction: (action: Action) => void;
@@ -8,7 +8,7 @@ type Props = {
 };
 
 const ActionSelect: React.FC<Props> = ({ setAction, typeFilter }) => {
-  const { actions } = useDataContext();
+  const actions = useGameStore.use.actions();
 
   return (
     <select
