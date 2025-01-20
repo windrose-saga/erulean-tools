@@ -23,7 +23,7 @@ export type AugmentBuffType = "BUFF" | "DEBUFF";
 
 export type AugmentDomain = "UNIT" | "ARMY" | "GLOBAL";
 
-export type Augment = {
+export type AugmentBase = {
   guid: string;
   id: string;
   name: string;
@@ -37,12 +37,10 @@ export type Augment = {
   durational: boolean;
   duration: number;
   augment_class: AugmentType;
-  dot_augment_props: DotAugmentProps | null;
-  flat_stat_props: FlatStatProps | null;
-  stat_mult_props: StatMultProps | null;
 };
 
 export type DotAugmentProps = {
+  augment_class: "DOT";
   flat_damage: number;
   phys_def_reduction_modifier: number;
   spec_def_reduction_modifier: number;
@@ -51,11 +49,40 @@ export type DotAugmentProps = {
 };
 
 export type StatMultProps = {
+  augment_class: "STAT_MULT";
   stat: Stats;
   multiplier: number;
 };
 
 export type FlatStatProps = {
+  augment_class: "FLAT_STAT";
   stat: Stats;
   amount: number;
 };
+
+export type AllegianceAugmentProps = {
+  augment_class: "ALLEGIANCE";
+};
+
+export type TagAugmentProps = {
+  augment_class: "TAG";
+};
+
+export type DoomAugmentProps = {
+  augment_class: "DOOM";
+};
+
+export type DotAugment = AugmentBase & DotAugmentProps;
+export type StatMultAugment = AugmentBase & StatMultProps;
+export type FlatStatAugment = AugmentBase & FlatStatProps;
+export type AllegianceAugment = AugmentBase & AllegianceAugmentProps;
+export type TagAugment = AugmentBase & TagAugmentProps;
+export type DoomAugment = AugmentBase & DoomAugmentProps;
+
+export type Augment =
+  | DotAugment
+  | StatMultAugment
+  | FlatStatAugment
+  | AllegianceAugment
+  | TagAugment
+  | DoomAugment;

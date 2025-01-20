@@ -1,9 +1,11 @@
 import {
   Augment,
+  AugmentBase,
   DotAugmentProps,
   FlatStatProps,
   StatMultProps,
 } from "../../types/augment";
+import { assertUnreachable } from "../assertUnreachable";
 
 export const getAugmentData = (line: any): Augment => {
   const {
@@ -21,7 +23,7 @@ export const getAugmentData = (line: any): Augment => {
     duration,
     augment_class,
   } = line;
-  const augment: Augment = {
+  const base: AugmentBase = {
     guid,
     id,
     name,
@@ -35,28 +37,22 @@ export const getAugmentData = (line: any): Augment => {
     durational,
     duration,
     augment_class,
-    dot_augment_props: null,
-    flat_stat_props: null,
-    stat_mult_props: null,
   };
 
-  switch (augment.augment_class) {
+  switch (base.augment_class) {
     case "DOT":
-      augment.dot_augment_props = getDotAugmentProps(line.dot_augment_props);
-      break;
+      return { ...base, ...getDotAugmentProps(line.dot_augment_props) };
     case "FLAT_STAT":
-      augment.flat_stat_props = getFlatStatProps(line.flat_stat_props);
-      break;
+      return { ...base, ...getFlatStatProps(line.flat_stat_props) };
     case "STAT_MULT":
-      augment.stat_mult_props = getStatMultProps(line.stat_mult_props);
-      break;
+      return { ...base, ...getStatMultProps(line.stat_mult_props) };
     case "ALLEGIANCE":
     case "TAG":
     case "DOOM":
-      break;
+      return { ...base, augment_class };
+    default:
+      return assertUnreachable(base.augment_class);
   }
-
-  return augment;
 };
 
 const getDotAugmentProps = ({
@@ -67,6 +63,7 @@ const getDotAugmentProps = ({
   resolution_type,
 }: any): DotAugmentProps =>
   ({
+    augment_class: "DOT",
     flat_damage,
     phys_def_reduction_modifier,
     spec_def_reduction_modifier,
@@ -76,12 +73,14 @@ const getDotAugmentProps = ({
 
 const getFlatStatProps = ({ stat, amount }: any) =>
   ({
+    augment_class: "FLAT_STAT",
     stat,
     amount,
   } as FlatStatProps);
 
 const getStatMultProps = ({ stat, multiplier }: any) =>
   ({
+    augment_class: "STAT_MULT",
     stat,
     multiplier,
   } as StatMultProps);
