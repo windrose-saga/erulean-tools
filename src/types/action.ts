@@ -1,4 +1,4 @@
-import { AugmentBuffType, AugmentTarget } from "./augment";
+import { AugmentBuffType, AugmentDomain, AugmentTarget } from "./augment";
 
 export type TargetingType = "EXACT" | "UP_TO" | "SELF";
 export type ApproachStrategy = "HOLD" | "PROCEED";
@@ -10,91 +10,99 @@ export type ActionType =
   | "DISPEL_ACTION"
   | "TAG_ACTION"
   | "SUMMON_ACTION";
+
 export type Action = {
   guid: string;
   id: string;
   name: string;
   description: string;
-  targetingType: TargetingType;
-  targetingRange: number;
-  maxTargets: number;
+  targeting_type: TargetingType;
+  targeting_range: number;
+  max_targets: number;
   splash: number;
   chain: boolean;
-  shouldCheckEvasion: boolean;
-  evasionMultiplier: number;
-  canCrit: boolean;
-  critChanceMultiplier: number;
-  manaDelta: number;
-  breakVanguard: boolean;
+  should_check_evasion: boolean;
+  evasion_multiplier: number;
+  can_crit: boolean;
+  crit_chance_multiplier: number;
+  mana_delta: number;
+  break_vanguard: boolean;
   delay: number;
-  approachStrategy: ApproachStrategy;
-  targetSelf: boolean;
-  actionType: ActionType;
-  damageActionProps: DamageActionData | undefined;
-  healProps: HealActionData | undefined;
-  manaActionProps: ManaActionData | undefined;
-  augmentActionProps: AugmentActionData | undefined;
-  dispelActionProps: DispelActionData | undefined;
-  tagActionProps: TagActionData | undefined;
-  summonActionProps: SummonActionData | undefined;
+  approach_strategy: ApproachStrategy;
+  target_self: boolean;
+  action_type: ActionType;
+  damage_action_props: DamageActionData | undefined;
+  heal_props: HealActionData | undefined;
+  mana_action_props: ManaActionData | undefined;
+  augment_action_props: AugmentActionData | undefined;
+  dispel_action_props: DispelActionData | undefined;
+  tag_action_props: TagActionData | undefined;
+  summon_action_props: SummonActionData | undefined;
 };
 
 export type DamageActionData = {
-  basePhysDamage: number;
-  unitStrengthModifier: number;
-  targetPhysDefenseModifier: number;
-  baseMagicDamage: number;
-  unitIntModifier: number;
-  targetSpecDefenseModifier: number;
-  baseDexDamage: number;
-  unitSpeedModifier: number;
-  targetSpeedModifier: number;
-  critModifier: number;
-  baseDamage: number;
-  totalDamageMultiplier: number;
-  targetAugmentSelf: boolean;
+  base_phys_damage: number;
+  unit_strength_modifier: number;
+  target_phys_defense_modifier: number;
+  base_magic_damage: number;
+  unit_int_modifier: number;
+  target_spec_defense_modifier: number;
+  base_dex_damage: number;
+  unit_speed_modifier: number;
+  target_speed_modifier: number;
+  crit_modifier: number;
+  base_damage: number;
+  total_damage_multiplier: number;
+  target_augment_self: boolean;
   augment: string | null;
-  critAugment: string | null;
+  crit_augment: string | null;
 };
 
 export type HealActionData = {
   hp: number;
   decay: number;
-  shouldTargetFullHp: boolean;
+  should_target_full_hp: boolean;
 };
 
 export type ManaActionData = {
-  shouldTargetEnemy: boolean;
-  manaAmount: number;
-  shouldTargetFullMp: boolean;
-  tagAugment: string | null;
+  should_target_enemy: boolean;
+  mana_amount: number;
+  should_target_full_mp: boolean;
+  tag_augment: string | null;
 };
 
 export type AugmentActionData = {
   augments: Array<string>;
-  critAugments: Array<string>;
-  shouldReapply: boolean;
-  shouldTargetEnemy: boolean;
+  crit_augments: Array<string>;
+  should_reapply: boolean;
+  should_target_enemy: boolean;
 };
 
+export type DispelActionMode =
+  | "TARGET"
+  | "ALL"
+  | "NAME"
+  | "UNIQUE_IDENTIFIER"
+  | "TYPE";
+
 export type DispelActionData = {
-  mode: "TARGET" | "ALL" | "NAME" | "UNIQUE_IDENTIFIER" | "TYPE";
-  domain: "UNIT" | "ARMY" | "GLOBAL";
+  mode: DispelActionMode;
+  domain: AugmentDomain;
   target: AugmentTarget;
-  augmentName: string;
-  uniqueIdentifier: string;
+  augment_name: string;
+  unique_identifier: string;
   type: AugmentBuffType;
-  forceDispel: boolean;
-  forceOnCrit: boolean;
-  shouldTargetEnemy: boolean;
-  onlyTargetAugmentedUnits: boolean;
-  ignoreTargetAllegiance: boolean;
+  force_dispel: boolean;
+  force_on_crit: boolean;
+  should_target_enemy: boolean;
+  only_target_augmented_units: boolean;
+  ignore_target_allegiance: boolean;
 };
 
 export type TagActionData = {
-  tagAugment: string;
-  shouldTargetEnemy: boolean;
-  followTaggedUnit: boolean;
+  tag_augment: string;
+  should_target_enemy: boolean;
+  follow_tagged_unit: boolean;
 };
 
 export type SummonActionData = {
@@ -103,8 +111,8 @@ export type SummonActionData = {
     id: string;
     summon: string;
   }>;
-  summoningRange: number;
-  shouldTargetEnemy: boolean;
-  summonAugment: string;
-  shouldSummonImpactMorale: boolean;
+  summoning_range: number;
+  should_target_enemy: boolean;
+  summon_augment: string;
+  should_summon_impact_morale: boolean;
 };

@@ -21,7 +21,7 @@ const ActionSelect: React.FC<Props> = ({ setAction, typeFilter }) => {
     >
       <option value="">Select an action</option>
       {actions
-        .filter((a) => a.actionType === typeFilter)
+        .filter((a) => a.action_type === typeFilter)
         .map((action) => (
           <option key={action.id} value={action.id}>
             {action.name}
