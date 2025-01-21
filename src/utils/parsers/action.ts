@@ -139,7 +139,7 @@ const getAugmentActionProps = ({
   should_target_enemy,
 }: any): AugmentActionData => ({
   action_type: "AUGMENT_ACTION",
-  augments,
+  augments: augments.map((augment: any) => augment.augment),
   crit_augments,
   should_reapply,
   should_target_enemy,
@@ -191,7 +191,7 @@ const getSummonActionProps = ({
   should_summon_impact_morale,
 }: any): SummonActionData => ({
   action_type: "SUMMON_ACTION",
-  summons,
+  summons: summons.map((summon: any) => summon.summon),
   summoning_range,
   should_target_enemy,
   summon_augment,

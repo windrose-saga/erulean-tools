@@ -106,11 +106,7 @@ export type TagActionData = {
 
 export type SummonActionData = {
   action_type: "SUMMON_ACTION";
-  summons: Array<{
-    guid: string;
-    id: string;
-    summon: string;
-  }>;
+  summons: Array<string>;
   summoning_range: number;
   should_target_enemy: boolean;
   summon_augment: string;

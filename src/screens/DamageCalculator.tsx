@@ -108,9 +108,6 @@ function DamageCalculator() {
     };
   }, [unitStats, targetStats, params]);
 
-  useEffect(() => {
-    console.log("stats", unitStats);
-  }, [unitStats]);
   return (
     <div>
       <div className="flex flex-row justify-between">
