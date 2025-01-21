@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Action, ActionType } from "../types/action";
-import { useGameStore } from "../store/useGameStore";
+import { useActions } from "../store/getters/action";
 
 type Props = {
   setAction: (action: Action) => void;
@@ -8,7 +8,7 @@ type Props = {
 };
 
 const ActionSelect: React.FC<Props> = ({ setAction, typeFilter }) => {
-  const actions = useGameStore.use.actions();
+  const actions = useActions();
 
   return (
     <select

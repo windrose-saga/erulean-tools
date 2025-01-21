@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Unit } from "../types/unit";
-import { useGameStore } from "../store/useGameStore";
+import { useUnits } from "../store/getters/unit";
 
 type Props = {
   setUnit: (unit: Unit) => void;
 };
 const UnitSelect: React.FC<Props> = ({ setUnit }) => {
-  const units = useGameStore.use.units();
+  const units = useUnits();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedUnit = units.find((unit) => unit.id === e.target.value);

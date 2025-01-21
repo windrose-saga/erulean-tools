@@ -6,22 +6,25 @@ import { Augment } from "../types/augment";
 import { createSelectors } from "../utils/createSelectors";
 
 type State = {
-  units: Array<Unit>;
-  actions: Array<Action>;
-  augments: Array<Augment>;
+  units: Record<string, Unit>;
+  actions: Record<string, Action>;
+  augments: Record<string, Augment>;
 };
 
 type Actions = {
-  setUnits: (units: Array<Unit>) => void;
-  setActions: (actions: Array<Action>) => void;
-  setAugments: (augments: Array<Augment>) => void;
+  setUnits: (units: Record<string, Unit>) => void;
+  setActions: (actions: Record<string, Action>) => void;
+  setAugments: (augments: Record<string, Augment>) => void;
+  setUnit: (unit: Unit) => void;
+  setAction: (action: Action) => void;
+  setAugment: (augment: Augment) => void;
 };
 
 const useGameStoreBase = create<State & Actions>()(
   immer((set) => ({
-    units: [],
-    actions: [],
-    augments: [],
+    units: {},
+    actions: {},
+    augments: {},
     setUnits: (units) =>
       set((state) => {
         state.units = units;
@@ -33,6 +36,18 @@ const useGameStoreBase = create<State & Actions>()(
     setAugments: (augments) =>
       set((state) => {
         state.augments = augments;
+      }),
+    setUnit: (unit) =>
+      set((state) => {
+        state.units[unit.id] = unit;
+      }),
+    setAction: (action) =>
+      set((state) => {
+        state.actions[action.id] = action;
+      }),
+    setAugment: (augment) =>
+      set((state) => {
+        state.augments[augment.id] = augment;
       }),
   }))
 );
