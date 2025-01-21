@@ -1,4 +1,4 @@
-gimport ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom/client";
 import {
   RouterProvider,
   createMemoryHistory,
