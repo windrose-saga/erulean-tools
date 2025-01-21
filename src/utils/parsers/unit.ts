@@ -58,7 +58,7 @@ export const getUnitData = ({
     movement_strategy,
     holding_distance,
     inaction_limit,
-    actions,
+    actions: getActions(actions),
   };
 };
 
@@ -83,3 +83,9 @@ const getCommanderData = ({
     army_name,
   };
 };
+
+const getActions = (line: any) => ({
+  passive_action: line.passive_action || null,
+  primary_action: line.primary_action || null,
+  special_action: line.special_action || null,
+});

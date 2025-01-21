@@ -1,4 +1,3 @@
-/*************  ✨ Codeium Command 🌟  *************/
 export type Unit = {
   guid: string;
   id: string;
@@ -35,14 +34,14 @@ export type CommanderData = {
   point_limit: number;
   grid_size_x: number;
   grid_size_y: number;
-  global_augments: Array<any>;
-  army_augments: Array<any>;
-  enemy_army_augments: Array<any>;
+  global_augments: Array<string>;
+  army_augments: Array<string>;
+  enemy_army_augments: Array<string>;
   army_name: string;
 };
 
 export type Actions = {
-  passive_action: any;
-  primary_action: any;
-  special_action: any;
+  passive_action: string | null;
+  primary_action: string | null;
+  special_action: string | null;
 };
