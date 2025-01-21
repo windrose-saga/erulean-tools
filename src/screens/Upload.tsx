@@ -26,6 +26,7 @@ const Upload: React.FC = () => {
   const setUnits = useGameStore.use.setUnits();
   const setActions = useGameStore.use.setActions();
   const setAugments = useGameStore.use.setAugments();
+  const setLoaded = useGameStore.use.setLoaded();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -50,6 +51,7 @@ const Upload: React.FC = () => {
               setUnits(units);
               setActions(actions);
               setAugments(augments);
+              setLoaded();
             }
           } catch (error) {
             console.warn("Failed to parse JSON:", error);

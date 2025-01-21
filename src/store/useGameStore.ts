@@ -6,12 +6,14 @@ import { Augment } from "../types/augment";
 import { createSelectors } from "../utils/createSelectors";
 
 type State = {
+  loaded: boolean;
   units: Record<string, Unit>;
   actions: Record<string, Action>;
   augments: Record<string, Augment>;
 };
 
 type Actions = {
+  setLoaded: () => void;
   setUnits: (units: Record<string, Unit>) => void;
   setActions: (actions: Record<string, Action>) => void;
   setAugments: (augments: Record<string, Augment>) => void;
@@ -22,9 +24,14 @@ type Actions = {
 
 const useGameStoreBase = create<State & Actions>()(
   immer((set) => ({
+    loaded: false,
     units: {},
     actions: {},
     augments: {},
+    setLoaded: () =>
+      set((state) => {
+        state.loaded = true;
+      }),
     setUnits: (units) =>
       set((state) => {
         state.units = units;
