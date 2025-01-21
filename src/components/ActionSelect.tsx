@@ -1,14 +1,14 @@
 import * as React from "react";
-import { ActionData, ActionType } from "../types/action";
-import useDataContext from "../context/DataContext/useDataContext";
+import { Action, ActionType } from "../types/action";
+import { useActions } from "../store/getters/action";
 
 type Props = {
-  setAction: (action: ActionData) => void;
+  setAction: (action: Action) => void;
   typeFilter: ActionType;
 };
 
 const ActionSelect: React.FC<Props> = ({ setAction, typeFilter }) => {
-  const { actions } = useDataContext();
+  const actions = useActions();
 
   return (
     <select
@@ -21,7 +21,7 @@ const ActionSelect: React.FC<Props> = ({ setAction, typeFilter }) => {
     >
       <option value="">Select an action</option>
       {actions
-        .filter((a) => a.actionType === typeFilter)
+        .filter((a) => a.action_type === typeFilter)
         .map((action) => (
           <option key={action.id} value={action.id}>
             {action.name}

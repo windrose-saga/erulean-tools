@@ -1,12 +1,11 @@
-import { ActionData } from "../types/action";
+import { Action, DamageAction } from "../types/action";
 import ActionSelect from "./ActionSelect";
 
 type Props = {
-  params: ActionData;
-  setParams(val: ActionData | ((stats: ActionData) => ActionData)): void;
+  params: DamageAction;
+  setParams(val: DamageAction | ((stats: DamageAction) => DamageAction)): void;
 };
 const ActionForm: React.FC<Props> = ({ setParams, params }) => {
-  const damageParams = params.damageActionProps!;
   return (
     <form
       className="flex flex-col items-center"
@@ -14,134 +13,128 @@ const ActionForm: React.FC<Props> = ({ setParams, params }) => {
         setParams((curr) => {
           const updated = { ...curr };
           // @ts-expect-error event target fields
-          const fieldId = e.nativeEvent.target.id;
-          if (fieldId in updated) {
-            // @ts-expect-error event target fields
-            updated[fieldId] = parseFloat(e.target.value);
-          } else {
-            // @ts-expect-error event target fields
-            updated.damageActionProps![fieldId] = parseFloat(e.target.value);
-          }
+          updated[e.nativeEvent.target.id] = parseFloat(e.target.value);
+
           return updated;
         });
       }}
     >
       <ActionSelect
         typeFilter="DAMAGE_ACTION"
-        setAction={(action: ActionData) => setParams(action!)}
+        setAction={(action: Action) => setParams(action as DamageAction)}
       />
       <h1 className="font-bold text-xl">Action Parameters</h1>
       <div className="flex flex-row gap-4 items-start">
         <div className="flex flex-col items-start">
           <h1 className="font-bold text-md">Actor</h1>
-          <label htmlFor="unitStrengthModifier">Strength Modifier</label>
+          <label htmlFor="unit_strength_modifier">Strength Modifier</label>
           <input
-            value={damageParams.unitStrengthModifier}
+            value={params.unit_strength_modifier}
             type="number"
-            id="unitStrengthModifier"
-            title="unitStrengthModifier"
+            id="unit_strength_modifier"
+            title="unit_strength_modifier"
           />
-          <label htmlFor="unitIntModifier">Intelligence Modifier</label>
+          <label htmlFor="unit_int_modifier">Intelligence Modifier</label>
           <input
-            value={damageParams.unitIntModifier}
+            value={params.unit_int_modifier}
             type="number"
-            id="unitIntModifier"
-            title="unitIntModifier"
+            id="unit_int_modifier"
+            title="unit_int_modifier"
           />
-          <label htmlFor="unitSpeedModifier">Speed Modifier</label>
+          <label htmlFor="unit_speed_modifier">Speed Modifier</label>
           <input
-            value={damageParams.unitSpeedModifier}
+            value={params.unit_speed_modifier}
             type="number"
-            id="unitSpeedModifier"
-            title="unitSpeedModifier"
+            id="unit_speed_modifier"
+            title="unit_speed_modifier"
           />
         </div>
         <div className="flex flex-col items-start">
           <h1 className="font-bold text-md">Base Damage</h1>
-          <label htmlFor="basePhysDamage">Base Physical Dmg</label>
+          <label htmlFor="base_phys_damage">Base Physical Dmg</label>
           <input
-            value={damageParams.basePhysDamage}
+            value={params.base_phys_damage}
             type="number"
-            id="basePhysDamage"
-            title="basePhysDamage"
+            id="base_phys_damage"
+            title="base_phys_damage"
           />
-          <label htmlFor="baseMagicDamage">Base Magic Dmg</label>
+          <label htmlFor="base_magic_damage">Base Magic Dmg</label>
           <input
-            value={damageParams.baseMagicDamage}
+            value={params.base_magic_damage}
             type="number"
-            id="baseMagicDamage"
-            title="baseMagicDamage"
+            id="base_magic_damage"
+            title="base_magic_damage"
           />
-          <label htmlFor="baseDexDamage">Base Dexterity Dmg</label>
+          <label htmlFor="base_dex_damage">Base Dexterity Dmg</label>
           <input
-            value={damageParams.baseDexDamage}
+            value={params.base_dex_damage}
             type="number"
-            id="baseDexDamage"
-            title="baseDexDamage"
+            id="base_dex_damage"
+            title="base_dex_damage"
           />
-          <label htmlFor="baseDamage">Base Damage</label>
+          <label htmlFor="base_damage">Base Damage</label>
           <input
-            value={damageParams.baseDamage}
+            value={params.base_damage}
             type="number"
-            id="baseDamage"
-            title="baseDamage"
+            id="base_damage"
+            title="base_damage"
           />
         </div>
         <div className="flex flex-col items-start">
           <h1 className="font-bold text-md">General</h1>
-          <label htmlFor="totalDamageMultiplier">Total Dmg Modifier</label>
+          <label htmlFor="total_damage_multiplier">Total Dmg Modifier</label>
           <input
-            value={damageParams.totalDamageMultiplier}
+            value={params.total_damage_multiplier}
             type="number"
-            id="totalDamageMultiplier"
-            title="totalDamageMultiplier"
+            id="total_damage_multiplier"
+            title="total_damage_multiplier"
           />
-          <label htmlFor="evasionMultiplier">Evasion Modifier</label>
+          <label htmlFor="evasion_multiplier">Evasion Modifier</label>
           <input
-            value={params.evasionMultiplier}
+            value={params.evasion_multiplier}
             type="number"
-            id="evasionMultiplier"
-            title="evasionMultiplier"
+            id="evasion_multiplier"
+            title="evasion_multiplier"
           />
-          <label htmlFor="critChanceMultiplier">Crit Chance Modifier</label>
+          <label htmlFor="crit_chance_multiplier">Crit Chance Modifier</label>
           <input
-            value={params.critChanceMultiplier}
+            value={params.crit_chance_multiplier}
             type="number"
-            id="critChanceMultiplier"
-            title="critChanceMultiplier"
+            id="crit_chance_multiplier"
+            title="crit_chance_multiplier"
           />
-          <label htmlFor="critModifier">Crit Damage Modifier</label>
+          <label htmlFor="crit_modifier">Crit Damage Modifier</label>
           <input
-            value={damageParams.critModifier}
+            value={params.crit_modifier}
             type="number"
-            id="critModifier"
-            title="critModifier"
+            id="crit_modifier"
+            title="crit_modifier"
           />
         </div>
         <div className="flex flex-col items-start">
           <h1 className="font-bold text-md">Target</h1>
-          <label htmlFor="targetPhysDefenseModifier">Defense Modifier</label>
+          <label htmlFor="target_phys_defense_modifier">Defense Modifier</label>
           <input
-            value={damageParams.targetPhysDefenseModifier}
+            value={params.target_phys_defense_modifier}
             type="number"
-            id="targetPhysDefenseModifier"
-            title="targetPhysDefenseModifier"
+            id="target_phys_defense_modifier"
+            title="target_phys_defense_modifier"
           />
-          <label htmlFor="targetSpecDefenseModifier">
+          <label htmlFor="target_spec_defense_modifier">
             Sp. Defense Modifier
           </label>
           <input
-            value={damageParams.targetSpecDefenseModifier}
+            value={params.target_spec_defense_modifier}
             type="number"
-            id="targetSpecDefenseModifier"
-            title="targetSpecDefenseModifier"
+            id="target_spec_defense_modifier"
+            title="target_spec_defense_modifier"
           />
-          <label htmlFor="targetSpeedModifier">Speed Modifier</label>
+          <label htmlFor="target_speed_modifier">Speed Modifier</label>
           <input
-            value={damageParams.targetSpeedModifier}
+            value={params.target_speed_modifier}
             type="number"
-            id="targetSpeedModifier"
-            title="targetSpeedModifier"
+            id="target_speed_modifier"
+            title="target_speed_modifier"
           />
         </div>
       </div>
