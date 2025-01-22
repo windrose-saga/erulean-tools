@@ -42,6 +42,7 @@ export const List = <T extends object>({
         setReverse(!reverse);
       } else {
         setSortField(field);
+        g;
       }
     },
     [reverse, sortField]
