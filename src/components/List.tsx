@@ -1,6 +1,8 @@
-import { useCallback, useMemo, useState } from "react";
-import { Column } from "../types/list";
-import { Row } from "./Row";
+import { useCallback, useMemo, useState } from 'react';
+
+import { Row } from './Row';
+
+import { Column } from '../types/list';
 
 interface ListProps<T> {
   items: T[];
@@ -20,22 +22,17 @@ export const List = <T extends object>({
 
   const sortedItems = useMemo(() => {
     const multiplier = reverse ? -1 : 1;
-    if (typeof items[0][sortField] === "string") {
+    if (typeof items[0][sortField] === 'string') {
       return items.sort(
-        (a, b) =>
-          (a[sortField] as string).localeCompare(b[sortField] as string) *
-          multiplier
-      );
-    } else if (typeof items[0][sortField] === "number") {
-      return items.sort(
-        (a, b) =>
-          ((a[sortField] as number) - (b[sortField] as number)) * multiplier
-      );
-    } else {
-      return items.sort(
-        (a, b) => ((a[sortField] ? 0 : 1) - (b[sortField] ? 0 : 1)) * multiplier
+        (a, b) => (a[sortField] as string).localeCompare(b[sortField] as string) * multiplier,
       );
     }
+    if (typeof items[0][sortField] === 'number') {
+      return items.sort(
+        (a, b) => ((a[sortField] as number) - (b[sortField] as number)) * multiplier,
+      );
+    }
+    return items.sort((a, b) => ((a[sortField] ? 0 : 1) - (b[sortField] ? 0 : 1)) * multiplier);
   }, [items, sortField, reverse]);
 
   const onColumnPress = useCallback(
@@ -46,7 +43,7 @@ export const List = <T extends object>({
         setSortField(field);
       }
     },
-    [reverse, sortField]
+    [reverse, sortField],
   );
 
   return (
@@ -57,7 +54,7 @@ export const List = <T extends object>({
             onClick={() => {
               onColumnPress(defaultIndex);
             }}
-          ></th>
+          />
           {columns.map((column) => (
             <th
               key={column.name}
@@ -66,8 +63,8 @@ export const List = <T extends object>({
               }}
             >
               {column.name}
-              <span className={sortField === column.field ? "" : "invisible"}>
-                {reverse ? "▼" : "▲"}
+              <span className={sortField === column.field ? '' : 'invisible'}>
+                {reverse ? '▼' : '▲'}
               </span>
             </th>
           ))}
@@ -76,11 +73,12 @@ export const List = <T extends object>({
       <tbody>
         {sortedItems.map((item) => (
           <Row
+            key={item[defaultIndex] as string}
             onRowClick={onRowClick}
             item={item}
             columns={columns}
             defaultIndex={defaultIndex}
-          ></Row>
+          />
         ))}
       </tbody>
     </table>

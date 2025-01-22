@@ -1,19 +1,71 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended",
-  ],
-  ignorePatterns: ["dist", ".eslintrc.cjs"],
-  parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh"],
-  rules: {
-    "react-refresh/only-export-components": [
-      "warn",
-      { allowConstantExport: true },
-    ],
-    "@typescript-eslint/no-explicit-any": "off",
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', '*.config.*'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: './tsconfig.json',
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      extends: [
+        'airbnb',
+        'airbnb/hooks',
+        'airbnb-typescript',
+        'prettier',
+        'plugin:@typescript-eslint/recommended-type-checked',
+        'plugin:react/jsx-runtime',
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react-hooks/recommended',
+      ],
+      plugins: ['formatjs', 'react-refresh'],
+      rules: {
+        'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+        '@typescript-eslint/no-explicit-any': 'off',
+        'import/prefer-default-export': 'off',
+        '@typescript-eslint/no-use-before-define': 'off',
+        'react/function-component-definition': 'off',
+        'react/prop-types': 'off',
+        'react/require-default-props': 'off',
+        'react/default-props-match-prop-types': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off',
+        '@typescript-eslint/method-signature-style': 'off',
+        '@typescript-eslint/prefer-ts-expect-error': 'error',
+        'jsx-a11y/label-has-associated-control': 'off',
+        'jsx-a11y/control-has-associated-label': 'off',
+        'no-param-reassign': 'off',
+        '@typescript-eslint/naming-convention': 'off',
+        '@typescript-eslint/no-floating-promises': 'off',
+        'react/button-has-type': 'off',
+        'react/jsx-props-no-spreading': 'off',
+        radix: 'off',
+        'import/order': [
+          'error',
+          {
+            alphabetize: {
+              order: 'asc',
+              caseInsensitive: true,
+            },
+            groups: [['builtin', 'external'], 'internal', 'sibling', 'index'],
+            'newlines-between': 'always',
+            pathGroups: [
+              {
+                pattern: '~/utils/tests/mockNav',
+                group: 'builtin',
+                position: 'before',
+              },
+              {
+                pattern: '~/**',
+                group: 'internal',
+              },
+            ],
+          },
+        ],
+      },
+    },
+  ],
 };

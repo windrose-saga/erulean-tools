@@ -1,27 +1,21 @@
 export type Stats =
-  | "PHYSICAL_DEFENSE"
-  | "SPECIAL_DEFENSE"
-  | "SPEED"
-  | "STRENGTH"
-  | "INTELLIGENCE"
-  | "LUCK"
-  | "BRAVERY"
-  | "MOVEMENT";
+  | 'PHYSICAL_DEFENSE'
+  | 'SPECIAL_DEFENSE'
+  | 'SPEED'
+  | 'STRENGTH'
+  | 'INTELLIGENCE'
+  | 'LUCK'
+  | 'BRAVERY'
+  | 'MOVEMENT';
 
-export type AugmentType =
-  | "DOT"
-  | "FLAT_STAT"
-  | "STAT_MULT"
-  | "ALLEGIANCE"
-  | "TAG"
-  | "DOOM";
+export type AugmentType = 'DOT' | 'FLAT_STAT' | 'STAT_MULT' | 'ALLEGIANCE' | 'TAG' | 'DOOM';
 
-export type AugmentResource = "HEALTH" | "MANA";
-export type AugmentTarget = Stats | AugmentResource | "DAMAGE" | "ALLEGIANCE";
+export type AugmentResource = 'HEALTH' | 'MANA';
+export type AugmentTarget = Stats | AugmentResource | 'DAMAGE' | 'ALLEGIANCE';
 
-export type AugmentBuffType = "BUFF" | "DEBUFF";
+export type AugmentBuffType = 'BUFF' | 'DEBUFF';
 
-export type AugmentDomain = "UNIT" | "ARMY" | "GLOBAL";
+export type AugmentDomain = 'UNIT' | 'ARMY' | 'GLOBAL';
 
 export type AugmentBase = {
   guid: string;
@@ -40,36 +34,36 @@ export type AugmentBase = {
 };
 
 export type DotAugmentProps = {
-  augment_class: "DOT";
+  augment_class: 'DOT';
   flat_damage: number;
   phys_def_reduction_modifier: number;
   spec_def_reduction_modifier: number;
-  resource: "HEALTH" | "MANA";
-  resolution_type: "UNIT";
+  resource: 'HEALTH' | 'MANA';
+  resolution_type: 'UNIT';
 };
 
 export type StatMultProps = {
-  augment_class: "STAT_MULT";
+  augment_class: 'STAT_MULT';
   stat: Stats;
   multiplier: number;
 };
 
 export type FlatStatProps = {
-  augment_class: "FLAT_STAT";
+  augment_class: 'FLAT_STAT';
   stat: Stats;
   amount: number;
 };
 
 export type AllegianceAugmentProps = {
-  augment_class: "ALLEGIANCE";
+  augment_class: 'ALLEGIANCE';
 };
 
 export type TagAugmentProps = {
-  augment_class: "TAG";
+  augment_class: 'TAG';
 };
 
 export type DoomAugmentProps = {
-  augment_class: "DOOM";
+  augment_class: 'DOOM';
 };
 
 export type DotAugment = AugmentBase & DotAugmentProps;

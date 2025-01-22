@@ -1,16 +1,15 @@
-import * as React from "react";
+import { useNavigate } from '@tanstack/react-router';
+import * as React from 'react';
 
-import { useGameStore } from "../store/useGameStore";
-
-import { useIngest } from "../utils/useIngest";
-import { useNavigate } from "@tanstack/react-router";
+import { useGameStore } from '../store/useGameStore';
+import { useIngest } from '../utils/useIngest';
 
 const Upload: React.FC = () => {
   const [file, setFile] = React.useState<File | null>(null);
   const loaded = useGameStore.use.loaded();
   const navigate = useNavigate();
   const onLoaded = React.useCallback(() => {
-    navigate({ to: "/units" });
+    navigate({ to: '/units' });
   }, [navigate]);
 
   const { ingest, errors } = useIngest({ onLoaded });
@@ -30,7 +29,8 @@ const Upload: React.FC = () => {
           try {
             ingest(fileReader.result as string);
           } catch (error) {
-            console.warn("Failed to parse JSON:", error);
+            // eslint-disable-next-line no-console
+            console.warn('Failed to parse JSON:', error);
           }
         }
       };

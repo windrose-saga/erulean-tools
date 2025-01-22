@@ -1,5 +1,6 @@
-import * as React from "react";
-import { Column } from "../types/list";
+import * as React from 'react';
+
+import { Column } from '../types/list';
 
 interface RowProps<T> {
   item: T;
@@ -8,12 +9,7 @@ interface RowProps<T> {
   onRowClick?: (item: T) => void;
 }
 
-export const Row = <T extends object>({
-  item,
-  columns,
-  defaultIndex,
-  onRowClick,
-}: RowProps<T>) => {
+export const Row = <T extends object>({ item, columns, defaultIndex, onRowClick }: RowProps<T>) => {
   const onClick = React.useCallback(() => {
     if (!onRowClick) {
       return;

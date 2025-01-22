@@ -7,7 +7,6 @@ const removeIgnoredFiles = async (files) => {
   const filteredFiles = files.filter((_, i) => !ignoredFiles[i]);
   return filteredFiles.join(' ');
 };
-
 module.exports = {
   '*.{js,jsx,ts,tsx}': async (files) => {
     const filesToLint = await removeIgnoredFiles(files);

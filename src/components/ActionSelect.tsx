@@ -1,6 +1,7 @@
-import * as React from "react";
-import { Action, ActionType } from "../types/action";
-import { useActions } from "../store/getters/action";
+import * as React from 'react';
+
+import { useActions } from '../store/getters/action';
+import { Action, ActionType } from '../types/action';
 
 type Props = {
   setAction: (action: Action) => void;

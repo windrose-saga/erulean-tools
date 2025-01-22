@@ -1,22 +1,17 @@
-import { AugmentBuffType, AugmentDomain, AugmentTarget } from "./augment";
+import { AugmentBuffType, AugmentDomain, AugmentTarget } from './augment';
 
-export type TargetingType = "EXACT" | "UP_TO" | "SELF";
-export type ApproachStrategy = "HOLD" | "PROCEED";
+export type TargetingType = 'EXACT' | 'UP_TO' | 'SELF';
+export type ApproachStrategy = 'HOLD' | 'PROCEED';
 export type ActionType =
-  | "DAMAGE_ACTION"
-  | "HEAL"
-  | "MANA_ACTION"
-  | "AUGMENT_ACTION"
-  | "DISPEL_ACTION"
-  | "TAG_ACTION"
-  | "SUMMON_ACTION";
+  | 'DAMAGE_ACTION'
+  | 'HEAL'
+  | 'MANA_ACTION'
+  | 'AUGMENT_ACTION'
+  | 'DISPEL_ACTION'
+  | 'TAG_ACTION'
+  | 'SUMMON_ACTION';
 
-export type DispelActionMode =
-  | "TARGET"
-  | "ALL"
-  | "NAME"
-  | "UNIQUE_IDENTIFIER"
-  | "TYPE";
+export type DispelActionMode = 'TARGET' | 'ALL' | 'NAME' | 'UNIQUE_IDENTIFIER' | 'TYPE';
 
 export type ActionBase = {
   guid: string;
@@ -41,7 +36,7 @@ export type ActionBase = {
 };
 
 export type DamageActionData = {
-  action_type: "DAMAGE_ACTION";
+  action_type: 'DAMAGE_ACTION';
   base_phys_damage: number;
   unit_strength_modifier: number;
   target_phys_defense_modifier: number;
@@ -60,14 +55,14 @@ export type DamageActionData = {
 };
 
 export type HealActionData = {
-  action_type: "HEAL";
+  action_type: 'HEAL';
   hp: number;
   decay: number;
   should_target_full_hp: boolean;
 };
 
 export type ManaActionData = {
-  action_type: "MANA_ACTION";
+  action_type: 'MANA_ACTION';
   should_target_enemy: boolean;
   mana_amount: number;
   should_target_full_mp: boolean;
@@ -75,7 +70,7 @@ export type ManaActionData = {
 };
 
 export type AugmentActionData = {
-  action_type: "AUGMENT_ACTION";
+  action_type: 'AUGMENT_ACTION';
   augments: Array<string>;
   crit_augments: Array<string>;
   should_reapply: boolean;
@@ -83,7 +78,7 @@ export type AugmentActionData = {
 };
 
 export type DispelActionData = {
-  action_type: "DISPEL_ACTION";
+  action_type: 'DISPEL_ACTION';
   mode: DispelActionMode;
   domain: AugmentDomain;
   target: AugmentTarget;
@@ -98,14 +93,14 @@ export type DispelActionData = {
 };
 
 export type TagActionData = {
-  action_type: "TAG_ACTION";
+  action_type: 'TAG_ACTION';
   tag_augment: string;
   should_target_enemy: boolean;
   follow_tagged_unit: boolean;
 };
 
 export type SummonActionData = {
-  action_type: "SUMMON_ACTION";
+  action_type: 'SUMMON_ACTION';
   summons: Array<string>;
   summoning_range: number;
   should_target_enemy: boolean;

@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { withLoadingGate } from "../utils/withLoadingGate";
-import { AugmentList } from "../components/AugmentList";
+import { createFileRoute } from '@tanstack/react-router';
 
-export const Route = createFileRoute("/augments")({
+import { AugmentList } from '../components/AugmentList';
+import { withLoadingGate } from '../utils/withLoadingGate';
+
+export const Route = createFileRoute('/augments')({
   component: withLoadingGate(AugmentList),
 });

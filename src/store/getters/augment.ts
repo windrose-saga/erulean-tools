@@ -1,5 +1,6 @@
-import { useMemo } from "react";
-import { useGameStore } from "../useGameStore";
+import { useMemo } from 'react';
+
+import { useGameStore } from '../useGameStore';
 
 export const useAugment = (augmentId: string) => {
   const augments = useGameStore.use.augments();
@@ -9,10 +10,7 @@ export const useAugment = (augmentId: string) => {
 export const useAugments = () => {
   const augments = useGameStore.use.augments();
   return useMemo(
-    () =>
-      Object.values(augments).sort((a, b) => {
-        return a.name.localeCompare(b.name);
-      }),
-    [augments]
+    () => Object.values(augments).sort((a, b) => a.name.localeCompare(b.name)),
+    [augments],
   );
 };

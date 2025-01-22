@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import DamageCalculator from "../screens/DamageCalculator";
+import { createFileRoute } from '@tanstack/react-router';
 
-export const Route = createFileRoute("/damage-calculator")({
+import DamageCalculator from '../screens/DamageCalculator';
+
+export const Route = createFileRoute('/damage-calculator')({
   component: DamageCalculator,
 });
