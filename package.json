@@ -13,10 +13,8 @@
     "deploy": "gh-pages -d dist",
     "prepare": "husky"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint && yarn tsc"
-    }
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "yarn lint"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.97.3",
