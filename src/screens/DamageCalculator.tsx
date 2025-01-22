@@ -1,9 +1,10 @@
-import { PropsWithChildren, useMemo, useState } from "react";
-import UnitForm from "../components/UnitForm";
-import LabeledValue from "../components/LabeledValue";
-import ActionForm from "../components/ActionForm";
-import { Unit } from "../types/unit";
-import { DamageAction } from "../types/action";
+import { PropsWithChildren, useMemo, useState } from 'react';
+
+import ActionForm from '../components/ActionForm';
+import LabeledValue from '../components/LabeledValue';
+import UnitForm from '../components/UnitForm';
+import { DamageAction } from '../types/action';
+import { Unit } from '../types/unit';
 
 const DEFAULT_STATS: Unit = {
   strength: 10,
@@ -22,14 +23,14 @@ const DEFAULT_STATS: Unit = {
   bravery: 99,
   can_flee: true,
   movement: 1,
-  movement_strategy: "ADVANCE",
+  movement_strategy: 'ADVANCE',
   holding_distance: 0,
   faithful: false,
   inaction_limit: 20,
 } as Unit;
 
 const DEFAULT_PARAMS: DamageAction = {
-  action_type: "DAMAGE_ACTION",
+  action_type: 'DAMAGE_ACTION',
   crit_chance_multiplier: 1,
   evasion_multiplier: 1,
   base_phys_damage: 0,
@@ -55,38 +56,28 @@ function DamageCalculator() {
   const [params, setParams] = useState<DamageAction>(DEFAULT_PARAMS);
 
   const results = useMemo(() => {
-    const physAtk =
-      unitStats.strength * params.unit_strength_modifier +
-      params.base_phys_damage;
-    const physDef =
-      targetStats.phys_defense * params.target_phys_defense_modifier;
+    const physAtk = unitStats.strength * params.unit_strength_modifier + params.base_phys_damage;
+    const physDef = targetStats.phys_defense * params.target_phys_defense_modifier;
     const physDmg = Math.max(physAtk - physDef, 0);
 
-    const magAtk =
-      unitStats.intelligence * params.unit_int_modifier +
-      params.base_magic_damage;
-    const magDef =
-      targetStats.spec_defense * params.target_spec_defense_modifier;
+    const magAtk = unitStats.intelligence * params.unit_int_modifier + params.base_magic_damage;
+    const magDef = targetStats.spec_defense * params.target_spec_defense_modifier;
     const magDmg = Math.max(magAtk - magDef, 0);
 
-    const dexAtk =
-      unitStats.speed * params.unit_speed_modifier + params.base_dex_damage;
+    const dexAtk = unitStats.speed * params.unit_speed_modifier + params.base_dex_damage;
     const speedDef = targetStats.speed * params.target_speed_modifier;
     const dexDef = (physDef + speedDef) / 2;
     const dexDmg = Math.max(dexAtk - dexDef, 0);
 
-    const total =
-      (physDmg + magDmg + dexDmg + params.base_damage) *
-      params.total_damage_multiplier;
+    const total = (physDmg + magDmg + dexDmg + params.base_damage) * params.total_damage_multiplier;
 
     const hitChance = Math.min(
-      (unitStats.spec_defense / 2 + (100 - targetStats.speed)) *
-        params.evasion_multiplier,
-      100
+      (unitStats.spec_defense / 2 + (100 - targetStats.speed)) * params.evasion_multiplier,
+      100,
     );
     const critConstant = 40 / params.crit_chance_multiplier;
     const critChance = Math.floor(
-      Math.min((unitStats.luck / (unitStats.luck + critConstant)) * 100, 100)
+      Math.min((unitStats.luck / (unitStats.luck + critConstant)) * 100, 100),
     );
     const critDamage = total * params.crit_modifier;
 
@@ -113,11 +104,7 @@ function DamageCalculator() {
       <div className="flex flex-row justify-between">
         <UnitForm title="Actor" setStats={setUnitStats} stats={unitStats} />
         <ActionForm params={params} setParams={setParams} />
-        <UnitForm
-          title="Target"
-          setStats={setTargetStats}
-          stats={targetStats}
-        />
+        <UnitForm title="Target" setStats={setTargetStats} stats={targetStats} />
       </div>
       {/* PHYS */}
       <div className="flex flex-col self-center gap-4">
@@ -133,24 +120,15 @@ function DamageCalculator() {
           <Parens>
             <LabeledValue label="Actor Strength" value={unitStats.strength} />
             <Mult />
-            <LabeledValue
-              label="Actor Strength Modifier"
-              value={params.unit_strength_modifier}
-            />
+            <LabeledValue label="Actor Strength Modifier" value={params.unit_strength_modifier} />
           </Parens>
           <Plus />
-          <LabeledValue
-            label="Base Physical Damage"
-            value={params.base_phys_damage}
-          />
+          <LabeledValue label="Base Physical Damage" value={params.base_phys_damage} />
         </div>
         <div className="flex flex-row gap-2">
           <LabeledValue label="Physical Defense" value={results.physDef} />
           <Equals />
-          <LabeledValue
-            label="Target Defense"
-            value={targetStats.phys_defense}
-          />
+          <LabeledValue label="Target Defense" value={targetStats.phys_defense} />
           <Mult />
           <LabeledValue
             label="Target Defense Modifier"
@@ -164,36 +142,24 @@ function DamageCalculator() {
           <Minus />
           <LabeledValue label="Physical Defense" value={results.physDef} />
         </div>
-        <br></br>
+        <br />
         {/* MAGIC */}
 
         <div className="flex flex-row gap-2 ">
           <LabeledValue label="Magic Attack" value={results.magAtk} />
           <Equals />
           <Parens>
-            <LabeledValue
-              label="Actor Intelligence"
-              value={unitStats.intelligence}
-            />
+            <LabeledValue label="Actor Intelligence" value={unitStats.intelligence} />
             <Mult />
-            <LabeledValue
-              label="Actor Intelligence Modifier"
-              value={params.unit_int_modifier}
-            />
+            <LabeledValue label="Actor Intelligence Modifier" value={params.unit_int_modifier} />
           </Parens>
           <Plus />
-          <LabeledValue
-            label="Base Magic Damage"
-            value={params.base_magic_damage}
-          />
+          <LabeledValue label="Base Magic Damage" value={params.base_magic_damage} />
         </div>
         <div className="flex flex-row gap-2">
           <LabeledValue label="Magic Defense" value={results.magDef} />
           <Equals />
-          <LabeledValue
-            label="Target Sp. Defense"
-            value={targetStats.spec_defense}
-          />
+          <LabeledValue label="Target Sp. Defense" value={targetStats.spec_defense} />
           <Mult />
           <LabeledValue
             label="Target Sp. Defense Modifier"
@@ -207,7 +173,7 @@ function DamageCalculator() {
           <Minus />
           <LabeledValue label="Magic Defense" value={results.magDef} />
         </div>
-        <br></br>
+        <br />
         {/* DEX */}
         <div className="flex flex-row gap-2 ">
           <LabeledValue label="Dexterity Attack" value={results.dexAtk} />
@@ -215,16 +181,10 @@ function DamageCalculator() {
           <Parens>
             <LabeledValue label="Actor Intelligence" value={unitStats.speed} />
             <Mult />
-            <LabeledValue
-              label="Actor Intelligence Modifier"
-              value={params.unit_speed_modifier}
-            />
+            <LabeledValue label="Actor Intelligence Modifier" value={params.unit_speed_modifier} />
           </Parens>
           <Plus />
-          <LabeledValue
-            label="Base Dexterity Damage"
-            value={params.base_dex_damage}
-          />
+          <LabeledValue label="Base Dexterity Damage" value={params.base_dex_damage} />
         </div>
         <div className="flex flex-row gap-2">
           <LabeledValue label="Dexterity Defense" value={results.dexDef} />
@@ -233,17 +193,11 @@ function DamageCalculator() {
             <Parens>
               <LabeledValue label="Target Speed" value={targetStats.speed} />
               <Mult />
-              <LabeledValue
-                label="Target Speed Modifier"
-                value={params.target_speed_modifier}
-              />
+              <LabeledValue label="Target Speed Modifier" value={params.target_speed_modifier} />
             </Parens>
             <Plus />
             <Parens>
-              <LabeledValue
-                label="Target Defense"
-                value={targetStats.phys_defense}
-              />
+              <LabeledValue label="Target Defense" value={targetStats.phys_defense} />
               <Mult />
               <LabeledValue
                 label="Target Defense Modifier"
@@ -261,7 +215,7 @@ function DamageCalculator() {
           <Minus />
           <LabeledValue label="Dexterity Defense" value={results.dexDef} />
         </div>
-        <br></br>
+        <br />
         {/* TOTAL */}
         <div className="flex flex-row gap-2">
           <LabeledValue label="Total Damage" value={results.total} />
@@ -276,12 +230,9 @@ function DamageCalculator() {
             <LabeledValue label="Base Damage" value={params.base_damage} />
           </Parens>
           <Mult />
-          <LabeledValue
-            label="Total Damage Multiplier"
-            value={params.total_damage_multiplier}
-          />
+          <LabeledValue label="Total Damage Multiplier" value={params.total_damage_multiplier} />
         </div>
-        <br></br>
+        <br />
         {/* EVASION */}
         <div className="flex flex-row gap-2">
           <LabeledValue label="Hit Chance" value={`${results.hitChance}%`} />
@@ -300,12 +251,9 @@ function DamageCalculator() {
             </Parens>
           </Brackets>
           <Mult />
-          <LabeledValue
-            label="Evasion Multiplier"
-            value={params.evasion_multiplier}
-          />
+          <LabeledValue label="Evasion Multiplier" value={params.evasion_multiplier} />
         </div>
-        <br></br>
+        <br />
 
         {/* CRIT */}
         <div className="flex flex-row gap-2">
@@ -318,10 +266,7 @@ function DamageCalculator() {
               <Parens>
                 <p className="font-bold">40</p>
                 <Divide />
-                <LabeledValue
-                  label="Crit Chance Modifier"
-                  value={params.crit_chance_multiplier}
-                />
+                <LabeledValue label="Crit Chance Modifier" value={params.crit_chance_multiplier} />
               </Parens>
               <Plus />
               <LabeledValue label="Actor Luck" value={unitStats.luck} />
@@ -335,10 +280,7 @@ function DamageCalculator() {
           <Equals />
           <LabeledValue label="Total Damage" value={results.total} />
           <Mult />
-          <LabeledValue
-            label="Crit Damage Multiplier"
-            value={params.crit_modifier}
-          />
+          <LabeledValue label="Crit Damage Multiplier" value={params.crit_modifier} />
         </div>
       </div>
     </div>
@@ -370,8 +312,8 @@ const Brackets = ({ children }: PropsWithChildren) => (
 
 const Curlies = ({ children }: PropsWithChildren) => (
   <>
-    <p className="font-bold">{"{"}</p>
+    <p className="font-bold">{'{'}</p>
     {children}
-    <p className="font-bold">{"}"}</p>
+    <p className="font-bold">{'}'}</p>
   </>
 );

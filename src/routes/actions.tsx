@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ActionList } from "../components/ActionList";
-import { withLoadingGate } from "../utils/withLoadingGate";
+import { createFileRoute } from '@tanstack/react-router';
 
-export const Route = createFileRoute("/actions")({
+import { ActionList } from '../components/ActionList';
+import { withLoadingGate } from '../utils/withLoadingGate';
+
+export const Route = createFileRoute('/actions')({
   component: withLoadingGate(ActionList),
 });

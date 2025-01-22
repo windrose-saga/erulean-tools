@@ -1,5 +1,6 @@
-import { useMemo } from "react";
-import { useGameStore } from "../useGameStore";
+import { useMemo } from 'react';
+
+import { useGameStore } from '../useGameStore';
 
 export const useUnit = (unitId: string) => {
   const units = useGameStore.use.units();
@@ -8,11 +9,5 @@ export const useUnit = (unitId: string) => {
 
 export const useUnits = () => {
   const units = useGameStore.use.units();
-  return useMemo(
-    () =>
-      Object.values(units).sort((a, b) => {
-        return a.name.localeCompare(b.name);
-      }),
-    [units]
-  );
+  return useMemo(() => Object.values(units).sort((a, b) => a.name.localeCompare(b.name)), [units]);
 };

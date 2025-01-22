@@ -27,7 +27,7 @@ export type Unit = {
   actions: Actions;
 };
 
-export type MovementStrategy = "ADVANCE" | "KEEP_DISTANCE";
+export type MovementStrategy = 'ADVANCE' | 'KEEP_DISTANCE';
 
 export type CommanderData = {
   leadership: number;

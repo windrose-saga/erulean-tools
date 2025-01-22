@@ -1,6 +1,7 @@
-import * as React from "react";
-import { Unit } from "../types/unit";
-import { useUnits } from "../store/getters/unit";
+import * as React from 'react';
+
+import { useUnits } from '../store/getters/unit';
+import { Unit } from '../types/unit';
 
 type Props = {
   setUnit: (unit: Unit) => void;

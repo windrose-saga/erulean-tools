@@ -16,7 +16,8 @@ table {
   border-collapse: collapse;
 }
 
-td, th {
+td,
+th {
   white-space: nowrap;
   border: 1px solid #ddd;
   padding: 20px;

@@ -1,19 +1,22 @@
-import * as React from "react";
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+import * as React from 'react';
 
-import { getUnitData } from "../utils/parsers/unit";
-import { getActionData } from "../utils/parsers/action";
-import { getAugmentData } from "../utils/parsers/augment";
-import { useGameStore } from "../store/useGameStore";
-import { Unit } from "../types/unit";
-import { Action } from "../types/action";
-import { Augment } from "../types/augment";
-import { validateIngest } from "../utils/validateIngest";
+import { getActionData } from './parsers/action';
+import { getAugmentData } from './parsers/augment';
+import { getUnitData } from './parsers/unit';
+import { validateIngest } from './validateIngest';
 
-const ACTION_SHEET_GUID = "288ae487-6d6a-411e-b468-ab415b4ba7e6";
-const UNIT_SHEET_GUID = "c4ca663f-445a-4bcb-bf4e-4cd51455c0a5";
-const AUGMENT_SHEET_GUID = "4d53960f-f75e-4721-ad17-90d124808b18";
+import { useGameStore } from '../store/useGameStore';
+import { Action } from '../types/action';
+import { Augment } from '../types/augment';
+import { Unit } from '../types/unit';
 
-type ErrorType = "unit" | "action" | "augment";
+const ACTION_SHEET_GUID = '288ae487-6d6a-411e-b468-ab415b4ba7e6';
+const UNIT_SHEET_GUID = 'c4ca663f-445a-4bcb-bf4e-4cd51455c0a5';
+const AUGMENT_SHEET_GUID = '4d53960f-f75e-4721-ad17-90d124808b18';
+
+type ErrorType = 'unit' | 'action' | 'augment';
 type Error = {
   type: ErrorType;
   message: string;
@@ -48,26 +51,24 @@ export const useIngest = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           }
         }
       } catch (error) {
-        console.warn("Failed to parse JSON:", error);
+        // eslint-disable-next-line no-console
+        console.warn('Failed to parse JSON:', error);
       }
     },
-    [onLoaded, reset, setActions, setAugments, setLoaded, setUnits]
+    [onLoaded, reset, setActions, setAugments, setLoaded, setUnits],
   );
 
   return { ingest, errors };
 };
 
-const getUnitLines = (data: Array<any>) => {
-  return data.find((sheet: any) => sheet.guid === UNIT_SHEET_GUID).lines;
-};
+const getUnitLines = (data: Array<any>) =>
+  data.find((sheet: any) => sheet.guid === UNIT_SHEET_GUID).lines;
 
-const getActionLines = (data: Array<any>) => {
-  return data.find((sheet: any) => sheet.guid === ACTION_SHEET_GUID).lines;
-};
+const getActionLines = (data: Array<any>) =>
+  data.find((sheet: any) => sheet.guid === ACTION_SHEET_GUID).lines;
 
-const getAugmentLines = (data: Array<any>) => {
-  return data.find((sheet: any) => sheet.guid === AUGMENT_SHEET_GUID).lines;
-};
+const getAugmentLines = (data: Array<any>) =>
+  data.find((sheet: any) => sheet.guid === AUGMENT_SHEET_GUID).lines;
 
 const ingestUnits = (data: Array<any>) => {
   const unitData = {} as Record<string, Unit>;

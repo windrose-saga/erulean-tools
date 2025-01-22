@@ -1,8 +1,9 @@
-import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-import "../App.css";
-import { useGameStore } from "../store/useGameStore";
-import { useTestData } from "../utils/useTestData";
+import { Link, Outlet, createRootRoute } from '@tanstack/react-router';
+import { TanStackRouterDevtools } from '@tanstack/router-devtools';
+
+import '../App.css';
+import { useGameStore } from '../store/useGameStore';
+import { useTestData } from '../utils/useTestData';
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -17,7 +18,7 @@ function RootComponent() {
         <Link
           to="/"
           activeProps={{
-            className: "font-bold",
+            className: 'font-bold',
           }}
           activeOptions={{ exact: true }}
         >
@@ -28,7 +29,7 @@ function RootComponent() {
             <Link
               to="/units"
               activeProps={{
-                className: "font-bold",
+                className: 'font-bold',
               }}
             >
               Units
@@ -36,7 +37,7 @@ function RootComponent() {
             <Link
               to="/actions"
               activeProps={{
-                className: "font-bold",
+                className: 'font-bold',
               }}
             >
               Actions
@@ -44,7 +45,7 @@ function RootComponent() {
             <Link
               to="/augments"
               activeProps={{
-                className: "font-bold",
+                className: 'font-bold',
               }}
             >
               Augments
@@ -54,7 +55,7 @@ function RootComponent() {
         <Link
           to="/damage-calculator"
           activeProps={{
-            className: "font-bold",
+            className: 'font-bold',
           }}
         >
           Damage Calculator

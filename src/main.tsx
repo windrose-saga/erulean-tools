@@ -1,31 +1,28 @@
-import ReactDOM from "react-dom/client";
-import {
-  RouterProvider,
-  createMemoryHistory,
-  createRouter,
-} from "@tanstack/react-router";
-import { routeTree } from "./routeTree.gen";
-import "./index.css";
+import { RouterProvider, createMemoryHistory, createRouter } from '@tanstack/react-router';
+import ReactDOM from 'react-dom/client';
+
+import { routeTree } from './routeTree.gen';
+import './index.css';
 
 const memoryHistory = createMemoryHistory({
-  initialEntries: ["/"],
+  initialEntries: ['/'],
 });
 
 // Set up a Router instance
 const router = createRouter({
   routeTree,
-  defaultPreload: "intent",
+  defaultPreload: 'intent',
   history: memoryHistory,
 });
 
 // Register things for typesafety
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface Register {
     router: typeof router;
   }
 }
 
-const rootElement = document.getElementById("root")!;
+const rootElement = document.getElementById('root')!;
 
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);

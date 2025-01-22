@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import {
   Action,
   ActionBase,
@@ -8,8 +9,8 @@ import {
   ManaActionData,
   SummonActionData,
   TagActionData,
-} from "../../types/action";
-import { assertUnreachable } from "../assertUnreachable";
+} from '../../types/action';
+import { assertUnreachable } from '../assertUnreachable';
 
 export const getActionData = ({
   guid,
@@ -56,19 +57,19 @@ export const getActionData = ({
   };
 
   switch (base.action_type) {
-    case "DAMAGE_ACTION":
+    case 'DAMAGE_ACTION':
       return { ...base, ...getDamageActionProps(line.damage_action_props) };
-    case "HEAL":
+    case 'HEAL':
       return { ...base, ...getHealProps(line.heal_props) };
-    case "MANA_ACTION":
+    case 'MANA_ACTION':
       return { ...base, ...getManaActionProps(line.mana_action_props) };
-    case "AUGMENT_ACTION":
+    case 'AUGMENT_ACTION':
       return { ...base, ...getAugmentActionProps(line.augment_action_props) };
-    case "DISPEL_ACTION":
+    case 'DISPEL_ACTION':
       return { ...base, ...getDispelActionProps(line.dispel_action_props) };
-    case "TAG_ACTION":
+    case 'TAG_ACTION':
       return { ...base, ...getTagActionProps(line.tag_action_props) };
-    case "SUMMON_ACTION":
+    case 'SUMMON_ACTION':
       return { ...base, ...getSummonActionProps(line.summon_action_props) };
     default:
       return assertUnreachable(base.action_type);
@@ -90,7 +91,7 @@ const getDamageActionProps = ({
   total_damage_multiplier,
   target_augment_self,
 }: any): DamageActionData => ({
-  action_type: "DAMAGE_ACTION",
+  action_type: 'DAMAGE_ACTION',
   base_phys_damage,
   unit_strength_modifier,
   target_phys_defense_modifier,
@@ -108,12 +109,8 @@ const getDamageActionProps = ({
   crit_augment: null,
 });
 
-const getHealProps = ({
-  hp,
-  decay,
-  should_target_full_hp,
-}: any): HealActionData => ({
-  action_type: "HEAL",
+const getHealProps = ({ hp, decay, should_target_full_hp }: any): HealActionData => ({
+  action_type: 'HEAL',
   hp,
   decay,
   should_target_full_hp,
@@ -125,7 +122,7 @@ const getManaActionProps = ({
   should_target_full_mp,
   tag_augment,
 }: any): ManaActionData => ({
-  action_type: "MANA_ACTION",
+  action_type: 'MANA_ACTION',
   should_target_enemy,
   mana_amount,
   should_target_full_mp,
@@ -138,7 +135,7 @@ const getAugmentActionProps = ({
   should_reapply,
   should_target_enemy,
 }: any): AugmentActionData => ({
-  action_type: "AUGMENT_ACTION",
+  action_type: 'AUGMENT_ACTION',
   augments: augments.map((augment: any) => augment.augment),
   crit_augments,
   should_reapply,
@@ -158,7 +155,7 @@ const getDispelActionProps = ({
   only_target_augmented_units,
   ignore_target_allegiance,
 }: any): DispelActionData => ({
-  action_type: "DISPEL_ACTION",
+  action_type: 'DISPEL_ACTION',
   mode,
   domain,
   target,
@@ -177,7 +174,7 @@ const getTagActionProps = ({
   should_target_enemy,
   follow_tagged_unit,
 }: any): TagActionData => ({
-  action_type: "TAG_ACTION",
+  action_type: 'TAG_ACTION',
   tag_augment,
   should_target_enemy,
   follow_tagged_unit,
@@ -190,7 +187,7 @@ const getSummonActionProps = ({
   summon_augment,
   should_summon_impact_morale,
 }: any): SummonActionData => ({
-  action_type: "SUMMON_ACTION",
+  action_type: 'SUMMON_ACTION',
   summons: summons.map((summon: any) => summon.summon),
   summoning_range,
   should_target_enemy,

@@ -1,4 +1,5 @@
-import { CommanderData, Unit } from "../../types/unit";
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { CommanderData, Unit } from '../../types/unit';
 
 export const getUnitData = ({
   guid,
@@ -28,9 +29,7 @@ export const getUnitData = ({
   actions,
   commander_data: raw_commander_data,
 }: any): Unit => {
-  const commanderData = is_commander
-    ? getCommanderData(raw_commander_data)
-    : null;
+  const commanderData = is_commander ? getCommanderData(raw_commander_data) : null;
 
   return {
     guid,
@@ -71,18 +70,16 @@ const getCommanderData = ({
   army_augments,
   enemy_army_augments,
   army_name,
-}: any): CommanderData => {
-  return {
-    leadership,
-    point_limit,
-    grid_size_x,
-    grid_size_y,
-    global_augments,
-    army_augments,
-    enemy_army_augments,
-    army_name,
-  };
-};
+}: any): CommanderData => ({
+  leadership,
+  point_limit,
+  grid_size_x,
+  grid_size_y,
+  global_augments,
+  army_augments,
+  enemy_army_augments,
+  army_name,
+});
 
 const getActions = (line: any) => ({
   passive_action: line.passive_action || null,

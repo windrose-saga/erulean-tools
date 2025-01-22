@@ -1,5 +1,6 @@
-import { useGameStore } from "../useGameStore";
-import { useMemo } from "react";
+import { useMemo } from 'react';
+
+import { useGameStore } from '../useGameStore';
 
 export const useAction = (actionId: string) => {
   const actions = useGameStore.use.actions();
@@ -9,10 +10,7 @@ export const useAction = (actionId: string) => {
 export const useActions = () => {
   const actions = useGameStore.use.actions();
   return useMemo(
-    () =>
-      Object.values(actions).sort((a, b) => {
-        return a.name.localeCompare(b.name);
-      }),
-    [actions]
+    () => Object.values(actions).sort((a, b) => a.name.localeCompare(b.name)),
+    [actions],
   );
 };

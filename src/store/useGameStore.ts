@@ -1,9 +1,10 @@
-import { create } from "zustand";
-import { immer } from "zustand/middleware/immer";
-import { Unit } from "../types/unit";
-import { Action } from "../types/action";
-import { Augment } from "../types/augment";
-import { createSelectors } from "../utils/createSelectors";
+import { create } from 'zustand';
+import { immer } from 'zustand/middleware/immer';
+
+import { Action } from '../types/action';
+import { Augment } from '../types/augment';
+import { Unit } from '../types/unit';
+import { createSelectors } from '../utils/createSelectors';
 
 type State = {
   loaded: boolean;
@@ -64,7 +65,7 @@ const useGameStoreBase = create<State & Actions>()(
       set((state) => {
         state.augments[augment.id] = augment;
       }),
-  }))
+  })),
 );
 
 export const useGameStore = createSelectors(useGameStoreBase);
