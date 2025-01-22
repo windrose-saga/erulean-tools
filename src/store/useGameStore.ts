@@ -13,6 +13,7 @@ type State = {
 };
 
 type Actions = {
+  reset: () => void;
   setLoaded: () => void;
   setUnits: (units: Record<string, Unit>) => void;
   setActions: (actions: Record<string, Action>) => void;
@@ -22,12 +23,19 @@ type Actions = {
   setAugment: (augment: Augment) => void;
 };
 
+const initialState: State = {
+  loaded: false,
+  units: {},
+  actions: {},
+  augments: {},
+};
+
 const useGameStoreBase = create<State & Actions>()(
   immer((set) => ({
-    loaded: false,
-    units: {},
-    actions: {},
-    augments: {},
+    ...initialState,
+    reset: () => {
+      set(initialState);
+    },
     setLoaded: () =>
       set((state) => {
         state.loaded = true;

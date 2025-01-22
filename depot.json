@@ -427,8 +427,7 @@
                         "global_augments": [],
                         "army_augments": [],
                         "enemy_army_augments": [],
-                        "army_name": "Test Army",
-                        "portrait": "../assets/portraits/commanderminiportraits/Commadnerportraits1_0023_newravager800.png"
+                        "army_name": "Test Army"
                     },
                     "actions": {
                         "guid": "e9c94517-6674-4f7e-8b36-a1d494673b72",
@@ -663,8 +662,7 @@
                         "global_augments": [],
                         "army_augments": [],
                         "enemy_army_augments": [],
-                        "army_name": "Band of the Plainsfolk Mage",
-                        "portrait": "../assets/portraits/commanderminiportraits/Commadnerportraits1_0006_plainsm800.png"
+                        "army_name": "Band of the Plainsfolk Mage"
                     },
                     "actions": {
                         "guid": "f3a82f44-7428-4e55-843b-5a027e65662e",
@@ -764,8 +762,7 @@
                         "global_augments": [],
                         "army_augments": [],
                         "enemy_army_augments": [],
-                        "army_name": "Astronomer's Troupe",
-                        "portrait": "../assets/portraits/commanderminiportraits/Commadnerportraits1_0018_astro800.png"
+                        "army_name": "Astronomer's Troupe"
                     },
                     "actions": {
                         "guid": "d32dafd7-fc1e-4a1d-a37f-2af957180f26",
@@ -865,8 +862,7 @@
                         "global_augments": [],
                         "army_augments": [],
                         "enemy_army_augments": [],
-                        "army_name": "Warden of Lupenar's Forces",
-                        "portrait": "../assets/portraits/commanderminiportraits/Commadnerportraits1_0003_warden800.png"
+                        "army_name": "Warden of Lupenar's Forces"
                     },
                     "actions": {
                         "guid": "38fd13d1-a73c-4280-be87-95029de845b0",
@@ -921,8 +917,7 @@
                         "global_augments": [],
                         "army_augments": [],
                         "enemy_army_augments": [],
-                        "army_name": "Lupenari Hermit's Cohort",
-                        "portrait": "../assets/portraits/commanderminiportraits/Commadnerportraits1_0010_hermit800.png"
+                        "army_name": "Lupenari Hermit's Cohort"
                     },
                     "actions": {
                         "guid": "a2a2e750-d9f5-444d-a23a-fac3a5aa5006",
@@ -1048,7 +1043,7 @@
                         "guid": "a7fbd842-b59e-448d-957d-04cca194ca6b",
                         "description": "Trained medium ranged attacker",
                         "portrait": "..\\assets\\portraitspng\\farcher5.png",
-                        "sprite_sheet": "../assets/sprites/20fsprite/marcharcher20fv1.png",
+                        "sprite_sheet": "..\\assets\\sprites\\20fsprite\\placeholder20fv3.png",
                         "animation_speed": 4,
                         "effect_offset": {
                             "guid": "7aee410f-0c14-483b-bbe9-385085995e6d",
@@ -1093,7 +1088,7 @@
                         "guid": "f5d36576-b02b-42bc-a63d-5a82dc18995c",
                         "description": "Special class infantry",
                         "portrait": "..\\assets\\portraitspng\\armored1.png",
-                        "sprite_sheet": "../assets/sprites/20fsprite/dragoon20fv1.png",
+                        "sprite_sheet": "..\\assets\\sprites\\20fsprite\\placeholder20fv3.png",
                         "animation_speed": 4,
                         "effect_offset": {
                             "guid": "608601be-e94d-4c1a-bfa9-21cca0d8c390",
@@ -1183,7 +1178,7 @@
                         "guid": "6f302401-26df-4f3d-a32f-3d0d104dfd36",
                         "description": "Well trained fighting commander",
                         "portrait": "..\\assets\\portraitspng\\ravager.png",
-                        "sprite_sheet": "../assets/sprites/20fsprite/ravager20fv3.png",
+                        "sprite_sheet": "..\\assets\\sprites\\20fsprite\\ravager20fv1.png",
                         "animation_speed": 4,
                         "effect_offset": {
                             "guid": "b4107616-9ef0-41f6-a6e1-8e47249ff8b4",
@@ -1202,8 +1197,7 @@
                         "global_augments": [],
                         "army_augments": [],
                         "enemy_army_augments": [],
-                        "army_name": "Ravager's Legion",
-                        "portrait": "../assets/portraits/commanderminiportraits/Commadnerportraits1_0004_yknight800.png"
+                        "army_name": "Ravager's Legion"
                     },
                     "actions": {
                         "guid": "b9df8a1b-3b88-4a8b-8cc3-bae2ef5486ef",
@@ -1258,8 +1252,7 @@
                         "global_augments": [],
                         "army_augments": [],
                         "enemy_army_augments": [],
-                        "army_name": "Conquesting Noble's Mercenaries",
-                        "portrait": "../assets/portraits/commanderminiportraits/Commadnerportraits1_0023_newravager800.png"
+                        "army_name": "Conquesting Noble's Mercenaries"
                     },
                     "actions": {
                         "guid": "20c14fd6-3c3f-404d-a708-51b76bf71ef9",
@@ -1359,8 +1352,7 @@
                         "global_augments": [],
                         "army_augments": [],
                         "enemy_army_augments": [],
-                        "army_name": "Moonblade Gladiator's Army",
-                        "portrait": "../assets/portraits/commanderminiportraits/Commadnerportraits1_0008_moonblade800.png"
+                        "army_name": "Moonblade Gladiator's Army"
                     },
                     "actions": {
                         "guid": "b141c938-64e0-46e2-b0ff-f8403c9e4cf7",
@@ -1415,8 +1407,7 @@
                         "global_augments": [],
                         "army_augments": [],
                         "enemy_army_augments": [],
-                        "army_name": "Wandering Strix's Company",
-                        "portrait": "../assets/portraits/commanderminiportraits/Commadnerportraits1_0017_ancient800.png"
+                        "army_name": "Wandering Strix's Company"
                     },
                     "actions": {
                         "guid": "cf9e6154-82dc-43ac-8de9-76970032fed4",
@@ -1561,8 +1552,7 @@
                         "global_augments": [],
                         "army_augments": [],
                         "enemy_army_augments": [],
-                        "army_name": "Poria Macroorganism",
-                        "portrait": "../assets/portraits/commanderminiportraits/Commadnerportraits1_0023_newravager800.png"
+                        "army_name": "Poria Macroorganism"
                     },
                     "actions": {
                         "guid": "5c20f1da-ec59-4531-9b2e-6ebd4b440aec",
@@ -1617,8 +1607,7 @@
                         "global_augments": [],
                         "army_augments": [],
                         "enemy_army_augments": [],
-                        "army_name": "Rodent Horde",
-                        "portrait": "../assets/portraits/commanderminiportraits/Commadnerportraits1_0005_Untitled-1_0016_DSC00464.jpg.png"
+                        "army_name": "Rodent Horde"
                     },
                     "actions": {
                         "guid": "30ad51fa-b61b-48d5-8bdc-20591ec4227d",
@@ -1720,102 +1709,6 @@
                     },
                     "inaction_limit": 20,
                     "can_flee": true,
-                    "faithful": false
-                },
-                {
-                    "guid": "aff553bb-a721-4b0d-aaf2-9a6d8907027e",
-                    "id": "ESPARMAGE",
-                    "name": "Espar Mage",
-                    "max_hp": 40,
-                    "starting_hp": 40,
-                    "max_mana": 6,
-                    "starting_mana": 0,
-                    "mana_growth": 0,
-                    "phys_defense": 9,
-                    "spec_defense": 16,
-                    "speed": 16,
-                    "strength": 5,
-                    "intelligence": 21,
-                    "luck": 10,
-                    "bravery": 80,
-                    "can_flee": true,
-                    "inaction_limit": 20,
-                    "movement": 1,
-                    "movement_strategy": "ADVANCE",
-                    "holding_distance": 4,
-                    "point_value": 25,
-                    "presentation": {
-                        "guid": "62c40866-890e-4b0e-a9c2-7e5a8f5d0101",
-                        "description": "Accursed Erulean Astronomer",
-                        "portrait": "../assets/portraitspng/mirrormask2.png",
-                        "sprite_sheet": "../assets/sprites/20fsprite/esparmage20fv1.png",
-                        "animation_speed": 2,
-                        "effect_offset": {
-                            "guid": "0e9590bc-420c-4696-8b5c-69ca6b9b2567",
-                            "x": 0,
-                            "y": 1,
-                            "z": 0
-                        }
-                    },
-                    "is_commander": false,
-                    "commander_data": {},
-                    "actions": {
-                        "guid": "da775273-bfc3-4d29-9bd9-944ea73554a4",
-                        "passive_action": "",
-                        "primary_action": "aa0672e6-6256-40d5-bc66-0c4e3a181853",
-                        "special_action": "c6f7aa32-037b-48f3-abb9-452996003c0f"
-                    },
-                    "faithful": false
-                },
-                {
-                    "guid": "50380f2a-9a55-4ff3-ac7a-f3514035bfa7",
-                    "id": "GARGARA",
-                    "name": "Gargara",
-                    "max_hp": 200,
-                    "starting_hp": 200,
-                    "max_mana": 10,
-                    "starting_mana": 0,
-                    "mana_growth": 0,
-                    "phys_defense": 12,
-                    "spec_defense": 15,
-                    "speed": 15,
-                    "strength": 20,
-                    "intelligence": 19,
-                    "luck": 25,
-                    "bravery": 80,
-                    "can_flee": true,
-                    "inaction_limit": 20,
-                    "movement": 1,
-                    "movement_strategy": "ADVANCE",
-                    "holding_distance": 0,
-                    "point_value": 50,
-                    "presentation": {
-                        "guid": "058996ee-ca88-413c-b2fa-0d9d5a057506",
-                        "description": "Creature of might",
-                        "portrait": "../assets/portraitspng/bullm.png",
-                        "sprite_sheet": "../assets/sprites/20fsprite/gargara20fv1.png",
-                        "animation_speed": 2,
-                        "effect_offset": {}
-                    },
-                    "is_commander": true,
-                    "commander_data": {
-                        "guid": "16cb7cf7-16a4-4fc2-84a3-ebe773d0ee68",
-                        "leadership": 150,
-                        "point_limit": 200,
-                        "grid_size_x": 10,
-                        "grid_size_y": 10,
-                        "global_augments": [],
-                        "army_augments": [],
-                        "enemy_army_augments": [],
-                        "army_name": "Gargara Legion",
-                        "portrait": "../assets/portraits/commanderminiportraits/Commadnerportraits1_0016_bull800.png"
-                    },
-                    "actions": {
-                        "guid": "ad2bf2d6-4694-4aae-a22d-e425f1c70ea3",
-                        "passive_action": "",
-                        "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
-                        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad"
-                    },
                     "faithful": false
                 }
             ],
@@ -2122,19 +2015,6 @@
                         "name": "text",
                         "description": "text",
                         "defaultValue": "longtext"
-                    }
-                },
-                {
-                    "typeStr": "image",
-                    "guid": "432516c6-2cbb-45d7-a922-3f523721bc26",
-                    "name": "portrait",
-                    "description": "portrait",
-                    "defaultValue": "",
-                    "iconName": "newImage",
-                    "configurable": {
-                        "name": "text",
-                        "description": "text",
-                        "defaultValue": "text"
                     }
                 }
             ],
@@ -2547,48 +2427,13 @@
                         "augment": "",
                         "crit_augment": ""
                     },
-                    "heal_props": {
-                        "guid": "2f98a0f5-e154-4a0b-a84a-07281e326bf8",
-                        "hp": 0,
-                        "decay": 0,
-                        "should_target_full_hp": false
-                    },
-                    "basic_augment_action_props": {
-                        "guid": "2913d43e-f277-472b-96b6-4a9ba0462ccc",
-                        "should_reapply": false,
-                        "augment": "",
-                        "should_target_enemy": false
-                    },
-                    "mana_action_props": {
-                        "guid": "eb66f64d-7144-493a-bc76-f0b35e5fddcb",
-                        "should_target_enemy": false,
-                        "mana_amount": 0,
-                        "should_target_full_mp": false,
-                        "tag_augment": ""
-                    },
+                    "heal_props": {},
+                    "basic_augment_action_props": {},
+                    "mana_action_props": {},
                     "approach_strategy": "HOLD",
                     "target_self": false,
-                    "augment_action_props": {
-                        "guid": "48cf8c44-dd99-4d62-9bef-be3114efb797",
-                        "augments": [],
-                        "crit_augments": [],
-                        "should_reapply": false,
-                        "should_target_enemy": false
-                    },
-                    "dispel_action_props": {
-                        "guid": "2d1e55a1-a91c-4554-b559-d4d6c019635c",
-                        "mode": "TARGET",
-                        "domain": "UNIT, ARMY, GLOBAL",
-                        "target": "PHYSICAL_DEFENSE",
-                        "augment_name": "",
-                        "unique_identifier": "",
-                        "type": "BUFF",
-                        "force_dispel": false,
-                        "force_on_crit": false,
-                        "should_target_enemy": false,
-                        "only_target_augmented_units": true,
-                        "ignore_target_allegiance": false
-                    },
+                    "augment_action_props": {},
+                    "dispel_action_props": {},
                     "tag_action_props": {
                         "guid": "7d31b468-1ecb-4897-9687-5f1aac7cb6e1",
                         "tag_augment": "",
@@ -3264,13 +3109,13 @@
                         "guid": "39d16d3a-02d8-48bf-a684-61e91e04d1b1",
                         "base_phys_damage": 0,
                         "unit_strength_modifier": 0,
-                        "target_phys_defense_modifier": 1,
+                        "target_phys_defense_modifier": 0,
                         "base_magic_damage": 0,
                         "unit_int_modifier": 0,
                         "target_spec_defense_modifier": 0,
                         "base_dex_damage": 0,
-                        "unit_speed_modifier": 1,
-                        "target_speed_modifier": 0,
+                        "unit_speed_modifier": 0.8,
+                        "target_speed_modifier": 1,
                         "crit_modifier": 2,
                         "base_damage": 1,
                         "total_damage_multiplier": 1,
@@ -3807,48 +3652,6 @@
                         "summoning_range": 2,
                         "should_target_enemy": false,
                         "summon_augment": "f2972853-f988-442d-883d-4dbb74ae2e18",
-                        "should_summon_impact_morale": false
-                    }
-                },
-                {
-                    "guid": "c6f7aa32-037b-48f3-abb9-452996003c0f",
-                    "id": "EMAGE1",
-                    "name": "Mirror Mask",
-                    "description": "Summons clone",
-                    "targeting_type": "SELF",
-                    "approach_strategy": "HOLD",
-                    "target_self": true,
-                    "targeting_range": 10,
-                    "max_targets": 1,
-                    "splash": 0,
-                    "chain": false,
-                    "should_check_evasion": false,
-                    "evasion_multiplier": 1,
-                    "can_crit": false,
-                    "crit_chance_multiplier": 1,
-                    "mana_delta": -6,
-                    "break_vanguard": false,
-                    "delay": 0.2,
-                    "action_type": "SUMMON_ACTION",
-                    "damage_action_props": {},
-                    "heal_props": {},
-                    "basic_augment_action_props": {},
-                    "mana_action_props": {},
-                    "augment_action_props": {},
-                    "dispel_action_props": {},
-                    "tag_action_props": {},
-                    "summon_action_props": {
-                        "guid": "9a9377a1-3fc9-47af-b312-878937f46903",
-                        "summons": [
-                            {
-                                "guid": "83804210-3a7f-4dd4-b386-fc8cfb170a8a",
-                                "summon": "aff553bb-a721-4b0d-aaf2-9a6d8907027e",
-                                "id": "0"
-                            }
-                        ],
-                        "summoning_range": 2,
-                        "should_target_enemy": false,
-                        "summon_augment": "",
                         "should_summon_impact_morale": false
                     }
                 }

@@ -26,9 +26,11 @@ export const useIngest = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
   const setActions = useGameStore.use.setActions();
   const setAugments = useGameStore.use.setAugments();
   const setLoaded = useGameStore.use.setLoaded();
+  const reset = useGameStore.use.reset();
 
   const ingest = React.useCallback(
     (json: string) => {
+      reset();
       try {
         const data = JSON.parse(json);
         const units = ingestUnits(data.sheets);
@@ -49,7 +51,7 @@ export const useIngest = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
         console.warn("Failed to parse JSON:", error);
       }
     },
-    [onLoaded, setActions, setAugments, setLoaded, setUnits]
+    [onLoaded, reset, setActions, setAugments, setLoaded, setUnits]
   );
 
   return { ingest, errors };

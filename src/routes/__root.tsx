@@ -2,12 +2,14 @@ import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import "../App.css";
 import { useGameStore } from "../store/useGameStore";
+import { useTestData } from "../utils/useTestData";
 
 export const Route = createRootRoute({
   component: RootComponent,
 });
 
 function RootComponent() {
+  useTestData();
   const loaded = useGameStore.use.loaded();
   return (
     <>
