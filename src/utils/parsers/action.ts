@@ -191,6 +191,6 @@ const getSummonActionProps = ({
   summons: summons.map((summon: any) => summon.summon),
   summoning_range,
   should_target_enemy,
-  summon_augment,
+  summon_augment: summon_augment || null,
   should_summon_impact_morale,
 });
