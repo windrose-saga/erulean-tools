@@ -6,12 +6,14 @@ interface ListProps<T> {
   items: T[];
   columns: Column<T>[];
   defaultIndex: keyof T;
+  onRowClick?: (item: T) => void;
 }
 
 export const List = <T extends object>({
   items,
   columns,
   defaultIndex,
+  onRowClick,
 }: ListProps<T>) => {
   const [sortField, setSortField] = useState<keyof T>(defaultIndex);
   const [reverse, setReverse] = useState(false);
@@ -73,7 +75,12 @@ export const List = <T extends object>({
       </thead>
       <tbody>
         {sortedItems.map((item) => (
-          <Row item={item} columns={columns} defaultIndex={defaultIndex}></Row>
+          <Row
+            onRowClick={onRowClick}
+            item={item}
+            columns={columns}
+            defaultIndex={defaultIndex}
+          ></Row>
         ))}
       </tbody>
     </table>

@@ -1,7 +1,10 @@
+import * as React from "react";
+
 import { useUnits } from "../store/getters/unit";
 import { Unit } from "../types/unit";
 import { Column } from "../types/list";
 import { List } from "./List";
+import { useNavigate } from "@tanstack/react-router";
 
 const unitColumns: Column<Unit>[] = [
   { name: "Name", field: "name" },
@@ -24,6 +27,20 @@ const unitColumns: Column<Unit>[] = [
 ];
 
 export const UnitList = () => {
+  const navigate = useNavigate();
   const units = useUnits();
-  return <List items={units} columns={unitColumns} defaultIndex={"id"} />;
+  const onRowClick = React.useCallback(
+    (unit: Unit) => {
+      navigate({ to: "/units/$unitId", params: { unitId: unit.guid } });
+    },
+    [navigate]
+  );
+  return (
+    <List
+      items={units}
+      columns={unitColumns}
+      defaultIndex={"id"}
+      onRowClick={onRowClick}
+    />
+  );
 };
