@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', '*.config.*'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', '*.config.*', 'routeTree.gen.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',

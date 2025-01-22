@@ -10,13 +10,13 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root';
-import { Route as DamageCalculatorImport } from './routes/damage-calculator';
-import { Route as AugmentsImport } from './routes/augments';
-import { Route as ActionsImport } from './routes/actions';
-import { Route as IndexImport } from './routes/index';
-import { Route as UnitsIndexImport } from './routes/units.index';
-import { Route as UnitsUnitIdImport } from './routes/units.$unitId';
+import { Route as rootRoute } from './routes/__root'
+import { Route as DamageCalculatorImport } from './routes/damage-calculator'
+import { Route as AugmentsImport } from './routes/augments'
+import { Route as ActionsImport } from './routes/actions'
+import { Route as IndexImport } from './routes/index'
+import { Route as UnitsIndexImport } from './routes/units.index'
+import { Route as UnitsUnitIdImport } from './routes/units.$unitId'
 
 // Create/Update Routes
 
@@ -24,122 +24,134 @@ const DamageCalculatorRoute = DamageCalculatorImport.update({
   id: '/damage-calculator',
   path: '/damage-calculator',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const AugmentsRoute = AugmentsImport.update({
   id: '/augments',
   path: '/augments',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const ActionsRoute = ActionsImport.update({
   id: '/actions',
   path: '/actions',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const UnitsIndexRoute = UnitsIndexImport.update({
   id: '/units/',
   path: '/units/',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const UnitsUnitIdRoute = UnitsUnitIdImport.update({
   id: '/units/$unitId',
   path: '/units/$unitId',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
-      id: '/';
-      path: '/';
-      fullPath: '/';
-      preLoaderRoute: typeof IndexImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
     '/actions': {
-      id: '/actions';
-      path: '/actions';
-      fullPath: '/actions';
-      preLoaderRoute: typeof ActionsImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/actions'
+      path: '/actions'
+      fullPath: '/actions'
+      preLoaderRoute: typeof ActionsImport
+      parentRoute: typeof rootRoute
+    }
     '/augments': {
-      id: '/augments';
-      path: '/augments';
-      fullPath: '/augments';
-      preLoaderRoute: typeof AugmentsImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/augments'
+      path: '/augments'
+      fullPath: '/augments'
+      preLoaderRoute: typeof AugmentsImport
+      parentRoute: typeof rootRoute
+    }
     '/damage-calculator': {
-      id: '/damage-calculator';
-      path: '/damage-calculator';
-      fullPath: '/damage-calculator';
-      preLoaderRoute: typeof DamageCalculatorImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/damage-calculator'
+      path: '/damage-calculator'
+      fullPath: '/damage-calculator'
+      preLoaderRoute: typeof DamageCalculatorImport
+      parentRoute: typeof rootRoute
+    }
     '/units/$unitId': {
-      id: '/units/$unitId';
-      path: '/units/$unitId';
-      fullPath: '/units/$unitId';
-      preLoaderRoute: typeof UnitsUnitIdImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/units/$unitId'
+      path: '/units/$unitId'
+      fullPath: '/units/$unitId'
+      preLoaderRoute: typeof UnitsUnitIdImport
+      parentRoute: typeof rootRoute
+    }
     '/units/': {
-      id: '/units/';
-      path: '/units';
-      fullPath: '/units';
-      preLoaderRoute: typeof UnitsIndexImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/units/'
+      path: '/units'
+      fullPath: '/units'
+      preLoaderRoute: typeof UnitsIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute;
-  '/actions': typeof ActionsRoute;
-  '/augments': typeof AugmentsRoute;
-  '/damage-calculator': typeof DamageCalculatorRoute;
-  '/units/$unitId': typeof UnitsUnitIdRoute;
-  '/units': typeof UnitsIndexRoute;
+  '/': typeof IndexRoute
+  '/actions': typeof ActionsRoute
+  '/augments': typeof AugmentsRoute
+  '/damage-calculator': typeof DamageCalculatorRoute
+  '/units/$unitId': typeof UnitsUnitIdRoute
+  '/units': typeof UnitsIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute;
-  '/actions': typeof ActionsRoute;
-  '/augments': typeof AugmentsRoute;
-  '/damage-calculator': typeof DamageCalculatorRoute;
-  '/units/$unitId': typeof UnitsUnitIdRoute;
-  '/units': typeof UnitsIndexRoute;
+  '/': typeof IndexRoute
+  '/actions': typeof ActionsRoute
+  '/augments': typeof AugmentsRoute
+  '/damage-calculator': typeof DamageCalculatorRoute
+  '/units/$unitId': typeof UnitsUnitIdRoute
+  '/units': typeof UnitsIndexRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  '/': typeof IndexRoute;
-  '/actions': typeof ActionsRoute;
-  '/augments': typeof AugmentsRoute;
-  '/damage-calculator': typeof DamageCalculatorRoute;
-  '/units/$unitId': typeof UnitsUnitIdRoute;
-  '/units/': typeof UnitsIndexRoute;
+  __root__: typeof rootRoute
+  '/': typeof IndexRoute
+  '/actions': typeof ActionsRoute
+  '/augments': typeof AugmentsRoute
+  '/damage-calculator': typeof DamageCalculatorRoute
+  '/units/$unitId': typeof UnitsUnitIdRoute
+  '/units/': typeof UnitsIndexRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: '/' | '/actions' | '/augments' | '/damage-calculator' | '/units/$unitId' | '/units';
-  fileRoutesByTo: FileRoutesByTo;
-  to: '/' | '/actions' | '/augments' | '/damage-calculator' | '/units/$unitId' | '/units';
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths:
+    | '/'
+    | '/actions'
+    | '/augments'
+    | '/damage-calculator'
+    | '/units/$unitId'
+    | '/units'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/actions'
+    | '/augments'
+    | '/damage-calculator'
+    | '/units/$unitId'
+    | '/units'
   id:
     | '__root__'
     | '/'
@@ -147,17 +159,17 @@ export interface FileRouteTypes {
     | '/augments'
     | '/damage-calculator'
     | '/units/$unitId'
-    | '/units/';
-  fileRoutesById: FileRoutesById;
+    | '/units/'
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
-  ActionsRoute: typeof ActionsRoute;
-  AugmentsRoute: typeof AugmentsRoute;
-  DamageCalculatorRoute: typeof DamageCalculatorRoute;
-  UnitsUnitIdRoute: typeof UnitsUnitIdRoute;
-  UnitsIndexRoute: typeof UnitsIndexRoute;
+  IndexRoute: typeof IndexRoute
+  ActionsRoute: typeof ActionsRoute
+  AugmentsRoute: typeof AugmentsRoute
+  DamageCalculatorRoute: typeof DamageCalculatorRoute
+  UnitsUnitIdRoute: typeof UnitsUnitIdRoute
+  UnitsIndexRoute: typeof UnitsIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -167,11 +179,11 @@ const rootRouteChildren: RootRouteChildren = {
   DamageCalculatorRoute: DamageCalculatorRoute,
   UnitsUnitIdRoute: UnitsUnitIdRoute,
   UnitsIndexRoute: UnitsIndexRoute,
-};
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
