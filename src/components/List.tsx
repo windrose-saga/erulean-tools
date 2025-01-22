@@ -51,7 +51,11 @@ export const List = <T extends object>({
     <table>
       <thead>
         <tr>
-          <th></th>
+          <th
+            onClick={() => {
+              onColumnPress(defaultIndex);
+            }}
+          ></th>
           {columns.map((column) => (
             <th
               key={column.name}
