@@ -20,9 +20,13 @@ export const Row = <T extends object>({ item, columns, defaultIndex, onRowClick 
   return (
     <tr onClick={onClick}>
       <td>{[item[defaultIndex]].toString()}</td>
-      {columns.map((column) => (
-        <td key={column.name}>{item[column.field]?.toString()}</td>
-      ))}
+      {columns.map((column) => {
+        const value = item[column.field];
+        if (typeof value === 'boolean') {
+          return <td key={column.name}>{value ? <span>&#10003;</span> : ''} </td>;
+        }
+        return <td key={column.name}>{value?.toString()}</td>;
+      })}
     </tr>
   );
 };
