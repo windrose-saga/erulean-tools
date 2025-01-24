@@ -1,8 +1,10 @@
 import { useCallback, useMemo, useState } from 'react';
 
+import { ColumnFilter } from './ColumnFilter';
 import { Row } from './Row';
 
 import { Column } from '../types/list';
+import { useColumnVisibility } from '../utils/useColumnVisibility';
 
 interface ListProps<T> {
   items: T[];
@@ -22,6 +24,7 @@ export const List = <T extends object>({
   const [sortField, setSortField] = useState<keyof T>(defaultIndex);
   const [reverse, setReverse] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const { columnState, visibleColumns, toggleColumn } = useColumnVisibility(columns);
 
   const filteredItems = useMemo(() => {
     if (!searchTerm) {
@@ -74,6 +77,7 @@ export const List = <T extends object>({
       <div className="flex flex-row">
         <p>Search:</p> <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
       </div>
+      <ColumnFilter columns={columns} columnState={columnState} onColumnPress={toggleColumn} />
       <table>
         <thead>
           <tr>
@@ -82,7 +86,7 @@ export const List = <T extends object>({
                 onColumnPress(defaultIndex);
               }}
             />
-            {columns.map((column) => (
+            {visibleColumns.map((column) => (
               <th
                 key={column.name}
                 onClick={() => {
@@ -103,7 +107,7 @@ export const List = <T extends object>({
               key={item[defaultIndex] as string}
               onRowClick={onRowClick}
               item={item}
-              columns={columns}
+              columns={visibleColumns}
               defaultIndex={defaultIndex}
             />
           ))}
