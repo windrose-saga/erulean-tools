@@ -73,9 +73,10 @@ export const List = <T extends object>({
   );
 
   return (
-    <div>
+    <div className="table-wrapper">
       <div className="flex flex-row">
-        <p>Search:</p> <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+        <p>Search:</p>
+        <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
       </div>
       <ColumnFilter columns={columns} columnState={columnState} onColumnPress={toggleColumn} />
       <table>
