@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: max(calc(100% - 10rem), 1280px);
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -9,8 +9,12 @@ body {
   background-color: Canvas;
   color: CanvasText;
   color-scheme: light dark;
+  overscroll-behavior: none;
+  overflow: scroll;
 }
-
+.table-wrapper {
+  height: auto;
+}
 table {
   border: 1px solid #ddd;
   border-collapse: collapse;
