@@ -27,6 +27,8 @@ const unitColumns: Column<Unit>[] = [
   { name: 'Point Value', field: 'point_value' },
 ];
 
+const searchFields: (keyof Unit)[] = ['name', 'id', 'description'];
+
 export const UnitList = () => {
   const navigate = useNavigate();
   const units = useUnits();
@@ -36,5 +38,13 @@ export const UnitList = () => {
     },
     [navigate],
   );
-  return <List items={units} columns={unitColumns} defaultIndex="id" onRowClick={onRowClick} />;
+  return (
+    <List
+      items={units}
+      columns={unitColumns}
+      defaultIndex="id"
+      onRowClick={onRowClick}
+      searchFields={searchFields}
+    />
+  );
 };

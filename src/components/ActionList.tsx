@@ -22,7 +22,11 @@ const actionColumns: Column<Action>[] = [
   { name: 'Crit Chance Multiplier', field: 'crit_chance_multiplier' },
 ];
 
+const searchFields: (keyof Action)[] = ['name', 'id', 'description', 'action_type'];
+
 export const ActionList = () => {
   const actions = useActions();
-  return <List items={actions} columns={actionColumns} defaultIndex="id" />;
+  return (
+    <List items={actions} columns={actionColumns} defaultIndex="id" searchFields={searchFields} />
+  );
 };
