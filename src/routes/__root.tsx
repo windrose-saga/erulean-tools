@@ -10,6 +10,8 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
+  const isTestDataEnabledForCurrentEnv = !!import.meta.env.VITE_USE_TEST_DATA;
+
   useTestData();
   const loaded = useGameStore.use.loaded();
   return (
@@ -63,7 +65,7 @@ function RootComponent() {
       </div>
       <hr />
       <Outlet />
-      <TanStackRouterDevtools position="bottom-right" />
+      {isTestDataEnabledForCurrentEnv && <TanStackRouterDevtools position="bottom-right" />}
     </>
   );
 }
