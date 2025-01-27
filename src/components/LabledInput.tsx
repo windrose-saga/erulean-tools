@@ -26,7 +26,7 @@ const LabeledInput = <
     formState: { errors },
   } = useFormContext<T>();
 
-  const error = get(errors, id).message as string;
+  const error = get(errors, id)?.message as string;
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (!allowFloats && (event.key === '.' || event.key === 'e')) {
       event.preventDefault();
