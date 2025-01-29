@@ -38,6 +38,7 @@ export const UnitList = () => {
     },
     [navigate],
   );
+
   return (
     <List
       items={units}

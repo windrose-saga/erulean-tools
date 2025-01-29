@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { DEFAULT_COMMANDER_DATA } from '../../constants/unit';
 import { CommanderData, Unit } from '../../types/unit';
 
 export const getUnitData = ({
@@ -29,7 +30,9 @@ export const getUnitData = ({
   actions,
   commander_data: raw_commander_data,
 }: any): Unit => {
-  const commanderData = is_commander ? getCommanderData(raw_commander_data) : null;
+  const commanderData = getCommanderData(
+    is_commander ? (raw_commander_data as CommanderData) : DEFAULT_COMMANDER_DATA,
+  );
 
   return {
     guid,
@@ -70,7 +73,7 @@ const getCommanderData = ({
   army_augments,
   enemy_army_augments,
   army_name,
-}: any): CommanderData => ({
+}: CommanderData): CommanderData => ({
   leadership,
   point_limit,
   grid_size_x,
