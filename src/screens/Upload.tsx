@@ -2,6 +2,7 @@ import { useNavigate } from '@tanstack/react-router';
 import * as React from 'react';
 
 import { useGameStore } from '../store/useGameStore';
+import { useExportStore } from '../utils/useExportStore';
 import { useIngest } from '../utils/useIngest';
 
 const Upload: React.FC = () => {
@@ -13,6 +14,8 @@ const Upload: React.FC = () => {
   }, [navigate]);
 
   const { ingest, errors } = useIngest({ onLoaded });
+
+  const exportStore = useExportStore();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -48,7 +51,12 @@ const Upload: React.FC = () => {
           {error.message}
         </p>
       ))}
-      {loaded && <p className="text-green-500">Data loaded</p>}
+      {loaded && (
+        <>
+          <p className="text-green-500">Data loaded</p>
+          <button onClick={exportStore}>Export data</button>
+        </>
+      )}
     </div>
   );
 };
