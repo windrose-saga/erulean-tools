@@ -87,8 +87,8 @@ const validateActions = (
 
   Object.values(actions).forEach((action) => {
     if (action.action_type === 'AUGMENT_ACTION') {
-      const invalidAugments = action.augments
-        .concat(action.crit_augments)
+      const invalidAugments = action.augment_action_props.augments
+        .concat(action.augment_action_props.crit_augments)
         .filter((augmentId) => !(augmentId in augments));
 
       if (invalidAugments.length > 0) {
@@ -102,13 +102,16 @@ const validateActions = (
     }
 
     if (action.action_type === 'SUMMON_ACTION') {
-      if (action.summon_augment !== null && !(action.summon_augment in augments)) {
+      if (
+        action.summon_action_props.summon_augment !== null &&
+        !(action.summon_action_props.summon_augment in augments)
+      ) {
         errors.push({
           type: 'action',
-          message: `Summon action ${action.id} references invalid summon augment: ${action.summon_augment}`,
+          message: `Summon action ${action.id} references invalid summon augment: ${action.summon_action_props.summon_augment}`,
         });
       }
-      const invalidSummonIds = action.summons.filter((id) => !(id in units));
+      const invalidSummonIds = action.summon_action_props.summons.filter((id) => !(id in units));
       if (invalidSummonIds.length > 0) {
         errors.push({
           type: 'action',
@@ -120,9 +123,10 @@ const validateActions = (
     }
 
     if (action.action_type === 'DAMAGE_ACTION') {
-      const invalidAugments = [action.augment, action.crit_augment].filter(
-        (augmentId) => augmentId !== null && !(augmentId in augments),
-      );
+      const invalidAugments = [
+        action.damage_action_props.augment,
+        action.damage_action_props.crit_augment,
+      ].filter((augmentId) => augmentId !== null && !(augmentId in augments));
 
       if (invalidAugments.length > 0) {
         errors.push({
@@ -134,20 +138,20 @@ const validateActions = (
       }
     }
 
-    if (action.action_type === 'MANA_ACTION' && action.tag_augment !== null) {
-      if (!(action.tag_augment in augments)) {
+    if (action.action_type === 'MANA_ACTION' && action.mana_action_props.tag_augment !== null) {
+      if (!(action.mana_action_props.tag_augment in augments)) {
         errors.push({
           type: 'action',
-          message: `Mana action ${action.id} references invalid tag augment: ${action.tag_augment}`,
+          message: `Mana action ${action.id} references invalid tag augment: ${action.mana_action_props.tag_augment}`,
         });
       }
     }
 
-    if (action.action_type === 'TAG_ACTION' && action.tag_augment !== null) {
-      if (!(action.tag_augment in augments)) {
+    if (action.action_type === 'TAG_ACTION' && action.tag_action_props.tag_augment !== null) {
+      if (!(action.tag_action_props.tag_augment in augments)) {
         errors.push({
           type: 'action',
-          message: `Tag action ${action.id} references invalid tag augment: ${action.tag_augment}`,
+          message: `Tag action ${action.id} references invalid tag augment: ${action.tag_action_props.tag_augment}`,
         });
       }
     }
