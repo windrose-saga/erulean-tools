@@ -13,15 +13,13 @@ export const ColumnFilter = <T extends object>({
 }: ColumnFilterProps<T>) => (
   <div className="flex flex-row gap-2">
     {columns.map((column) => (
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-2" key={column.name}>
         <input
           type="checkbox"
           checked={columnState[column.field]}
           onChange={() => onColumnPress(column)}
         />
-        <p className="text-xs whitespace-nowrap" key={column.name}>
-          {column.name}
-        </p>
+        <p className="text-xs whitespace-nowrap">{column.name}</p>
       </div>
     ))}
   </div>
