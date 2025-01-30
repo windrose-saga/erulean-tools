@@ -1,10 +1,11 @@
+import { useNavigate } from '@tanstack/react-router';
 import * as React from 'react';
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
 
 import LabeledInputBase, { LabeledInputProps } from './LabledInput';
 import LabeledSelect from './LabledSelect';
 
-import { useUnit } from '../store/getters/unit';
+import { useUnit, useUnits } from '../store/getters/unit';
 import { Unit } from '../types/unit';
 
 type UnitInputs = Unit;
@@ -25,135 +26,219 @@ const MOVEMENT_STRATEGIES = [
 
 export const UnitDetail: React.FC<{ unitId: string }> = ({ unitId }) => {
   const unit = useUnit(unitId);
+  const units = useUnits();
 
-  const methods = useForm<UnitInputs>({ defaultValues: unit });
-  const { handleSubmit, watch } = methods;
+  const navigate = useNavigate();
+
+  const methods = useForm<UnitInputs>({ defaultValues: unit, mode: 'onChange' });
+  const {
+    handleSubmit,
+    watch,
+    reset,
+    formState: { isDirty, isValid },
+  } = methods;
   // eslint-disable-next-line no-console
   const onSubmit: SubmitHandler<UnitInputs> = (data) => console.log(data);
   const isCurrentlyCommander = watch('is_commander');
+  const buttonText = isDirty ? 'Cancel' : 'Back';
+  const initialId = unit.id;
+
+  const validateId = React.useCallback(
+    (id: string) => {
+      if (units.some((element: Unit) => element.id === id && id !== initialId)) {
+        return 'This ID is already in use';
+      }
+      return true;
+    },
+    [units, initialId],
+  );
+  const onButtonPress = React.useCallback(() => {
+    if (isDirty) reset();
+    else navigate({ to: '/units' });
+  }, [isDirty, navigate, reset]);
+
   return (
-    <>
-      <p className="font-bold text-2xl">{unit.name}</p>
-      <p className="font-bold">{unit.description}</p>
-      <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="justify-items-center mb-3">
-            <LabeledInput id="point_value" label="Point Value" type="number" allowFloats={false} />
-          </div>
-          <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
-            <LabeledInput id="max_hp" label="Max HP" type="number" allowFloats={false} />
-            <LabeledInput id="max_mana" label="Max Mana" type="number" allowFloats={false} />
-            <LabeledInput id="mana_growth" label="Mana Growth" type="number" allowFloats={false} />
-            <LabeledInput id="starting_hp" label="Starting HP" type="number" allowFloats={false} />
-            <LabeledInput
-              id="starting_mana"
-              label="Starting Mana"
-              type="number"
-              allowFloats={false}
-            />
-          </div>
-          <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
-            <LabeledInput
-              id="phys_defense"
-              label="Physical Defense"
-              type="number"
-              allowFloats={false}
-            />
-            <LabeledInput id="speed" label="Speed" type="number" allowFloats={false} />
-            <LabeledInput id="strength" label="Strength" type="number" allowFloats={false} />
-            <LabeledInput
-              id="spec_defense"
-              label="Special Defense"
-              type="number"
-              allowFloats={false}
-            />
-            <LabeledInput
-              id="intelligence"
-              label="Intelligence"
-              type="number"
-              allowFloats={false}
-            />
-            <LabeledInput id="luck" label="Luck" type="number" allowFloats={false} />
-            <LabeledInput id="bravery" label="Bravery" type="number" allowFloats={false} />
-          </div>
-          <div className="flex justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
-            <LabeledInput id="is_commander" label="Is Commander" type="checkbox" />
-            <LabeledInput id="faithful" label="Is Faithful" type="checkbox" />
-            <LabeledInput id="can_flee" label="Can Flee" type="checkbox" />
-            <LabeledInput
-              id="inaction_limit"
-              label="Inaction Limit"
-              type="number"
-              allowFloats={false}
-            />
-          </div>
-          {isCurrentlyCommander && (
-            <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
-              <LabeledInput
-                id="commander_data.leadership"
-                label="Leadership"
-                type="number"
-                allowFloats={false}
-              />
-              <LabeledInput
-                id="commander_data.point_limit"
-                label="Point Limit"
-                type="number"
-                allowFloats={false}
-              />
-              <LabeledInput
-                id="commander_data.grid_size_x"
-                label="Grid Size X"
-                type="number"
-                allowFloats={false}
-              />
-              <LabeledInput
-                id="commander_data.grid_size_y"
-                label="Grid Size Y"
-                type="number"
-                allowFloats={false}
-              />
-              <LabeledInput
-                id="commander_data.global_augments"
-                label="Global Augments"
-                type="number"
-                allowFloats={false}
-              />
-              <LabeledInput
-                id="commander_data.army_name"
-                label="Army Augments"
-                type="number"
-                allowFloats={false}
-              />
-              <LabeledInput
-                id="commander_data.enemy_army_augments"
-                label="Enemy Army Augments"
-                type="number"
-                allowFloats={false}
-              />
-              <LabeledInput id="commander_data.army_name" label="Army Name" type="text" />
-            </div>
-          )}
-          <div className="flex justify-evenly border rounded gap-3 mb-6 p-6">
-            <LabeledInput id="movement" label="Movement" type="number" allowFloats={false} />
-            <LabeledInput
-              id="holding_distance"
-              label="Holding Distance"
-              type="number"
-              allowFloats={false}
-            />
-            <LabeledSelect
-              id="movement_strategy"
-              label="Movement Strategy"
-              options={MOVEMENT_STRATEGIES}
-            />
-          </div>
-          <input
-            className="bg-gray-500 active:bg-gray-600 border-white rounded p-3"
-            type="submit"
+    <FormProvider {...methods}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="grid grid-cols-1 gap-3 mb-6 p-6">
+          <LabeledInput
+            id="id"
+            label="ID"
+            type="text"
+            pattern={{
+              value: /^[A-Z]+$/,
+              message:
+                'ID must be all caps, letters only, and contain no numbers, spaces, or symbols.',
+            }}
+            validate={validateId}
+            required
           />
-        </form>
-      </FormProvider>
-    </>
+          <LabeledInput id="name" label="Name" type="text" required />
+          <LabeledInput id="description" label="Description" type="text" required />
+          <div className="flex justify-between">
+            <LabeledInput
+              id="point_value"
+              label="Point Value"
+              type="number"
+              allowFloats={false}
+              required
+            />
+            <div className="flex flex-col gap-3 p-3">
+              <button
+                className="bg-gray-500 active:bg-gray-600 disabled:bg-gray-300 border-white rounded p-3 w-36"
+                type="submit"
+                disabled={!isDirty || !isValid}
+              >
+                Save
+              </button>
+              <button
+                className="bg-gray-500 active:bg-gray-600 border-white rounded p-3 w-36"
+                type="button"
+                onClick={onButtonPress}
+              >
+                {buttonText}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+          <LabeledInput id="max_hp" label="Max HP" type="number" allowFloats={false} required />
+          <LabeledInput id="max_mana" label="Max Mana" type="number" allowFloats={false} required />
+          <LabeledInput
+            id="mana_growth"
+            label="Mana Growth"
+            type="number"
+            allowFloats={false}
+            required
+          />
+          <LabeledInput
+            id="starting_hp"
+            label="Starting HP"
+            type="number"
+            allowFloats={false}
+            required
+          />
+          <LabeledInput
+            id="starting_mana"
+            label="Starting Mana"
+            type="number"
+            allowFloats={false}
+            required
+          />
+        </div>
+        <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+          <LabeledInput
+            id="phys_defense"
+            label="Physical Defense"
+            type="number"
+            allowFloats={false}
+            required
+          />
+          <LabeledInput id="speed" label="Speed" type="number" allowFloats={false} required />
+          <LabeledInput id="strength" label="Strength" type="number" allowFloats={false} required />
+          <LabeledInput
+            id="spec_defense"
+            label="Special Defense"
+            type="number"
+            allowFloats={false}
+            required
+          />
+          <LabeledInput
+            id="intelligence"
+            label="Intelligence"
+            type="number"
+            allowFloats={false}
+            required
+          />
+          <LabeledInput id="luck" label="Luck" type="number" allowFloats={false} required />
+          <LabeledInput id="bravery" label="Bravery" type="number" allowFloats={false} required />
+        </div>
+        <div className="flex justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+          <LabeledInput id="is_commander" label="Is Commander" type="checkbox" />
+          <LabeledInput id="faithful" label="Is Faithful" type="checkbox" />
+          <LabeledInput id="can_flee" label="Can Flee" type="checkbox" />
+          <LabeledInput
+            id="inaction_limit"
+            label="Inaction Limit"
+            type="number"
+            allowFloats={false}
+          />
+        </div>
+        {isCurrentlyCommander && (
+          <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+            <LabeledInput
+              id="commander_data.leadership"
+              label="Leadership"
+              type="number"
+              allowFloats={false}
+              required={isCurrentlyCommander}
+            />
+            <LabeledInput
+              id="commander_data.point_limit"
+              label="Point Limit"
+              type="number"
+              allowFloats={false}
+              required={isCurrentlyCommander}
+            />
+            <LabeledInput
+              id="commander_data.grid_size_x"
+              label="Grid Size X"
+              type="number"
+              allowFloats={false}
+              required={isCurrentlyCommander}
+            />
+            <LabeledInput
+              id="commander_data.grid_size_y"
+              label="Grid Size Y"
+              type="number"
+              allowFloats={false}
+              required={isCurrentlyCommander}
+            />
+            <LabeledInput
+              id="commander_data.global_augments"
+              label="Global Augments"
+              type="number"
+              allowFloats={false}
+              required={isCurrentlyCommander}
+            />
+            <LabeledInput
+              id="commander_data.army_name"
+              label="Army Augments"
+              type="number"
+              allowFloats={false}
+              required={isCurrentlyCommander}
+            />
+            <LabeledInput
+              id="commander_data.enemy_army_augments"
+              label="Enemy Army Augments"
+              type="number"
+              allowFloats={false}
+              required={isCurrentlyCommander}
+            />
+            <LabeledInput
+              id="commander_data.army_name"
+              label="Army Name"
+              type="text"
+              required={isCurrentlyCommander}
+            />
+          </div>
+        )}
+        <div className="flex justify-evenly border rounded gap-3 mb-6 p-6">
+          <LabeledInput id="movement" label="Movement" type="number" allowFloats={false} required />
+          <LabeledInput
+            id="holding_distance"
+            label="Holding Distance"
+            type="number"
+            allowFloats={false}
+            required
+          />
+          <LabeledSelect
+            id="movement_strategy"
+            label="Movement Strategy"
+            options={MOVEMENT_STRATEGIES}
+          />
+        </div>
+      </form>
+    </FormProvider>
   );
 };
