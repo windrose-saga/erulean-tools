@@ -23,7 +23,7 @@ export type Unit = {
   holding_distance: number;
   inaction_limit: number;
   is_commander: boolean;
-  commander_data: CommanderData | null;
+  commander_data: CommanderData;
   actions: Actions;
 };
 

@@ -17,7 +17,17 @@ const augmentColumns: Column<Augment>[] = [
   { name: 'Replenishable', field: 'replenishable' },
 ];
 
+const searchFields: (keyof Augment)[] = [
+  'name',
+  'id',
+  'description',
+  'augment_class',
+  'unique_identifier',
+];
+
 export const AugmentList = () => {
   const augments = useAugments();
-  return <List items={augments} columns={augmentColumns} defaultIndex="id" />;
+  return (
+    <List items={augments} columns={augmentColumns} defaultIndex="id" searchFields={searchFields} />
+  );
 };

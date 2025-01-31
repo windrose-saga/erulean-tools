@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: max(calc(100% - 10rem), 1280px);
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -9,8 +9,12 @@ body {
   background-color: Canvas;
   color: CanvasText;
   color-scheme: light dark;
+  overscroll-behavior: none;
+  overflow: scroll;
 }
-
+.table-wrapper {
+  height: auto;
+}
 table {
   border: 1px solid #ddd;
   border-collapse: collapse;
@@ -40,4 +44,21 @@ tbody tr td:first-of-type {
   position: sticky;
   left: -1px;
   z-index: 1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid CanvasText;
+  padding: 8;
+  
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
