@@ -6,6 +6,7 @@ import LabeledInputBase, { LabeledInputProps } from './LabledInput';
 import LabeledSelect from './LabledSelect';
 
 import { useUnit, useUnits } from '../store/getters/unit';
+import { useGameStore } from '../store/useGameStore';
 import { Unit } from '../types/unit';
 
 type UnitInputs = Unit;
@@ -27,6 +28,7 @@ const MOVEMENT_STRATEGIES = [
 export const UnitDetail: React.FC<{ unitId: string }> = ({ unitId }) => {
   const unit = useUnit(unitId);
   const units = useUnits();
+  const setUnit = useGameStore.use.setUnit();
 
   const navigate = useNavigate();
 
@@ -38,7 +40,10 @@ export const UnitDetail: React.FC<{ unitId: string }> = ({ unitId }) => {
     formState: { isDirty, isValid },
   } = methods;
   // eslint-disable-next-line no-console
-  const onSubmit: SubmitHandler<UnitInputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<UnitInputs> = (data) => {
+    setUnit(data);
+    navigate({ to: '/units' });
+  };
   const isCurrentlyCommander = watch('is_commander');
   const buttonText = isDirty ? 'Cancel' : 'Back';
   const initialId = unit.id;
