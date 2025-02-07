@@ -2,6 +2,7 @@ import { useNavigate } from '@tanstack/react-router';
 import * as React from 'react';
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
 
+import FormActionSelect from './FormActionSelect';
 import LabeledInputBase, { LabeledInputProps } from './LabledInput';
 import LabeledSelect from './LabledSelect';
 
@@ -157,6 +158,11 @@ export const UnitDetail: React.FC<{ unitId: string }> = ({ unitId }) => {
           />
           <LabeledInput id="luck" label="Luck" type="number" allowFloats={false} required />
           <LabeledInput id="bravery" label="Bravery" type="number" allowFloats={false} required />
+        </div>
+        <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+          <FormActionSelect label="Primary" id="actions.primary_action" />
+          <FormActionSelect label="Special" id="actions.special_action" />
+          <FormActionSelect label="Passive" id="actions.passive_action" />
         </div>
         <div className="flex justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
           <LabeledInput id="is_commander" label="Is Commander" type="checkbox" />

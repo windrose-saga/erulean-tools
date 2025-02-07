@@ -13,10 +13,11 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as DamageCalculatorImport } from './routes/damage-calculator'
 import { Route as AugmentsImport } from './routes/augments'
-import { Route as ActionsImport } from './routes/actions'
 import { Route as IndexImport } from './routes/index'
 import { Route as UnitsIndexImport } from './routes/units.index'
+import { Route as ActionsIndexImport } from './routes/actions.index'
 import { Route as UnitsUnitIdImport } from './routes/units.$unitId'
+import { Route as ActionsActionIdImport } from './routes/actions.$actionId'
 
 // Create/Update Routes
 
@@ -32,12 +33,6 @@ const AugmentsRoute = AugmentsImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const ActionsRoute = ActionsImport.update({
-  id: '/actions',
-  path: '/actions',
-  getParentRoute: () => rootRoute,
-} as any)
-
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
@@ -50,9 +45,21 @@ const UnitsIndexRoute = UnitsIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const ActionsIndexRoute = ActionsIndexImport.update({
+  id: '/actions/',
+  path: '/actions/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const UnitsUnitIdRoute = UnitsUnitIdImport.update({
   id: '/units/$unitId',
   path: '/units/$unitId',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ActionsActionIdRoute = ActionsActionIdImport.update({
+  id: '/actions/$actionId',
+  path: '/actions/$actionId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -65,13 +72,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/actions': {
-      id: '/actions'
-      path: '/actions'
-      fullPath: '/actions'
-      preLoaderRoute: typeof ActionsImport
       parentRoute: typeof rootRoute
     }
     '/augments': {
@@ -88,11 +88,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DamageCalculatorImport
       parentRoute: typeof rootRoute
     }
+    '/actions/$actionId': {
+      id: '/actions/$actionId'
+      path: '/actions/$actionId'
+      fullPath: '/actions/$actionId'
+      preLoaderRoute: typeof ActionsActionIdImport
+      parentRoute: typeof rootRoute
+    }
     '/units/$unitId': {
       id: '/units/$unitId'
       path: '/units/$unitId'
       fullPath: '/units/$unitId'
       preLoaderRoute: typeof UnitsUnitIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/actions/': {
+      id: '/actions/'
+      path: '/actions'
+      fullPath: '/actions'
+      preLoaderRoute: typeof ActionsIndexImport
       parentRoute: typeof rootRoute
     }
     '/units/': {
@@ -109,29 +123,32 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/actions': typeof ActionsRoute
   '/augments': typeof AugmentsRoute
   '/damage-calculator': typeof DamageCalculatorRoute
+  '/actions/$actionId': typeof ActionsActionIdRoute
   '/units/$unitId': typeof UnitsUnitIdRoute
+  '/actions': typeof ActionsIndexRoute
   '/units': typeof UnitsIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/actions': typeof ActionsRoute
   '/augments': typeof AugmentsRoute
   '/damage-calculator': typeof DamageCalculatorRoute
+  '/actions/$actionId': typeof ActionsActionIdRoute
   '/units/$unitId': typeof UnitsUnitIdRoute
+  '/actions': typeof ActionsIndexRoute
   '/units': typeof UnitsIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/actions': typeof ActionsRoute
   '/augments': typeof AugmentsRoute
   '/damage-calculator': typeof DamageCalculatorRoute
+  '/actions/$actionId': typeof ActionsActionIdRoute
   '/units/$unitId': typeof UnitsUnitIdRoute
+  '/actions/': typeof ActionsIndexRoute
   '/units/': typeof UnitsIndexRoute
 }
 
@@ -139,45 +156,50 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/actions'
     | '/augments'
     | '/damage-calculator'
+    | '/actions/$actionId'
     | '/units/$unitId'
+    | '/actions'
     | '/units'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/actions'
     | '/augments'
     | '/damage-calculator'
+    | '/actions/$actionId'
     | '/units/$unitId'
+    | '/actions'
     | '/units'
   id:
     | '__root__'
     | '/'
-    | '/actions'
     | '/augments'
     | '/damage-calculator'
+    | '/actions/$actionId'
     | '/units/$unitId'
+    | '/actions/'
     | '/units/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ActionsRoute: typeof ActionsRoute
   AugmentsRoute: typeof AugmentsRoute
   DamageCalculatorRoute: typeof DamageCalculatorRoute
+  ActionsActionIdRoute: typeof ActionsActionIdRoute
   UnitsUnitIdRoute: typeof UnitsUnitIdRoute
+  ActionsIndexRoute: typeof ActionsIndexRoute
   UnitsIndexRoute: typeof UnitsIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ActionsRoute: ActionsRoute,
   AugmentsRoute: AugmentsRoute,
   DamageCalculatorRoute: DamageCalculatorRoute,
+  ActionsActionIdRoute: ActionsActionIdRoute,
   UnitsUnitIdRoute: UnitsUnitIdRoute,
+  ActionsIndexRoute: ActionsIndexRoute,
   UnitsIndexRoute: UnitsIndexRoute,
 }
 
@@ -192,18 +214,16 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/actions",
         "/augments",
         "/damage-calculator",
+        "/actions/$actionId",
         "/units/$unitId",
+        "/actions/",
         "/units/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
-    },
-    "/actions": {
-      "filePath": "actions.tsx"
     },
     "/augments": {
       "filePath": "augments.tsx"
@@ -211,8 +231,14 @@ export const routeTree = rootRoute
     "/damage-calculator": {
       "filePath": "damage-calculator.tsx"
     },
+    "/actions/$actionId": {
+      "filePath": "actions.$actionId.tsx"
+    },
     "/units/$unitId": {
       "filePath": "units.$unitId.tsx"
+    },
+    "/actions/": {
+      "filePath": "actions.index.tsx"
     },
     "/units/": {
       "filePath": "units.index.tsx"
