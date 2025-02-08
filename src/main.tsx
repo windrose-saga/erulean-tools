@@ -1,18 +1,16 @@
-import { RouterProvider, createMemoryHistory, createRouter } from '@tanstack/react-router';
+import { RouterProvider, createHashHistory, createRouter } from '@tanstack/react-router';
 import ReactDOM from 'react-dom/client';
 
 import { routeTree } from './routeTree.gen';
 import './index.css';
 
-const memoryHistory = createMemoryHistory({
-  initialEntries: ['/'],
-});
+const hashHistory = createHashHistory();
 
 // Set up a Router instance
 const router = createRouter({
   routeTree,
   defaultPreload: 'intent',
-  history: memoryHistory,
+  history: hashHistory,
 });
 
 // Register things for typesafety
