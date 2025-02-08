@@ -43,6 +43,7 @@ module.exports = {
         'react/button-has-type': 'off',
         'react/jsx-props-no-spreading': 'off',
         '@typescript-eslint/no-misused-promises': 'off',
+        'no-alert': 'off',
         radix: 'off',
         'import/order': [
           'error',

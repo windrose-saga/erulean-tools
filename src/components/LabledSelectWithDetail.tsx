@@ -31,8 +31,7 @@ const LabledSelectWithDetail = <T extends FieldValues>({
     (e: React.SyntheticEvent) => {
       e.preventDefault();
       if (isDirty) {
-        // eslint-disable-next-line no-alert
-        if (!window.confirm('Are you sure you want to navigate away?')) {
+        if (!window.confirm('You have unsaved changes. Are you sure you want to navigate away?')) {
           return;
         }
       }
