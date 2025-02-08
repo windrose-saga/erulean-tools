@@ -55,15 +55,15 @@ const useGameStoreBase = create<State & Actions>()(
       }),
     setUnit: (unit) =>
       set((state) => {
-        state.units[unit.id] = unit;
+        state.units[unit.guid] = unit;
       }),
     setAction: (action) =>
       set((state) => {
-        state.actions[action.id] = action;
+        state.actions[action.guid] = action;
       }),
     setAugment: (augment) =>
       set((state) => {
-        state.augments[augment.id] = augment;
+        state.augments[augment.guid] = augment;
       }),
   })),
 );

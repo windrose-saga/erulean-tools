@@ -62,3 +62,8 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+button:disabled {
+  cursor: not-allowed;
+  border-color:#808080;
+  color: #808080;
+}
