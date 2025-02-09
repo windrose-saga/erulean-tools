@@ -33,7 +33,7 @@ const LabeledInput = <
     formState: { errors },
   } = useFormContext<T>();
 
-  const error = React.useMemo(() => get(errors, id)?.message as string, [errors, id]);
+  const error = get(errors, id)?.message as string;
 
   const handleKeyDown = React.useCallback(
     (event: KeyboardEvent<HTMLInputElement>) => {
@@ -56,6 +56,7 @@ const LabeledInput = <
         onKeyDown={handleKeyDown}
         type={type}
         id={id}
+        min={allowNegativeValue ? -Infinity : 0}
         {...register(id, { required, validate, pattern })}
       />
       {error && <span className="text-red-500">{error}</span>}
