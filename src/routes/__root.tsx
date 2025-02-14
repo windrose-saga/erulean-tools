@@ -1,7 +1,9 @@
 import { Link, Outlet, createRootRoute } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
-
 import '../App.css';
+import { enableMapSet } from 'immer';
+import * as React from 'react';
+
 import { useGameStore } from '../store/useGameStore';
 import { useTestData } from '../utils/useTestData';
 
@@ -11,6 +13,10 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   const isTestDataEnabledForCurrentEnv = !!import.meta.env.VITE_USE_TEST_DATA;
+
+  React.useEffect(() => {
+    enableMapSet();
+  }, []);
 
   useTestData();
   const loaded = useGameStore.use.loaded();

@@ -2,6 +2,7 @@ import { useNavigate } from '@tanstack/react-router';
 import * as React from 'react';
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
 
+import ArraySelect from './ArraySelect';
 import FormActionSelect from './FormActionSelect';
 import LabeledInputBase, { LabeledInputProps } from './LabledInput';
 import LabeledSelect from './LabledSelect';
@@ -191,63 +192,57 @@ export const UnitDetail: React.FC<{ unitId: string }> = ({ unitId }) => {
           />
         </div>
         {isCurrentlyCommander && (
-          <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
-            <LabeledInput
-              id="commander_data.leadership"
-              label="Leadership"
-              type="number"
-              allowFloats={false}
-              required={isCurrentlyCommander}
-            />
-            <LabeledInput
-              id="commander_data.point_limit"
-              label="Point Limit"
-              type="number"
-              allowFloats={false}
-              required={isCurrentlyCommander}
-            />
-            <LabeledInput
-              id="commander_data.grid_size_x"
-              label="Grid Size X"
-              type="number"
-              allowFloats={false}
-              required={isCurrentlyCommander}
-            />
-            <LabeledInput
-              id="commander_data.grid_size_y"
-              label="Grid Size Y"
-              type="number"
-              allowFloats={false}
-              required={isCurrentlyCommander}
-            />
-            <LabeledInput
-              id="commander_data.global_augments"
-              label="Global Augments"
-              type="number"
-              allowFloats={false}
-              required={isCurrentlyCommander}
-            />
-            <LabeledInput
-              id="commander_data.army_name"
-              label="Army Augments"
-              type="number"
-              allowFloats={false}
-              required={isCurrentlyCommander}
-            />
-            <LabeledInput
-              id="commander_data.enemy_army_augments"
-              label="Enemy Army Augments"
-              type="number"
-              allowFloats={false}
-              required={isCurrentlyCommander}
-            />
-            <LabeledInput
-              id="commander_data.army_name"
-              label="Army Name"
-              type="text"
-              required={isCurrentlyCommander}
-            />
-          </div>
+          <>
+            <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+              <LabeledInput
+                id="commander_data.leadership"
+                label="Leadership"
+                type="number"
+                allowFloats={false}
+                required={isCurrentlyCommander}
+              />
+              <LabeledInput
+                id="commander_data.point_limit"
+                label="Point Limit"
+                type="number"
+                allowFloats={false}
+                required={isCurrentlyCommander}
+              />
+              <LabeledInput
+                id="commander_data.grid_size_x"
+                label="Grid Size X"
+                type="number"
+                allowFloats={false}
+                required={isCurrentlyCommander}
+              />
+              <LabeledInput
+                id="commander_data.grid_size_y"
+                label="Grid Size Y"
+                type="number"
+                allowFloats={false}
+                required={isCurrentlyCommander}
+              />
+              <LabeledInput
+                id="commander_data.army_name"
+                label="Army Name"
+                type="text"
+                required={isCurrentlyCommander}
+              />
+            </div>
+            <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+              <ArraySelect
+                type="AUGMENT"
+                label="Global Augments"
+                id="commander_data.global_augments"
+              />
+              <ArraySelect type="AUGMENT" label="Army Augments" id="commander_data.army_augments" />
+              <ArraySelect
+                type="AUGMENT"
+                label="Enemy Army Augments"
+                id="commander_data.enemy_army_augments"
+              />
+            </div>
+          </>
         )}
       </form>
     </FormProvider>
