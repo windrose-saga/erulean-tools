@@ -1,9 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 import { UnitDetail } from '../components/UnitDetail';
+import { withLoadingGate } from '../utils/withLoadingGate';
 
 export const Route = createFileRoute('/units/$unitId')({
-  component: RouteComponent,
+  component: withLoadingGate(RouteComponent),
 });
 
 function RouteComponent() {

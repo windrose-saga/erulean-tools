@@ -16,7 +16,7 @@ const ACTION_SHEET_GUID = '288ae487-6d6a-411e-b468-ab415b4ba7e6';
 const UNIT_SHEET_GUID = 'c4ca663f-445a-4bcb-bf4e-4cd51455c0a5';
 const AUGMENT_SHEET_GUID = '4d53960f-f75e-4721-ad17-90d124808b18';
 
-type ErrorType = 'unit' | 'action' | 'augment';
+type ErrorType = 'unit' | 'action' | 'augment' | 'general';
 type Error = {
   type: ErrorType;
   message: string;
@@ -30,22 +30,34 @@ export const useIngest = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
   const setAugments = useGameStore.use.setAugments();
   const setLoaded = useGameStore.use.setLoaded();
   const reset = useGameStore.use.reset();
+  const lastSaved = useGameStore.use.lastSaved();
+  const setLastSaved = useGameStore.use.setLastSaved();
 
   const ingest = React.useCallback(
     (json: string) => {
-      reset();
       try {
         const data = JSON.parse(json);
         const units = ingestUnits(data.sheets);
         const actions = ingestActions(data.sheets);
         const augments = ingestAugments(data.sheets);
         const ingestErrors = validateIngest(units, actions, augments);
+        if (
+          lastSaved &&
+          data.updatedAt < lastSaved &&
+          !window.confirm(
+            'You are loading data older than the currently loaded data. Are you sure you want to proceed?',
+          )
+        ) {
+          return;
+        }
         setErrors(ingestErrors);
+        reset();
         if (ingestErrors.length === 0) {
           setUnits(units);
           setActions(actions);
           setAugments(augments);
           setLoaded();
+          setLastSaved(data.updatedAt);
           if (onLoaded) {
             onLoaded();
           }
@@ -53,9 +65,12 @@ export const useIngest = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
       } catch (error) {
         // eslint-disable-next-line no-console
         console.warn('Failed to parse JSON:', error);
+        setErrors([
+          { type: 'general', message: 'Failed to parse JSON. See console for more info.' },
+        ]);
       }
     },
-    [onLoaded, reset, setActions, setAugments, setLoaded, setUnits],
+    [lastSaved, onLoaded, reset, setActions, setAugments, setLastSaved, setLoaded, setUnits],
   );
 
   return { ingest, errors };
