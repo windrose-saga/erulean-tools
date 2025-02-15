@@ -19,6 +19,7 @@
     "@tanstack/react-router": "^1.97.3",
     "@tanstack/router-devtools": "^1.97.3",
     "@tanstack/router-plugin": "^1.97.3",
+    "date-fns": "^4.1.0",
     "gh-pages": "^6.1.1",
     "immer": "^10.1.1",
     "lint-staged": "^15.4.1",

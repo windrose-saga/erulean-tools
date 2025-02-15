@@ -3,11 +3,13 @@ import * as React from 'react';
 import { useActions } from '../store/getters/action';
 import { useAugments } from '../store/getters/augment';
 import { useUnits } from '../store/getters/unit';
+import { useGameStore } from '../store/useGameStore';
 
 export const useExportStore = () => {
   const units = useUnits();
   const actions = useActions();
   const augments = useAugments();
+  const setLoaded = useGameStore.use.setLoaded();
 
   return React.useCallback(() => {
     const exportStore = {
@@ -23,5 +25,6 @@ export const useExportStore = () => {
     a.download = 'game-data.json';
     a.click();
     URL.revokeObjectURL(url);
-  }, [units, actions, augments]);
+    setLoaded();
+  }, [units, actions, augments, setLoaded]);
 };
