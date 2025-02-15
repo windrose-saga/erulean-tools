@@ -9,13 +9,15 @@ export const useExportStore = () => {
   const units = useUnits();
   const actions = useActions();
   const augments = useAugments();
-  const setLoaded = useGameStore.use.setLoaded();
+  const lastLoaded = useGameStore.use.lastLoaded();
+  const setExported = useGameStore.use.setExported();
 
   return React.useCallback(() => {
     const exportStore = {
       units,
       actions,
       augments,
+      updatedAt: lastLoaded,
     };
     const jsonExport = JSON.stringify(exportStore, null, 2);
     const blob = new Blob([jsonExport], { type: 'application/json' });
@@ -25,6 +27,6 @@ export const useExportStore = () => {
     a.download = 'game-data.json';
     a.click();
     URL.revokeObjectURL(url);
-    setLoaded();
-  }, [units, actions, augments, setLoaded]);
+    setExported();
+  }, [units, actions, augments, lastLoaded, setExported]);
 };

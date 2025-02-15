@@ -41,7 +41,7 @@ export const UnitDetail: React.FC<{ unitId: string }> = ({ unitId }) => {
     reset,
     formState: { isDirty, isValid },
   } = methods;
-  // eslint-disable-next-line no-console
+
   const onSubmit: SubmitHandler<UnitInputs> = (data) => {
     setUnit(data);
     navigate({ to: '/units' });

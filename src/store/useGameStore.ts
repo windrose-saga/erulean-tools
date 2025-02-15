@@ -11,6 +11,7 @@ import env from '../utils/env';
 type State = {
   loaded: boolean;
   lastLoaded: number | null;
+  lastSaved: number | null;
   units: Record<string, Unit>;
   actions: Record<string, Action>;
   augments: Record<string, Augment>;
@@ -25,11 +26,14 @@ type Actions = {
   setUnit: (unit: Unit) => void;
   setAction: (action: Action) => void;
   setAugment: (augment: Augment) => void;
+  setLastSaved: (savedAt: number) => void;
+  setExported: () => void;
 };
 
 const initialState: State = {
   loaded: false,
   lastLoaded: null,
+  lastSaved: null,
   units: {},
   actions: {},
   augments: {},
@@ -46,6 +50,16 @@ const useGameStoreBase = create<State & Actions>()(
         set((state) => {
           state.loaded = true;
           state.lastLoaded = Date.now();
+        }),
+      setLastSaved: (lastSaved) =>
+        set((state) => {
+          state.lastSaved = lastSaved;
+        }),
+      setExported: () =>
+        set((state) => {
+          const timeStamp = Date.now();
+          state.lastSaved = timeStamp;
+          state.lastLoaded = timeStamp;
         }),
       setUnits: (units) =>
         set((state) => {
