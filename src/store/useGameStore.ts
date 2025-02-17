@@ -39,7 +39,9 @@ const initialState: State = {
   augments: {},
 };
 
-const useGameStoreBase = create<State & Actions>()(
+export type GameStore = State & Actions;
+
+const useGameStoreBase = create<GameStore>()(
   persist(
     immer((set) => ({
       ...initialState,
