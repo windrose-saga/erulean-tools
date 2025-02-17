@@ -41,7 +41,7 @@ export const UnitDetail: React.FC<{ unitId: string }> = ({ unitId }) => {
     reset,
     formState: { isDirty, isValid },
   } = methods;
-  // eslint-disable-next-line no-console
+
   const onSubmit: SubmitHandler<UnitInputs> = (data) => {
     setUnit(data);
     navigate({ to: '/units' });
@@ -73,9 +73,8 @@ export const UnitDetail: React.FC<{ unitId: string }> = ({ unitId }) => {
             label="ID"
             type="text"
             pattern={{
-              value: /^[A-Z]+$/,
-              message:
-                'ID must be all caps, letters only, and contain no numbers, spaces, or symbols.',
+              value: /^[A-Z0-9]+$/,
+              message: 'ID must be all caps and letters only, and contain no spaces or symbols.',
             }}
             validate={validateId}
             required
