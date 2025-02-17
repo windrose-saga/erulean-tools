@@ -4,6 +4,7 @@ import { useActions } from '../store/getters/action';
 import { useAugments } from '../store/getters/augment';
 import { useUnits } from '../store/getters/unit';
 import { useGameStore } from '../store/useGameStore';
+import { GameData } from '../types/gameData';
 
 export const useExportStore = () => {
   const units = useUnits();
@@ -13,11 +14,11 @@ export const useExportStore = () => {
   const setExported = useGameStore.use.setExported();
 
   return React.useCallback(() => {
-    const exportStore = {
+    const exportStore: GameData = {
       units,
       actions,
       augments,
-      updatedAt: lastLoaded,
+      updatedAt: lastLoaded ?? Date.now(),
     };
     const jsonExport = JSON.stringify(exportStore, null, 2);
     const blob = new Blob([jsonExport], { type: 'application/json' });

@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { useGameStore } from '../store/useGameStore';
 import { useExportStore } from '../utils/useExportStore';
-import { useIngest } from '../utils/useIngest';
+import { useIngest, useIngestV2 } from '../utils/useIngest';
 import { useLoadedInfo } from '../utils/useLoadedInfo';
 
 const Upload: React.FC = () => {
@@ -16,7 +16,9 @@ const Upload: React.FC = () => {
 
   const { loaded, lastLoadedTime, isStale } = useLoadedInfo();
 
-  const { ingest, errors } = useIngest({ onLoaded });
+  const { ingest, errors: errorsV1 } = useIngest({ onLoaded });
+  const { ingest: ingestV2, errors: errorsV2 } = useIngestV2({ onLoaded });
+  const errors = [...errorsV1, ...errorsV2];
 
   const exportStore = useExportStore();
 
@@ -43,12 +45,32 @@ const Upload: React.FC = () => {
     }
   };
 
+  const handleUploadV2 = () => {
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsText(file);
+      fileReader.onload = () => {
+        if (fileReader.result) {
+          try {
+            ingestV2(fileReader.result as string);
+          } catch (error) {
+            // eslint-disable-next-line no-console
+            console.warn('Failed to parse JSON:', error);
+          }
+        }
+      };
+    }
+  };
+
   return (
     <div className="flex flex-col items-center">
       <div className="flex">
         <input type="file" accept=".json,.dpo" onChange={handleFileChange} />
         <button onClick={handleUpload} disabled={!file}>
-          Upload
+          Upload Depot
+        </button>
+        <button onClick={handleUploadV2} disabled={!file}>
+          Upload New Game Store
         </button>
       </div>
       {errors.map((error) => (
