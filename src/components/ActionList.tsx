@@ -1,3 +1,6 @@
+import { useNavigate } from '@tanstack/react-router';
+import React from 'react';
+
 import { List } from './List';
 
 import { useActions } from '../store/getters/action';
@@ -25,8 +28,21 @@ const actionColumns: Column<Action>[] = [
 const searchFields: (keyof Action)[] = ['name', 'id', 'description', 'action_type'];
 
 export const ActionList = () => {
+  const navigate = useNavigate();
   const actions = useActions();
+  const onRowClick = React.useCallback(
+    (action: Action) => {
+      navigate({ to: '/actions/$actionId', params: { actionId: action.guid } });
+    },
+    [navigate],
+  );
   return (
-    <List items={actions} columns={actionColumns} defaultIndex="id" searchFields={searchFields} />
+    <List
+      items={actions}
+      columns={actionColumns}
+      defaultIndex="id"
+      searchFields={searchFields}
+      onRowClick={onRowClick}
+    />
   );
 };
