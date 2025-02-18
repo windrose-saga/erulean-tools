@@ -8,125 +8,15 @@ import LabeledSelect from './LabledSelect';
 
 import { useAction, useActions } from '../store/getters/action';
 import { useGameStore } from '../store/useGameStore';
-import { Action } from '../types/action';
-
-// temp constants... where should these live?
-const ACTION_TYPES = [
-  {
-    name: 'Damage Action',
-    value: 'DAMAGE_ACTION',
-  },
-  {
-    name: 'Heal',
-    value: 'HEAL',
-  },
-  {
-    name: 'Mana Action',
-    value: 'MANA_ACTION',
-  },
-  {
-    name: 'Augment Action',
-    value: 'AUGMENT_ACTION',
-  },
-  {
-    name: 'Dispel Action',
-    value: 'DISPEL_ACTION',
-  },
-  {
-    name: 'Tag Action',
-    value: 'TAG_ACTION',
-  },
-  {
-    name: 'Summon Action',
-    value: 'SUMMON_ACTION',
-  },
-];
-
-const TARGETING_TYPES = [
-  {
-    name: 'Exact',
-    value: 'EXACT',
-  },
-  {
-    name: 'Up to',
-    value: 'UP_TO',
-  },
-  {
-    name: 'Self',
-    value: 'SELF',
-  },
-];
-
-const APPROACH_STRATEGIES = [
-  {
-    name: 'Hold',
-    value: 'HOLD',
-  },
-  {
-    name: 'Proceed',
-    value: 'PROCEED',
-  },
-];
-
-const DISPEL_ACTION_MODES = [
-  {
-    name: 'Target',
-    value: 'TARGET',
-  },
-  {
-    name: 'All',
-    value: 'ALL',
-  },
-  {
-    name: 'Name',
-    value: 'NAME',
-  },
-  {
-    name: 'Unique Identifier',
-    value: 'UNIQUE_IDENTIFIER',
-  },
-  {
-    name: 'Type',
-    value: 'TYPE',
-  },
-];
-
-const AUGMENT_DOMAINS = [
-  {
-    name: 'Unit',
-    value: 'UNIT',
-  },
-  {
-    name: 'Army',
-    value: 'ARMY',
-  },
-  {
-    name: 'Global',
-    value: 'GLOBAL',
-  },
-];
-
-const AUGMENT_TARGETS = [
-  {
-    name: 'Damage',
-    value: 'DAMAGE',
-  },
-  {
-    name: 'Allegiance',
-    value: 'ALLEGIANCE',
-  },
-];
-
-const AUGMENT_BUFF_TYPES = [
-  {
-    name: 'Buff',
-    value: 'BUFF',
-  },
-  {
-    name: 'Debuff',
-    value: 'DEBUFF',
-  },
-];
+import {
+  Action,
+  ACTION_TYPES,
+  APPROACH_STRATEGIES,
+  DISPEL_ACTION_MODES,
+  TARGETING_TYPES,
+} from '../types/action';
+import { AUGMENT_BUFF_TYPES, AUGMENT_DOMAINS, AUGMENT_TARGETS } from '../types/augment';
+import { createSelectOptions } from '../utils/createSelectOptions';
 
 export const ActionDetail: React.FC<{ actionId: string }> = ({ actionId }) => {
   const action = useAction(actionId);
@@ -330,17 +220,17 @@ export const ActionDetail: React.FC<{ actionId: string }> = ({ actionId }) => {
             <LabeledSelect
               id="dispel_action_props.mode"
               label="Mode"
-              options={DISPEL_ACTION_MODES}
+              options={createSelectOptions(DISPEL_ACTION_MODES)}
             />
             <LabeledSelect
               id="dispel_action_props.domain"
               label="Domain"
-              options={AUGMENT_DOMAINS}
+              options={createSelectOptions(AUGMENT_DOMAINS)}
             />
             <LabeledSelect
               id="dispel_action_props.target"
               label="Target"
-              options={AUGMENT_TARGETS}
+              options={createSelectOptions(AUGMENT_TARGETS)}
             />
             <LabeledInput
               id="dispel_action_props.augment_name"
@@ -357,7 +247,7 @@ export const ActionDetail: React.FC<{ actionId: string }> = ({ actionId }) => {
             <LabeledSelect
               id="dispel_action_props.type"
               label="Type"
-              options={AUGMENT_BUFF_TYPES}
+              options={createSelectOptions(AUGMENT_BUFF_TYPES)}
             />
             <LabeledInput
               id="dispel_action_props.force_dispel"
@@ -467,7 +357,11 @@ export const ActionDetail: React.FC<{ actionId: string }> = ({ actionId }) => {
                 allowNegativeValue
                 required
               />
-              <LabeledSelect id="action_type" label="Action Type" options={ACTION_TYPES} />
+              <LabeledSelect
+                id="action_type"
+                label="Action Type"
+                options={createSelectOptions(ACTION_TYPES)}
+              />
             </div>
             <div className="flex flex-col gap-3 p-3">
               <button
@@ -489,11 +383,15 @@ export const ActionDetail: React.FC<{ actionId: string }> = ({ actionId }) => {
         </div>
 
         <div className="grid grid-cols-2 border rounded justify-items-center gap-3 mb-6 p-6">
-          <LabeledSelect id="targeting_type" label="Targeting Type" options={TARGETING_TYPES} />
+          <LabeledSelect
+            id="targeting_type"
+            label="Targeting Type"
+            options={createSelectOptions(TARGETING_TYPES)}
+          />
           <LabeledSelect
             id="approach_strategy"
             label="Approach Strategy"
-            options={APPROACH_STRATEGIES}
+            options={createSelectOptions(APPROACH_STRATEGIES)}
           />
           <LabeledInput
             id="targeting_range"

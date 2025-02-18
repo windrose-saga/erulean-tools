@@ -1,21 +1,38 @@
-export type Stats =
-  | 'PHYSICAL_DEFENSE'
-  | 'SPECIAL_DEFENSE'
-  | 'SPEED'
-  | 'STRENGTH'
-  | 'INTELLIGENCE'
-  | 'LUCK'
-  | 'BRAVERY'
-  | 'MOVEMENT';
+const AUGMENT_STATS = [
+  'PHYSICAL_DEFENSE',
+  'SPECIAL_DEFENSE',
+  'SPEED',
+  'STRENGTH',
+  'INTELLIGENCE',
+  'LUCK',
+  'BRAVERY',
+  'MOVEMENT',
+] as const satisfies string[];
+type AugmentStats = typeof AUGMENT_STATS;
+export type AugmentStat = AugmentStats[number];
 
 export type AugmentType = 'DOT' | 'FLAT_STAT' | 'STAT_MULT' | 'ALLEGIANCE' | 'TAG' | 'DOOM';
 
-export type AugmentResource = 'HEALTH' | 'MANA';
-export type AugmentTarget = Stats | AugmentResource | 'DAMAGE' | 'ALLEGIANCE';
+const AUGMENT_RESOURCES = ['HEALTH', 'MANA'] as const satisfies string[];
+type AugmentResources = typeof AUGMENT_RESOURCES;
+export type AugmentResource = AugmentResources[number];
 
-export type AugmentBuffType = 'BUFF' | 'DEBUFF';
+export const AUGMENT_TARGETS = [
+  ...AUGMENT_STATS,
+  ...AUGMENT_RESOURCES,
+  'DAMAGE',
+  'ALLEGIANCE',
+] as const satisfies string[];
+type AugmentTargets = typeof AUGMENT_TARGETS;
+export type AugmentTarget = AugmentTargets[number];
 
-export type AugmentDomain = 'UNIT' | 'ARMY' | 'GLOBAL';
+export const AUGMENT_BUFF_TYPES = ['BUFF', 'DEBUFF'] as const satisfies string[];
+type AugmentBuffTypes = typeof AUGMENT_BUFF_TYPES;
+export type AugmentBuffType = AugmentBuffTypes[number];
+
+export const AUGMENT_DOMAINS = ['UNIT', 'ARMY', 'GLOBAL'] as const satisfies string[];
+type AugmentDomains = typeof AUGMENT_DOMAINS;
+export type AugmentDomain = AugmentDomains[number];
 
 export type Augment = {
   guid: string;
@@ -45,12 +62,12 @@ export type DotAugmentProps = {
 };
 
 export type StatMultProps = {
-  stat: Stats;
+  stat: AugmentStat;
   multiplier: number;
 };
 
 export type FlatStatProps = {
-  stat: Stats;
+  stat: AugmentStat;
   amount: number;
 };
 

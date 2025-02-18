@@ -9,23 +9,12 @@ import LabeledSelect from './LabledSelect';
 
 import { useUnit, useUnits } from '../store/getters/unit';
 import { useGameStore } from '../store/useGameStore';
-import { Unit } from '../types/unit';
+import { MOVEMENT_STRATEGIES, Unit } from '../types/unit';
+import { createSelectOptions } from '../utils/createSelectOptions';
 
 type UnitInputs = Unit;
 
 const LabeledInput = (props: LabeledInputProps<Unit>) => <LabeledInputBase<Unit> {...props} />;
-
-// temp constant for now
-const MOVEMENT_STRATEGIES = [
-  {
-    name: 'Advance',
-    value: 'ADVANCE',
-  },
-  {
-    name: 'Keep Distance',
-    value: 'KEEP_DISTANCE',
-  },
-];
 
 export const UnitDetail: React.FC<{ unitId: string }> = ({ unitId }) => {
   const unit = useUnit(unitId);
@@ -171,7 +160,7 @@ export const UnitDetail: React.FC<{ unitId: string }> = ({ unitId }) => {
           <LabeledSelect
             id="movement_strategy"
             label="Movement Strategy"
-            options={MOVEMENT_STRATEGIES}
+            options={createSelectOptions(MOVEMENT_STRATEGIES)}
           />
         </div>
         <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
