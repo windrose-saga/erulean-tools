@@ -1,8 +1,8 @@
 import { PropsWithChildren, useMemo, useState } from 'react';
 
-import ActionForm from '../components/ActionForm';
+import CalculatorActionForm from '../components/CalculatorActionForm';
+import CalculatorUnitForm from '../components/CalculatorUnitForm';
 import LabeledValue from '../components/LabeledValue';
-import UnitForm from '../components/UnitForm';
 import { DEFAULT_ACTION_DATA } from '../constants/action';
 import { Action } from '../types/action';
 import { Unit } from '../types/unit';
@@ -94,9 +94,9 @@ function DamageCalculator() {
   return (
     <div>
       <div className="flex flex-row justify-between">
-        <UnitForm title="Actor" setStats={setUnitStats} stats={unitStats} />
-        <ActionForm params={params} setParams={setParams} />
-        <UnitForm title="Target" setStats={setTargetStats} stats={targetStats} />
+        <CalculatorUnitForm title="Actor" setStats={setUnitStats} stats={unitStats} />
+        <CalculatorActionForm params={params} setParams={setParams} />
+        <CalculatorUnitForm title="Target" setStats={setTargetStats} stats={targetStats} />
       </div>
       {/* PHYS */}
       <div className="flex flex-col self-center gap-4">

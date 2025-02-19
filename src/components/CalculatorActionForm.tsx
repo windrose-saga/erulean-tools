@@ -6,7 +6,7 @@ type Props = {
   params: Action;
   setParams(val: Action | ((stats: Action) => Action)): void;
 };
-const ActionForm: React.FC<Props> = ({ setParams, params }) => {
+const CalculatorActionForm: React.FC<Props> = ({ setParams, params }) => {
   const damageParams = params.damage_action_props;
   return (
     <form
@@ -149,4 +149,4 @@ const ActionForm: React.FC<Props> = ({ setParams, params }) => {
   );
 };
 
-export default ActionForm;
+export default CalculatorActionForm;
