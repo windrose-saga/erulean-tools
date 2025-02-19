@@ -13,6 +13,7 @@ export interface LabeledInputProps<
   pattern?: ValidationRule<RegExp> | undefined;
   required?: boolean;
   validate?: (value: string) => boolean | string;
+  disabled?: boolean;
 }
 
 const LabeledInput = <
@@ -27,6 +28,7 @@ const LabeledInput = <
   pattern,
   required = false,
   validate,
+  disabled = false,
 }: LabeledInputProps<T, K>) => {
   const {
     register,
@@ -58,6 +60,7 @@ const LabeledInput = <
         id={id}
         min={allowNegativeValue ? -Infinity : 0}
         {...register(id, { required, validate, pattern })}
+        disabled={disabled}
       />
       {error && <span className="text-red-500">{error}</span>}
     </div>

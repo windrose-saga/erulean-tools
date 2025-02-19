@@ -1,4 +1,4 @@
-const AUGMENT_STATS = [
+export const AUGMENT_STATS = [
   'PHYSICAL_DEFENSE',
   'SPECIAL_DEFENSE',
   'SPEED',
@@ -11,9 +11,18 @@ const AUGMENT_STATS = [
 type AugmentStats = typeof AUGMENT_STATS;
 export type AugmentStat = AugmentStats[number];
 
-export type AugmentType = 'DOT' | 'FLAT_STAT' | 'STAT_MULT' | 'ALLEGIANCE' | 'TAG' | 'DOOM';
+export const AUGMENT_TYPES = [
+  'DOT',
+  'FLAT_STAT',
+  'STAT_MULT',
+  'ALLEGIANCE',
+  'TAG',
+  'DOOM',
+] as const satisfies string[];
+type AugmentTypes = typeof AUGMENT_TYPES;
+export type AugmentType = AugmentTypes[number];
 
-const AUGMENT_RESOURCES = ['HEALTH', 'MANA'] as const satisfies string[];
+export const AUGMENT_RESOURCES = ['HEALTH', 'MANA'] as const satisfies string[];
 type AugmentResources = typeof AUGMENT_RESOURCES;
 export type AugmentResource = AugmentResources[number];
 
@@ -57,8 +66,8 @@ export type DotAugmentProps = {
   flat_damage: number;
   phys_def_reduction_modifier: number;
   spec_def_reduction_modifier: number;
-  resource: 'HEALTH' | 'MANA';
-  resolution_type: 'UNIT';
+  resource: AugmentResources;
+  resolution_type: AugmentDomain;
 };
 
 export type StatMultProps = {
@@ -69,16 +78,4 @@ export type StatMultProps = {
 export type FlatStatProps = {
   stat: AugmentStat;
   amount: number;
-};
-
-export type AllegianceAugmentProps = {
-  augment_class: 'ALLEGIANCE';
-};
-
-export type TagAugmentProps = {
-  augment_class: 'TAG';
-};
-
-export type DoomAugmentProps = {
-  augment_class: 'DOOM';
 };
