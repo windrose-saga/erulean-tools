@@ -1,3 +1,6 @@
+import { useNavigate } from '@tanstack/react-router';
+import React from 'react';
+
 import { List } from './List';
 
 import { useAugments } from '../store/getters/augment';
@@ -26,13 +29,21 @@ const searchFields: (keyof Augment)[] = [
 ];
 
 export const AugmentList = () => {
+  const navigate = useNavigate();
   const augments = useAugments();
+  const onRowClick = React.useCallback(
+    (augment: Augment) => {
+      navigate({ to: '/augments/$augmentId', params: { augmentId: augment.guid } });
+    },
+    [navigate],
+  );
   return (
     <List
       items={augments}
       columns={augmentColumns}
       defaultIndex="id"
       searchFields={searchFields}
+      onRowClick={onRowClick}
       objectCreationType="augment"
     />
   );
