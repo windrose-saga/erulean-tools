@@ -66,7 +66,7 @@ export type DotAugmentProps = {
   flat_damage: number;
   phys_def_reduction_modifier: number;
   spec_def_reduction_modifier: number;
-  resource: AugmentResources;
+  resource: AugmentResource;
   resolution_type: AugmentDomain;
 };
 
