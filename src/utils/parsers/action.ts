@@ -105,6 +105,8 @@ const getDamageActionProps = ({
   base_damage,
   total_damage_multiplier,
   target_augment_self,
+  augment,
+  crit_augment,
 }: any): DamageActionData => ({
   base_phys_damage,
   unit_strength_modifier,
@@ -119,8 +121,8 @@ const getDamageActionProps = ({
   base_damage,
   total_damage_multiplier,
   target_augment_self,
-  augment: null,
-  crit_augment: null,
+  augment: augment || null,
+  crit_augment: crit_augment || null,
 });
 
 const getHealProps = ({ hp, decay, should_target_full_hp }: any): HealActionData => ({
