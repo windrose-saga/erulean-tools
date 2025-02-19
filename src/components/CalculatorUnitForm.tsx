@@ -7,7 +7,7 @@ type Props = {
   stats: Unit;
   setStats(val: Unit | ((stats: Unit) => Unit)): void;
 };
-const UnitForm: React.FC<Props> = ({ setStats, stats, title }) => (
+const CalculatorUnitForm: React.FC<Props> = ({ setStats, stats, title }) => (
   <form
     className="flex flex-col items-start"
     onChange={(e) => {
@@ -37,4 +37,4 @@ const UnitForm: React.FC<Props> = ({ setStats, stats, title }) => (
   </form>
 );
 
-export default UnitForm;
+export default CalculatorUnitForm;

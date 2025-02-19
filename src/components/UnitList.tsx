@@ -46,6 +46,7 @@ export const UnitList = () => {
       defaultIndex="id"
       onRowClick={onRowClick}
       searchFields={searchFields}
+      objectCreationType="unit"
     />
   );
 };
