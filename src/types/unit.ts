@@ -27,7 +27,9 @@ export type Unit = {
   actions: Actions;
 };
 
-export type MovementStrategy = 'ADVANCE' | 'KEEP_DISTANCE';
+export const MOVEMENT_STRATEGIES = ['ADVANCE', 'KEEP_DISTANCE'] as const satisfies string[];
+type MovementStrategies = typeof MOVEMENT_STRATEGIES;
+export type MovementStrategy = MovementStrategies[number];
 
 export type CommanderData = {
   leadership: number;

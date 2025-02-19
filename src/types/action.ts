@@ -1,17 +1,34 @@
 import { AugmentBuffType, AugmentDomain, AugmentTarget } from './augment';
 
-export type TargetingType = 'EXACT' | 'UP_TO' | 'SELF';
-export type ApproachStrategy = 'HOLD' | 'PROCEED';
-export type ActionType =
-  | 'DAMAGE_ACTION'
-  | 'HEAL'
-  | 'MANA_ACTION'
-  | 'AUGMENT_ACTION'
-  | 'DISPEL_ACTION'
-  | 'TAG_ACTION'
-  | 'SUMMON_ACTION';
+export const TARGETING_TYPES = ['EXACT', 'UP_TO', 'SELF'] as const satisfies string[];
+type TargetingTypes = typeof TARGETING_TYPES;
+export type TargetingType = TargetingTypes[number];
 
-export type DispelActionMode = 'TARGET' | 'ALL' | 'NAME' | 'UNIQUE_IDENTIFIER' | 'TYPE';
+export const APPROACH_STRATEGIES = ['HOLD', 'PROCEED'] as const satisfies string[];
+type ApproachStrategies = typeof APPROACH_STRATEGIES;
+export type ApproachStrategy = ApproachStrategies[number];
+
+export const ACTION_TYPES = [
+  'DAMAGE_ACTION',
+  'HEAL',
+  'MANA_ACTION',
+  'AUGMENT_ACTION',
+  'DISPEL_ACTION',
+  'TAG_ACTION',
+  'SUMMON_ACTION',
+] as const satisfies string[];
+type ActionTypes = typeof ACTION_TYPES;
+export type ActionType = ActionTypes[number];
+
+export const DISPEL_ACTION_MODES = [
+  'TARGET',
+  'ALL',
+  'NAME',
+  'UNIQUE_IDENTIFIER',
+  'TYPE',
+] as const satisfies string[];
+type DispelActionModes = typeof DISPEL_ACTION_MODES;
+export type DispelActionMode = DispelActionModes[number];
 
 export type Action = {
   guid: string;
