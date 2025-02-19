@@ -14,7 +14,6 @@ const CalculatorActionForm: React.FC<Props> = ({ setParams, params }) => {
       onChange={(e) => {
         setParams((curr) => {
           const updated = { ...curr };
-          // eslint-disable-next-line
           const fieldId = (e?.nativeEvent?.target as unknown as { id: string }).id ?? '';
           if (!fieldId) return updated;
           if (fieldId in updated) {
