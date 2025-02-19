@@ -3,6 +3,7 @@ import React from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 
 import ArraySelect from './ArraySelect';
+import FormActionSelect from './FormActionSelect';
 import LabeledInput from './LabledInput';
 import LabeledSelect from './LabledSelect';
 
@@ -142,8 +143,8 @@ export const ActionDetail: React.FC<{ actionId: string }> = ({ actionId }) => {
               type="number"
               required
             />
-            <LabeledInput id="damage_action_props.augment" label="Augment" type="text" />
-            <LabeledInput id="damage_action_props.crit_augment" label="Crit Augment" type="text" />
+            <FormActionSelect id="damage_action_props.augment" label="Augment" />
+            <FormActionSelect id="damage_action_props.crit_augment" label="Crit Augment" />
           </div>
         );
       case 'HEAL':
@@ -190,7 +191,7 @@ export const ActionDetail: React.FC<{ actionId: string }> = ({ actionId }) => {
               label="Should Target Full MP"
               type="checkbox"
             />
-            <LabeledInput id="mana_action_props.tag_augment" label="Tag Augment" type="text" />
+            <FormActionSelect id="mana_action_props.tag_augment" label="Tag Augment" />
           </div>
         );
       case 'AUGMENT_ACTION':
@@ -279,12 +280,7 @@ export const ActionDetail: React.FC<{ actionId: string }> = ({ actionId }) => {
       case 'TAG_ACTION':
         return (
           <div className="grid grid-cols-3 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
-            <LabeledInput
-              id="tag_action_props.tag_augment"
-              label="Tag Augment"
-              type="text"
-              required
-            />
+            <FormActionSelect id="tag_action_props.tag_augment" label="Tag Augment" />
             <LabeledInput
               id="tag_action_props.should_target_enemy"
               label="Should Target Enemy"
@@ -306,11 +302,7 @@ export const ActionDetail: React.FC<{ actionId: string }> = ({ actionId }) => {
               label="Should Target Enemy"
               type="checkbox"
             />
-            <LabeledInput
-              id="summon_action_props.summon_augment"
-              label="Summon Augment"
-              type="text"
-            />
+            <FormActionSelect id="summon_action_props.summon_augment" label="Summon Augment" />
             <LabeledInput
               id="summon_action_props.summoning_range"
               label="Summoning Range"
