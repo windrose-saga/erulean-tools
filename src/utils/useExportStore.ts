@@ -21,7 +21,8 @@ export const useExportStore = () => {
       updatedAt: lastLoaded ?? Date.now(),
     };
     const jsonExport = JSON.stringify(exportStore, null, 2);
-    const blob = new Blob([jsonExport], { type: 'application/json' });
+    const jsonExportWithNewLine = `${jsonExport}\n`;
+    const blob = new Blob([jsonExportWithNewLine], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
