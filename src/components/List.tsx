@@ -1,9 +1,11 @@
+import { Link } from '@tanstack/react-router';
 import { useCallback, useMemo, useState } from 'react';
 
 import { ColumnFilter } from './ColumnFilter';
 import { Row } from './Row';
 
 import { Column } from '../types/list';
+import { assertUnreachable } from '../utils/assertUnreachable';
 import { useColumnVisibility } from '../utils/useColumnVisibility';
 
 interface ListProps<T> {
@@ -12,6 +14,7 @@ interface ListProps<T> {
   defaultIndex: keyof T;
   onRowClick?: (item: T) => void;
   searchFields: Array<keyof T>;
+  objectCreationType: 'unit' | 'action' | 'augment';
 }
 
 export const List = <T extends object>({
@@ -20,6 +23,7 @@ export const List = <T extends object>({
   defaultIndex,
   onRowClick,
   searchFields,
+  objectCreationType,
 }: ListProps<T>) => {
   const [sortField, setSortField] = useState<keyof T>(defaultIndex);
   const [reverse, setReverse] = useState(false);
@@ -72,8 +76,28 @@ export const List = <T extends object>({
     [reverse, sortField],
   );
 
+  const createObjectPath = useMemo(() => {
+    switch (objectCreationType) {
+      case 'unit':
+        return '/units/new';
+      case 'action':
+        return '/actions/new';
+      case 'augment':
+        return '/augments/new';
+      default:
+        assertUnreachable(objectCreationType);
+        return '/';
+    }
+  }, [objectCreationType]);
+
   return (
     <div className="table-wrapper">
+      <div className="flex flex-row">
+        <Link to={createObjectPath}>
+          <button>Create New</button>
+        </Link>
+      </div>
+
       <div className="flex flex-row">
         <p>Search:</p>
         <input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />

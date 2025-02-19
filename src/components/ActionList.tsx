@@ -43,6 +43,7 @@ export const ActionList = () => {
       defaultIndex="id"
       searchFields={searchFields}
       onRowClick={onRowClick}
+      objectCreationType="action"
     />
   );
 };

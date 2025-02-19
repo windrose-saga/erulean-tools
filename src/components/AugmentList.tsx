@@ -28,6 +28,12 @@ const searchFields: (keyof Augment)[] = [
 export const AugmentList = () => {
   const augments = useAugments();
   return (
-    <List items={augments} columns={augmentColumns} defaultIndex="id" searchFields={searchFields} />
+    <List
+      items={augments}
+      columns={augmentColumns}
+      defaultIndex="id"
+      searchFields={searchFields}
+      objectCreationType="augment"
+    />
   );
 };
