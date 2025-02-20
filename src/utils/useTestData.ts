@@ -2,9 +2,9 @@ import { useNavigate } from '@tanstack/react-router';
 import * as React from 'react';
 
 import env from './env';
-import { useIngest } from './useIngest';
+import { useIngestV2 } from './useIngest';
 
-import * as data from '../../depot.json';
+import * as data from '../../game-data.json';
 
 export const useTestData = () => {
   const isTestDataEnabledForCurrentEnv = env.useTestData;
@@ -15,7 +15,7 @@ export const useTestData = () => {
     navigate({ to: '/units' });
   }, [navigate]);
 
-  const { ingest, errors } = useIngest({ onLoaded });
+  const { ingest, errors } = useIngestV2({ onLoaded });
 
   React.useEffect(() => {
     if (isTestDataEnabledForCurrentEnv && !initialized) {
