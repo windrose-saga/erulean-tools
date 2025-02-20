@@ -89,7 +89,11 @@ const Upload: React.FC = () => {
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="flex gap-2">
-        <input type="file" accept=".json,.dpo,.gd" onChange={handleFileChange} />
+        <input
+          type="file"
+          accept={showLegacyIngest ? '.json,.dpo,.gd' : '.json'}
+          onChange={handleFileChange}
+        />
         {showLegacyIngest ? (
           <>
             <button onClick={handleUpload} disabled={!file}>
