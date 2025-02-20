@@ -9,6 +9,7 @@ import { useLoadedInfo } from '../utils/useLoadedInfo';
 
 const Upload: React.FC = () => {
   const [file, setFile] = React.useState<File | null>(null);
+  const [showLegacyIngest, setShowLegacyIngest] = React.useState(false);
   const reset = useGameStore.use.reset();
   const navigate = useNavigate();
   const onLoaded = React.useCallback(() => {
@@ -86,18 +87,33 @@ const Upload: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex">
+    <div className="flex flex-col items-center gap-4">
+      <div className="flex gap-2">
         <input type="file" accept=".json,.dpo,.gd" onChange={handleFileChange} />
-        <button onClick={handleUpload} disabled={!file}>
-          Upload Depot
-        </button>
-        <button onClick={handleUploadV2} disabled={!file}>
-          Upload New Game Store
-        </button>
-        <button onClick={handleUploadUnitConstants} disabled={!(file && loaded)}>
-          Upload Unit Constants
-        </button>
+        {showLegacyIngest ? (
+          <>
+            <button onClick={handleUpload} disabled={!file}>
+              Upload Depot
+            </button>
+            <button onClick={handleUploadUnitConstants} disabled={!(file && loaded)}>
+              Upload Unit Constants
+            </button>
+          </>
+        ) : (
+          <button onClick={handleUploadV2} disabled={!file}>
+            Upload New Game Store
+          </button>
+        )}
+      </div>
+      <div className="flex items-center gap-2">
+        <label>
+          <input
+            type="checkbox"
+            checked={showLegacyIngest}
+            onChange={(e) => setShowLegacyIngest(e.target.checked)}
+          />
+          Show legacy ingest
+        </label>
       </div>
       {errors.map((error) => (
         <p className="text-red-500" key={error.message}>
