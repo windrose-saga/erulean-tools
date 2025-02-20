@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import * as React from 'react';
 
+import { generateUnitIdsMap } from './generateUnitIdsMap';
 import { getActionData } from './parsers/action';
 import { getAugmentData } from './parsers/augment';
 import { getUnitData } from './parsers/unit';
@@ -122,6 +123,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
   const setUnits = useGameStore.use.setUnits();
   const setActions = useGameStore.use.setActions();
   const setAugments = useGameStore.use.setAugments();
+  const setUnitIds = useGameStore.use.setUnitIds();
   const setLoaded = useGameStore.use.setLoaded();
   const reset = useGameStore.use.reset();
   const lastSaved = useGameStore.use.lastSaved();
@@ -134,6 +136,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
         const units = ingestUnitsV2(data.units);
         const actions = ingestActionsV2(data.actions);
         const augments = ingestAugmentsV2(data.augments);
+        const unitIds = ingestUnitIds(data);
         const ingestErrors = validateIngest(units, actions, augments);
         if (
           lastSaved &&
@@ -150,6 +153,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           setUnits(units);
           setActions(actions);
           setAugments(augments);
+          setUnitIds(unitIds);
           setLoaded();
           setLastSaved(data.updatedAt);
           if (onLoaded) {
@@ -164,7 +168,17 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
         ]);
       }
     },
-    [lastSaved, onLoaded, reset, setActions, setAugments, setLastSaved, setLoaded, setUnits],
+    [
+      lastSaved,
+      onLoaded,
+      reset,
+      setActions,
+      setAugments,
+      setLastSaved,
+      setLoaded,
+      setUnitIds,
+      setUnits,
+    ],
   );
 
   return { ingest, errors };
@@ -193,3 +207,5 @@ const ingestAugmentsV2 = (rawData: Array<Augment>) => {
   });
   return augmentData;
 };
+
+const ingestUnitIds = (rawData: GameData) => generateUnitIdsMap(rawData.units, rawData.unitIds);

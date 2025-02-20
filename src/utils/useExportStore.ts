@@ -12,12 +12,14 @@ export const useExportStore = () => {
   const augments = useAugments();
   const lastLoaded = useGameStore.use.lastLoaded();
   const setExported = useGameStore.use.setExported();
+  const unitIds = useGameStore.use.unitIds();
 
   return React.useCallback(() => {
     const exportStore: GameData = {
       units,
       actions,
       augments,
+      unitIds: Array.from(unitIds.values()),
       updatedAt: lastLoaded ?? Date.now(),
     };
     const jsonExport = JSON.stringify(exportStore, null, 2);
@@ -30,5 +32,5 @@ export const useExportStore = () => {
     a.click();
     URL.revokeObjectURL(url);
     setExported();
-  }, [units, actions, augments, lastLoaded, setExported]);
+  }, [units, actions, augments, unitIds, lastLoaded, setExported]);
 };

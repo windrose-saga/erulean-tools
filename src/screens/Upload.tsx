@@ -16,10 +16,11 @@ const Upload: React.FC = () => {
   }, [navigate]);
   const parseUnitConstants = useParseUnitConstants();
   const setUnitIds = useGameStore.use.setUnitIds();
+  const unitIds = useGameStore.use.unitIds();
 
   const { loaded, lastLoadedTime, isStale } = useLoadedInfo();
 
-  const { ingest, errors: errorsV1 } = useIngest({ onLoaded });
+  const { ingest, errors: errorsV1 } = useIngest();
   const { ingest: ingestV2, errors: errorsV2 } = useIngestV2({ onLoaded });
   const errors = [...errorsV1, ...errorsV2];
 
@@ -108,6 +109,7 @@ const Upload: React.FC = () => {
           <p className={isStale ? 'text-red-500' : 'text-green-500'}>
             Data loaded at {lastLoadedTime}
           </p>
+          <p className={isStale ? 'text-red-500' : 'text-green-500'}>{unitIds.size} units</p>
           <div className="flex flex-col max-w-64">
             <button onClick={exportStore}>Export data</button>
             <button onClick={reset}>Reset</button>

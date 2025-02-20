@@ -165,6 +165,47 @@
       }
     },
     {
+      "guid": "aff553bb-a721-4b0d-aaf2-9a6d8907027e",
+      "id": "ESPARMAGE",
+      "name": "Espar Mage",
+      "description": "Accursed Erulean Astronomer",
+      "is_commander": false,
+      "commander_data": {
+        "leadership": 0,
+        "point_limit": 0,
+        "grid_size_x": 1,
+        "grid_size_y": 1,
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": ""
+      },
+      "max_hp": 40,
+      "starting_hp": 40,
+      "max_mana": 6,
+      "starting_mana": 0,
+      "mana_growth": 0,
+      "phys_defense": 9,
+      "spec_defense": 16,
+      "speed": 16,
+      "strength": 5,
+      "intelligence": 21,
+      "luck": 10,
+      "bravery": 80,
+      "movement": 1,
+      "point_value": 25,
+      "can_flee": true,
+      "faithful": false,
+      "movement_strategy": "ADVANCE",
+      "holding_distance": 4,
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
+        "primary_action": "aa0672e6-6256-40d5-bc66-0c4e3a181853",
+        "special_action": "c6f7aa32-037b-48f3-abb9-452996003c0f"
+      }
+    },
+    {
       "guid": "a26d3a51-81f7-4be7-8c35-18b65e15c079",
       "id": "FANE",
       "name": "Fane",
@@ -244,6 +285,47 @@
         "passive_action": null,
         "primary_action": "46c93429-6f83-45b2-b4bb-ee126bdeef6c",
         "special_action": "438256c0-766d-427d-b894-1ba57e407e58"
+      }
+    },
+    {
+      "guid": "50380f2a-9a55-4ff3-ac7a-f3514035bfa7",
+      "id": "GARGARA",
+      "name": "Gargara",
+      "description": "Creature of might",
+      "is_commander": true,
+      "commander_data": {
+        "leadership": 150,
+        "point_limit": 200,
+        "grid_size_x": 10,
+        "grid_size_y": 10,
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": "Gargara Legion"
+      },
+      "max_hp": 200,
+      "starting_hp": 200,
+      "max_mana": 10,
+      "starting_mana": 0,
+      "mana_growth": 0,
+      "phys_defense": 12,
+      "spec_defense": 15,
+      "speed": 15,
+      "strength": 20,
+      "intelligence": 19,
+      "luck": 25,
+      "bravery": 80,
+      "movement": 1,
+      "point_value": 50,
+      "can_flee": true,
+      "faithful": false,
+      "movement_strategy": "ADVANCE",
+      "holding_distance": 0,
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
+        "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
+        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad"
       }
     },
     {
@@ -1318,9 +1400,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "b1ca2d87-d68d-4b9d-8b21-506ea7e480ca"
-        ],
+        "augments": ["b1ca2d87-d68d-4b9d-8b21-506ea7e480ca"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false
@@ -1400,9 +1480,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "584ace2f-6284-49ed-87f6-cb0a62527dc3"
-        ],
+        "augments": ["584ace2f-6284-49ed-87f6-cb0a62527dc3"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": true
@@ -1787,7 +1865,7 @@
         "base_damage": 1,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "augment": null,
+        "augment": "4bbab512-4c48-4a26-ae8f-cdd5efa9b491",
         "crit_augment": null
       },
       "heal_props": {
@@ -1882,9 +1960,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "9202c140-4084-41da-83f0-d840778a04df"
-        ],
+        "augments": ["9202c140-4084-41da-83f0-d840778a04df"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false
@@ -1964,9 +2040,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "f63e6ae6-8e55-4c50-b0da-9d1a9ee7fb51"
-        ],
+        "augments": ["f63e6ae6-8e55-4c50-b0da-9d1a9ee7fb51"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": true
@@ -2031,7 +2105,7 @@
         "base_damage": 1,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "augment": null,
+        "augment": "5943c08f-0ec4-4443-84e4-4bafe2cba447",
         "crit_augment": null
       },
       "heal_props": {
@@ -2351,7 +2425,7 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "augment": null,
+        "augment": "584ace2f-6284-49ed-87f6-cb0a62527dc3",
         "crit_augment": null
       },
       "heal_props": {
@@ -2392,6 +2466,86 @@
       "summon_action_props": {
         "summons": [],
         "summoning_range": 0,
+        "should_target_enemy": false,
+        "summon_augment": null,
+        "should_summon_impact_morale": false
+      }
+    },
+    {
+      "guid": "c6f7aa32-037b-48f3-abb9-452996003c0f",
+      "id": "EMAGE1",
+      "name": "Mirror Mask",
+      "description": "Summons clone",
+      "targeting_type": "SELF",
+      "targeting_range": 10,
+      "max_targets": 1,
+      "splash": 0,
+      "chain": false,
+      "should_check_evasion": false,
+      "evasion_multiplier": 1,
+      "can_crit": false,
+      "crit_chance_multiplier": 1,
+      "mana_delta": -6,
+      "break_vanguard": false,
+      "delay": 0.2,
+      "action_type": "SUMMON_ACTION",
+      "approach_strategy": "HOLD",
+      "target_self": true,
+      "damage_action_props": {
+        "base_phys_damage": 0,
+        "unit_strength_modifier": 1,
+        "target_phys_defense_modifier": 1,
+        "base_magic_damage": 0,
+        "unit_int_modifier": 1,
+        "target_spec_defense_modifier": 1,
+        "base_dex_damage": 0,
+        "unit_speed_modifier": 1,
+        "target_speed_modifier": 1,
+        "crit_modifier": 2,
+        "base_damage": 0,
+        "total_damage_multiplier": 1,
+        "target_augment_self": false,
+        "augment": null,
+        "crit_augment": null
+      },
+      "heal_props": {
+        "hp": 0,
+        "decay": 0,
+        "should_target_full_hp": false
+      },
+      "mana_action_props": {
+        "should_target_enemy": false,
+        "mana_amount": 0,
+        "should_target_full_mp": false,
+        "tag_augment": null
+      },
+      "augment_action_props": {
+        "augments": [],
+        "crit_augments": [],
+        "should_reapply": false,
+        "should_target_enemy": false
+      },
+      "dispel_action_props": {
+        "mode": "TARGET",
+        "domain": "UNIT",
+        "target": "ALLEGIANCE",
+        "augment_name": "",
+        "unique_identifier": "",
+        "type": "BUFF",
+        "force_dispel": false,
+        "force_on_crit": false,
+        "should_target_enemy": false,
+        "only_target_augmented_units": false,
+        "ignore_target_allegiance": false
+      },
+      "tag_action_props": {
+        "tag_augment": "",
+        "should_target_enemy": false,
+        "follow_tagged_unit": false
+      },
+      "summon_action_props": {
+        "summons": ["aff553bb-a721-4b0d-aaf2-9a6d8907027e"],
+        "summoning_range": 2,
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
@@ -2446,9 +2600,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "2f521c9e-2653-4fd0-981a-ba163a471f8e"
-        ],
+        "augments": ["2f521c9e-2653-4fd0-981a-ba163a471f8e"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false
@@ -2608,9 +2760,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "6da6f270-0787-4f52-bc11-5a10beaffb03"
-        ],
+        "augments": ["6da6f270-0787-4f52-bc11-5a10beaffb03"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false
@@ -2690,9 +2840,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "b1bd08ac-28c7-4870-a9b4-5a354317fbc1"
-        ],
+        "augments": ["b1bd08ac-28c7-4870-a9b4-5a354317fbc1"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false
@@ -2997,7 +3145,7 @@
         "base_damage": 1,
         "total_damage_multiplier": 1,
         "target_augment_self": true,
-        "augment": null,
+        "augment": "4bbab512-4c48-4a26-ae8f-cdd5efa9b491",
         "crit_augment": null
       },
       "heal_props": {
@@ -3276,9 +3424,7 @@
         "follow_tagged_unit": false
       },
       "summon_action_props": {
-        "summons": [
-          "919675ce-54a3-4044-8747-2a0a070af326"
-        ],
+        "summons": ["919675ce-54a3-4044-8747-2a0a070af326"],
         "summoning_range": 2,
         "should_target_enemy": false,
         "summon_augment": "f2972853-f988-442d-883d-4dbb74ae2e18",
@@ -3308,13 +3454,13 @@
       "damage_action_props": {
         "base_phys_damage": 0,
         "unit_strength_modifier": 0,
-        "target_phys_defense_modifier": 0,
+        "target_phys_defense_modifier": 1,
         "base_magic_damage": 0,
         "unit_int_modifier": 0,
         "target_spec_defense_modifier": 0,
         "base_dex_damage": 0,
-        "unit_speed_modifier": 0.8,
-        "target_speed_modifier": 1,
+        "unit_speed_modifier": 1,
+        "target_speed_modifier": 0,
         "crit_modifier": 2,
         "base_damage": 1,
         "total_damage_multiplier": 1,
@@ -3838,5 +3984,36 @@
       }
     }
   ],
-  "updatedAt": 1739942769024
+  "unitIds": [
+    "TEST",
+    "MILITIA",
+    "SPEARMAN",
+    "FORESTARCHER",
+    "MSURGEON",
+    "PMAGE",
+    "ASTROATTENDENT",
+    "ERUASTROLOGER",
+    "ISRFENCER",
+    "WARDEN",
+    "HERMIT",
+    "INDENTURED",
+    "MARCHSPEAR",
+    "MARCHBOW",
+    "DRAGOON",
+    "PRIONASSIST",
+    "CAPTIONRAVAGER",
+    "NOBLE",
+    "GMERC",
+    "MOONBLADE",
+    "STRIX",
+    "GIANTRAT",
+    "FANE",
+    "PORIA",
+    "GIANTRATCOMMANDER",
+    "UNICORN",
+    "BETRAYER",
+    "ESPARMAGE",
+    "GARGARA"
+  ],
+  "updatedAt": 1740035559868
 }

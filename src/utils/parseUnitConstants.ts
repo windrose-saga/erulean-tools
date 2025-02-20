@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { generateUnitIdsMap } from './generateUnitIdsMap';
+
 import { useUnits } from '../store/getters/unit';
 
 export const useParseUnitConstants = () => {
@@ -27,21 +29,7 @@ export const useParseUnitConstants = () => {
           throw new Error('No enum values found in Types enum');
         }
 
-        // Create a Map to store guid -> id mappings
-        const guidToId = new Map<string, string>();
-
-        // Create reverse lookup for unit id to guid
-        const idToGuid = new Map(units.map((unit) => [unit.id, unit.guid]));
-
-        // Validate each unit type exists and build the map
-        unitTypes.forEach((unitType) => {
-          const guid = idToGuid.get(unitType);
-          if (!guid) {
-            throw new Error(`Unit type '${unitType}' not found in game store`);
-          }
-          guidToId.set(guid, unitType);
-        });
-        return guidToId;
+        return generateUnitIdsMap(units, unitTypes);
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);
