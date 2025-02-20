@@ -2,6 +2,7 @@ import { useNavigate } from '@tanstack/react-router';
 import * as React from 'react';
 
 import { useGameStore } from '../store/useGameStore';
+import { useParseUnitConstants } from '../utils/parseUnitConstants';
 import { useExportStore } from '../utils/useExportStore';
 import { useIngest, useIngestV2 } from '../utils/useIngest';
 import { useLoadedInfo } from '../utils/useLoadedInfo';
@@ -13,6 +14,8 @@ const Upload: React.FC = () => {
   const onLoaded = React.useCallback(() => {
     navigate({ to: '/units' });
   }, [navigate]);
+  const parseUnitConstants = useParseUnitConstants();
+  const setUnitIds = useGameStore.use.setUnitIds();
 
   const { loaded, lastLoadedTime, isStale } = useLoadedInfo();
 
@@ -62,15 +65,37 @@ const Upload: React.FC = () => {
     }
   };
 
+  const handleUploadUnitConstants = () => {
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsText(file);
+      fileReader.onload = () => {
+        if (fileReader.result) {
+          try {
+            const unitConstants = parseUnitConstants(fileReader.result as string);
+            if (!unitConstants) return;
+            setUnitIds(unitConstants);
+          } catch (error) {
+            // eslint-disable-next-line no-console
+            console.warn('Failed to parse unit constants:', error);
+          }
+        }
+      };
+    }
+  };
+
   return (
     <div className="flex flex-col items-center">
       <div className="flex">
-        <input type="file" accept=".json,.dpo" onChange={handleFileChange} />
+        <input type="file" accept=".json,.dpo,.gd" onChange={handleFileChange} />
         <button onClick={handleUpload} disabled={!file}>
           Upload Depot
         </button>
         <button onClick={handleUploadV2} disabled={!file}>
           Upload New Game Store
+        </button>
+        <button onClick={handleUploadUnitConstants} disabled={!(file && loaded)}>
+          Upload Unit Constants
         </button>
       </div>
       {errors.map((error) => (
