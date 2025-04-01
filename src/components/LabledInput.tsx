@@ -57,6 +57,7 @@ const LabeledInput = <
         className="rounded"
         onKeyDown={handleKeyDown}
         type={type}
+        step={type === 'number' && allowFloats ? "0.01" : undefined}
         id={id}
         min={allowNegativeValue ? -Infinity : 0}
         {...register(id, { required, validate, pattern })}
