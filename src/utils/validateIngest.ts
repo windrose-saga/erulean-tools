@@ -57,6 +57,9 @@ const validateUnits = (
     }
 
     Object.values(unit.actions).forEach((action) => {
+      if (!Number.isNaN(action)) {
+        return;
+      }
       if (action !== null && !(action in actions)) {
         errors.push({
           type: 'unit',

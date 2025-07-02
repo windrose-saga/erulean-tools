@@ -14,6 +14,25 @@ export const useExportStore = () => {
   const setExported = useGameStore.use.setExported();
   const unitIds = useGameStore.use.unitIds();
 
+  // const migratedUnits = units.map((unit) => {
+  //   const primary_action = actions.find((action) => action.guid === unit.actions.primary_action);
+  //   const special_action = actions.find((action) => action.guid === unit.actions.special_action);
+  //   const passive_action = actions.find((action) => action.guid === unit.actions.passive_action);
+
+  //   const deltas: Partial<Actions> = {
+  //     primary_action_mana_delta: primary_action?.mana_delta ?? 0,
+  //     special_action_mana_delta: special_action?.mana_delta ?? 0,
+  //     passive_action_mana_delta: passive_action?.mana_delta ?? 0,
+  //   };
+  //   return {
+  //     ...unit,
+  //     actions: {
+  //       ...unit.actions,
+  //       ...deltas,
+  //     },
+  //   };
+  // });
+
   return React.useCallback(() => {
     const exportStore: GameData = {
       units,

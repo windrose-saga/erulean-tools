@@ -15,6 +15,9 @@ export const DEFAULT_ACTIONS: Actions = {
   passive_action: null,
   primary_action: null,
   special_action: null,
+  primary_action_mana_delta: 1,
+  special_action_mana_delta: -5,
+  passive_action_mana_delta: 0,
 };
 
 export const DEFAULT_UNIT: Unit = {

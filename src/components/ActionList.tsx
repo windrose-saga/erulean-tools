@@ -10,7 +10,6 @@ import { Column } from '../types/list';
 const actionColumns: Column<Action>[] = [
   { name: 'Name', field: 'name' },
   { name: 'Type', field: 'action_type' },
-  { name: 'Mana Delta', field: 'mana_delta' },
   { name: 'Break Vanguard', field: 'break_vanguard' },
   { name: 'Approach Strategy', field: 'approach_strategy' },
   { name: 'Splash', field: 'splash' },
