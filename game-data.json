@@ -4,7 +4,7 @@
       "guid": "bbdeb466-2621-4b4d-9cc0-91a15f7d14ac",
       "id": "ASTROATTENDENT",
       "name": "Astronomer's Attendent",
-      "description": "Trained support mage",
+      "description": "Student of the Erulean mysteries. Trained in the star-chalk towers of Nova under the Master Astronomers. Upon achieving mastery of orchestrated objective reasoning, Acolytes are offered in Attendance to Astronomers in the field. There, they extend their self in devotion, and test the survival of their identity. ",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -38,14 +38,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "f99bccad-b612-4a59-b55b-4248c36cabaa",
-        "special_action": "71e90cdf-37a5-4ea3-8300-52cea69baea0"
+        "special_action": "71e90cdf-37a5-4ea3-8300-52cea69baea0",
+        "primary_action_mana_delta": 1,
+        "special_action_mana_delta": -2,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "0e5f1778-c3a0-4209-9b8a-a6f835cca9e3",
       "id": "NOBLE",
       "name": "Conquesting Noble",
-      "description": "Untrained wealthy oppurtunist",
+      "description": "A wealthy opportunist on the March. They hold little real power in Lazar, but seize the chaos of wartime to invest in their own status. A few key victories could grant an audience with the March Keeper.",
       "is_commander": true,
       "commander_data": {
         "leadership": 100,
@@ -79,24 +82,27 @@
       "actions": {
         "passive_action": null,
         "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
-        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad"
+        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "463b9ce9-a714-4fa3-9025-cab1bc199477",
       "id": "ERUASTROLOGER",
       "name": "Erulean Astronomer",
-      "description": "Special class mage",
+      "description": "Masters of Erulean arcana. Sworn defenders of the Erulean Sphere Angel, Astronomers study in the star-chalk towers of Nova. Most of their lives are spent in intense observation of the deep cosmos, in search of answers to cosmic mysteries. Their mission to contain Anazarbus the Abandoned makes the Astronomer’s the primary target of the Prion Corps.",
       "is_commander": true,
       "commander_data": {
         "leadership": 120,
-        "point_limit": 250,
-        "grid_size_x": 10,
-        "grid_size_y": 12,
+        "point_limit": "9000",
+        "grid_size_x": "15",
+        "grid_size_y": "30",
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Astronomer's Troupe"
+        "army_name": "Astronomer's Retinue"
       },
       "max_hp": 20,
       "starting_hp": 20,
@@ -119,15 +125,18 @@
       "inaction_limit": 20,
       "actions": {
         "passive_action": null,
-        "primary_action": "e8d8d7c9-16f7-4bc3-8145-2356e7d59892",
-        "special_action": "9bd96ca3-7f3f-47da-b529-19c5e0a87928"
+        "primary_action": "893fdd5c-43a2-4023-bab6-d9885c41a927",
+        "special_action": "9bd96ca3-7f3f-47da-b529-19c5e0a87928",
+        "primary_action_mana_delta": "2",
+        "special_action_mana_delta": -16,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "070aa9da-fb50-4295-8419-dbba3e79606b",
       "id": "BETRAYER",
       "name": "Erulean Betrayer",
-      "description": "Accursed Erulean Astronomer",
+      "description": "An accursed Erulean Astronomer. As all selves are held thinly in fragile orchestration, one crack can shatter the mind. Even those wrought in mastery can fall when confronting Anazarbus. His will extends in brutal confusion, and seeks only to imprint.",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -161,14 +170,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "e8d8d7c9-16f7-4bc3-8145-2356e7d59892",
-        "special_action": "c6648d0d-6615-4503-856c-c2a911f98d11"
+        "special_action": "c6648d0d-6615-4503-856c-c2a911f98d11",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -6,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "aff553bb-a721-4b0d-aaf2-9a6d8907027e",
       "id": "ESPARMAGE",
       "name": "Espar Mage",
-      "description": "Accursed Erulean Astronomer",
+      "description": "Clones of a once individual academic, the Espar are the wreckage of a personality ravaged in unholy experiment. An atrocity of replication, the Espar were exiled from Nova and established their own college deep in the northern wastelands beyond Haradan.",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -202,14 +214,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "aa0672e6-6256-40d5-bc66-0c4e3a181853",
-        "special_action": "c6f7aa32-037b-48f3-abb9-452996003c0f"
+        "special_action": "c6f7aa32-037b-48f3-abb9-452996003c0f",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -6,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "a26d3a51-81f7-4be7-8c35-18b65e15c079",
       "id": "FANE",
       "name": "Fane",
-      "description": "Ancient Magic Warrior",
+      "description": "The Fane are magically rendered soldiers with allegiance to their creator. Due to their imperfect nature, they require careful stewardship and become highly erratic if abandoned.",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -243,14 +258,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
-        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad"
+        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "07865b10-8e4e-40c7-bcb4-fa3ec6674a54",
       "id": "FORESTARCHER",
       "name": "Forest Archer",
-      "description": "Trained light ranged attacker",
+      "description": "Well trained archers with technique passed down through generations of Stargard ancestors. Most at home amongst the tangled undergrowth, their keen eyes make them competent long range combatants. ",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -284,14 +302,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "46c93429-6f83-45b2-b4bb-ee126bdeef6c",
-        "special_action": "438256c0-766d-427d-b894-1ba57e407e58"
+        "special_action": "438256c0-766d-427d-b894-1ba57e407e58",
+        "primary_action_mana_delta": 1,
+        "special_action_mana_delta": -5,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "50380f2a-9a55-4ff3-ac7a-f3514035bfa7",
       "id": "GARGARA",
       "name": "Gargara",
-      "description": "Creature of might",
+      "description": "When a dragon dreams, as a beast of pure magic, their fantasies can be drawn out of them. The Gargara is such a conjuration, kidnapped from the dreams of dragons, and leaked into the material world. Intelligent and mighty, the Gargara swear no fealty. ",
       "is_commander": true,
       "commander_data": {
         "leadership": 150,
@@ -325,14 +346,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
-        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad"
+        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "100ae0e5-b515-4ca3-964c-f27d4f4cceb4",
       "id": "GIANTRAT",
       "name": "Giant Rat",
-      "description": "Giant rat",
+      "description": "The atrocious rodent.",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -366,7 +390,10 @@
       "actions": {
         "passive_action": null,
         "primary_action": "7d085912-1973-41bd-ac77-d3bfb60ad78a",
-        "special_action": "cf8bcadb-c057-4565-9f88-806527e1defa"
+        "special_action": "cf8bcadb-c057-4565-9f88-806527e1defa",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -4,
+        "passive_action_mana_delta": 0
       }
     },
     {
@@ -407,14 +434,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "7d085912-1973-41bd-ac77-d3bfb60ad78a",
-        "special_action": "cf8bcadb-c057-4565-9f88-806527e1defa"
+        "special_action": "cf8bcadb-c057-4565-9f88-806527e1defa",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -4,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "3d763012-08de-4cde-822f-76a51375923e",
       "id": "GMERC",
       "name": "Golzow Mercenary",
-      "description": "Experienced mercenary fighter",
+      "description": "Experienced soldier of fortune. They hail from lands overseas, and long to return home. The Golzow are said to be the first to strike, and the first to flee. ",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -448,14 +478,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
-        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad"
+        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "391e2547-3271-4e11-9db7-c7c00913e1a1",
       "id": "INDENTURED",
       "name": "Indentured Solider",
-      "description": "Untrained light infantry",
+      "description": "Untrained soldiers on the March, fighting for a chance of upward mobility. Through coercion, the poorest and most desperate conquered are offered a contract to fight. If they survive the term of their indenture, they earn back their freedom and a parcel of stolen land. ",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -489,14 +522,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "51bc6f1e-8e66-4226-b572-04b930f217cf",
-        "special_action": "1a2de126-b0f0-48b1-b2b7-0fdb00548ccb"
+        "special_action": "1a2de126-b0f0-48b1-b2b7-0fdb00548ccb",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "76541904-11c1-41d0-b632-3f68cd63877a",
       "id": "ISRFENCER",
       "name": "Iserlohn Fencer",
-      "description": "Highly trained fighter",
+      "description": "The warrior stewards of Iserlohn, once the seat of the ancient Eurlean Kiserike. It was the order of Fencers themselves that overthrew the noble line centuries ago. Highly skilled light infantry.",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -530,55 +566,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "aa0672e6-6256-40d5-bc66-0c4e3a181853",
-        "special_action": "7ac9ac06-bdf3-47f1-be03-e969f344e5e9"
-      }
-    },
-    {
-      "guid": "2c94b661-1590-45e1-bf05-d8ea27e4fe8c",
-      "id": "HERMIT",
-      "name": "Lupenari Hermit",
-      "description": "Mysterious forest dweller",
-      "is_commander": true,
-      "commander_data": {
-        "leadership": 100,
-        "point_limit": 150,
-        "grid_size_x": 8,
-        "grid_size_y": 6,
-        "global_augments": [],
-        "army_augments": [],
-        "enemy_army_augments": [],
-        "army_name": "Lupenari Hermit's Cohort"
-      },
-      "max_hp": 15,
-      "starting_hp": 15,
-      "max_mana": 12,
-      "starting_mana": 0,
-      "mana_growth": 0,
-      "phys_defense": 6,
-      "spec_defense": 12,
-      "speed": 15,
-      "strength": 8,
-      "intelligence": 19,
-      "luck": 25,
-      "bravery": 70,
-      "movement": 1,
-      "point_value": 15,
-      "can_flee": true,
-      "faithful": false,
-      "movement_strategy": "ADVANCE",
-      "holding_distance": 0,
-      "inaction_limit": 20,
-      "actions": {
-        "passive_action": null,
-        "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
-        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad"
+        "special_action": "7ac9ac06-bdf3-47f1-be03-e969f344e5e9",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "3ab592a9-50bc-4058-8f8b-de0085615bd5",
       "id": "MARCHBOW",
       "name": "March Bowman",
-      "description": "Trained medium ranged attacker",
+      "description": "Rank and file ranged unit on the March. When the first March colony in Meadowmere received delegates from Nova, it was an unidentified Bowman who broke order and fired at the approaching party. ",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -612,14 +610,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "46c93429-6f83-45b2-b4bb-ee126bdeef6c",
-        "special_action": "438256c0-766d-427d-b894-1ba57e407e58"
+        "special_action": "438256c0-766d-427d-b894-1ba57e407e58",
+        "primary_action_mana_delta": 1,
+        "special_action_mana_delta": -5,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "ab84404a-3a5f-48ac-b0ac-8a9765fd4ed7",
       "id": "MARCHSPEAR",
       "name": "March Cadet",
-      "description": "Trained medium infantry",
+      "description": "The March find their strength in numbers, and none in their ranks are as numerous as the Cadets. Nearly all Cadets are formerly indentured soldiers, who by one way or another resolve to abandon their heritage and adopt Lazaric skin. Medium infantry. ",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -653,20 +654,23 @@
       "actions": {
         "passive_action": null,
         "primary_action": "51bc6f1e-8e66-4226-b572-04b930f217cf",
-        "special_action": "6e9d38e9-8dc5-470e-805e-b0b062e2bf7f"
+        "special_action": "6e9d38e9-8dc5-470e-805e-b0b062e2bf7f",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "ecd7982d-fb9a-4448-ac6a-ecf476f9beec",
       "id": "CAPTIONRAVAGER",
-      "name": "March Captian Ravager",
-      "description": "Well trained fighting commander",
+      "name": "March Captain Reinhar",
+      "description": "A young and renowned Lazaric March captain. Raised a devout nationalist, Reinhar volunteered to lead the March vanguard in Erulea. He won the support of the Prion Corps when he brokered the betrayal of the Lupenari merchant lords, ending the century old Erulean peace. ",
       "is_commander": true,
       "commander_data": {
         "leadership": 130,
-        "point_limit": 300,
-        "grid_size_x": 10,
-        "grid_size_y": 16,
+        "point_limit": "9000",
+        "grid_size_x": "15",
+        "grid_size_y": "30",
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
@@ -694,14 +698,61 @@
       "actions": {
         "passive_action": null,
         "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
-        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad"
+        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
+      }
+    },
+    {
+      "guid": "952952c4-4f6f-41a5-a735-91b08676b0dd",
+      "id": "DARKSTEEL",
+      "name": "March Darksteel General",
+      "description": "High ranking commander in the Lazaric military. Promoted from within the Ulver Dragoons, the Darksteel are highly trained combatants with full recognition and support from the entire March. Other than direct orders from the March Keeper, the Darksteel act independently under their own understanding of the March’s best interests. ",
+      "is_commander": true,
+      "commander_data": {
+        "leadership": "150",
+        "point_limit": "9000",
+        "grid_size_x": "15",
+        "grid_size_y": "30",
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": "Darksteel Host "
+      },
+      "max_hp": "150",
+      "starting_hp": "150",
+      "max_mana": "10",
+      "starting_mana": "0",
+      "mana_growth": "10",
+      "phys_defense": "20",
+      "spec_defense": "15",
+      "speed": "15",
+      "strength": "19",
+      "intelligence": "12",
+      "luck": "15",
+      "bravery": "80",
+      "movement": 1,
+      "point_value": "30",
+      "can_flee": true,
+      "faithful": false,
+      "movement_strategy": "ADVANCE",
+      "holding_distance": 0,
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
+        "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
+        "special_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": 2,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "919675ce-54a3-4044-8747-2a0a070af326",
       "id": "MILITIA",
       "name": "Militia",
-      "description": "Untrained light infantry",
+      "description": "In Erulea, children are taught that justice is their right. So long held is this belief that no crown or conqueror has been able to hold dominion since the Kiserike betrayal. When the call to battle is heard, any and every Erulean will make their own judgement to join as they see fit. ",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -735,14 +786,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "51bc6f1e-8e66-4226-b572-04b930f217cf",
-        "special_action": "1a2de126-b0f0-48b1-b2b7-0fdb00548ccb"
+        "special_action": "1a2de126-b0f0-48b1-b2b7-0fdb00548ccb",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "4dedb670-d235-46ae-9ca8-272556fa668c",
       "id": "MSURGEON",
       "name": "Mithrim Surgeon",
-      "description": "Healing support mage",
+      "description": "The first Mithrim was a traveler, bound for Stargard but lost in the maze of grand forest. It’s told that he stumbled on a procession of Unicorn, dancing in step to the reverberations of the cosmos. Healing class medium infantry. ",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -776,14 +830,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "8983b004-3c40-4260-bb99-1e6cdf60cb03",
-        "special_action": "cf72fafb-be90-4f26-8503-bdad21a58392"
+        "special_action": "cf72fafb-be90-4f26-8503-bdad21a58392",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -12,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "63f0648e-eddb-4790-849e-3a6ed7984260",
       "id": "MOONBLADE",
       "name": "Moonblade Gladiator",
-      "description": "Heavy attacker",
+      "description": "Born and bred in the fighting pits of Lazar. The strongest will take contracts on the March, often leading raiding forces or patrols. Numb to the fear of death. Heavy close quarters attacker. ",
       "is_commander": true,
       "commander_data": {
         "leadership": 100,
@@ -817,14 +874,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
-        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad"
+        "special_action": "fe2b3268-84a3-438d-bb79-5a4308674c94",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": "-10",
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "637d1c1e-7994-403d-9fde-b7b9f2bb6b07",
       "id": "PMAGE",
       "name": "Plainsfolk Mage",
-      "description": "Well trained utility mage",
+      "description": "Whether by chance encounter with a creature of pure magic, or a spontaneous flash of mage sight, the Plainsfolk wanderers master arcane orchestration on their own. They are the mage school of path and trail, moving in conjunction with the Sphere Angel. ",
       "is_commander": true,
       "commander_data": {
         "leadership": 100,
@@ -858,7 +918,10 @@
       "actions": {
         "passive_action": null,
         "primary_action": "74ba2f88-f74c-4398-8c21-ea325f327b2d",
-        "special_action": "15da261e-cbd0-4519-98a7-8f702185caef"
+        "special_action": "15da261e-cbd0-4519-98a7-8f702185caef",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -12,
+        "passive_action_mana_delta": 0
       }
     },
     {
@@ -899,14 +962,61 @@
       "actions": {
         "passive_action": null,
         "primary_action": "7c998113-d97c-4e04-a43a-2bdf1c9c99d0",
-        "special_action": "cddf5a60-e7bd-413c-a316-71be8e51dd0c"
+        "special_action": "cddf5a60-e7bd-413c-a316-71be8e51dd0c",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
+      }
+    },
+    {
+      "guid": "2c94b661-1590-45e1-bf05-d8ea27e4fe8c",
+      "id": "HERMIT",
+      "name": "Precious Hermit",
+      "description": "On occasion, a young child is drawn to nature in such a way that they abandon society entirely. There, they lay in the arms of the dragon and dream, commune with unicorn and fae creatures alike. A Hermit of Erulea is a knower of secrets. A strong utility support mage. ",
+      "is_commander": true,
+      "commander_data": {
+        "leadership": 100,
+        "point_limit": 150,
+        "grid_size_x": 8,
+        "grid_size_y": 6,
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": "Lupenari Hermit's Cohort"
+      },
+      "max_hp": 15,
+      "starting_hp": 15,
+      "max_mana": 12,
+      "starting_mana": 0,
+      "mana_growth": 0,
+      "phys_defense": 6,
+      "spec_defense": 12,
+      "speed": 15,
+      "strength": 8,
+      "intelligence": 19,
+      "luck": 25,
+      "bravery": 70,
+      "movement": 1,
+      "point_value": 15,
+      "can_flee": true,
+      "faithful": false,
+      "movement_strategy": "ADVANCE",
+      "holding_distance": 0,
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
+        "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
+        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "b067e8cd-da78-4557-bbf4-e1ab6315bcc1",
       "id": "PRIONASSIST",
       "name": "Prion Corps Assistant",
-      "description": "Trained support mage",
+      "description": "Servant in training of Prion Corps Mage of rank. Periodic tests of Indentured and Cadet stock identify those with latent arcanist potential. Personality erasure and Lazaric skin graft are the reward for those who can withstand the first Prion trials.",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -920,8 +1030,8 @@
       },
       "max_hp": 10,
       "starting_hp": 10,
-      "max_mana": 2,
-      "starting_mana": 0,
+      "max_mana": "14",
+      "starting_mana": "0",
       "mana_growth": 0,
       "phys_defense": 5,
       "spec_defense": 8,
@@ -939,15 +1049,150 @@
       "inaction_limit": 20,
       "actions": {
         "passive_action": null,
+        "primary_action": "74ba2f88-f74c-4398-8c21-ea325f327b2d",
+        "special_action": "05745a96-fb22-4023-bcfc-05be023d63e5",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": "-12",
+        "passive_action_mana_delta": 0
+      }
+    },
+    {
+      "guid": "276dd796-01b8-4fd2-8bdd-8532d54003a2",
+      "id": "PRIONMAGE",
+      "name": "Prion Corps Mage",
+      "description": "Elite magician of the March Empire.",
+      "is_commander": true,
+      "commander_data": {
+        "leadership": "120",
+        "point_limit": "9000",
+        "grid_size_x": "15",
+        "grid_size_y": "30",
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": "Prion Column"
+      },
+      "max_hp": "20",
+      "starting_hp": "20",
+      "max_mana": "16",
+      "starting_mana": "0",
+      "mana_growth": "0",
+      "phys_defense": "6",
+      "spec_defense": "15",
+      "speed": "15",
+      "strength": "8",
+      "intelligence": "20",
+      "luck": "12",
+      "bravery": "70",
+      "movement": 1,
+      "point_value": "30",
+      "can_flee": true,
+      "faithful": false,
+      "movement_strategy": "KEEP_DISTANCE",
+      "holding_distance": "5",
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
+        "primary_action": "0fbada60-2bdb-4499-a61e-2ef91aa7482a",
+        "special_action": "be530c43-c824-4f43-8615-2657c7479db1",
+        "primary_action_mana_delta": "2",
+        "special_action_mana_delta": "-16",
+        "passive_action_mana_delta": 0
+      }
+    },
+    {
+      "guid": "ea496a9d-e1d1-42c5-a533-154f0355ae25",
+      "id": "REAPER",
+      "name": "Reaper Drake",
+      "description": "Fel haunting beast of the ruins of Altair, the fallen capital of Iserlohn. Once a mage, now denatured in sight of Anazarbus, under a geass of ruin.",
+      "is_commander": true,
+      "commander_data": {
+        "leadership": "80",
+        "point_limit": "500",
+        "grid_size_x": "10",
+        "grid_size_y": "10",
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": "Reaper's Flock"
+      },
+      "max_hp": "300",
+      "starting_hp": "300",
+      "max_mana": "10",
+      "starting_mana": "0",
+      "mana_growth": "0",
+      "phys_defense": "19",
+      "spec_defense": "18",
+      "speed": "15",
+      "strength": "21",
+      "intelligence": "22",
+      "luck": "10",
+      "bravery": "90",
+      "movement": 1,
+      "point_value": "80",
+      "can_flee": true,
+      "faithful": false,
+      "movement_strategy": "ADVANCE",
+      "holding_distance": 0,
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
         "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
-        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad"
+        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
+      }
+    },
+    {
+      "guid": "47b43dcf-0c75-4279-b315-3b13749a25ad",
+      "id": "SILVER",
+      "name": "Silversight Fencer",
+      "description": "Armored fencer, honor guard of Nova and Astronomers of rank. The mark of  discipline and loyalty. The Silversight warriors are woven bespoke matrixes of arcane defense by Nova’s magecore. ",
+      "is_commander": false,
+      "commander_data": {
+        "leadership": 0,
+        "point_limit": 0,
+        "grid_size_x": 1,
+        "grid_size_y": 1,
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": ""
+      },
+      "max_hp": "120",
+      "starting_hp": "120",
+      "max_mana": "10",
+      "starting_mana": "0",
+      "mana_growth": "0",
+      "phys_defense": "18",
+      "spec_defense": "17",
+      "speed": "15",
+      "strength": "15",
+      "intelligence": "15",
+      "luck": "18",
+      "bravery": "80",
+      "movement": 1,
+      "point_value": "15",
+      "can_flee": true,
+      "faithful": false,
+      "movement_strategy": "ADVANCE",
+      "holding_distance": 0,
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
+        "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
+        "special_action": "a141650a-e44a-47e9-a012-ce317a5f66f8",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "e9f09e59-0ff0-4b48-8837-a25ea2b815ee",
       "id": "SPEARMAN",
       "name": "Spearman",
-      "description": "Trained medium infantry",
+      "description": "The spear has been the center of Erulean warcraft since time immemorial. From the fall of Altair to the March of Lazar, the spearman are the foundation of Erulean martial capacity. Trained medium infantry. ",
       "is_commander": false,
       "commander_data": {
         "leadership": 0,
@@ -981,7 +1226,10 @@
       "actions": {
         "passive_action": null,
         "primary_action": "51bc6f1e-8e66-4226-b572-04b930f217cf",
-        "special_action": "6e9d38e9-8dc5-470e-805e-b0b062e2bf7f"
+        "special_action": "6e9d38e9-8dc5-470e-805e-b0b062e2bf7f",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
       }
     },
     {
@@ -1022,137 +1270,17 @@
       "actions": {
         "passive_action": null,
         "primary_action": "f982f0a8-812f-4c26-b34b-8825125f7d4e",
-        "special_action": "637a5934-4b20-4f61-bcc4-91d3314b5ad4"
-      }
-    },
-    {
-      "guid": "0f621a66-abeb-440d-89e3-6c7cb3fad9ab",
-      "id": "DRAGOON",
-      "name": "Ulver Dragoon",
-      "description": "Special class infantry",
-      "is_commander": false,
-      "commander_data": {
-        "leadership": 0,
-        "point_limit": 0,
-        "grid_size_x": 1,
-        "grid_size_y": 1,
-        "global_augments": [],
-        "army_augments": [],
-        "enemy_army_augments": [],
-        "army_name": ""
-      },
-      "max_hp": 120,
-      "starting_hp": 120,
-      "max_mana": 10,
-      "starting_mana": 0,
-      "mana_growth": 0,
-      "phys_defense": 9,
-      "spec_defense": 12,
-      "speed": 15,
-      "strength": 14,
-      "intelligence": 11,
-      "luck": 12,
-      "bravery": 70,
-      "movement": 1,
-      "point_value": 13,
-      "can_flee": true,
-      "faithful": false,
-      "movement_strategy": "ADVANCE",
-      "holding_distance": 0,
-      "inaction_limit": 20,
-      "actions": {
-        "passive_action": null,
-        "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
-        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad"
-      }
-    },
-    {
-      "guid": "f2034ba1-5597-46f9-a518-5e0e3a933a5e",
-      "id": "UNICORN",
-      "name": "Unicorn",
-      "description": "Creature of natrual wonder",
-      "is_commander": false,
-      "commander_data": {
-        "leadership": 0,
-        "point_limit": 0,
-        "grid_size_x": 1,
-        "grid_size_y": 1,
-        "global_augments": [],
-        "army_augments": [],
-        "enemy_army_augments": [],
-        "army_name": ""
-      },
-      "max_hp": 50,
-      "starting_hp": 50,
-      "max_mana": 10,
-      "starting_mana": 0,
-      "mana_growth": 0,
-      "phys_defense": 7,
-      "spec_defense": 15,
-      "speed": 15,
-      "strength": 7,
-      "intelligence": 22,
-      "luck": 40,
-      "bravery": 80,
-      "movement": 1,
-      "point_value": 21,
-      "can_flee": true,
-      "faithful": true,
-      "movement_strategy": "KEEP_DISTANCE",
-      "holding_distance": 4,
-      "inaction_limit": 20,
-      "actions": {
-        "passive_action": null,
-        "primary_action": "454222f0-f1f5-4478-9975-f471d608b2c3",
-        "special_action": "76fc407b-1497-42c8-a334-39f1e472086d"
-      }
-    },
-    {
-      "guid": "917ae9f0-84bd-4e2b-a635-c65ede2719f2",
-      "id": "STRIX",
-      "name": "Wandering Strix",
-      "description": "Ancient Wandering Mage",
-      "is_commander": true,
-      "commander_data": {
-        "leadership": 100,
-        "point_limit": 150,
-        "grid_size_x": 10,
-        "grid_size_y": 10,
-        "global_augments": [],
-        "army_augments": [],
-        "enemy_army_augments": [],
-        "army_name": "Wandering Strix's Company"
-      },
-      "max_hp": 200,
-      "starting_hp": 200,
-      "max_mana": 14,
-      "starting_mana": 0,
-      "mana_growth": 0,
-      "phys_defense": 10,
-      "spec_defense": 15,
-      "speed": 18,
-      "strength": 30,
-      "intelligence": 25,
-      "luck": 25,
-      "bravery": 80,
-      "movement": 1,
-      "point_value": 23,
-      "can_flee": true,
-      "faithful": false,
-      "movement_strategy": "ADVANCE",
-      "holding_distance": 0,
-      "inaction_limit": 20,
-      "actions": {
-        "passive_action": null,
-        "primary_action": "e8d8d7c9-16f7-4bc3-8145-2356e7d59892",
-        "special_action": "00fd910b-37ce-40c9-9ce3-65c00a2480d4"
+        "special_action": "637a5934-4b20-4f61-bcc4-91d3314b5ad4",
+        "primary_action_mana_delta": 1,
+        "special_action_mana_delta": -1,
+        "passive_action_mana_delta": 0
       }
     },
     {
       "guid": "46a458f9-aac0-44a8-baf5-dfbff000ca3c",
       "id": "WARDEN",
-      "name": "Warden of Lupenar",
-      "description": "Well trained heavy defender",
+      "name": "Theodore, Warden of Lupenar",
+      "description": "Former general of Lupenari province defense, ousted by the Cohort of Merchants. Trained fencer and tactician, the Warden seeks allies in the struggle against interloper and traitor alike. ",
       "is_commander": true,
       "commander_data": {
         "leadership": 130,
@@ -1186,7 +1314,142 @@
       "actions": {
         "passive_action": null,
         "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
-        "special_action": "a141650a-e44a-47e9-a012-ce317a5f66f8"
+        "special_action": "a141650a-e44a-47e9-a012-ce317a5f66f8",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
+      }
+    },
+    {
+      "guid": "0f621a66-abeb-440d-89e3-6c7cb3fad9ab",
+      "id": "DRAGOON",
+      "name": "Ulver Dragoon",
+      "description": "Elite armored conquesting soldier of the March. The strongest and most loyal of the Cadets are given armament tokens, and once they can afford their full steel case they are honored with the rank of Dragoon. The Ulver Dragoons are sworn to Captain Reihnar, who rents their service out to lesser March commanders",
+      "is_commander": false,
+      "commander_data": {
+        "leadership": 0,
+        "point_limit": 0,
+        "grid_size_x": 1,
+        "grid_size_y": 1,
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": ""
+      },
+      "max_hp": 120,
+      "starting_hp": 120,
+      "max_mana": 10,
+      "starting_mana": 0,
+      "mana_growth": 0,
+      "phys_defense": 9,
+      "spec_defense": 12,
+      "speed": 15,
+      "strength": 14,
+      "intelligence": 11,
+      "luck": 12,
+      "bravery": 70,
+      "movement": 1,
+      "point_value": 13,
+      "can_flee": true,
+      "faithful": false,
+      "movement_strategy": "ADVANCE",
+      "holding_distance": 0,
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
+        "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
+        "special_action": "bf664834-90f3-44e8-a808-f81730e799ad",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
+      }
+    },
+    {
+      "guid": "f2034ba1-5597-46f9-a518-5e0e3a933a5e",
+      "id": "UNICORN",
+      "name": "Unicorn",
+      "description": "Raw natural arcana embodied. Spun in the dreams of the first dragons, they dwell in the ever shifting Stargard forest. On clear nights near the forest, it’s said that one can hear the Unicorn choir commune with their cousin stars.",
+      "is_commander": false,
+      "commander_data": {
+        "leadership": 0,
+        "point_limit": 0,
+        "grid_size_x": 1,
+        "grid_size_y": 1,
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": ""
+      },
+      "max_hp": 50,
+      "starting_hp": 50,
+      "max_mana": 10,
+      "starting_mana": 0,
+      "mana_growth": 0,
+      "phys_defense": 7,
+      "spec_defense": 15,
+      "speed": 15,
+      "strength": 7,
+      "intelligence": 22,
+      "luck": 40,
+      "bravery": 80,
+      "movement": 1,
+      "point_value": 21,
+      "can_flee": true,
+      "faithful": true,
+      "movement_strategy": "KEEP_DISTANCE",
+      "holding_distance": 4,
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
+        "primary_action": "454222f0-f1f5-4478-9975-f471d608b2c3",
+        "special_action": "76fc407b-1497-42c8-a334-39f1e472086d",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
+      }
+    },
+    {
+      "guid": "917ae9f0-84bd-4e2b-a635-c65ede2719f2",
+      "id": "STRIX",
+      "name": "Wandering Strix",
+      "description": "A benevolent spirit mage of mountain and plain. The strix brokered the introduction of ancient man to the currents of arcane frequency. While they come and go, their dwellings have never been discovered.",
+      "is_commander": true,
+      "commander_data": {
+        "leadership": 100,
+        "point_limit": 150,
+        "grid_size_x": 10,
+        "grid_size_y": 10,
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": "Wandering Strix's Company"
+      },
+      "max_hp": 200,
+      "starting_hp": 200,
+      "max_mana": 14,
+      "starting_mana": 0,
+      "mana_growth": 0,
+      "phys_defense": 10,
+      "spec_defense": 15,
+      "speed": 18,
+      "strength": 30,
+      "intelligence": 25,
+      "luck": 25,
+      "bravery": 80,
+      "movement": 1,
+      "point_value": 23,
+      "can_flee": true,
+      "faithful": false,
+      "movement_strategy": "ADVANCE",
+      "holding_distance": 0,
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
+        "primary_action": "f2f0715d-1670-4139-97db-8516cc9b55bc",
+        "special_action": "00fd910b-37ce-40c9-9ce3-65c00a2480d4",
+        "primary_action_mana_delta": "2",
+        "special_action_mana_delta": -12,
+        "passive_action_mana_delta": 0
       }
     }
   ],
@@ -1400,7 +1663,9 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": ["b1ca2d87-d68d-4b9d-8b21-506ea7e480ca"],
+        "augments": [
+          "b1ca2d87-d68d-4b9d-8b21-506ea7e480ca"
+        ],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false
@@ -1480,7 +1745,9 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": ["584ace2f-6284-49ed-87f6-cb0a62527dc3"],
+        "augments": [
+          "584ace2f-6284-49ed-87f6-cb0a62527dc3"
+        ],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": true
@@ -1836,7 +2103,7 @@
       "id": "DISPBLAST",
       "name": "Disposit Strike",
       "description": "Magic ranged attack that debuffs special defense",
-      "targeting_type": "EXACT",
+      "targeting_type": "UP_TO",
       "targeting_range": 10,
       "max_targets": 1,
       "splash": 0,
@@ -1926,7 +2193,7 @@
       "can_crit": false,
       "crit_chance_multiplier": 1,
       "mana_delta": -10,
-      "break_vanguard": false,
+      "break_vanguard": true,
       "delay": 0.2,
       "action_type": "AUGMENT_ACTION",
       "approach_strategy": "HOLD",
@@ -1960,7 +2227,89 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": ["9202c140-4084-41da-83f0-d840778a04df"],
+        "augments": [
+          "9202c140-4084-41da-83f0-d840778a04df"
+        ],
+        "crit_augments": [],
+        "should_reapply": false,
+        "should_target_enemy": false
+      },
+      "dispel_action_props": {
+        "mode": "TARGET",
+        "domain": "UNIT",
+        "target": "ALLEGIANCE",
+        "augment_name": "",
+        "unique_identifier": "",
+        "type": "BUFF",
+        "force_dispel": false,
+        "force_on_crit": false,
+        "should_target_enemy": false,
+        "only_target_augmented_units": false,
+        "ignore_target_allegiance": false
+      },
+      "tag_action_props": {
+        "tag_augment": "",
+        "should_target_enemy": false,
+        "follow_tagged_unit": false
+      },
+      "summon_action_props": {
+        "summons": [],
+        "summoning_range": 0,
+        "should_target_enemy": false,
+        "summon_augment": null,
+        "should_summon_impact_morale": false
+      }
+    },
+    {
+      "guid": "fe2b3268-84a3-438d-bb79-5a4308674c94",
+      "id": "STRFOCUS",
+      "name": "Focus Strength",
+      "description": "Peak concentration of the mind and body, summons a great deal of strength for a short time. ",
+      "targeting_type": "SELF",
+      "targeting_range": 1,
+      "max_targets": 1,
+      "splash": 0,
+      "chain": false,
+      "should_check_evasion": false,
+      "evasion_multiplier": 1,
+      "can_crit": false,
+      "crit_chance_multiplier": 1,
+      "mana_delta": "-10",
+      "break_vanguard": false,
+      "delay": ".3",
+      "approach_strategy": "PROCEED",
+      "target_self": true,
+      "action_type": "AUGMENT_ACTION",
+      "damage_action_props": {
+        "base_phys_damage": 0,
+        "unit_strength_modifier": 1,
+        "target_phys_defense_modifier": 1,
+        "base_magic_damage": 0,
+        "unit_int_modifier": 1,
+        "target_spec_defense_modifier": 1,
+        "base_dex_damage": 0,
+        "unit_speed_modifier": 1,
+        "target_speed_modifier": 1,
+        "crit_modifier": 2,
+        "base_damage": 0,
+        "total_damage_multiplier": 1,
+        "target_augment_self": false,
+        "augment": null,
+        "crit_augment": null
+      },
+      "heal_props": {
+        "hp": 0,
+        "decay": 0,
+        "should_target_full_hp": false
+      },
+      "mana_action_props": {
+        "should_target_enemy": false,
+        "mana_amount": 0,
+        "should_target_full_mp": false,
+        "tag_augment": null
+      },
+      "augment_action_props": {
+        "augments": [],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false
@@ -2040,7 +2389,9 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": ["f63e6ae6-8e55-4c50-b0da-9d1a9ee7fb51"],
+        "augments": [
+          "f63e6ae6-8e55-4c50-b0da-9d1a9ee7fb51"
+        ],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": true
@@ -2076,8 +2427,8 @@
       "id": "HEADWEB",
       "name": "Headweb",
       "description": "Magic induced headache",
-      "targeting_type": "EXACT",
-      "targeting_range": 7,
+      "targeting_type": "UP_TO",
+      "targeting_range": "7",
       "max_targets": 1,
       "splash": 0,
       "chain": false,
@@ -2544,7 +2895,9 @@
         "follow_tagged_unit": false
       },
       "summon_action_props": {
-        "summons": ["aff553bb-a721-4b0d-aaf2-9a6d8907027e"],
+        "summons": [
+          "aff553bb-a721-4b0d-aaf2-9a6d8907027e"
+        ],
         "summoning_range": 2,
         "should_target_enemy": false,
         "summon_augment": null,
@@ -2600,7 +2953,9 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": ["2f521c9e-2653-4fd0-981a-ba163a471f8e"],
+        "augments": [
+          "2f521c9e-2653-4fd0-981a-ba163a471f8e"
+        ],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false
@@ -2712,6 +3067,166 @@
       }
     },
     {
+      "guid": "893fdd5c-43a2-4023-bab6-d9885c41a927",
+      "id": "IREARY",
+      "name": "Ray of Ire",
+      "description": "Fire a probe of concentrated mental energy, damaging and mapping defense matrixes. Scales with intelligence.",
+      "targeting_type": "UP_TO",
+      "targeting_range": "6",
+      "max_targets": 1,
+      "splash": 0,
+      "chain": false,
+      "should_check_evasion": false,
+      "evasion_multiplier": 1,
+      "can_crit": false,
+      "crit_chance_multiplier": 1,
+      "mana_delta": "2",
+      "break_vanguard": false,
+      "delay": ".2",
+      "approach_strategy": "HOLD",
+      "target_self": false,
+      "action_type": "DAMAGE_ACTION",
+      "damage_action_props": {
+        "base_phys_damage": 0,
+        "unit_strength_modifier": "0",
+        "target_phys_defense_modifier": "0",
+        "base_magic_damage": 0,
+        "unit_int_modifier": 1,
+        "target_spec_defense_modifier": 1,
+        "base_dex_damage": 0,
+        "unit_speed_modifier": "0",
+        "target_speed_modifier": "0",
+        "crit_modifier": 2,
+        "base_damage": 0,
+        "total_damage_multiplier": 1,
+        "target_augment_self": false,
+        "augment": "4bbab512-4c48-4a26-ae8f-cdd5efa9b491",
+        "crit_augment": null
+      },
+      "heal_props": {
+        "hp": 0,
+        "decay": 0,
+        "should_target_full_hp": false
+      },
+      "mana_action_props": {
+        "should_target_enemy": false,
+        "mana_amount": 0,
+        "should_target_full_mp": false,
+        "tag_augment": null
+      },
+      "augment_action_props": {
+        "augments": [],
+        "crit_augments": [],
+        "should_reapply": false,
+        "should_target_enemy": false
+      },
+      "dispel_action_props": {
+        "mode": "TARGET",
+        "domain": "UNIT",
+        "target": "ALLEGIANCE",
+        "augment_name": "",
+        "unique_identifier": "",
+        "type": "BUFF",
+        "force_dispel": false,
+        "force_on_crit": false,
+        "should_target_enemy": false,
+        "only_target_augmented_units": false,
+        "ignore_target_allegiance": false
+      },
+      "tag_action_props": {
+        "tag_augment": "",
+        "should_target_enemy": false,
+        "follow_tagged_unit": false
+      },
+      "summon_action_props": {
+        "summons": [],
+        "summoning_range": 0,
+        "should_target_enemy": false,
+        "summon_augment": null,
+        "should_summon_impact_morale": false
+      }
+    },
+    {
+      "guid": "0fbada60-2bdb-4499-a61e-2ef91aa7482a",
+      "id": "REDRUM",
+      "name": "Redrum",
+      "description": "Fire a blast of murderous intent. High flat damage, no scaling. ",
+      "targeting_type": "EXACT",
+      "targeting_range": "6",
+      "max_targets": 1,
+      "splash": 0,
+      "chain": false,
+      "should_check_evasion": false,
+      "evasion_multiplier": 1,
+      "can_crit": false,
+      "crit_chance_multiplier": 1,
+      "mana_delta": "2",
+      "break_vanguard": false,
+      "delay": 0,
+      "approach_strategy": "HOLD",
+      "target_self": false,
+      "action_type": "DAMAGE_ACTION",
+      "damage_action_props": {
+        "base_phys_damage": 0,
+        "unit_strength_modifier": "0",
+        "target_phys_defense_modifier": "0",
+        "base_magic_damage": 0,
+        "unit_int_modifier": "0",
+        "target_spec_defense_modifier": 1,
+        "base_dex_damage": 0,
+        "unit_speed_modifier": "0",
+        "target_speed_modifier": "0",
+        "crit_modifier": 2,
+        "base_damage": "25",
+        "total_damage_multiplier": 1,
+        "target_augment_self": false,
+        "augment": null,
+        "crit_augment": null
+      },
+      "heal_props": {
+        "hp": 0,
+        "decay": 0,
+        "should_target_full_hp": false
+      },
+      "mana_action_props": {
+        "should_target_enemy": false,
+        "mana_amount": 0,
+        "should_target_full_mp": false,
+        "tag_augment": null
+      },
+      "augment_action_props": {
+        "augments": [],
+        "crit_augments": [],
+        "should_reapply": false,
+        "should_target_enemy": false
+      },
+      "dispel_action_props": {
+        "mode": "TARGET",
+        "domain": "UNIT",
+        "target": "ALLEGIANCE",
+        "augment_name": "",
+        "unique_identifier": "",
+        "type": "BUFF",
+        "force_dispel": false,
+        "force_on_crit": false,
+        "should_target_enemy": false,
+        "only_target_augmented_units": false,
+        "ignore_target_allegiance": false
+      },
+      "tag_action_props": {
+        "tag_augment": "",
+        "should_target_enemy": false,
+        "follow_tagged_unit": false
+      },
+      "summon_action_props": {
+        "summons": [],
+        "summoning_range": 0,
+        "should_target_enemy": false,
+        "summon_augment": null,
+        "should_summon_impact_morale": false
+      }
+    },
+    {
       "guid": "6e9d38e9-8dc5-470e-805e-b0b062e2bf7f",
       "id": "SHIELDGUARDI",
       "name": "Shieldguard I",
@@ -2760,7 +3275,9 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": ["6da6f270-0787-4f52-bc11-5a10beaffb03"],
+        "augments": [
+          "6da6f270-0787-4f52-bc11-5a10beaffb03"
+        ],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false
@@ -2840,7 +3357,9 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": ["b1bd08ac-28c7-4870-a9b4-5a354317fbc1"],
+        "augments": [
+          "b1bd08ac-28c7-4870-a9b4-5a354317fbc1"
+        ],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false
@@ -3424,11 +3943,256 @@
         "follow_tagged_unit": false
       },
       "summon_action_props": {
-        "summons": ["919675ce-54a3-4044-8747-2a0a070af326"],
+        "summons": [
+          "919675ce-54a3-4044-8747-2a0a070af326"
+        ],
         "summoning_range": 2,
         "should_target_enemy": false,
         "summon_augment": "f2972853-f988-442d-883d-4dbb74ae2e18",
         "should_summon_impact_morale": false
+      }
+    },
+    {
+      "guid": "be530c43-c824-4f43-8615-2657c7479db1",
+      "id": "SUMMONANTI",
+      "name": "Summon Antimatter",
+      "description": "Conjure a ball of negative matter. High flat damage, no scaling. ",
+      "targeting_type": "UP_TO",
+      "targeting_range": "7",
+      "max_targets": 1,
+      "splash": "0",
+      "chain": false,
+      "should_check_evasion": false,
+      "evasion_multiplier": 1,
+      "can_crit": false,
+      "crit_chance_multiplier": 1,
+      "mana_delta": "-16",
+      "break_vanguard": false,
+      "delay": ".4",
+      "approach_strategy": "HOLD",
+      "target_self": false,
+      "action_type": "DAMAGE_ACTION",
+      "damage_action_props": {
+        "base_phys_damage": 0,
+        "unit_strength_modifier": "0",
+        "target_phys_defense_modifier": "0",
+        "base_magic_damage": 0,
+        "unit_int_modifier": "0",
+        "target_spec_defense_modifier": 1,
+        "base_dex_damage": 0,
+        "unit_speed_modifier": "0",
+        "target_speed_modifier": "0",
+        "crit_modifier": 2,
+        "base_damage": "40",
+        "total_damage_multiplier": 1,
+        "target_augment_self": false,
+        "augment": null,
+        "crit_augment": null
+      },
+      "heal_props": {
+        "hp": 0,
+        "decay": 0,
+        "should_target_full_hp": false
+      },
+      "mana_action_props": {
+        "should_target_enemy": false,
+        "mana_amount": 0,
+        "should_target_full_mp": false,
+        "tag_augment": null
+      },
+      "augment_action_props": {
+        "augments": [],
+        "crit_augments": [],
+        "should_reapply": false,
+        "should_target_enemy": false
+      },
+      "dispel_action_props": {
+        "mode": "TARGET",
+        "domain": "UNIT",
+        "target": "ALLEGIANCE",
+        "augment_name": "",
+        "unique_identifier": "",
+        "type": "BUFF",
+        "force_dispel": false,
+        "force_on_crit": false,
+        "should_target_enemy": false,
+        "only_target_augmented_units": false,
+        "ignore_target_allegiance": false
+      },
+      "tag_action_props": {
+        "tag_augment": "",
+        "should_target_enemy": false,
+        "follow_tagged_unit": false
+      },
+      "summon_action_props": {
+        "summons": [],
+        "summoning_range": 0,
+        "should_target_enemy": false,
+        "summon_augment": null,
+        "should_summon_impact_morale": false
+      }
+    },
+    {
+      "guid": "f2f0715d-1670-4139-97db-8516cc9b55bc",
+      "id": "SUMMONFIRE",
+      "name": "Summon Flame I",
+      "description": "Conjure a burst of flame on the target. Scales with intelligence.",
+      "targeting_type": "UP_TO",
+      "targeting_range": "6",
+      "max_targets": 1,
+      "splash": 0,
+      "chain": false,
+      "should_check_evasion": false,
+      "evasion_multiplier": 1,
+      "can_crit": false,
+      "crit_chance_multiplier": 1,
+      "mana_delta": "2",
+      "break_vanguard": false,
+      "delay": ".2",
+      "approach_strategy": "HOLD",
+      "target_self": false,
+      "action_type": "DAMAGE_ACTION",
+      "damage_action_props": {
+        "base_phys_damage": 0,
+        "unit_strength_modifier": "0",
+        "target_phys_defense_modifier": "0",
+        "base_magic_damage": 0,
+        "unit_int_modifier": ".9",
+        "target_spec_defense_modifier": 1,
+        "base_dex_damage": 0,
+        "unit_speed_modifier": "0",
+        "target_speed_modifier": "0",
+        "crit_modifier": 2,
+        "base_damage": "1",
+        "total_damage_multiplier": 1,
+        "target_augment_self": false,
+        "augment": null,
+        "crit_augment": null
+      },
+      "heal_props": {
+        "hp": 0,
+        "decay": 0,
+        "should_target_full_hp": false
+      },
+      "mana_action_props": {
+        "should_target_enemy": false,
+        "mana_amount": 0,
+        "should_target_full_mp": false,
+        "tag_augment": null
+      },
+      "augment_action_props": {
+        "augments": [],
+        "crit_augments": [],
+        "should_reapply": false,
+        "should_target_enemy": false
+      },
+      "dispel_action_props": {
+        "mode": "TARGET",
+        "domain": "UNIT",
+        "target": "ALLEGIANCE",
+        "augment_name": "",
+        "unique_identifier": "",
+        "type": "BUFF",
+        "force_dispel": false,
+        "force_on_crit": false,
+        "should_target_enemy": false,
+        "only_target_augmented_units": false,
+        "ignore_target_allegiance": false
+      },
+      "tag_action_props": {
+        "tag_augment": "",
+        "should_target_enemy": false,
+        "follow_tagged_unit": false
+      },
+      "summon_action_props": {
+        "summons": [],
+        "summoning_range": 0,
+        "should_target_enemy": false,
+        "summon_augment": null,
+        "should_summon_impact_morale": false
+      }
+    },
+    {
+      "guid": "05745a96-fb22-4023-bcfc-05be023d63e5",
+      "id": "SMNRAT",
+      "name": "Summon Rats",
+      "description": "Call forth fighting vermin, blighted pets.",
+      "targeting_type": "SELF",
+      "targeting_range": "10",
+      "max_targets": 1,
+      "splash": 0,
+      "chain": false,
+      "should_check_evasion": false,
+      "evasion_multiplier": 1,
+      "can_crit": false,
+      "crit_chance_multiplier": 1,
+      "mana_delta": "-12",
+      "break_vanguard": false,
+      "delay": ".3",
+      "approach_strategy": "HOLD",
+      "target_self": true,
+      "action_type": "SUMMON_ACTION",
+      "damage_action_props": {
+        "base_phys_damage": 0,
+        "unit_strength_modifier": 1,
+        "target_phys_defense_modifier": 1,
+        "base_magic_damage": 0,
+        "unit_int_modifier": 1,
+        "target_spec_defense_modifier": 1,
+        "base_dex_damage": 0,
+        "unit_speed_modifier": 1,
+        "target_speed_modifier": 1,
+        "crit_modifier": 2,
+        "base_damage": 0,
+        "total_damage_multiplier": 1,
+        "target_augment_self": false,
+        "augment": null,
+        "crit_augment": null
+      },
+      "heal_props": {
+        "hp": 0,
+        "decay": 0,
+        "should_target_full_hp": false
+      },
+      "mana_action_props": {
+        "should_target_enemy": false,
+        "mana_amount": 0,
+        "should_target_full_mp": false,
+        "tag_augment": null
+      },
+      "augment_action_props": {
+        "augments": [],
+        "crit_augments": [],
+        "should_reapply": false,
+        "should_target_enemy": false
+      },
+      "dispel_action_props": {
+        "mode": "TARGET",
+        "domain": "UNIT",
+        "target": "ALLEGIANCE",
+        "augment_name": "",
+        "unique_identifier": "",
+        "type": "BUFF",
+        "force_dispel": false,
+        "force_on_crit": false,
+        "should_target_enemy": false,
+        "only_target_augmented_units": false,
+        "ignore_target_allegiance": false
+      },
+      "tag_action_props": {
+        "tag_augment": "",
+        "should_target_enemy": false,
+        "follow_tagged_unit": false
+      },
+      "summon_action_props": {
+        "summons": [
+          "100ae0e5-b515-4ca3-964c-f27d4f4cceb4",
+          "100ae0e5-b515-4ca3-964c-f27d4f4cceb4"
+        ],
+        "summoning_range": "3",
+        "should_target_enemy": false,
+        "summon_augment": null,
+        "should_summon_impact_morale": true
       }
     },
     {
@@ -3712,6 +4476,37 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       }
+    },
+    {
+      "guid": "939c9505-57d0-4d9c-b461-94a03e27a7c9",
+      "id": "STREFOCUS",
+      "name": "Focus",
+      "description": "A strong brief strength enhancement",
+      "type": "BUFF",
+      "undispellable": false,
+      "unique": false,
+      "unique_identifier": "",
+      "replenishable": false,
+      "domain": "UNIT",
+      "durational": true,
+      "duration": "3",
+      "augment_class": "FLAT_STAT",
+      "dot_augment_props": {
+        "flat_damage": 0,
+        "phys_def_reduction_modifier": 0,
+        "spec_def_reduction_modifier": 0,
+        "resource": "HEALTH",
+        "resolution_type": "UNIT"
+      },
+      "stat_mult_props": {
+        "stat": "PHYSICAL_DEFENSE",
+        "multiplier": 1
+      },
+      "flat_stat_props": {
+        "stat": "STRENGTH",
+        "amount": "12"
+      },
+      "unique_indentifier": ""
     },
     {
       "guid": "f63e6ae6-8e55-4c50-b0da-9d1a9ee7fb51",
@@ -4013,7 +4808,11 @@
     "UNICORN",
     "BETRAYER",
     "ESPARMAGE",
-    "GARGARA"
+    "GARGARA",
+    "REAPER",
+    "PRIONMAGE",
+    "DARKSTEEL",
+    "SILVER"
   ],
-  "updatedAt": 1740035559868
+  "updatedAt": 1751349598060
 }

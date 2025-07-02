@@ -88,4 +88,7 @@ const getActions = (line: any) => ({
   passive_action: line.passive_action || null,
   primary_action: line.primary_action || null,
   special_action: line.special_action || null,
+  primary_action_mana_delta: line.primary_action_mana_delta || 1,
+  special_action_mana_delta: line.special_action_mana_delta || -5,
+  passive_action_mana_delta: line.passive_action_mana_delta || 0,
 });

@@ -46,4 +46,7 @@ export type Actions = {
   passive_action: string | null;
   primary_action: string | null;
   special_action: string | null;
+  primary_action_mana_delta: number;
+  special_action_mana_delta: number;
+  passive_action_mana_delta: number;
 };

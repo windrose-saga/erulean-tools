@@ -339,14 +339,6 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
           <LabeledInput id="description" label="Description" type="text" required />
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <LabeledInput
-                id="mana_delta"
-                label="Mana Delta"
-                type="number"
-                allowFloats={false}
-                allowNegativeValue
-                required
-              />
               <LabeledSelect
                 id="action_type"
                 label="Action Type"
