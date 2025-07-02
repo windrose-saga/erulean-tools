@@ -88,7 +88,6 @@ export const DEFAULT_ACTION_DATA: Action = {
   evasion_multiplier: 1,
   can_crit: false,
   crit_chance_multiplier: 1,
-  mana_delta: 0,
   break_vanguard: false,
   delay: 0,
   approach_strategy: 'PROCEED',

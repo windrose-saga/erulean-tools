@@ -44,7 +44,6 @@ export type Action = {
   evasion_multiplier: number;
   can_crit: boolean;
   crit_chance_multiplier: number;
-  mana_delta: number;
   break_vanguard: boolean;
   delay: number;
   approach_strategy: ApproachStrategy;
