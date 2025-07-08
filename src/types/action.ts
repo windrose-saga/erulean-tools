@@ -40,6 +40,7 @@ export type Action = {
   max_targets: number;
   splash: number;
   chain: boolean;
+  max_chain_depth: number;
   should_check_evasion: boolean;
   evasion_multiplier: number;
   can_crit: boolean;
