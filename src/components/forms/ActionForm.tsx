@@ -393,6 +393,13 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
           <LabeledInput id="chain" label="Chain" type="checkbox" />
           <LabeledInput id="target_self" label="Target Self" type="checkbox" />
           <LabeledInput id="splash" label="Splash" type="number" allowFloats={false} required />
+          <LabeledInput
+            id="max_chain_depth"
+            label="Max Chain Depth"
+            type="number"
+            allowFloats={false}
+            required
+          />
         </div>
 
         <div className="grid grid-cols-2 border rounded justify-items-center gap-3 mb-6 p-6">

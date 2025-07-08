@@ -1532,7 +1532,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "fdaca972-0ba5-48a5-a829-cfd01d81d164",
@@ -1612,7 +1613,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "15da261e-cbd0-4519-98a7-8f702185caef",
@@ -1694,7 +1696,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "c6648d0d-6615-4503-856c-c2a911f98d11",
@@ -1776,7 +1779,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "7d085912-1973-41bd-ac77-d3bfb60ad78a",
@@ -1856,7 +1860,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "f99bccad-b612-4a59-b55b-4248c36cabaa",
@@ -1936,7 +1941,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "76fc407b-1497-42c8-a334-39f1e472086d",
@@ -2016,7 +2022,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "9bd96ca3-7f3f-47da-b529-19c5e0a87928",
@@ -2096,7 +2103,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "e8d8d7c9-16f7-4bc3-8145-2356e7d59892",
@@ -2176,7 +2184,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "7ac9ac06-bdf3-47f1-be03-e969f344e5e9",
@@ -2258,7 +2267,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "fe2b3268-84a3-438d-bb79-5a4308674c94",
@@ -2338,7 +2348,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "cddf5a60-e7bd-413c-a316-71be8e51dd0c",
@@ -2420,7 +2431,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "74ba2f88-f74c-4398-8c21-ea325f327b2d",
@@ -2500,7 +2512,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "8983b004-3c40-4260-bb99-1e6cdf60cb03",
@@ -2580,7 +2593,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "454222f0-f1f5-4478-9975-f471d608b2c3",
@@ -2660,7 +2674,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "71e90cdf-37a5-4ea3-8300-52cea69baea0",
@@ -2740,7 +2755,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "00fd910b-37ce-40c9-9ce3-65c00a2480d4",
@@ -2820,7 +2836,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "c6f7aa32-037b-48f3-abb9-452996003c0f",
@@ -2902,7 +2919,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "1a2de126-b0f0-48b1-b2b7-0fdb00548ccb",
@@ -2984,7 +3002,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "cf8bcadb-c057-4565-9f88-806527e1defa",
@@ -3064,7 +3083,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "893fdd5c-43a2-4023-bab6-d9885c41a927",
@@ -3144,7 +3164,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "0fbada60-2bdb-4499-a61e-2ef91aa7482a",
@@ -3224,7 +3245,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "6e9d38e9-8dc5-470e-805e-b0b062e2bf7f",
@@ -3306,7 +3328,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "a141650a-e44a-47e9-a012-ce317a5f66f8",
@@ -3388,7 +3411,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "46c93429-6f83-45b2-b4bb-ee126bdeef6c",
@@ -3468,7 +3492,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
@@ -3548,7 +3573,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "438256c0-766d-427d-b894-1ba57e407e58",
@@ -3628,7 +3654,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "7c998113-d97c-4e04-a43a-2bdf1c9c99d0",
@@ -3708,7 +3735,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "51bc6f1e-8e66-4226-b572-04b930f217cf",
@@ -3788,7 +3816,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "bf664834-90f3-44e8-a808-f81730e799ad",
@@ -3868,7 +3897,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "637a5934-4b20-4f61-bcc4-91d3314b5ad4",
@@ -3950,7 +3980,8 @@
         "should_target_enemy": false,
         "summon_augment": "f2972853-f988-442d-883d-4dbb74ae2e18",
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "be530c43-c824-4f43-8615-2657c7479db1",
@@ -4030,7 +4061,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "f2f0715d-1670-4139-97db-8516cc9b55bc",
@@ -4110,7 +4142,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "05745a96-fb22-4023-bcfc-05be023d63e5",
@@ -4193,7 +4226,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": true
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "aa0672e6-6256-40d5-bc66-0c4e3a181853",
@@ -4273,7 +4307,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     },
     {
       "guid": "f982f0a8-812f-4c26-b34b-8825125f7d4e",
@@ -4353,7 +4388,8 @@
         "should_target_enemy": false,
         "summon_augment": null,
         "should_summon_impact_morale": false
-      }
+      },
+      "max_chain_depth": 0
     }
   ],
   "augments": [
@@ -4814,5 +4850,5 @@
     "DARKSTEEL",
     "SILVER"
   ],
-  "updatedAt": 1751349598060
+  "updatedAt": 1751953992014
 }

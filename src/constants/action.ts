@@ -84,6 +84,7 @@ export const DEFAULT_ACTION_DATA: Action = {
   max_targets: 1,
   splash: 0,
   chain: false,
+  max_chain_depth: 0,
   should_check_evasion: false,
   evasion_multiplier: 1,
   can_crit: false,
