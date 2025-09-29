@@ -14,30 +14,55 @@ export const useExportStore = () => {
   const setExported = useGameStore.use.setExported();
   const unitIds = useGameStore.use.unitIds();
 
-  // const migratedUnits = units.map((unit) => {
-  //   const primary_action = actions.find((action) => action.guid === unit.actions.primary_action);
-  //   const special_action = actions.find((action) => action.guid === unit.actions.special_action);
-  //   const passive_action = actions.find((action) => action.guid === unit.actions.passive_action);
+  const translatedUnits = units.map((unit) => {
+    const translation_id: string = `unit.${unit.id}`;
+    const name_translation_key: string = `${translation_id}.name`;
+    const description_translation_key: string = `${translation_id}.description`;
 
-  //   const deltas: Partial<Actions> = {
-  //     primary_action_mana_delta: primary_action?.mana_delta ?? 0,
-  //     special_action_mana_delta: special_action?.mana_delta ?? 0,
-  //     passive_action_mana_delta: passive_action?.mana_delta ?? 0,
-  //   };
-  //   return {
-  //     ...unit,
-  //     actions: {
-  //       ...unit.actions,
-  //       ...deltas,
-  //     },
-  //   };
-  // });
+    const translatedCommanderData = {
+      ...unit.commander_data,
+      army_name_translation_key: `${translation_id}.army_name`,
+    };
+    return {
+      ...unit,
+      commander_data: translatedCommanderData,
+      translation_id,
+      name_translation_key,
+      description_translation_key,
+    };
+  });
+
+  const translatedActions = actions.map((action) => {
+    const translation_id: string = `action.${action.id}`;
+    const name_translation_key: string = `${translation_id}.name`;
+    const description_translation_key: string = `${translation_id}.description`;
+
+    return {
+      ...action,
+      translation_id,
+      name_translation_key,
+      description_translation_key,
+    };
+  });
+
+  const translatedAugments = augments.map((augment) => {
+    const translation_id: string = `augment.${augment.id}`;
+    const name_translation_key: string = `${translation_id}.name`;
+    const description_translation_key: string = `${translation_id}.description`;
+
+    return {
+      ...augment,
+      translation_id,
+      name_translation_key,
+      description_translation_key,
+    };
+  });
 
   return React.useCallback(() => {
     const exportStore: GameData = {
-      units,
-      actions,
-      augments,
+      units: translatedUnits,
+      actions: translatedActions,
+      augments: translatedAugments,
       unitIds: Array.from(unitIds.values()),
       updatedAt: lastLoaded ?? Date.now(),
     };
@@ -51,5 +76,5 @@ export const useExportStore = () => {
     a.click();
     URL.revokeObjectURL(url);
     setExported();
-  }, [units, actions, augments, unitIds, lastLoaded, setExported]);
+  }, [translatedUnits, translatedActions, translatedAugments, unitIds, lastLoaded, setExported]);
 };
