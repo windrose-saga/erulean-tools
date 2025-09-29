@@ -14,16 +14,17 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.ASTROATTENDENT.army_name"
       },
-      "max_hp": 15,
-      "starting_hp": 15,
-      "max_mana": 5,
+      "max_hp": "50",
+      "starting_hp": "50",
+      "max_mana": "2",
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 5,
+      "phys_defense": "2",
       "spec_defense": 8,
-      "speed": 20,
+      "speed": "12",
       "strength": 7,
       "intelligence": 15,
       "luck": 12,
@@ -42,7 +43,10 @@
         "primary_action_mana_delta": 1,
         "special_action_mana_delta": -2,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.ASTROATTENDENT",
+      "name_translation_key": "unit.ASTROATTENDENT.name",
+      "description_translation_key": "unit.ASTROATTENDENT.description"
     },
     {
       "guid": "0e5f1778-c3a0-4209-9b8a-a6f835cca9e3",
@@ -51,24 +55,25 @@
       "description": "A wealthy opportunist on the March. They hold little real power in Lazar, but seize the chaos of wartime to invest in their own status. A few key victories could grant an audience with the March Keeper.",
       "is_commander": true,
       "commander_data": {
-        "leadership": 100,
+        "leadership": "110",
         "point_limit": 200,
         "grid_size_x": 6,
         "grid_size_y": 10,
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Conquesting Noble's Mercenaries"
+        "army_name": "Conquesting Noble's Mercenaries",
+        "army_name_translation_key": "unit.NOBLE.army_name"
       },
       "max_hp": 70,
       "starting_hp": 70,
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 7,
-      "spec_defense": 7,
+      "phys_defense": "15",
+      "spec_defense": "4",
       "speed": 15,
-      "strength": 12,
+      "strength": "10",
       "intelligence": 14,
       "luck": 19,
       "bravery": 60,
@@ -86,7 +91,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.NOBLE",
+      "name_translation_key": "unit.NOBLE.name",
+      "description_translation_key": "unit.NOBLE.description"
     },
     {
       "guid": "463b9ce9-a714-4fa3-9025-cab1bc199477",
@@ -97,19 +105,20 @@
       "commander_data": {
         "leadership": 120,
         "point_limit": "9000",
-        "grid_size_x": "15",
-        "grid_size_y": "30",
+        "grid_size_x": "10",
+        "grid_size_y": "10",
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Astronomer's Retinue"
+        "army_name": "Astronomer's Retinue",
+        "army_name_translation_key": "unit.ERUASTROLOGER.army_name"
       },
-      "max_hp": 20,
-      "starting_hp": 20,
-      "max_mana": 16,
+      "max_hp": "60",
+      "starting_hp": "60",
+      "max_mana": "16",
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 6,
+      "phys_defense": "3",
       "spec_defense": 15,
       "speed": 15,
       "strength": 8,
@@ -117,7 +126,7 @@
       "luck": 12,
       "bravery": 70,
       "movement": 1,
-      "point_value": 20,
+      "point_value": "25",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -128,9 +137,12 @@
         "primary_action": "893fdd5c-43a2-4023-bab6-d9885c41a927",
         "special_action": "9bd96ca3-7f3f-47da-b529-19c5e0a87928",
         "primary_action_mana_delta": "2",
-        "special_action_mana_delta": -16,
+        "special_action_mana_delta": "-16",
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.ERUASTROLOGER",
+      "name_translation_key": "unit.ERUASTROLOGER.name",
+      "description_translation_key": "unit.ERUASTROLOGER.description"
     },
     {
       "guid": "070aa9da-fb50-4295-8419-dbba3e79606b",
@@ -146,14 +158,15 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.BETRAYER.army_name"
       },
-      "max_hp": 25,
-      "starting_hp": 25,
-      "max_mana": 6,
+      "max_hp": "50",
+      "starting_hp": "50",
+      "max_mana": "10",
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 7,
+      "phys_defense": "2",
       "spec_defense": 16,
       "speed": 12,
       "strength": 5,
@@ -161,7 +174,7 @@
       "luck": 10,
       "bravery": 80,
       "movement": 1,
-      "point_value": 25,
+      "point_value": "25",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "KEEP_DISTANCE",
@@ -172,29 +185,33 @@
         "primary_action": "e8d8d7c9-16f7-4bc3-8145-2356e7d59892",
         "special_action": "c6648d0d-6615-4503-856c-c2a911f98d11",
         "primary_action_mana_delta": 2,
-        "special_action_mana_delta": -6,
+        "special_action_mana_delta": "-10",
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.BETRAYER",
+      "name_translation_key": "unit.BETRAYER.name",
+      "description_translation_key": "unit.BETRAYER.description"
     },
     {
       "guid": "aff553bb-a721-4b0d-aaf2-9a6d8907027e",
       "id": "ESPARMAGE",
       "name": "Espar Mage",
       "description": "Clones of a once individual academic, the Espar are the wreckage of a personality ravaged in unholy experiment. An atrocity of replication, the Espar were exiled from Nova and established their own college deep in the northern wastelands beyond Haradan.",
-      "is_commander": false,
+      "is_commander": true,
       "commander_data": {
-        "leadership": 0,
-        "point_limit": 0,
-        "grid_size_x": 1,
-        "grid_size_y": 1,
+        "leadership": "120",
+        "point_limit": "300",
+        "grid_size_x": "10",
+        "grid_size_y": "10",
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "Espara Vesicle",
+        "army_name_translation_key": "unit.ESPARMAGE.army_name"
       },
-      "max_hp": 40,
-      "starting_hp": 40,
-      "max_mana": 6,
+      "max_hp": "60",
+      "starting_hp": "60",
+      "max_mana": "8",
       "starting_mana": 0,
       "mana_growth": 0,
       "phys_defense": 9,
@@ -205,7 +222,7 @@
       "luck": 10,
       "bravery": 80,
       "movement": 1,
-      "point_value": 25,
+      "point_value": "18",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -216,9 +233,12 @@
         "primary_action": "aa0672e6-6256-40d5-bc66-0c4e3a181853",
         "special_action": "c6f7aa32-037b-48f3-abb9-452996003c0f",
         "primary_action_mana_delta": 2,
-        "special_action_mana_delta": -6,
+        "special_action_mana_delta": "-8",
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.ESPARMAGE",
+      "name_translation_key": "unit.ESPARMAGE.name",
+      "description_translation_key": "unit.ESPARMAGE.description"
     },
     {
       "guid": "a26d3a51-81f7-4be7-8c35-18b65e15c079",
@@ -234,22 +254,23 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.FANE.army_name"
       },
-      "max_hp": 170,
-      "starting_hp": 170,
+      "max_hp": "100",
+      "starting_hp": "100",
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 10,
-      "spec_defense": 8,
+      "phys_defense": "14",
+      "spec_defense": "15",
       "speed": 15,
-      "strength": 19,
+      "strength": "14",
       "intelligence": 15,
       "luck": 14,
       "bravery": 99,
       "movement": 1,
-      "point_value": 18,
+      "point_value": "10",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -262,7 +283,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.FANE",
+      "name_translation_key": "unit.FANE.name",
+      "description_translation_key": "unit.FANE.description"
     },
     {
       "guid": "07865b10-8e4e-40c7-bcb4-fa3ec6674a54",
@@ -278,22 +302,23 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.FORESTARCHER.army_name"
       },
-      "max_hp": 30,
-      "starting_hp": 30,
+      "max_hp": "60",
+      "starting_hp": "60",
       "max_mana": 5,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 7,
-      "spec_defense": 10,
-      "speed": 20,
+      "phys_defense": "2",
+      "spec_defense": "3",
+      "speed": "14",
       "strength": 10,
       "intelligence": 12,
       "luck": 15,
-      "bravery": 65,
+      "bravery": "50",
       "movement": 1,
-      "point_value": 6,
+      "point_value": "7",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "KEEP_DISTANCE",
@@ -306,7 +331,10 @@
         "primary_action_mana_delta": 1,
         "special_action_mana_delta": -5,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.FORESTARCHER",
+      "name_translation_key": "unit.FORESTARCHER.name",
+      "description_translation_key": "unit.FORESTARCHER.description"
     },
     {
       "guid": "50380f2a-9a55-4ff3-ac7a-f3514035bfa7",
@@ -322,14 +350,15 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Gargara Legion"
+        "army_name": "Gargara Legion",
+        "army_name_translation_key": "unit.GARGARA.army_name"
       },
       "max_hp": 200,
       "starting_hp": 200,
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 12,
+      "phys_defense": "17",
       "spec_defense": 15,
       "speed": 15,
       "strength": 20,
@@ -350,7 +379,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.GARGARA",
+      "name_translation_key": "unit.GARGARA.name",
+      "description_translation_key": "unit.GARGARA.description"
     },
     {
       "guid": "100ae0e5-b515-4ca3-964c-f27d4f4cceb4",
@@ -366,23 +398,24 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.GIANTRAT.army_name"
       },
-      "max_hp": 30,
+      "max_hp": "20",
       "starting_hp": 30,
       "max_mana": 4,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 8,
-      "spec_defense": 2,
-      "speed": 15,
-      "strength": 5,
+      "phys_defense": "1",
+      "spec_defense": "1",
+      "speed": "25",
+      "strength": "4",
       "intelligence": 1,
       "luck": 5,
       "bravery": 99,
       "movement": 1,
       "point_value": 1,
-      "can_flee": true,
+      "can_flee": false,
       "faithful": false,
       "movement_strategy": "ADVANCE",
       "holding_distance": 0,
@@ -394,7 +427,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -4,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.GIANTRAT",
+      "name_translation_key": "unit.GIANTRAT.name",
+      "description_translation_key": "unit.GIANTRAT.description"
     },
     {
       "guid": "6781fd86-f1b1-4293-b76c-79bbe0f1eb5f",
@@ -403,29 +439,30 @@
       "description": "Giant rat",
       "is_commander": true,
       "commander_data": {
-        "leadership": 100,
+        "leadership": "120",
         "point_limit": 500,
         "grid_size_x": 15,
         "grid_size_y": 30,
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Rodent Horde"
+        "army_name": "Rodent Horde",
+        "army_name_translation_key": "unit.GIANTRATCOMMANDER.army_name"
       },
       "max_hp": 30,
       "starting_hp": 30,
       "max_mana": 4,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 8,
-      "spec_defense": 8,
-      "speed": 15,
+      "phys_defense": "1",
+      "spec_defense": "2",
+      "speed": "25",
       "strength": 5,
       "intelligence": 1,
       "luck": 5,
       "bravery": 99,
       "movement": 1,
-      "point_value": 1,
+      "point_value": "75",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -438,7 +475,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -4,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.GIANTRATCOMMANDER",
+      "name_translation_key": "unit.GIANTRATCOMMANDER.name",
+      "description_translation_key": "unit.GIANTRATCOMMANDER.description"
     },
     {
       "guid": "3d763012-08de-4cde-822f-76a51375923e",
@@ -454,22 +494,23 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.GMERC.army_name"
       },
       "max_hp": 95,
-      "starting_hp": 95,
+      "starting_hp": "110",
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
       "phys_defense": 9,
-      "spec_defense": 8,
-      "speed": 20,
-      "strength": 16,
+      "spec_defense": "2",
+      "speed": "12",
+      "strength": "13",
       "intelligence": 10,
       "luck": 10,
-      "bravery": 50,
+      "bravery": "60",
       "movement": 1,
-      "point_value": 12,
+      "point_value": "6",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -482,7 +523,58 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.GMERC",
+      "name_translation_key": "unit.GMERC.name",
+      "description_translation_key": "unit.GMERC.description"
+    },
+    {
+      "guid": "e0034863-7fa5-48a2-91db-4f5189be0739",
+      "id": "WITCH",
+      "name": "High Thurzan Witch",
+      "description": "A maiden of the Lazaric courts, married to a fleeting shard of Anazarbus. ",
+      "is_commander": true,
+      "commander_data": {
+        "leadership": "140",
+        "point_limit": "300",
+        "grid_size_x": "10",
+        "grid_size_y": "10",
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": "Thurzan Mission",
+        "army_name_translation_key": "unit.WITCH.army_name"
+      },
+      "max_hp": "50",
+      "starting_hp": "50",
+      "max_mana": "5",
+      "starting_mana": "0",
+      "mana_growth": "0",
+      "phys_defense": "1",
+      "spec_defense": "17",
+      "speed": "15",
+      "strength": "10",
+      "intelligence": "18",
+      "luck": "14",
+      "bravery": "90",
+      "movement": 1,
+      "point_value": "60",
+      "can_flee": true,
+      "faithful": false,
+      "movement_strategy": "KEEP_DISTANCE",
+      "holding_distance": "4",
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
+        "primary_action": "c79b6d57-0f91-46cf-8ab6-dfa96ecacbb4",
+        "special_action": "c7392a56-90f2-415c-a29a-ebc5460de30e",
+        "primary_action_mana_delta": 1,
+        "special_action_mana_delta": "-5",
+        "passive_action_mana_delta": 0
+      },
+      "translation_id": "unit.WITCH",
+      "name_translation_key": "unit.WITCH.name",
+      "description_translation_key": "unit.WITCH.description"
     },
     {
       "guid": "391e2547-3271-4e11-9db7-c7c00913e1a1",
@@ -498,22 +590,23 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.INDENTURED.army_name"
       },
       "max_hp": 70,
       "starting_hp": 70,
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 8,
-      "spec_defense": 7,
+      "phys_defense": "5",
+      "spec_defense": "2",
       "speed": 15,
       "strength": 11,
       "intelligence": 9,
       "luck": 10,
-      "bravery": 50,
+      "bravery": "55",
       "movement": 1,
-      "point_value": 2,
+      "point_value": "3",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -526,7 +619,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.INDENTURED",
+      "name_translation_key": "unit.INDENTURED.name",
+      "description_translation_key": "unit.INDENTURED.description"
     },
     {
       "guid": "76541904-11c1-41d0-b632-3f68cd63877a",
@@ -542,22 +638,23 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.ISRFENCER.army_name"
       },
-      "max_hp": 90,
-      "starting_hp": 90,
+      "max_hp": "80",
+      "starting_hp": "80",
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 8,
-      "spec_defense": 15,
-      "speed": 20,
-      "strength": 15,
+      "phys_defense": "11",
+      "spec_defense": "6",
+      "speed": "16",
+      "strength": "11",
       "intelligence": 12,
       "luck": 15,
       "bravery": 75,
       "movement": 1,
-      "point_value": 14,
+      "point_value": "11",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -570,7 +667,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.ISRFENCER",
+      "name_translation_key": "unit.ISRFENCER.name",
+      "description_translation_key": "unit.ISRFENCER.description"
     },
     {
       "guid": "3ab592a9-50bc-4058-8f8b-de0085615bd5",
@@ -586,22 +686,23 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.MARCHBOW.army_name"
       },
-      "max_hp": 30,
-      "starting_hp": 30,
+      "max_hp": "60",
+      "starting_hp": "60",
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 7,
-      "spec_defense": 10,
-      "speed": 20,
+      "phys_defense": "3",
+      "spec_defense": "2",
+      "speed": "14",
       "strength": 9,
       "intelligence": 12,
       "luck": 13,
-      "bravery": 60,
+      "bravery": "45",
       "movement": 1,
-      "point_value": 6,
+      "point_value": "7",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -614,7 +715,10 @@
         "primary_action_mana_delta": 1,
         "special_action_mana_delta": -5,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.MARCHBOW",
+      "name_translation_key": "unit.MARCHBOW.name",
+      "description_translation_key": "unit.MARCHBOW.description"
     },
     {
       "guid": "ab84404a-3a5f-48ac-b0ac-8a9765fd4ed7",
@@ -630,16 +734,17 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.MARCHSPEAR.army_name"
       },
       "max_hp": 80,
       "starting_hp": 80,
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 8,
-      "spec_defense": 8,
-      "speed": 20,
+      "phys_defense": "8",
+      "spec_defense": "2",
+      "speed": "12",
       "strength": 13,
       "intelligence": 10,
       "luck": 10,
@@ -658,7 +763,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.MARCHSPEAR",
+      "name_translation_key": "unit.MARCHSPEAR.name",
+      "description_translation_key": "unit.MARCHSPEAR.description"
     },
     {
       "guid": "ecd7982d-fb9a-4448-ac6a-ecf476f9beec",
@@ -669,20 +777,21 @@
       "commander_data": {
         "leadership": 130,
         "point_limit": "9000",
-        "grid_size_x": "15",
-        "grid_size_y": "30",
+        "grid_size_x": "10",
+        "grid_size_y": "15",
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Ravager's Legion"
+        "army_name": "Ravager's Legion",
+        "army_name_translation_key": "unit.CAPTIONRAVAGER.army_name"
       },
       "max_hp": 125,
       "starting_hp": 125,
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 10,
-      "spec_defense": 8,
+      "phys_defense": "13",
+      "spec_defense": "5",
       "speed": 15,
       "strength": 17,
       "intelligence": 15,
@@ -702,7 +811,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.CAPTIONRAVAGER",
+      "name_translation_key": "unit.CAPTIONRAVAGER.name",
+      "description_translation_key": "unit.CAPTIONRAVAGER.description"
     },
     {
       "guid": "952952c4-4f6f-41a5-a735-91b08676b0dd",
@@ -713,27 +825,28 @@
       "commander_data": {
         "leadership": "150",
         "point_limit": "9000",
-        "grid_size_x": "15",
-        "grid_size_y": "30",
+        "grid_size_x": "10",
+        "grid_size_y": "15",
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Darksteel Host "
+        "army_name": "Darksteel Host ",
+        "army_name_translation_key": "unit.DARKSTEEL.army_name"
       },
       "max_hp": "150",
       "starting_hp": "150",
       "max_mana": "10",
       "starting_mana": "0",
       "mana_growth": "10",
-      "phys_defense": "20",
-      "spec_defense": "15",
+      "phys_defense": "13",
+      "spec_defense": "7",
       "speed": "15",
-      "strength": "19",
+      "strength": "15",
       "intelligence": "12",
       "luck": "15",
       "bravery": "80",
       "movement": 1,
-      "point_value": "30",
+      "point_value": "20",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -746,7 +859,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": 2,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.DARKSTEEL",
+      "name_translation_key": "unit.DARKSTEEL.name",
+      "description_translation_key": "unit.DARKSTEEL.description"
     },
     {
       "guid": "919675ce-54a3-4044-8747-2a0a070af326",
@@ -762,20 +878,21 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.MILITIA.army_name"
       },
       "max_hp": 60,
       "starting_hp": 60,
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 8,
-      "spec_defense": 8,
-      "speed": 20,
+      "phys_defense": "4",
+      "spec_defense": "2",
+      "speed": "12",
       "strength": 10,
       "intelligence": 10,
       "luck": 12,
-      "bravery": 50,
+      "bravery": "60",
       "movement": 1,
       "point_value": 4,
       "can_flee": true,
@@ -790,7 +907,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.MILITIA",
+      "name_translation_key": "unit.MILITIA.name",
+      "description_translation_key": "unit.MILITIA.description"
     },
     {
       "guid": "4dedb670-d235-46ae-9ca8-272556fa668c",
@@ -806,9 +926,10 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.MSURGEON.army_name"
       },
-      "max_hp": 15,
+      "max_hp": "60",
       "starting_hp": 15,
       "max_mana": 12,
       "starting_mana": 0,
@@ -821,7 +942,7 @@
       "luck": 15,
       "bravery": 70,
       "movement": 1,
-      "point_value": 12,
+      "point_value": "10",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -834,7 +955,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -12,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.MSURGEON",
+      "name_translation_key": "unit.MSURGEON.name",
+      "description_translation_key": "unit.MSURGEON.description"
     },
     {
       "guid": "63f0648e-eddb-4790-849e-3a6ed7984260",
@@ -843,24 +967,25 @@
       "description": "Born and bred in the fighting pits of Lazar. The strongest will take contracts on the March, often leading raiding forces or patrols. Numb to the fear of death. Heavy close quarters attacker. ",
       "is_commander": true,
       "commander_data": {
-        "leadership": 100,
+        "leadership": "110",
         "point_limit": 150,
         "grid_size_x": 4,
         "grid_size_y": 14,
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Moonblade Gladiator's Army"
+        "army_name": "Moonblade Gladiator's Army",
+        "army_name_translation_key": "unit.MOONBLADE.army_name"
       },
-      "max_hp": 130,
-      "starting_hp": 130,
+      "max_hp": "100",
+      "starting_hp": "100",
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
       "phys_defense": 10,
       "spec_defense": 9,
-      "speed": 20,
-      "strength": 22,
+      "speed": "12",
+      "strength": "15",
       "intelligence": 10,
       "luck": 10,
       "bravery": 60,
@@ -878,7 +1003,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": "-10",
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.MOONBLADE",
+      "name_translation_key": "unit.MOONBLADE.name",
+      "description_translation_key": "unit.MOONBLADE.description"
     },
     {
       "guid": "637d1c1e-7994-403d-9fde-b7b9f2bb6b07",
@@ -887,21 +1015,24 @@
       "description": "Whether by chance encounter with a creature of pure magic, or a spontaneous flash of mage sight, the Plainsfolk wanderers master arcane orchestration on their own. They are the mage school of path and trail, moving in conjunction with the Sphere Angel. ",
       "is_commander": true,
       "commander_data": {
-        "leadership": 100,
-        "point_limit": 200,
+        "leadership": "120",
+        "point_limit": "240",
         "grid_size_x": 10,
         "grid_size_y": 10,
         "global_augments": [],
-        "army_augments": [],
+        "army_augments": [
+          "32f7d1ce-d74b-4600-b431-a252e8eb8327"
+        ],
         "enemy_army_augments": [],
-        "army_name": "Band of the Plainsfolk Mage"
+        "army_name": "Band of the Plainsfolk Mage",
+        "army_name_translation_key": "unit.PMAGE.army_name"
       },
-      "max_hp": 15,
-      "starting_hp": 15,
-      "max_mana": 12,
+      "max_hp": "60",
+      "starting_hp": "60",
+      "max_mana": "6",
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 6,
+      "phys_defense": "3",
       "spec_defense": 12,
       "speed": 15,
       "strength": 8,
@@ -912,17 +1043,20 @@
       "point_value": 15,
       "can_flee": true,
       "faithful": false,
-      "movement_strategy": "ADVANCE",
-      "holding_distance": 0,
+      "movement_strategy": "KEEP_DISTANCE",
+      "holding_distance": "2",
       "inaction_limit": 20,
       "actions": {
         "passive_action": null,
         "primary_action": "74ba2f88-f74c-4398-8c21-ea325f327b2d",
-        "special_action": "15da261e-cbd0-4519-98a7-8f702185caef",
+        "special_action": "8983b004-3c40-4260-bb99-1e6cdf60cb03",
         "primary_action_mana_delta": 2,
-        "special_action_mana_delta": -12,
+        "special_action_mana_delta": "-6",
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.PMAGE",
+      "name_translation_key": "unit.PMAGE.name",
+      "description_translation_key": "unit.PMAGE.description"
     },
     {
       "guid": "3e03342a-7cb0-486f-8357-a300f386ec55",
@@ -938,7 +1072,8 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Poria Macroorganism"
+        "army_name": "Poria Macroorganism",
+        "army_name_translation_key": "unit.PORIA.army_name"
       },
       "max_hp": 400,
       "starting_hp": 400,
@@ -966,7 +1101,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.PORIA",
+      "name_translation_key": "unit.PORIA.name",
+      "description_translation_key": "unit.PORIA.description"
     },
     {
       "guid": "2c94b661-1590-45e1-bf05-d8ea27e4fe8c",
@@ -982,15 +1120,16 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Lupenari Hermit's Cohort"
+        "army_name": "Lupenari Hermit's Cohort",
+        "army_name_translation_key": "unit.HERMIT.army_name"
       },
-      "max_hp": 15,
+      "max_hp": "45",
       "starting_hp": 15,
       "max_mana": 12,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 6,
-      "spec_defense": 12,
+      "phys_defense": "2",
+      "spec_defense": "7",
       "speed": 15,
       "strength": 8,
       "intelligence": 19,
@@ -1001,7 +1140,7 @@
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
-      "holding_distance": 0,
+      "holding_distance": "0",
       "inaction_limit": 20,
       "actions": {
         "passive_action": null,
@@ -1010,7 +1149,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.HERMIT",
+      "name_translation_key": "unit.HERMIT.name",
+      "description_translation_key": "unit.HERMIT.description"
     },
     {
       "guid": "b067e8cd-da78-4557-bbf4-e1ab6315bcc1",
@@ -1026,16 +1168,17 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.PRIONASSIST.army_name"
       },
-      "max_hp": 10,
-      "starting_hp": 10,
+      "max_hp": "60",
+      "starting_hp": "60",
       "max_mana": "14",
       "starting_mana": "0",
       "mana_growth": 0,
-      "phys_defense": 5,
+      "phys_defense": "4",
       "spec_defense": 8,
-      "speed": 20,
+      "speed": "10",
       "strength": 9,
       "intelligence": 15,
       "luck": 11,
@@ -1052,9 +1195,12 @@
         "primary_action": "74ba2f88-f74c-4398-8c21-ea325f327b2d",
         "special_action": "05745a96-fb22-4023-bcfc-05be023d63e5",
         "primary_action_mana_delta": 2,
-        "special_action_mana_delta": "-12",
+        "special_action_mana_delta": "-14",
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.PRIONASSIST",
+      "name_translation_key": "unit.PRIONASSIST.name",
+      "description_translation_key": "unit.PRIONASSIST.description"
     },
     {
       "guid": "276dd796-01b8-4fd2-8bdd-8532d54003a2",
@@ -1065,19 +1211,20 @@
       "commander_data": {
         "leadership": "120",
         "point_limit": "9000",
-        "grid_size_x": "15",
-        "grid_size_y": "30",
+        "grid_size_x": "10",
+        "grid_size_y": "10",
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Prion Column"
+        "army_name": "Prion Column",
+        "army_name_translation_key": "unit.PRIONMAGE.army_name"
       },
-      "max_hp": "20",
-      "starting_hp": "20",
-      "max_mana": "16",
+      "max_hp": "60",
+      "starting_hp": "60",
+      "max_mana": "12",
       "starting_mana": "0",
       "mana_growth": "0",
-      "phys_defense": "6",
+      "phys_defense": "4",
       "spec_defense": "15",
       "speed": "15",
       "strength": "8",
@@ -1085,7 +1232,7 @@
       "luck": "12",
       "bravery": "70",
       "movement": 1,
-      "point_value": "30",
+      "point_value": "20",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "KEEP_DISTANCE",
@@ -1096,9 +1243,12 @@
         "primary_action": "0fbada60-2bdb-4499-a61e-2ef91aa7482a",
         "special_action": "be530c43-c824-4f43-8615-2657c7479db1",
         "primary_action_mana_delta": "2",
-        "special_action_mana_delta": "-16",
+        "special_action_mana_delta": "-12",
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.PRIONMAGE",
+      "name_translation_key": "unit.PRIONMAGE.name",
+      "description_translation_key": "unit.PRIONMAGE.description"
     },
     {
       "guid": "ea496a9d-e1d1-42c5-a533-154f0355ae25",
@@ -1107,17 +1257,20 @@
       "description": "Fel haunting beast of the ruins of Altair, the fallen capital of Iserlohn. Once a mage, now denatured in sight of Anazarbus, under a geass of ruin.",
       "is_commander": true,
       "commander_data": {
-        "leadership": "80",
+        "leadership": "140",
         "point_limit": "500",
         "grid_size_x": "10",
         "grid_size_y": "10",
         "global_augments": [],
         "army_augments": [],
-        "enemy_army_augments": [],
-        "army_name": "Reaper's Flock"
+        "enemy_army_augments": [
+          "68165a30-5277-4e9e-a504-4e8e23442b5a"
+        ],
+        "army_name": "Reaper's Flock",
+        "army_name_translation_key": "unit.REAPER.army_name"
       },
-      "max_hp": "300",
-      "starting_hp": "300",
+      "max_hp": "225",
+      "starting_hp": "225",
       "max_mana": "10",
       "starting_mana": "0",
       "mana_growth": "0",
@@ -1129,7 +1282,55 @@
       "luck": "10",
       "bravery": "90",
       "movement": 1,
-      "point_value": "80",
+      "point_value": "50",
+      "can_flee": false,
+      "faithful": false,
+      "movement_strategy": "ADVANCE",
+      "holding_distance": 0,
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
+        "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
+        "special_action": "4b2f3c56-565e-4e24-8daa-b4cc5d3542c5",
+        "primary_action_mana_delta": 2,
+        "special_action_mana_delta": -10,
+        "passive_action_mana_delta": 0
+      },
+      "translation_id": "unit.REAPER",
+      "name_translation_key": "unit.REAPER.name",
+      "description_translation_key": "unit.REAPER.description"
+    },
+    {
+      "guid": "68d41345-c198-4251-b22d-a559cdae226f",
+      "id": "SHANKNIGHT",
+      "name": "Shanidar Knight",
+      "description": "Mystical Neolithic warrior thawed from a glacier.",
+      "is_commander": false,
+      "commander_data": {
+        "leadership": 0,
+        "point_limit": 0,
+        "grid_size_x": 1,
+        "grid_size_y": 1,
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": "",
+        "army_name_translation_key": "unit.SHANKNIGHT.army_name"
+      },
+      "max_hp": "110",
+      "starting_hp": "110",
+      "max_mana": "10",
+      "starting_mana": "0",
+      "mana_growth": "0",
+      "phys_defense": "10",
+      "spec_defense": "10",
+      "speed": "10",
+      "strength": "10",
+      "intelligence": "10",
+      "luck": "10",
+      "bravery": "80",
+      "movement": "1",
+      "point_value": "15",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -1139,10 +1340,13 @@
         "passive_action": null,
         "primary_action": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
         "special_action": "bf664834-90f3-44e8-a808-f81730e799ad",
-        "primary_action_mana_delta": 2,
-        "special_action_mana_delta": -10,
+        "primary_action_mana_delta": "2",
+        "special_action_mana_delta": "-10",
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.SHANKNIGHT",
+      "name_translation_key": "unit.SHANKNIGHT.name",
+      "description_translation_key": "unit.SHANKNIGHT.description"
     },
     {
       "guid": "47b43dcf-0c75-4279-b315-3b13749a25ad",
@@ -1158,14 +1362,15 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.SILVER.army_name"
       },
-      "max_hp": "120",
-      "starting_hp": "120",
+      "max_hp": "90",
+      "starting_hp": "90",
       "max_mana": "10",
       "starting_mana": "0",
       "mana_growth": "0",
-      "phys_defense": "18",
+      "phys_defense": "14",
       "spec_defense": "17",
       "speed": "15",
       "strength": "15",
@@ -1173,7 +1378,7 @@
       "luck": "18",
       "bravery": "80",
       "movement": 1,
-      "point_value": "15",
+      "point_value": "10",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -1186,7 +1391,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.SILVER",
+      "name_translation_key": "unit.SILVER.name",
+      "description_translation_key": "unit.SILVER.description"
     },
     {
       "guid": "e9f09e59-0ff0-4b48-8837-a25ea2b815ee",
@@ -1202,22 +1410,23 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.SPEARMAN.army_name"
       },
-      "max_hp": 80,
-      "starting_hp": 80,
+      "max_hp": "90",
+      "starting_hp": "90",
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
       "phys_defense": 9,
-      "spec_defense": 8,
-      "speed": 20,
+      "spec_defense": "4",
+      "speed": "12",
       "strength": 12,
       "intelligence": 10,
       "luck": 10,
       "bravery": 65,
       "movement": 1,
-      "point_value": 8,
+      "point_value": "6",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -1230,7 +1439,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.SPEARMAN",
+      "name_translation_key": "unit.SPEARMAN.name",
+      "description_translation_key": "unit.SPEARMAN.description"
     },
     {
       "guid": "06a1b68d-3b1c-4641-95cd-4f3d08e5ba51",
@@ -1246,7 +1458,8 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Test Army"
+        "army_name": "Test Army",
+        "army_name_translation_key": "unit.TEST.army_name"
       },
       "max_hp": 2000,
       "starting_hp": 2000,
@@ -1274,7 +1487,10 @@
         "primary_action_mana_delta": 1,
         "special_action_mana_delta": -1,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.TEST",
+      "name_translation_key": "unit.TEST.name",
+      "description_translation_key": "unit.TEST.description"
     },
     {
       "guid": "46a458f9-aac0-44a8-baf5-dfbff000ca3c",
@@ -1290,7 +1506,8 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Warden of Lupenar's Forces"
+        "army_name": "Warden of Lupenar's Forces",
+        "army_name_translation_key": "unit.WARDEN.army_name"
       },
       "max_hp": 110,
       "starting_hp": 110,
@@ -1300,7 +1517,7 @@
       "phys_defense": 9,
       "spec_defense": 10,
       "speed": 15,
-      "strength": 16,
+      "strength": "14",
       "intelligence": 12,
       "luck": 15,
       "bravery": 75,
@@ -1318,7 +1535,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.WARDEN",
+      "name_translation_key": "unit.WARDEN.name",
+      "description_translation_key": "unit.WARDEN.description"
     },
     {
       "guid": "0f621a66-abeb-440d-89e3-6c7cb3fad9ab",
@@ -1334,22 +1554,23 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.DRAGOON.army_name"
       },
-      "max_hp": 120,
-      "starting_hp": 120,
+      "max_hp": "100",
+      "starting_hp": "100",
       "max_mana": 10,
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 9,
-      "spec_defense": 12,
+      "phys_defense": "15",
+      "spec_defense": "7",
       "speed": 15,
       "strength": 14,
       "intelligence": 11,
       "luck": 12,
       "bravery": 70,
       "movement": 1,
-      "point_value": 13,
+      "point_value": "9",
       "can_flee": true,
       "faithful": false,
       "movement_strategy": "ADVANCE",
@@ -1362,7 +1583,10 @@
         "primary_action_mana_delta": 2,
         "special_action_mana_delta": -10,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.DRAGOON",
+      "name_translation_key": "unit.DRAGOON.name",
+      "description_translation_key": "unit.DRAGOON.description"
     },
     {
       "guid": "f2034ba1-5597-46f9-a518-5e0e3a933a5e",
@@ -1378,14 +1602,15 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": ""
+        "army_name": "",
+        "army_name_translation_key": "unit.UNICORN.army_name"
       },
       "max_hp": 50,
       "starting_hp": 50,
-      "max_mana": 10,
+      "max_mana": "12",
       "starting_mana": 0,
       "mana_growth": 0,
-      "phys_defense": 7,
+      "phys_defense": "10",
       "spec_defense": 15,
       "speed": 15,
       "strength": 7,
@@ -1393,7 +1618,7 @@
       "luck": 40,
       "bravery": 80,
       "movement": 1,
-      "point_value": 21,
+      "point_value": "10",
       "can_flee": true,
       "faithful": true,
       "movement_strategy": "KEEP_DISTANCE",
@@ -1404,16 +1629,67 @@
         "primary_action": "454222f0-f1f5-4478-9975-f471d608b2c3",
         "special_action": "76fc407b-1497-42c8-a334-39f1e472086d",
         "primary_action_mana_delta": 2,
-        "special_action_mana_delta": -10,
+        "special_action_mana_delta": "-12",
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.UNICORN",
+      "name_translation_key": "unit.UNICORN.name",
+      "description_translation_key": "unit.UNICORN.description"
+    },
+    {
+      "guid": "35303ea1-0ecf-4265-911b-5a979f8f2b5a",
+      "id": "SHARDSUMMON1",
+      "name": "Unstable Shard Assassin",
+      "description": "Through a brief encounter with Anazarbus, the witch can conjure an unstable sliver of its power in the form of a murderous otherworldly soldier.",
+      "is_commander": false,
+      "commander_data": {
+        "leadership": 0,
+        "point_limit": 0,
+        "grid_size_x": 1,
+        "grid_size_y": 1,
+        "global_augments": [],
+        "army_augments": [],
+        "enemy_army_augments": [],
+        "army_name": "",
+        "army_name_translation_key": "unit.SHARDSUMMON1.army_name"
+      },
+      "max_hp": "80",
+      "starting_hp": "80",
+      "max_mana": "4",
+      "starting_mana": "0",
+      "mana_growth": "0",
+      "phys_defense": "17",
+      "spec_defense": "20",
+      "speed": "20",
+      "strength": "17",
+      "intelligence": "20",
+      "luck": "20",
+      "bravery": "99",
+      "movement": "4",
+      "point_value": "1",
+      "can_flee": false,
+      "faithful": true,
+      "movement_strategy": "ADVANCE",
+      "holding_distance": "0",
+      "inaction_limit": 20,
+      "actions": {
+        "passive_action": null,
+        "primary_action": "bf664834-90f3-44e8-a808-f81730e799ad",
+        "special_action": "4b2f3c56-565e-4e24-8daa-b4cc5d3542c5",
+        "primary_action_mana_delta": 1,
+        "special_action_mana_delta": "-4",
+        "passive_action_mana_delta": 0
+      },
+      "translation_id": "unit.SHARDSUMMON1",
+      "name_translation_key": "unit.SHARDSUMMON1.name",
+      "description_translation_key": "unit.SHARDSUMMON1.description"
     },
     {
       "guid": "917ae9f0-84bd-4e2b-a635-c65ede2719f2",
       "id": "STRIX",
       "name": "Wandering Strix",
       "description": "A benevolent spirit mage of mountain and plain. The strix brokered the introduction of ancient man to the currents of arcane frequency. While they come and go, their dwellings have never been discovered.",
-      "is_commander": true,
+      "is_commander": false,
       "commander_data": {
         "leadership": 100,
         "point_limit": 150,
@@ -1422,35 +1698,39 @@
         "global_augments": [],
         "army_augments": [],
         "enemy_army_augments": [],
-        "army_name": "Wandering Strix's Company"
+        "army_name": "Wandering Strix's Company",
+        "army_name_translation_key": "unit.STRIX.army_name"
       },
-      "max_hp": 200,
-      "starting_hp": 200,
-      "max_mana": 14,
+      "max_hp": "70",
+      "starting_hp": "70",
+      "max_mana": "12",
       "starting_mana": 0,
-      "mana_growth": 0,
-      "phys_defense": 10,
+      "mana_growth": "0",
+      "phys_defense": "6",
       "spec_defense": 15,
       "speed": 18,
-      "strength": 30,
+      "strength": "25",
       "intelligence": 25,
       "luck": 25,
-      "bravery": 80,
+      "bravery": "85",
       "movement": 1,
-      "point_value": 23,
+      "point_value": "18",
       "can_flee": true,
       "faithful": false,
-      "movement_strategy": "ADVANCE",
-      "holding_distance": 0,
+      "movement_strategy": "KEEP_DISTANCE",
+      "holding_distance": "5",
       "inaction_limit": 20,
       "actions": {
         "passive_action": null,
         "primary_action": "f2f0715d-1670-4139-97db-8516cc9b55bc",
-        "special_action": "00fd910b-37ce-40c9-9ce3-65c00a2480d4",
+        "special_action": "cf72fafb-be90-4f26-8503-bdad21a58392",
         "primary_action_mana_delta": "2",
         "special_action_mana_delta": -12,
         "passive_action_mana_delta": 0
-      }
+      },
+      "translation_id": "unit.STRIX",
+      "name_translation_key": "unit.STRIX.name",
+      "description_translation_key": "unit.STRIX.description"
     }
   ],
   "actions": [
@@ -1460,8 +1740,8 @@
       "name": "Area Heal I",
       "description": "Basic area heal",
       "targeting_type": "UP_TO",
-      "targeting_range": 5,
-      "max_targets": 1,
+      "targeting_range": "10",
+      "max_targets": "3",
       "splash": 2,
       "chain": false,
       "should_check_evasion": false,
@@ -1492,7 +1772,7 @@
         "crit_augment": null
       },
       "heal_props": {
-        "hp": 3,
+        "hp": "12",
         "decay": 0,
         "should_target_full_hp": false
       },
@@ -1533,7 +1813,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.AREAHEALI",
+      "name_translation_key": "action.AREAHEALI.name",
+      "description_translation_key": "action.AREAHEALI.description"
     },
     {
       "guid": "fdaca972-0ba5-48a5-a829-cfd01d81d164",
@@ -1541,8 +1824,8 @@
       "name": "Area Heal II",
       "description": "Strong area heal",
       "targeting_type": "UP_TO",
-      "targeting_range": 4,
-      "max_targets": 1,
+      "targeting_range": "10",
+      "max_targets": "4",
       "splash": 2,
       "chain": false,
       "should_check_evasion": false,
@@ -1573,7 +1856,7 @@
         "crit_augment": null
       },
       "heal_props": {
-        "hp": 6,
+        "hp": "12",
         "decay": 0,
         "should_target_full_hp": false
       },
@@ -1614,7 +1897,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.AREAHEALII",
+      "name_translation_key": "action.AREAHEALII.name",
+      "description_translation_key": "action.AREAHEALII.description"
     },
     {
       "guid": "15da261e-cbd0-4519-98a7-8f702185caef",
@@ -1697,7 +1983,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.AREASUNDERI",
+      "name_translation_key": "action.AREASUNDERI.name",
+      "description_translation_key": "action.AREASUNDERI.description"
     },
     {
       "guid": "c6648d0d-6615-4503-856c-c2a911f98d11",
@@ -1705,7 +1994,7 @@
       "name": "Betrayal I",
       "description": "A spell that destroys love",
       "targeting_type": "EXACT",
-      "targeting_range": 10,
+      "targeting_range": "15",
       "max_targets": 1,
       "splash": 0,
       "chain": false,
@@ -1780,7 +2069,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.BETRAYAL",
+      "name_translation_key": "action.BETRAYAL.name",
+      "description_translation_key": "action.BETRAYAL.description"
     },
     {
       "guid": "7d085912-1973-41bd-ac77-d3bfb60ad78a",
@@ -1803,8 +2095,8 @@
       "approach_strategy": "HOLD",
       "target_self": false,
       "damage_action_props": {
-        "base_phys_damage": 0,
-        "unit_strength_modifier": 1,
+        "base_phys_damage": "5",
+        "unit_strength_modifier": "0.25",
         "target_phys_defense_modifier": 1,
         "base_magic_damage": 0,
         "unit_int_modifier": 0,
@@ -1813,7 +2105,7 @@
         "unit_speed_modifier": 0,
         "target_speed_modifier": 0,
         "crit_modifier": 2,
-        "base_damage": 1,
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": null,
@@ -1861,7 +2153,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.BITE",
+      "name_translation_key": "action.BITE.name",
+      "description_translation_key": "action.BITE.description"
     },
     {
       "guid": "f99bccad-b612-4a59-b55b-4248c36cabaa",
@@ -1942,7 +2237,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.CHARGEUP",
+      "name_translation_key": "action.CHARGEUP.name",
+      "description_translation_key": "action.CHARGEUP.description"
     },
     {
       "guid": "76fc407b-1497-42c8-a334-39f1e472086d",
@@ -2023,7 +2321,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.CLEAREYES",
+      "name_translation_key": "action.CLEAREYES.name",
+      "description_translation_key": "action.CLEAREYES.description"
     },
     {
       "guid": "9bd96ca3-7f3f-47da-b529-19c5e0a87928",
@@ -2031,13 +2332,13 @@
       "name": "Corona Blast",
       "description": "Magic area attack",
       "targeting_type": "UP_TO",
-      "targeting_range": 10,
+      "targeting_range": "15",
       "max_targets": 1,
-      "splash": 2,
-      "chain": true,
+      "splash": "0",
+      "chain": false,
       "should_check_evasion": false,
       "evasion_multiplier": 1,
-      "can_crit": true,
+      "can_crit": false,
       "crit_chance_multiplier": 1,
       "mana_delta": -16,
       "break_vanguard": false,
@@ -2049,14 +2350,14 @@
         "base_phys_damage": 0,
         "unit_strength_modifier": 0,
         "target_phys_defense_modifier": 0,
-        "base_magic_damage": 0,
-        "unit_int_modifier": 0.8,
+        "base_magic_damage": "40",
+        "unit_int_modifier": "2",
         "target_spec_defense_modifier": 1,
-        "base_dex_damage": 0,
-        "unit_speed_modifier": 0,
+        "base_dex_damage": "0",
+        "unit_speed_modifier": "0",
         "target_speed_modifier": 0,
         "crit_modifier": 2,
-        "base_damage": 1,
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": null,
@@ -2104,7 +2405,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": "1",
+      "translation_id": "action.CORONABLAST",
+      "name_translation_key": "action.CORONABLAST.name",
+      "description_translation_key": "action.CORONABLAST.description"
     },
     {
       "guid": "e8d8d7c9-16f7-4bc3-8145-2356e7d59892",
@@ -2112,7 +2416,7 @@
       "name": "Disposit Strike",
       "description": "Magic ranged attack that debuffs special defense",
       "targeting_type": "UP_TO",
-      "targeting_range": 10,
+      "targeting_range": "15",
       "max_targets": 1,
       "splash": 0,
       "chain": false,
@@ -2130,14 +2434,14 @@
         "base_phys_damage": 0,
         "unit_strength_modifier": 0,
         "target_phys_defense_modifier": 0,
-        "base_magic_damage": 0,
-        "unit_int_modifier": 1,
+        "base_magic_damage": "10",
+        "unit_int_modifier": ".4",
         "target_spec_defense_modifier": 1,
         "base_dex_damage": 0,
         "unit_speed_modifier": 0,
         "target_speed_modifier": 0,
         "crit_modifier": 2,
-        "base_damage": 1,
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": "4bbab512-4c48-4a26-ae8f-cdd5efa9b491",
@@ -2185,7 +2489,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.DISPBLAST",
+      "name_translation_key": "action.DISPBLAST.name",
+      "description_translation_key": "action.DISPBLAST.description"
     },
     {
       "guid": "7ac9ac06-bdf3-47f1-be03-e969f344e5e9",
@@ -2268,7 +2575,93 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.SWIFTSTANCE",
+      "name_translation_key": "action.SWIFTSTANCE.name",
+      "description_translation_key": "action.SWIFTSTANCE.description"
+    },
+    {
+      "guid": "4b2f3c56-565e-4e24-8daa-b4cc5d3542c5",
+      "id": "SHARDAOE",
+      "name": "Entropic Pulse",
+      "description": "A heavily damaging point black area of effect attack.",
+      "targeting_type": "UP_TO",
+      "targeting_range": "1",
+      "max_targets": "1",
+      "splash": "0",
+      "chain": false,
+      "max_chain_depth": "1",
+      "should_check_evasion": false,
+      "evasion_multiplier": 1,
+      "can_crit": false,
+      "crit_chance_multiplier": 1,
+      "break_vanguard": true,
+      "delay": ".2",
+      "approach_strategy": "PROCEED",
+      "target_self": false,
+      "action_type": "DAMAGE_ACTION",
+      "damage_action_props": {
+        "base_phys_damage": 0,
+        "unit_strength_modifier": "0",
+        "target_phys_defense_modifier": "0",
+        "base_magic_damage": "50",
+        "unit_int_modifier": "2.5",
+        "target_spec_defense_modifier": "1.15",
+        "base_dex_damage": 0,
+        "unit_speed_modifier": "0",
+        "target_speed_modifier": "0",
+        "crit_modifier": 2,
+        "base_damage": 0,
+        "total_damage_multiplier": 1,
+        "target_augment_self": false,
+        "augment": null,
+        "crit_augment": null
+      },
+      "heal_props": {
+        "hp": 0,
+        "decay": 0,
+        "should_target_full_hp": false
+      },
+      "mana_action_props": {
+        "should_target_enemy": false,
+        "mana_amount": 0,
+        "should_target_full_mp": false,
+        "tag_augment": null
+      },
+      "augment_action_props": {
+        "augments": [],
+        "crit_augments": [],
+        "should_reapply": false,
+        "should_target_enemy": false
+      },
+      "dispel_action_props": {
+        "mode": "TARGET",
+        "domain": "UNIT",
+        "target": "ALLEGIANCE",
+        "augment_name": "",
+        "unique_identifier": "",
+        "type": "BUFF",
+        "force_dispel": false,
+        "force_on_crit": false,
+        "should_target_enemy": false,
+        "only_target_augmented_units": false,
+        "ignore_target_allegiance": false
+      },
+      "tag_action_props": {
+        "tag_augment": "",
+        "should_target_enemy": false,
+        "follow_tagged_unit": false
+      },
+      "summon_action_props": {
+        "summons": [],
+        "summoning_range": 0,
+        "should_target_enemy": false,
+        "summon_augment": null,
+        "should_summon_impact_morale": false
+      },
+      "translation_id": "action.SHARDAOE",
+      "name_translation_key": "action.SHARDAOE.name",
+      "description_translation_key": "action.SHARDAOE.description"
     },
     {
       "guid": "fe2b3268-84a3-438d-bb79-5a4308674c94",
@@ -2319,7 +2712,9 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [],
+        "augments": [
+          "939c9505-57d0-4d9c-b461-94a03e27a7c9"
+        ],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false
@@ -2349,7 +2744,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.STRFOCUS",
+      "name_translation_key": "action.STRFOCUS.name",
+      "description_translation_key": "action.STRFOCUS.description"
     },
     {
       "guid": "cddf5a60-e7bd-413c-a316-71be8e51dd0c",
@@ -2432,7 +2830,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.FUNGALFEAR",
+      "name_translation_key": "action.FUNGALFEAR.name",
+      "description_translation_key": "action.FUNGALFEAR.description"
     },
     {
       "guid": "74ba2f88-f74c-4398-8c21-ea325f327b2d",
@@ -2440,7 +2841,7 @@
       "name": "Headweb",
       "description": "Magic induced headache",
       "targeting_type": "UP_TO",
-      "targeting_range": "7",
+      "targeting_range": "12",
       "max_targets": 1,
       "splash": 0,
       "chain": false,
@@ -2458,14 +2859,14 @@
         "base_phys_damage": 0,
         "unit_strength_modifier": 0,
         "target_phys_defense_modifier": 0,
-        "base_magic_damage": 0,
-        "unit_int_modifier": 1,
+        "base_magic_damage": "10",
+        "unit_int_modifier": ".3",
         "target_spec_defense_modifier": 1,
         "base_dex_damage": 0,
         "unit_speed_modifier": 0,
         "target_speed_modifier": 0,
         "crit_modifier": 2,
-        "base_damage": 1,
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": "5943c08f-0ec4-4443-84e4-4bafe2cba447",
@@ -2513,7 +2914,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.HEADWEB",
+      "name_translation_key": "action.HEADWEB.name",
+      "description_translation_key": "action.HEADWEB.description"
     },
     {
       "guid": "8983b004-3c40-4260-bb99-1e6cdf60cb03",
@@ -2521,7 +2925,7 @@
       "name": "Heal I",
       "description": "Basic ranged heal",
       "targeting_type": "UP_TO",
-      "targeting_range": 5,
+      "targeting_range": "8",
       "max_targets": 1,
       "splash": 0,
       "chain": false,
@@ -2553,7 +2957,7 @@
         "crit_augment": null
       },
       "heal_props": {
-        "hp": 3,
+        "hp": "15",
         "decay": 0,
         "should_target_full_hp": false
       },
@@ -2594,16 +2998,19 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.HEALI",
+      "name_translation_key": "action.HEALI.name",
+      "description_translation_key": "action.HEALI.description"
     },
     {
       "guid": "454222f0-f1f5-4478-9975-f471d608b2c3",
       "id": "HEALII",
       "name": "Heal II",
       "description": "Strong ranged heal",
-      "targeting_type": "UP_TO",
-      "targeting_range": 5,
-      "max_targets": 1,
+      "targeting_type": "EXACT",
+      "targeting_range": "10",
+      "max_targets": "1",
       "splash": 0,
       "chain": false,
       "should_check_evasion": false,
@@ -2634,7 +3041,7 @@
         "crit_augment": null
       },
       "heal_props": {
-        "hp": 6,
+        "hp": "12",
         "decay": 0,
         "should_target_full_hp": false
       },
@@ -2675,7 +3082,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.HEALII",
+      "name_translation_key": "action.HEALII.name",
+      "description_translation_key": "action.HEALII.description"
     },
     {
       "guid": "71e90cdf-37a5-4ea3-8300-52cea69baea0",
@@ -2756,7 +3166,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.MANAGIFT",
+      "name_translation_key": "action.MANAGIFT.name",
+      "description_translation_key": "action.MANAGIFT.description"
     },
     {
       "guid": "00fd910b-37ce-40c9-9ce3-65c00a2480d4",
@@ -2837,7 +3250,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.AREABETRAY1",
+      "name_translation_key": "action.AREABETRAY1.name",
+      "description_translation_key": "action.AREABETRAY1.description"
     },
     {
       "guid": "c6f7aa32-037b-48f3-abb9-452996003c0f",
@@ -2920,7 +3336,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.EMAGE1",
+      "name_translation_key": "action.EMAGE1.name",
+      "description_translation_key": "action.EMAGE1.description"
     },
     {
       "guid": "1a2de126-b0f0-48b1-b2b7-0fdb00548ccb",
@@ -2975,7 +3394,7 @@
           "2f521c9e-2653-4fd0-981a-ba163a471f8e"
         ],
         "crit_augments": [],
-        "should_reapply": false,
+        "should_reapply": true,
         "should_target_enemy": false
       },
       "dispel_action_props": {
@@ -3003,7 +3422,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.RALLY",
+      "name_translation_key": "action.RALLY.name",
+      "description_translation_key": "action.RALLY.description"
     },
     {
       "guid": "cf8bcadb-c057-4565-9f88-806527e1defa",
@@ -3026,8 +3448,8 @@
       "approach_strategy": "HOLD",
       "target_self": false,
       "damage_action_props": {
-        "base_phys_damage": 0,
-        "unit_strength_modifier": 1.1,
+        "base_phys_damage": "4",
+        "unit_strength_modifier": "1",
         "target_phys_defense_modifier": 1,
         "base_magic_damage": 0,
         "unit_int_modifier": 0,
@@ -3036,7 +3458,7 @@
         "unit_speed_modifier": 0,
         "target_speed_modifier": 0,
         "crit_modifier": 2,
-        "base_damage": 1,
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": null,
@@ -3084,7 +3506,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.RATRAGE",
+      "name_translation_key": "action.RATRAGE.name",
+      "description_translation_key": "action.RATRAGE.description"
     },
     {
       "guid": "893fdd5c-43a2-4023-bab6-d9885c41a927",
@@ -3092,7 +3517,7 @@
       "name": "Ray of Ire",
       "description": "Fire a probe of concentrated mental energy, damaging and mapping defense matrixes. Scales with intelligence.",
       "targeting_type": "UP_TO",
-      "targeting_range": "6",
+      "targeting_range": "15",
       "max_targets": 1,
       "splash": 0,
       "chain": false,
@@ -3110,8 +3535,8 @@
         "base_phys_damage": 0,
         "unit_strength_modifier": "0",
         "target_phys_defense_modifier": "0",
-        "base_magic_damage": 0,
-        "unit_int_modifier": 1,
+        "base_magic_damage": "10",
+        "unit_int_modifier": ".4",
         "target_spec_defense_modifier": 1,
         "base_dex_damage": 0,
         "unit_speed_modifier": "0",
@@ -3165,7 +3590,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.IREARY",
+      "name_translation_key": "action.IREARY.name",
+      "description_translation_key": "action.IREARY.description"
     },
     {
       "guid": "0fbada60-2bdb-4499-a61e-2ef91aa7482a",
@@ -3173,7 +3601,7 @@
       "name": "Redrum",
       "description": "Fire a blast of murderous intent. High flat damage, no scaling. ",
       "targeting_type": "EXACT",
-      "targeting_range": "6",
+      "targeting_range": "15",
       "max_targets": 1,
       "splash": 0,
       "chain": false,
@@ -3191,14 +3619,14 @@
         "base_phys_damage": 0,
         "unit_strength_modifier": "0",
         "target_phys_defense_modifier": "0",
-        "base_magic_damage": 0,
-        "unit_int_modifier": "0",
+        "base_magic_damage": "20",
+        "unit_int_modifier": ".1",
         "target_spec_defense_modifier": 1,
         "base_dex_damage": 0,
         "unit_speed_modifier": "0",
         "target_speed_modifier": "0",
         "crit_modifier": 2,
-        "base_damage": "25",
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": null,
@@ -3246,7 +3674,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.REDRUM",
+      "name_translation_key": "action.REDRUM.name",
+      "description_translation_key": "action.REDRUM.description"
     },
     {
       "guid": "6e9d38e9-8dc5-470e-805e-b0b062e2bf7f",
@@ -3254,8 +3685,8 @@
       "name": "Shieldguard I",
       "description": "Increases nearby ally defense",
       "targeting_type": "EXACT",
-      "targeting_range": 3,
-      "max_targets": 2,
+      "targeting_range": "5",
+      "max_targets": "1",
       "splash": 0,
       "chain": false,
       "should_check_evasion": false,
@@ -3329,7 +3760,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.SHIELDGUARDI",
+      "name_translation_key": "action.SHIELDGUARDI.name",
+      "description_translation_key": "action.SHIELDGUARDI.description"
     },
     {
       "guid": "a141650a-e44a-47e9-a012-ce317a5f66f8",
@@ -3412,7 +3846,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.SHIELDGUARDII",
+      "name_translation_key": "action.SHIELDGUARDII.name",
+      "description_translation_key": "action.SHIELDGUARDII.description"
     },
     {
       "guid": "46c93429-6f83-45b2-b4bb-ee126bdeef6c",
@@ -3425,7 +3862,7 @@
       "splash": 0,
       "chain": false,
       "should_check_evasion": true,
-      "evasion_multiplier": 0.7,
+      "evasion_multiplier": ".7",
       "can_crit": true,
       "crit_chance_multiplier": 1,
       "mana_delta": 1,
@@ -3435,17 +3872,17 @@
       "approach_strategy": "HOLD",
       "target_self": false,
       "damage_action_props": {
-        "base_phys_damage": 0,
+        "base_phys_damage": "8",
         "unit_strength_modifier": 0,
-        "target_phys_defense_modifier": 0,
+        "target_phys_defense_modifier": "1.2",
         "base_magic_damage": 0,
-        "unit_int_modifier": 0,
+        "unit_int_modifier": "0",
         "target_spec_defense_modifier": 0,
-        "base_dex_damage": 0,
-        "unit_speed_modifier": 0.8,
-        "target_speed_modifier": 1,
+        "base_dex_damage": "0",
+        "unit_speed_modifier": "0.2",
+        "target_speed_modifier": "0",
         "crit_modifier": 2,
-        "base_damage": 1,
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": null,
@@ -3493,7 +3930,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.SHOOT",
+      "name_translation_key": "action.SHOOT.name",
+      "description_translation_key": "action.SHOOT.description"
     },
     {
       "guid": "200e60dd-764f-4683-8af4-4210ac8bbdaf",
@@ -3506,7 +3946,7 @@
       "splash": 0,
       "chain": false,
       "should_check_evasion": true,
-      "evasion_multiplier": 0.9,
+      "evasion_multiplier": ".8",
       "can_crit": true,
       "crit_chance_multiplier": 1,
       "mana_delta": 2,
@@ -3516,8 +3956,8 @@
       "approach_strategy": "HOLD",
       "target_self": false,
       "damage_action_props": {
-        "base_phys_damage": 0,
-        "unit_strength_modifier": 1,
+        "base_phys_damage": "10",
+        "unit_strength_modifier": "0.3",
         "target_phys_defense_modifier": 1,
         "base_magic_damage": 0,
         "unit_int_modifier": 0,
@@ -3526,7 +3966,7 @@
         "unit_speed_modifier": 0,
         "target_speed_modifier": 0,
         "crit_modifier": 2,
-        "base_damage": 1,
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": null,
@@ -3574,7 +4014,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.SLASH",
+      "name_translation_key": "action.SLASH.name",
+      "description_translation_key": "action.SLASH.description"
     },
     {
       "guid": "438256c0-766d-427d-b894-1ba57e407e58",
@@ -3597,17 +4040,17 @@
       "approach_strategy": "HOLD",
       "target_self": false,
       "damage_action_props": {
-        "base_phys_damage": 0,
+        "base_phys_damage": "8",
         "unit_strength_modifier": 0,
-        "target_phys_defense_modifier": 0,
+        "target_phys_defense_modifier": "1",
         "base_magic_damage": 0,
         "unit_int_modifier": 0,
         "target_spec_defense_modifier": 0,
-        "base_dex_damage": 0,
+        "base_dex_damage": "0",
         "unit_speed_modifier": 1,
-        "target_speed_modifier": 1,
+        "target_speed_modifier": "0",
         "crit_modifier": 2.2,
-        "base_damage": 2,
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": null,
@@ -3655,7 +4098,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.SNIPE",
+      "name_translation_key": "action.SNIPE.name",
+      "description_translation_key": "action.SNIPE.description"
     },
     {
       "guid": "7c998113-d97c-4e04-a43a-2bdf1c9c99d0",
@@ -3736,7 +4182,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.SPORE",
+      "name_translation_key": "action.SPORE.name",
+      "description_translation_key": "action.SPORE.description"
     },
     {
       "guid": "51bc6f1e-8e66-4226-b572-04b930f217cf",
@@ -3744,7 +4193,7 @@
       "name": "Strike",
       "description": "Basic polearm strike",
       "targeting_type": "EXACT",
-      "targeting_range": 2,
+      "targeting_range": "1",
       "max_targets": 1,
       "splash": 0,
       "chain": false,
@@ -3759,8 +4208,8 @@
       "approach_strategy": "PROCEED",
       "target_self": false,
       "damage_action_props": {
-        "base_phys_damage": 0,
-        "unit_strength_modifier": 1,
+        "base_phys_damage": "10",
+        "unit_strength_modifier": "0.2",
         "target_phys_defense_modifier": 1,
         "base_magic_damage": 0,
         "unit_int_modifier": 0,
@@ -3769,7 +4218,7 @@
         "unit_speed_modifier": 0,
         "target_speed_modifier": 0,
         "crit_modifier": 2,
-        "base_damage": 1,
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": null,
@@ -3817,7 +4266,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.STRIKE",
+      "name_translation_key": "action.STRIKE.name",
+      "description_translation_key": "action.STRIKE.description"
     },
     {
       "guid": "bf664834-90f3-44e8-a808-f81730e799ad",
@@ -3827,21 +4279,21 @@
       "targeting_type": "EXACT",
       "targeting_range": 1,
       "max_targets": 1,
-      "splash": 0,
-      "chain": false,
+      "splash": "1",
+      "chain": true,
       "should_check_evasion": false,
       "evasion_multiplier": 1,
       "can_crit": false,
       "crit_chance_multiplier": 1,
       "mana_delta": -10,
-      "break_vanguard": false,
+      "break_vanguard": true,
       "delay": 0.2,
       "action_type": "DAMAGE_ACTION",
       "approach_strategy": "HOLD",
       "target_self": false,
       "damage_action_props": {
-        "base_phys_damage": 0,
-        "unit_strength_modifier": 1.1,
+        "base_phys_damage": "2",
+        "unit_strength_modifier": "2",
         "target_phys_defense_modifier": 1,
         "base_magic_damage": 0,
         "unit_int_modifier": 0,
@@ -3850,7 +4302,7 @@
         "unit_speed_modifier": 0,
         "target_speed_modifier": 0,
         "crit_modifier": 2,
-        "base_damage": 1,
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": null,
@@ -3898,7 +4350,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.STRONGSLASH",
+      "name_translation_key": "action.STRONGSLASH.name",
+      "description_translation_key": "action.STRONGSLASH.description"
     },
     {
       "guid": "637a5934-4b20-4f61-bcc4-91d3314b5ad4",
@@ -3981,7 +4436,10 @@
         "summon_augment": "f2972853-f988-442d-883d-4dbb74ae2e18",
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.TEST_SUMMON",
+      "name_translation_key": "action.TEST_SUMMON.name",
+      "description_translation_key": "action.TEST_SUMMON.description"
     },
     {
       "guid": "be530c43-c824-4f43-8615-2657c7479db1",
@@ -3989,7 +4447,7 @@
       "name": "Summon Antimatter",
       "description": "Conjure a ball of negative matter. High flat damage, no scaling. ",
       "targeting_type": "UP_TO",
-      "targeting_range": "7",
+      "targeting_range": "15",
       "max_targets": 1,
       "splash": "0",
       "chain": false,
@@ -4007,14 +4465,14 @@
         "base_phys_damage": 0,
         "unit_strength_modifier": "0",
         "target_phys_defense_modifier": "0",
-        "base_magic_damage": 0,
-        "unit_int_modifier": "0",
+        "base_magic_damage": "30",
+        "unit_int_modifier": "1.5",
         "target_spec_defense_modifier": 1,
         "base_dex_damage": 0,
         "unit_speed_modifier": "0",
         "target_speed_modifier": "0",
         "crit_modifier": 2,
-        "base_damage": "40",
+        "base_damage": "10",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": null,
@@ -4062,7 +4520,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.SUMMONANTI",
+      "name_translation_key": "action.SUMMONANTI.name",
+      "description_translation_key": "action.SUMMONANTI.description"
     },
     {
       "guid": "f2f0715d-1670-4139-97db-8516cc9b55bc",
@@ -4070,7 +4531,7 @@
       "name": "Summon Flame I",
       "description": "Conjure a burst of flame on the target. Scales with intelligence.",
       "targeting_type": "UP_TO",
-      "targeting_range": "6",
+      "targeting_range": "10",
       "max_targets": 1,
       "splash": 0,
       "chain": false,
@@ -4085,17 +4546,17 @@
       "target_self": false,
       "action_type": "DAMAGE_ACTION",
       "damage_action_props": {
-        "base_phys_damage": 0,
+        "base_phys_damage": "5",
         "unit_strength_modifier": "0",
-        "target_phys_defense_modifier": "0",
-        "base_magic_damage": 0,
-        "unit_int_modifier": ".9",
+        "target_phys_defense_modifier": "1",
+        "base_magic_damage": "8",
+        "unit_int_modifier": "0.2",
         "target_spec_defense_modifier": 1,
         "base_dex_damage": 0,
         "unit_speed_modifier": "0",
         "target_speed_modifier": "0",
         "crit_modifier": 2,
-        "base_damage": "1",
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": null,
@@ -4143,7 +4604,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.SUMMONFIRE",
+      "name_translation_key": "action.SUMMONFIRE.name",
+      "description_translation_key": "action.SUMMONFIRE.description"
     },
     {
       "guid": "05745a96-fb22-4023-bcfc-05be023d63e5",
@@ -4227,7 +4691,95 @@
         "summon_augment": null,
         "should_summon_impact_morale": true
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.SMNRAT",
+      "name_translation_key": "action.SMNRAT.name",
+      "description_translation_key": "action.SMNRAT.description"
+    },
+    {
+      "guid": "c7392a56-90f2-415c-a29a-ebc5460de30e",
+      "id": "SUMMONSHARDA",
+      "name": "Summon Shard Assassin",
+      "description": "The witch calls forth her betrothed. ",
+      "targeting_type": "SELF",
+      "targeting_range": 1,
+      "max_targets": 1,
+      "splash": 0,
+      "chain": false,
+      "max_chain_depth": 0,
+      "should_check_evasion": false,
+      "evasion_multiplier": 1,
+      "can_crit": false,
+      "crit_chance_multiplier": 1,
+      "break_vanguard": false,
+      "delay": ".2",
+      "approach_strategy": "HOLD",
+      "target_self": true,
+      "action_type": "SUMMON_ACTION",
+      "damage_action_props": {
+        "base_phys_damage": 0,
+        "unit_strength_modifier": 1,
+        "target_phys_defense_modifier": 1,
+        "base_magic_damage": 0,
+        "unit_int_modifier": 1,
+        "target_spec_defense_modifier": 1,
+        "base_dex_damage": 0,
+        "unit_speed_modifier": 1,
+        "target_speed_modifier": 1,
+        "crit_modifier": 2,
+        "base_damage": 0,
+        "total_damage_multiplier": 1,
+        "target_augment_self": false,
+        "augment": null,
+        "crit_augment": null
+      },
+      "heal_props": {
+        "hp": 0,
+        "decay": 0,
+        "should_target_full_hp": false
+      },
+      "mana_action_props": {
+        "should_target_enemy": false,
+        "mana_amount": 0,
+        "should_target_full_mp": false,
+        "tag_augment": null
+      },
+      "augment_action_props": {
+        "augments": [],
+        "crit_augments": [],
+        "should_reapply": false,
+        "should_target_enemy": false
+      },
+      "dispel_action_props": {
+        "mode": "TARGET",
+        "domain": "UNIT",
+        "target": "ALLEGIANCE",
+        "augment_name": "",
+        "unique_identifier": "",
+        "type": "BUFF",
+        "force_dispel": false,
+        "force_on_crit": false,
+        "should_target_enemy": false,
+        "only_target_augmented_units": false,
+        "ignore_target_allegiance": false
+      },
+      "tag_action_props": {
+        "tag_augment": "",
+        "should_target_enemy": false,
+        "follow_tagged_unit": false
+      },
+      "summon_action_props": {
+        "summons": [
+          "35303ea1-0ecf-4265-911b-5a979f8f2b5a"
+        ],
+        "summoning_range": "1",
+        "should_target_enemy": false,
+        "summon_augment": "f2972853-f988-442d-883d-4dbb74ae2e18",
+        "should_summon_impact_morale": false
+      },
+      "translation_id": "action.SUMMONSHARDA",
+      "name_translation_key": "action.SUMMONSHARDA.name",
+      "description_translation_key": "action.SUMMONSHARDA.description"
     },
     {
       "guid": "aa0672e6-6256-40d5-bc66-0c4e3a181853",
@@ -4244,23 +4796,23 @@
       "can_crit": true,
       "crit_chance_multiplier": 1,
       "mana_delta": 2,
-      "break_vanguard": false,
+      "break_vanguard": true,
       "delay": 0.2,
       "action_type": "DAMAGE_ACTION",
       "approach_strategy": "HOLD",
       "target_self": false,
       "damage_action_props": {
-        "base_phys_damage": 0,
+        "base_phys_damage": "8",
         "unit_strength_modifier": 0,
-        "target_phys_defense_modifier": 1,
+        "target_phys_defense_modifier": "0.8",
         "base_magic_damage": 0,
         "unit_int_modifier": 0,
         "target_spec_defense_modifier": 0,
-        "base_dex_damage": 0,
-        "unit_speed_modifier": 1,
+        "base_dex_damage": "0",
+        "unit_speed_modifier": ".4",
         "target_speed_modifier": 0,
         "crit_modifier": 2,
-        "base_damage": 1,
+        "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augment": null,
@@ -4308,7 +4860,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.SWIFTSLASH",
+      "name_translation_key": "action.SWIFTSLASH.name",
+      "description_translation_key": "action.SWIFTSLASH.description"
     },
     {
       "guid": "f982f0a8-812f-4c26-b34b-8825125f7d4e",
@@ -4389,7 +4944,93 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
-      "max_chain_depth": 0
+      "max_chain_depth": 0,
+      "translation_id": "action.TEST",
+      "name_translation_key": "action.TEST.name",
+      "description_translation_key": "action.TEST.description"
+    },
+    {
+      "guid": "c79b6d57-0f91-46cf-8ab6-dfa96ecacbb4",
+      "id": "WKISS",
+      "name": "Witch's Kiss",
+      "description": "A simple attack, instills it's target with dread.",
+      "targeting_type": "UP_TO",
+      "targeting_range": "5",
+      "max_targets": 1,
+      "splash": 0,
+      "chain": false,
+      "max_chain_depth": 0,
+      "should_check_evasion": true,
+      "evasion_multiplier": 1,
+      "can_crit": false,
+      "crit_chance_multiplier": 1,
+      "break_vanguard": false,
+      "delay": ".2",
+      "approach_strategy": "HOLD",
+      "target_self": false,
+      "action_type": "DAMAGE_ACTION",
+      "damage_action_props": {
+        "base_phys_damage": 0,
+        "unit_strength_modifier": "0",
+        "target_phys_defense_modifier": "0",
+        "base_magic_damage": "10",
+        "unit_int_modifier": ".3",
+        "target_spec_defense_modifier": 1,
+        "base_dex_damage": 0,
+        "unit_speed_modifier": "0",
+        "target_speed_modifier": "0",
+        "crit_modifier": 2,
+        "base_damage": 0,
+        "total_damage_multiplier": 1,
+        "target_augment_self": false,
+        "augment": "1e46f7f8-3d48-4900-93a7-0cf2d5ce3156",
+        "crit_augment": null
+      },
+      "heal_props": {
+        "hp": 0,
+        "decay": 0,
+        "should_target_full_hp": false
+      },
+      "mana_action_props": {
+        "should_target_enemy": false,
+        "mana_amount": 0,
+        "should_target_full_mp": false,
+        "tag_augment": null
+      },
+      "augment_action_props": {
+        "augments": [],
+        "crit_augments": [],
+        "should_reapply": false,
+        "should_target_enemy": false
+      },
+      "dispel_action_props": {
+        "mode": "TARGET",
+        "domain": "UNIT",
+        "target": "ALLEGIANCE",
+        "augment_name": "",
+        "unique_identifier": "",
+        "type": "BUFF",
+        "force_dispel": false,
+        "force_on_crit": false,
+        "should_target_enemy": false,
+        "only_target_augmented_units": false,
+        "ignore_target_allegiance": false
+      },
+      "tag_action_props": {
+        "tag_augment": "",
+        "should_target_enemy": false,
+        "follow_tagged_unit": false
+      },
+      "summon_action_props": {
+        "summons": [],
+        "summoning_range": 0,
+        "should_target_enemy": false,
+        "summon_augment": null,
+        "should_summon_impact_morale": false
+      },
+      "translation_id": "action.WKISS",
+      "name_translation_key": "action.WKISS.name",
+      "description_translation_key": "action.WKISS.description"
     }
   ],
   "augments": [
@@ -4421,7 +5062,10 @@
       "flat_stat_props": {
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
-      }
+      },
+      "translation_id": "augment.CHARGEUP",
+      "name_translation_key": "augment.CHARGEUP.name",
+      "description_translation_key": "augment.CHARGEUP.description"
     },
     {
       "guid": "584ace2f-6284-49ed-87f6-cb0a62527dc3",
@@ -4451,7 +5095,10 @@
       "flat_stat_props": {
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
-      }
+      },
+      "translation_id": "augment.BETRAY",
+      "name_translation_key": "augment.BETRAY.name",
+      "description_translation_key": "augment.BETRAY.description"
     },
     {
       "guid": "02353711-8900-4511-8b3a-252d015b8aa6",
@@ -4481,7 +5128,10 @@
       "flat_stat_props": {
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
-      }
+      },
+      "translation_id": "augment.CLEAREYES",
+      "name_translation_key": "augment.CLEAREYES.name",
+      "description_translation_key": "augment.CLEAREYES.description"
     },
     {
       "guid": "9202c140-4084-41da-83f0-d840778a04df",
@@ -4511,7 +5161,44 @@
       "flat_stat_props": {
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
-      }
+      },
+      "translation_id": "augment.SWIFTSTANCE",
+      "name_translation_key": "augment.SWIFTSTANCE.name",
+      "description_translation_key": "augment.SWIFTSTANCE.description"
+    },
+    {
+      "guid": "1e46f7f8-3d48-4900-93a7-0cf2d5ce3156",
+      "id": "FEARI",
+      "name": "Fear I",
+      "description": "A creeping dread.",
+      "type": "DEBUFF",
+      "undispellable": true,
+      "unique": true,
+      "unique_identifier": "",
+      "replenishable": true,
+      "domain": "UNIT",
+      "durational": true,
+      "duration": "3",
+      "augment_class": "FLAT_STAT",
+      "dot_augment_props": {
+        "flat_damage": 0,
+        "phys_def_reduction_modifier": 0,
+        "spec_def_reduction_modifier": 0,
+        "resource": "HEALTH",
+        "resolution_type": "UNIT"
+      },
+      "stat_mult_props": {
+        "stat": "PHYSICAL_DEFENSE",
+        "multiplier": 1
+      },
+      "flat_stat_props": {
+        "stat": "BRAVERY",
+        "amount": "30"
+      },
+      "unique_indentifier": "FEAR",
+      "translation_id": "augment.FEARI",
+      "name_translation_key": "augment.FEARI.name",
+      "description_translation_key": "augment.FEARI.description"
     },
     {
       "guid": "939c9505-57d0-4d9c-b461-94a03e27a7c9",
@@ -4540,9 +5227,46 @@
       },
       "flat_stat_props": {
         "stat": "STRENGTH",
-        "amount": "12"
+        "amount": "10"
       },
-      "unique_indentifier": ""
+      "unique_indentifier": "",
+      "translation_id": "augment.STREFOCUS",
+      "name_translation_key": "augment.STREFOCUS.name",
+      "description_translation_key": "augment.STREFOCUS.description"
+    },
+    {
+      "guid": "32f7d1ce-d74b-4600-b431-a252e8eb8327",
+      "id": "LUCKAURAI",
+      "name": "Fortunate Aura",
+      "description": "A positive reverberation, blessing of good luck. ",
+      "type": "BUFF",
+      "undispellable": false,
+      "unique": false,
+      "unique_identifier": "",
+      "replenishable": false,
+      "domain": "ARMY",
+      "durational": false,
+      "duration": 0,
+      "augment_class": "FLAT_STAT",
+      "dot_augment_props": {
+        "flat_damage": 0,
+        "phys_def_reduction_modifier": 0,
+        "spec_def_reduction_modifier": 0,
+        "resource": "HEALTH",
+        "resolution_type": "UNIT"
+      },
+      "stat_mult_props": {
+        "stat": "PHYSICAL_DEFENSE",
+        "multiplier": 1
+      },
+      "flat_stat_props": {
+        "stat": "LUCK",
+        "amount": "2"
+      },
+      "unique_indentifier": "",
+      "translation_id": "augment.LUCKAURAI",
+      "name_translation_key": "augment.LUCKAURAI.name",
+      "description_translation_key": "augment.LUCKAURAI.description"
     },
     {
       "guid": "f63e6ae6-8e55-4c50-b0da-9d1a9ee7fb51",
@@ -4572,7 +5296,10 @@
       "flat_stat_props": {
         "stat": "BRAVERY",
         "amount": -30
-      }
+      },
+      "translation_id": "augment.FUNGALFEAR",
+      "name_translation_key": "augment.FUNGALFEAR.name",
+      "description_translation_key": "augment.FUNGALFEAR.description"
     },
     {
       "guid": "5943c08f-0ec4-4443-84e4-4bafe2cba447",
@@ -4602,7 +5329,10 @@
       "flat_stat_props": {
         "stat": "SPEED",
         "amount": -4
-      }
+      },
+      "translation_id": "augment.HEADWEB",
+      "name_translation_key": "augment.HEADWEB.name",
+      "description_translation_key": "augment.HEADWEB.description"
     },
     {
       "guid": "4bbab512-4c48-4a26-ae8f-cdd5efa9b491",
@@ -4632,7 +5362,44 @@
       "flat_stat_props": {
         "stat": "SPECIAL_DEFENSE",
         "amount": -6
-      }
+      },
+      "translation_id": "augment.MAGICSUNDERI",
+      "name_translation_key": "augment.MAGICSUNDERI.name",
+      "description_translation_key": "augment.MAGICSUNDERI.description"
+    },
+    {
+      "guid": "68165a30-5277-4e9e-a504-4e8e23442b5a",
+      "id": "ARMYPSNONE",
+      "name": "Noxious Aura",
+      "description": "An aura of pure evil emanating from the Reaper.",
+      "type": "DEBUFF",
+      "undispellable": false,
+      "unique": false,
+      "unique_identifier": "",
+      "replenishable": false,
+      "domain": "UNIT",
+      "durational": false,
+      "duration": 0,
+      "augment_class": "DOT",
+      "dot_augment_props": {
+        "flat_damage": "1",
+        "phys_def_reduction_modifier": 0,
+        "spec_def_reduction_modifier": 0,
+        "resource": "HEALTH",
+        "resolution_type": "ARMY"
+      },
+      "stat_mult_props": {
+        "stat": "PHYSICAL_DEFENSE",
+        "multiplier": 1
+      },
+      "flat_stat_props": {
+        "stat": "PHYSICAL_DEFENSE",
+        "amount": 0
+      },
+      "unique_indentifier": "",
+      "translation_id": "augment.ARMYPSNONE",
+      "name_translation_key": "augment.ARMYPSNONE.name",
+      "description_translation_key": "augment.ARMYPSNONE.description"
     },
     {
       "guid": "2f521c9e-2653-4fd0-981a-ba163a471f8e",
@@ -4662,7 +5429,44 @@
       "flat_stat_props": {
         "stat": "BRAVERY",
         "amount": 5
-      }
+      },
+      "translation_id": "augment.RALLY",
+      "name_translation_key": "augment.RALLY.name",
+      "description_translation_key": "augment.RALLY.description"
+    },
+    {
+      "guid": "f2f02dc4-5872-427a-80d0-7f8ec18be36f",
+      "id": "SLOWHAZE",
+      "name": "Relaxing Fog",
+      "description": "An enchanted fog, slows your very thoughts. Slightly reduces unit's speed.",
+      "type": "DEBUFF",
+      "undispellable": false,
+      "unique": false,
+      "unique_identifier": "",
+      "replenishable": false,
+      "domain": "GLOBAL",
+      "durational": false,
+      "duration": 0,
+      "augment_class": "FLAT_STAT",
+      "dot_augment_props": {
+        "flat_damage": 0,
+        "phys_def_reduction_modifier": 0,
+        "spec_def_reduction_modifier": 0,
+        "resource": "HEALTH",
+        "resolution_type": "UNIT"
+      },
+      "stat_mult_props": {
+        "stat": "PHYSICAL_DEFENSE",
+        "multiplier": 1
+      },
+      "flat_stat_props": {
+        "stat": "SPEED",
+        "amount": "1"
+      },
+      "unique_indentifier": "",
+      "translation_id": "augment.SLOWHAZE",
+      "name_translation_key": "augment.SLOWHAZE.name",
+      "description_translation_key": "augment.SLOWHAZE.description"
     },
     {
       "guid": "6da6f270-0787-4f52-bc11-5a10beaffb03",
@@ -4691,8 +5495,12 @@
       },
       "flat_stat_props": {
         "stat": "PHYSICAL_DEFENSE",
-        "amount": 4
-      }
+        "amount": "2"
+      },
+      "unique_indentifier": "",
+      "translation_id": "augment.SHIELDGUARDI",
+      "name_translation_key": "augment.SHIELDGUARDI.name",
+      "description_translation_key": "augment.SHIELDGUARDI.description"
     },
     {
       "guid": "b1bd08ac-28c7-4870-a9b4-5a354317fbc1",
@@ -4722,7 +5530,10 @@
       "flat_stat_props": {
         "stat": "PHYSICAL_DEFENSE",
         "amount": 8
-      }
+      },
+      "translation_id": "augment.SHIELDGUARDII",
+      "name_translation_key": "augment.SHIELDGUARDII.name",
+      "description_translation_key": "augment.SHIELDGUARDII.description"
     },
     {
       "guid": "b1ca2d87-d68d-4b9d-8b21-506ea7e480ca",
@@ -4752,7 +5563,10 @@
       "flat_stat_props": {
         "stat": "PHYSICAL_DEFENSE",
         "amount": -6
-      }
+      },
+      "translation_id": "augment.SUNDERI",
+      "name_translation_key": "augment.SUNDERI.name",
+      "description_translation_key": "augment.SUNDERI.description"
     },
     {
       "guid": "bc107e17-77df-4741-a46f-5682cfc21a4f",
@@ -4782,7 +5596,10 @@
       "flat_stat_props": {
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
-      }
+      },
+      "translation_id": "augment.TEST",
+      "name_translation_key": "augment.TEST.name",
+      "description_translation_key": "augment.TEST.description"
     },
     {
       "guid": "f2972853-f988-442d-883d-4dbb74ae2e18",
@@ -4796,7 +5613,7 @@
       "replenishable": false,
       "domain": "UNIT",
       "durational": true,
-      "duration": 2,
+      "duration": "7",
       "augment_class": "DOOM",
       "dot_augment_props": {
         "flat_damage": 0,
@@ -4812,7 +5629,11 @@
       "flat_stat_props": {
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
-      }
+      },
+      "unique_indentifier": "",
+      "translation_id": "augment.VANISHING",
+      "name_translation_key": "augment.VANISHING.name",
+      "description_translation_key": "augment.VANISHING.description"
     }
   ],
   "unitIds": [
@@ -4848,7 +5669,10 @@
     "REAPER",
     "PRIONMAGE",
     "DARKSTEEL",
-    "SILVER"
+    "SILVER",
+    "WITCH",
+    "SHARDSUMMON1",
+    "SHANKNIGHT"
   ],
-  "updatedAt": 1751953992014
+  "updatedAt": 1759184818493
 }
