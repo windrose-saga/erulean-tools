@@ -28,6 +28,10 @@ export const getUnitData = ({
   holding_distance,
   inaction_limit,
   actions,
+  trainable,
+  unit_cost,
+  required_leadership,
+  gold_cost,
   commander_data: raw_commander_data,
 }: any): Unit => {
   const commanderData = getCommanderData(
@@ -61,6 +65,10 @@ export const getUnitData = ({
     holding_distance,
     inaction_limit,
     actions: getActions(actions),
+    trainable,
+    unit_cost,
+    required_leadership,
+    gold_cost,
   };
 };
 
