@@ -34,6 +34,7 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
     navigate({ to: '/units' });
   };
   const isCurrentlyCommander = watch('is_commander');
+  const isCurrentlyTrainable = watch('trainable');
   const buttonText = isDirty ? 'Cancel' : 'Back';
   const initialId = unit.id;
 
@@ -196,6 +197,7 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
           <LabeledInput id="is_commander" label="Is Commander" type="checkbox" />
           <LabeledInput id="faithful" label="Is Faithful" type="checkbox" />
           <LabeledInput id="can_flee" label="Can Flee" type="checkbox" />
+          <LabeledInput id="trainable" label="Trainable" type="checkbox" />
           <LabeledInput
             id="inaction_limit"
             label="Inaction Limit"
@@ -255,6 +257,25 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
               />
             </div>
           </>
+        )}
+        {isCurrentlyTrainable && (
+          <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+            <ArraySelect id="unit_cost" label="Unit Cost" type="UNIT" />
+            <LabeledInput
+              id="required_leadership"
+              label="Required Leadership"
+              type="number"
+              allowFloats={false}
+              required={isCurrentlyTrainable}
+            />
+            <LabeledInput
+              id="gold_cost"
+              label="Gold Cost"
+              type="number"
+              allowFloats={false}
+              required={isCurrentlyTrainable}
+            />
+          </div>
         )}
       </form>
     </FormProvider>

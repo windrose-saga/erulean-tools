@@ -25,6 +25,10 @@ export type Unit = {
   is_commander: boolean;
   commander_data: CommanderData;
   actions: Actions;
+  trainable: boolean;
+  gold_cost: number;
+  required_leadership: number;
+  unit_cost: Array<string>;
 };
 
 export const MOVEMENT_STRATEGIES = ['ADVANCE', 'KEEP_DISTANCE'] as const satisfies string[];
