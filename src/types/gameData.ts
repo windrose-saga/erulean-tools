@@ -7,5 +7,6 @@ export type GameData = {
   actions: Action[];
   augments: Augment[];
   unitIds: string[];
+  trainable_units: string[];
   updatedAt: number;
 };

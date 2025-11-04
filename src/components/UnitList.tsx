@@ -24,6 +24,7 @@ const unitColumns: Column<Unit>[] = [
   { name: 'Movement Strategy', field: 'movement_strategy' },
   { name: 'Holding Distance', field: 'holding_distance' },
   { name: 'Is Commander', field: 'is_commander' },
+  { name: 'Trainable', field: 'trainable' },
   { name: 'Point Value', field: 'point_value' },
 ];
 

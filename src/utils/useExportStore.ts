@@ -58,12 +58,15 @@ export const useExportStore = () => {
     };
   });
 
+  const trainableUnits = units.filter((unit) => unit.trainable).map((unit) => unit.id);
+
   return React.useCallback(() => {
     const exportStore: GameData = {
       units: translatedUnits,
       actions: translatedActions,
       augments: translatedAugments,
       unitIds: Array.from(unitIds.values()),
+      trainable_units: trainableUnits,
       updatedAt: lastLoaded ?? Date.now(),
     };
     const jsonExport = JSON.stringify(exportStore, null, 2);
@@ -76,5 +79,13 @@ export const useExportStore = () => {
     a.click();
     URL.revokeObjectURL(url);
     setExported();
-  }, [translatedUnits, translatedActions, translatedAugments, unitIds, lastLoaded, setExported]);
+  }, [
+    translatedUnits,
+    translatedActions,
+    translatedAugments,
+    unitIds,
+    trainableUnits,
+    lastLoaded,
+    setExported,
+  ]);
 };
