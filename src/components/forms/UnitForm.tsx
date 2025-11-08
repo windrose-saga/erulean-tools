@@ -10,6 +10,7 @@ import ArraySelect from '../ArraySelect';
 import FormActionSelect from '../FormActionSelect';
 import LabeledInputBase, { LabeledInputProps } from '../LabledInput';
 import LabeledSelect from '../LabledSelect';
+import QuantitySelect from '../QuantitySelect';
 
 type UnitInputs = Unit;
 
@@ -260,7 +261,7 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
         )}
         {isCurrentlyTrainable && (
           <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
-            <ArraySelect id="unit_cost" label="Unit Cost" type="UNIT" />
+            <QuantitySelect id="unit_cost" label="Unit Cost" type="UNIT" />
             <LabeledInput
               id="required_leadership"
               label="Required Leadership"

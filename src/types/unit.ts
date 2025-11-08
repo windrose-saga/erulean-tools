@@ -28,7 +28,7 @@ export type Unit = {
   trainable: boolean;
   gold_cost: number;
   required_leadership: number;
-  unit_cost: Array<string>;
+  unit_cost: Record<string, number>;
 };
 
 export const MOVEMENT_STRATEGIES = ['ADVANCE', 'KEEP_DISTANCE'] as const satisfies string[];

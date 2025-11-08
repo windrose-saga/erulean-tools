@@ -48,7 +48,7 @@ export const DEFAULT_UNIT: Unit = {
   inaction_limit: 20,
   actions: DEFAULT_ACTIONS,
   trainable: false,
-  unit_cost: [],
+  unit_cost: {},
   required_leadership: 0,
   gold_cost: 0,
 };
