@@ -30,6 +30,7 @@ export const getUnitData = ({
   actions,
   trainable,
   unit_cost,
+  item_cost,
   required_leadership,
   gold_cost,
   commander_data: raw_commander_data,
@@ -67,6 +68,7 @@ export const getUnitData = ({
     actions: getActions(actions),
     trainable,
     unit_cost,
+    item_cost,
     required_leadership,
     gold_cost,
   };

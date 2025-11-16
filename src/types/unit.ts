@@ -29,6 +29,7 @@ export type Unit = {
   gold_cost: number;
   required_leadership: number;
   unit_cost: Record<string, number>;
+  item_cost: Record<string, number>;
 };
 
 export const MOVEMENT_STRATEGIES = ['ADVANCE', 'KEEP_DISTANCE'] as const satisfies string[];
