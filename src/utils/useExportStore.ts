@@ -15,6 +15,7 @@ export const useExportStore = () => {
   const lastLoaded = useGameStore.use.lastLoaded();
   const setExported = useGameStore.use.setExported();
   const unitIds = useGameStore.use.unitIds();
+  const itemIds = useGameStore.use.itemIds();
 
   const translatedUnits = units.map((unit) => {
     const translation_id: string = `unit.${unit.id}`;
@@ -82,6 +83,7 @@ export const useExportStore = () => {
       augments: translatedAugments,
       items: translatedItems,
       unitIds: Array.from(unitIds.values()),
+      itemIds: Array.from(itemIds.values()),
       trainable_units: trainableUnits,
       updatedAt: lastLoaded ?? Date.now(),
     };
@@ -101,6 +103,7 @@ export const useExportStore = () => {
     translatedAugments,
     translatedItems,
     unitIds,
+    itemIds,
     trainableUnits,
     lastLoaded,
     setExported,

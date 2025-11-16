@@ -46,7 +46,14 @@
       },
       "translation_id": "unit.ASTROATTENDENT",
       "name_translation_key": "unit.ASTROATTENDENT.name",
-      "description_translation_key": "unit.ASTROATTENDENT.description"
+      "description_translation_key": "unit.ASTROATTENDENT.description",
+      "trainable": true,
+      "unit_cost": {
+        "919675ce-54a3-4044-8747-2a0a070af326": 2
+      },
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "0e5f1778-c3a0-4209-9b8a-a6f835cca9e3",
@@ -94,7 +101,12 @@
       },
       "translation_id": "unit.NOBLE",
       "name_translation_key": "unit.NOBLE.name",
-      "description_translation_key": "unit.NOBLE.description"
+      "description_translation_key": "unit.NOBLE.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "463b9ce9-a714-4fa3-9025-cab1bc199477",
@@ -142,7 +154,14 @@
       },
       "translation_id": "unit.ERUASTROLOGER",
       "name_translation_key": "unit.ERUASTROLOGER.name",
-      "description_translation_key": "unit.ERUASTROLOGER.description"
+      "description_translation_key": "unit.ERUASTROLOGER.description",
+      "trainable": true,
+      "unit_cost": {
+        "bbdeb466-2621-4b4d-9cc0-91a15f7d14ac": 2
+      },
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "070aa9da-fb50-4295-8419-dbba3e79606b",
@@ -190,7 +209,12 @@
       },
       "translation_id": "unit.BETRAYER",
       "name_translation_key": "unit.BETRAYER.name",
-      "description_translation_key": "unit.BETRAYER.description"
+      "description_translation_key": "unit.BETRAYER.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "aff553bb-a721-4b0d-aaf2-9a6d8907027e",
@@ -238,7 +262,15 @@
       },
       "translation_id": "unit.ESPARMAGE",
       "name_translation_key": "unit.ESPARMAGE.name",
-      "description_translation_key": "unit.ESPARMAGE.description"
+      "description_translation_key": "unit.ESPARMAGE.description",
+      "trainable": true,
+      "unit_cost": {
+        "0e5f1778-c3a0-4209-9b8a-a6f835cca9e3": 1,
+        "e9f09e59-0ff0-4b48-8837-a25ea2b815ee": 2
+      },
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "a26d3a51-81f7-4be7-8c35-18b65e15c079",
@@ -286,7 +318,12 @@
       },
       "translation_id": "unit.FANE",
       "name_translation_key": "unit.FANE.name",
-      "description_translation_key": "unit.FANE.description"
+      "description_translation_key": "unit.FANE.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "07865b10-8e4e-40c7-bcb4-fa3ec6674a54",
@@ -334,7 +371,12 @@
       },
       "translation_id": "unit.FORESTARCHER",
       "name_translation_key": "unit.FORESTARCHER.name",
-      "description_translation_key": "unit.FORESTARCHER.description"
+      "description_translation_key": "unit.FORESTARCHER.description",
+      "trainable": true,
+      "unit_cost": {},
+      "required_leadership": "20",
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "50380f2a-9a55-4ff3-ac7a-f3514035bfa7",
@@ -382,7 +424,12 @@
       },
       "translation_id": "unit.GARGARA",
       "name_translation_key": "unit.GARGARA.name",
-      "description_translation_key": "unit.GARGARA.description"
+      "description_translation_key": "unit.GARGARA.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "100ae0e5-b515-4ca3-964c-f27d4f4cceb4",
@@ -430,7 +477,12 @@
       },
       "translation_id": "unit.GIANTRAT",
       "name_translation_key": "unit.GIANTRAT.name",
-      "description_translation_key": "unit.GIANTRAT.description"
+      "description_translation_key": "unit.GIANTRAT.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "6781fd86-f1b1-4293-b76c-79bbe0f1eb5f",
@@ -478,7 +530,12 @@
       },
       "translation_id": "unit.GIANTRATCOMMANDER",
       "name_translation_key": "unit.GIANTRATCOMMANDER.name",
-      "description_translation_key": "unit.GIANTRATCOMMANDER.description"
+      "description_translation_key": "unit.GIANTRATCOMMANDER.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "3d763012-08de-4cde-822f-76a51375923e",
@@ -526,7 +583,12 @@
       },
       "translation_id": "unit.GMERC",
       "name_translation_key": "unit.GMERC.name",
-      "description_translation_key": "unit.GMERC.description"
+      "description_translation_key": "unit.GMERC.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "e0034863-7fa5-48a2-91db-4f5189be0739",
@@ -574,7 +636,12 @@
       },
       "translation_id": "unit.WITCH",
       "name_translation_key": "unit.WITCH.name",
-      "description_translation_key": "unit.WITCH.description"
+      "description_translation_key": "unit.WITCH.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "391e2547-3271-4e11-9db7-c7c00913e1a1",
@@ -622,7 +689,12 @@
       },
       "translation_id": "unit.INDENTURED",
       "name_translation_key": "unit.INDENTURED.name",
-      "description_translation_key": "unit.INDENTURED.description"
+      "description_translation_key": "unit.INDENTURED.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "76541904-11c1-41d0-b632-3f68cd63877a",
@@ -670,7 +742,12 @@
       },
       "translation_id": "unit.ISRFENCER",
       "name_translation_key": "unit.ISRFENCER.name",
-      "description_translation_key": "unit.ISRFENCER.description"
+      "description_translation_key": "unit.ISRFENCER.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "3ab592a9-50bc-4058-8f8b-de0085615bd5",
@@ -718,7 +795,12 @@
       },
       "translation_id": "unit.MARCHBOW",
       "name_translation_key": "unit.MARCHBOW.name",
-      "description_translation_key": "unit.MARCHBOW.description"
+      "description_translation_key": "unit.MARCHBOW.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "ab84404a-3a5f-48ac-b0ac-8a9765fd4ed7",
@@ -766,7 +848,12 @@
       },
       "translation_id": "unit.MARCHSPEAR",
       "name_translation_key": "unit.MARCHSPEAR.name",
-      "description_translation_key": "unit.MARCHSPEAR.description"
+      "description_translation_key": "unit.MARCHSPEAR.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "ecd7982d-fb9a-4448-ac6a-ecf476f9beec",
@@ -814,7 +901,12 @@
       },
       "translation_id": "unit.CAPTIONRAVAGER",
       "name_translation_key": "unit.CAPTIONRAVAGER.name",
-      "description_translation_key": "unit.CAPTIONRAVAGER.description"
+      "description_translation_key": "unit.CAPTIONRAVAGER.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "952952c4-4f6f-41a5-a735-91b08676b0dd",
@@ -862,7 +954,12 @@
       },
       "translation_id": "unit.DARKSTEEL",
       "name_translation_key": "unit.DARKSTEEL.name",
-      "description_translation_key": "unit.DARKSTEEL.description"
+      "description_translation_key": "unit.DARKSTEEL.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "919675ce-54a3-4044-8747-2a0a070af326",
@@ -910,7 +1007,12 @@
       },
       "translation_id": "unit.MILITIA",
       "name_translation_key": "unit.MILITIA.name",
-      "description_translation_key": "unit.MILITIA.description"
+      "description_translation_key": "unit.MILITIA.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "4dedb670-d235-46ae-9ca8-272556fa668c",
@@ -958,7 +1060,12 @@
       },
       "translation_id": "unit.MSURGEON",
       "name_translation_key": "unit.MSURGEON.name",
-      "description_translation_key": "unit.MSURGEON.description"
+      "description_translation_key": "unit.MSURGEON.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "63f0648e-eddb-4790-849e-3a6ed7984260",
@@ -1006,7 +1113,12 @@
       },
       "translation_id": "unit.MOONBLADE",
       "name_translation_key": "unit.MOONBLADE.name",
-      "description_translation_key": "unit.MOONBLADE.description"
+      "description_translation_key": "unit.MOONBLADE.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "637d1c1e-7994-403d-9fde-b7b9f2bb6b07",
@@ -1056,7 +1168,12 @@
       },
       "translation_id": "unit.PMAGE",
       "name_translation_key": "unit.PMAGE.name",
-      "description_translation_key": "unit.PMAGE.description"
+      "description_translation_key": "unit.PMAGE.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "3e03342a-7cb0-486f-8357-a300f386ec55",
@@ -1104,7 +1221,12 @@
       },
       "translation_id": "unit.PORIA",
       "name_translation_key": "unit.PORIA.name",
-      "description_translation_key": "unit.PORIA.description"
+      "description_translation_key": "unit.PORIA.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "2c94b661-1590-45e1-bf05-d8ea27e4fe8c",
@@ -1152,7 +1274,12 @@
       },
       "translation_id": "unit.HERMIT",
       "name_translation_key": "unit.HERMIT.name",
-      "description_translation_key": "unit.HERMIT.description"
+      "description_translation_key": "unit.HERMIT.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "b067e8cd-da78-4557-bbf4-e1ab6315bcc1",
@@ -1200,7 +1327,12 @@
       },
       "translation_id": "unit.PRIONASSIST",
       "name_translation_key": "unit.PRIONASSIST.name",
-      "description_translation_key": "unit.PRIONASSIST.description"
+      "description_translation_key": "unit.PRIONASSIST.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "276dd796-01b8-4fd2-8bdd-8532d54003a2",
@@ -1248,7 +1380,12 @@
       },
       "translation_id": "unit.PRIONMAGE",
       "name_translation_key": "unit.PRIONMAGE.name",
-      "description_translation_key": "unit.PRIONMAGE.description"
+      "description_translation_key": "unit.PRIONMAGE.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "ea496a9d-e1d1-42c5-a533-154f0355ae25",
@@ -1298,7 +1435,12 @@
       },
       "translation_id": "unit.REAPER",
       "name_translation_key": "unit.REAPER.name",
-      "description_translation_key": "unit.REAPER.description"
+      "description_translation_key": "unit.REAPER.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "68d41345-c198-4251-b22d-a559cdae226f",
@@ -1346,7 +1488,12 @@
       },
       "translation_id": "unit.SHANKNIGHT",
       "name_translation_key": "unit.SHANKNIGHT.name",
-      "description_translation_key": "unit.SHANKNIGHT.description"
+      "description_translation_key": "unit.SHANKNIGHT.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "47b43dcf-0c75-4279-b315-3b13749a25ad",
@@ -1394,7 +1541,12 @@
       },
       "translation_id": "unit.SILVER",
       "name_translation_key": "unit.SILVER.name",
-      "description_translation_key": "unit.SILVER.description"
+      "description_translation_key": "unit.SILVER.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "e9f09e59-0ff0-4b48-8837-a25ea2b815ee",
@@ -1442,7 +1594,12 @@
       },
       "translation_id": "unit.SPEARMAN",
       "name_translation_key": "unit.SPEARMAN.name",
-      "description_translation_key": "unit.SPEARMAN.description"
+      "description_translation_key": "unit.SPEARMAN.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "06a1b68d-3b1c-4641-95cd-4f3d08e5ba51",
@@ -1490,7 +1647,12 @@
       },
       "translation_id": "unit.TEST",
       "name_translation_key": "unit.TEST.name",
-      "description_translation_key": "unit.TEST.description"
+      "description_translation_key": "unit.TEST.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "46a458f9-aac0-44a8-baf5-dfbff000ca3c",
@@ -1538,7 +1700,12 @@
       },
       "translation_id": "unit.WARDEN",
       "name_translation_key": "unit.WARDEN.name",
-      "description_translation_key": "unit.WARDEN.description"
+      "description_translation_key": "unit.WARDEN.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "0f621a66-abeb-440d-89e3-6c7cb3fad9ab",
@@ -1586,7 +1753,12 @@
       },
       "translation_id": "unit.DRAGOON",
       "name_translation_key": "unit.DRAGOON.name",
-      "description_translation_key": "unit.DRAGOON.description"
+      "description_translation_key": "unit.DRAGOON.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "f2034ba1-5597-46f9-a518-5e0e3a933a5e",
@@ -1634,7 +1806,12 @@
       },
       "translation_id": "unit.UNICORN",
       "name_translation_key": "unit.UNICORN.name",
-      "description_translation_key": "unit.UNICORN.description"
+      "description_translation_key": "unit.UNICORN.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "35303ea1-0ecf-4265-911b-5a979f8f2b5a",
@@ -1682,7 +1859,12 @@
       },
       "translation_id": "unit.SHARDSUMMON1",
       "name_translation_key": "unit.SHARDSUMMON1.name",
-      "description_translation_key": "unit.SHARDSUMMON1.description"
+      "description_translation_key": "unit.SHARDSUMMON1.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     },
     {
       "guid": "917ae9f0-84bd-4e2b-a635-c65ede2719f2",
@@ -1730,7 +1912,12 @@
       },
       "translation_id": "unit.STRIX",
       "name_translation_key": "unit.STRIX.name",
-      "description_translation_key": "unit.STRIX.description"
+      "description_translation_key": "unit.STRIX.description",
+      "trainable": false,
+      "unit_cost": {},
+      "required_leadership": 0,
+      "gold_cost": 0,
+      "item_cost": {}
     }
   ],
   "actions": [
@@ -5636,6 +5823,23 @@
       "description_translation_key": "augment.VANISHING.description"
     }
   ],
+  "items": [
+    {
+      "guid": "9218da29-ad40-42cf-9d24-eb73fbd156c3",
+      "id": "TEST",
+      "name": "Test",
+      "description": "Test Item",
+      "item_type": "EQUIPMENT",
+      "equipment_props": {
+        "effects": [
+          "2f521c9e-2653-4fd0-981a-ba163a471f8e"
+        ]
+      },
+      "translation_id": "item.TEST",
+      "name_translation_key": "item.TEST.name",
+      "description_translation_key": "item.TEST.description"
+    }
+  ],
   "unitIds": [
     "TEST",
     "MILITIA",
@@ -5674,5 +5878,14 @@
     "SHARDSUMMON1",
     "SHANKNIGHT"
   ],
-  "updatedAt": 1759184818493
+  "itemIds": [
+    "TEST"
+  ],
+  "trainable_units": [
+    "ASTROATTENDENT",
+    "ERUASTROLOGER",
+    "ESPARMAGE",
+    "FORESTARCHER"
+  ],
+  "updatedAt": 1763277739942
 }

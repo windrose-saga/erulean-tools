@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import * as React from 'react';
 
+import { generateItemIdsMap } from './generateItemIdsMap';
 import { generateUnitIdsMap } from './generateUnitIdsMap';
 import { getActionData } from './parsers/action';
 import { getAugmentData } from './parsers/augment';
@@ -76,7 +77,17 @@ export const useIngest = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
         ]);
       }
     },
-    [lastSaved, onLoaded, reset, setActions, setAugments, setItems, setLastSaved, setLoaded, setUnits],
+    [
+      lastSaved,
+      onLoaded,
+      reset,
+      setActions,
+      setAugments,
+      setItems,
+      setLastSaved,
+      setLoaded,
+      setUnits,
+    ],
   );
 
   return { ingest, errors };
@@ -129,6 +140,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
   const setAugments = useGameStore.use.setAugments();
   const setItems = useGameStore.use.setItems();
   const setUnitIds = useGameStore.use.setUnitIds();
+  const setItemIds = useGameStore.use.setItemIds();
   const setLoaded = useGameStore.use.setLoaded();
   const reset = useGameStore.use.reset();
   const lastSaved = useGameStore.use.lastSaved();
@@ -143,6 +155,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
         const augments = ingestAugmentsV2(data.augments);
         const items = ingestItemsV2(data.items || []);
         const unitIds = ingestUnitIds(data);
+        const itemIds = ingestItemIds(data);
         const ingestErrors = validateIngest(units, actions, augments);
         if (
           lastSaved &&
@@ -161,6 +174,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           setAugments(augments);
           setItems(items);
           setUnitIds(unitIds);
+          setItemIds(itemIds);
           setLoaded();
           setLastSaved(data.updatedAt);
           if (onLoaded) {
@@ -182,6 +196,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
       setActions,
       setAugments,
       setItems,
+      setItemIds,
       setLastSaved,
       setLoaded,
       setUnitIds,
@@ -225,3 +240,5 @@ const ingestItemsV2 = (rawData: Array<Item>) => {
 };
 
 const ingestUnitIds = (rawData: GameData) => generateUnitIdsMap(rawData.units, rawData.unitIds);
+
+const ingestItemIds = (rawData: GameData) => generateItemIdsMap(rawData.items, rawData.itemIds);

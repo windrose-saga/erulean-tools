@@ -9,6 +9,7 @@ export type GameData = {
   augments: Augment[];
   items: Item[];
   unitIds: string[];
+  itemIds: string[];
   trainable_units: string[];
   updatedAt: number;
 };

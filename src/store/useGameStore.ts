@@ -18,6 +18,7 @@ type State = {
   augments: Record<string, Augment>;
   items: Record<string, Item>;
   unitIds: Map<string, string>;
+  itemIds: Map<string, string>;
 };
 
 type Actions = {
@@ -28,6 +29,7 @@ type Actions = {
   setAugments: (augments: Record<string, Augment>) => void;
   setItems: (items: Record<string, Item>) => void;
   setUnitIds: (unitIds: Map<string, string>) => void;
+  setItemIds: (itemIds: Map<string, string>) => void;
   setUnit: (unit: Unit) => void;
   setAction: (action: Action) => void;
   setAugment: (augment: Augment) => void;
@@ -45,6 +47,7 @@ const initialState: State = {
   augments: {},
   items: {},
   unitIds: new Map<string, string>(),
+  itemIds: new Map<string, string>(),
 };
 
 export type GameStore = State & Actions;
@@ -91,6 +94,10 @@ const useGameStoreBase = create<GameStore>()(
         set((state) => {
           state.unitIds = new Map(unitIds);
         }),
+      setItemIds: (itemIds) =>
+        set((state) => {
+          state.itemIds = new Map(itemIds);
+        }),
       setUnit: (unit) =>
         set((state) => {
           state.units[unit.guid] = unit;
@@ -107,6 +114,7 @@ const useGameStoreBase = create<GameStore>()(
       setItem: (item) =>
         set((state) => {
           state.items[item.guid] = item;
+          state.itemIds.set(item.guid, item.id);
         }),
     })),
     {
