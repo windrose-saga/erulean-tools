@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { useActions } from '../store/getters/action';
 import { useAugments } from '../store/getters/augment';
+import { useItems } from '../store/getters/item';
 import { useUnits } from '../store/getters/unit';
 import { useGameStore } from '../store/useGameStore';
 import { GameData } from '../types/gameData';
@@ -10,6 +11,7 @@ export const useExportStore = () => {
   const units = useUnits();
   const actions = useActions();
   const augments = useAugments();
+  const items = useItems();
   const lastLoaded = useGameStore.use.lastLoaded();
   const setExported = useGameStore.use.setExported();
   const unitIds = useGameStore.use.unitIds();
@@ -58,6 +60,19 @@ export const useExportStore = () => {
     };
   });
 
+  const translatedItems = items.map((item) => {
+    const translation_id: string = `item.${item.id}`;
+    const name_translation_key: string = `${translation_id}.name`;
+    const description_translation_key: string = `${translation_id}.description`;
+
+    return {
+      ...item,
+      translation_id,
+      name_translation_key,
+      description_translation_key,
+    };
+  });
+
   const trainableUnits = units.filter((unit) => unit.trainable).map((unit) => unit.id);
 
   return React.useCallback(() => {
@@ -65,6 +80,7 @@ export const useExportStore = () => {
       units: translatedUnits,
       actions: translatedActions,
       augments: translatedAugments,
+      items: translatedItems,
       unitIds: Array.from(unitIds.values()),
       trainable_units: trainableUnits,
       updatedAt: lastLoaded ?? Date.now(),
@@ -83,6 +99,7 @@ export const useExportStore = () => {
     translatedUnits,
     translatedActions,
     translatedAugments,
+    translatedItems,
     unitIds,
     trainableUnits,
     lastLoaded,

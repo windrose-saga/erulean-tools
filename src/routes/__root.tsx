@@ -61,6 +61,14 @@ function RootComponent() {
               >
                 Augments
               </Link>
+              <Link
+                to="/items"
+                activeProps={{
+                  className: 'font-bold',
+                }}
+              >
+                Items
+              </Link>
             </>
           )}
           <Link

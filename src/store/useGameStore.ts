@@ -4,6 +4,7 @@ import { immer } from 'zustand/middleware/immer';
 
 import { Action } from '../types/action';
 import { Augment } from '../types/augment';
+import { Item } from '../types/item';
 import { Unit } from '../types/unit';
 import { createSelectors } from '../utils/createSelectors';
 import env from '../utils/env';
@@ -15,6 +16,7 @@ type State = {
   units: Record<string, Unit>;
   actions: Record<string, Action>;
   augments: Record<string, Augment>;
+  items: Record<string, Item>;
   unitIds: Map<string, string>;
 };
 
@@ -24,10 +26,12 @@ type Actions = {
   setUnits: (units: Record<string, Unit>) => void;
   setActions: (actions: Record<string, Action>) => void;
   setAugments: (augments: Record<string, Augment>) => void;
+  setItems: (items: Record<string, Item>) => void;
   setUnitIds: (unitIds: Map<string, string>) => void;
   setUnit: (unit: Unit) => void;
   setAction: (action: Action) => void;
   setAugment: (augment: Augment) => void;
+  setItem: (item: Item) => void;
   setLastSaved: (savedAt: number) => void;
   setExported: () => void;
 };
@@ -39,6 +43,7 @@ const initialState: State = {
   units: {},
   actions: {},
   augments: {},
+  items: {},
   unitIds: new Map<string, string>(),
 };
 
@@ -78,6 +83,10 @@ const useGameStoreBase = create<GameStore>()(
         set((state) => {
           state.augments = augments;
         }),
+      setItems: (items) =>
+        set((state) => {
+          state.items = items;
+        }),
       setUnitIds: (unitIds) =>
         set((state) => {
           state.unitIds = new Map(unitIds);
@@ -94,6 +103,10 @@ const useGameStoreBase = create<GameStore>()(
       setAugment: (augment) =>
         set((state) => {
           state.augments[augment.guid] = augment;
+        }),
+      setItem: (item) =>
+        set((state) => {
+          state.items[item.guid] = item;
         }),
     })),
     {

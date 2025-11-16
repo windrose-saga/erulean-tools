@@ -14,7 +14,7 @@ interface ListProps<T> {
   defaultIndex: keyof T;
   onRowClick?: (item: T) => void;
   searchFields: Array<keyof T>;
-  objectCreationType: 'unit' | 'action' | 'augment';
+  objectCreationType: 'unit' | 'action' | 'augment' | 'item';
 }
 
 export const List = <T extends object>({
@@ -84,6 +84,8 @@ export const List = <T extends object>({
         return '/actions/new';
       case 'augment':
         return '/augments/new';
+      case 'item':
+        return '/items/new';
       default:
         assertUnreachable(objectCreationType);
         return '/';

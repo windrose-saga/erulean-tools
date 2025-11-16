@@ -12,13 +12,14 @@ import { useGameStore } from '../store/useGameStore';
 import { Action } from '../types/action';
 import { Augment } from '../types/augment';
 import { GameData } from '../types/gameData';
+import { Item } from '../types/item';
 import { Unit } from '../types/unit';
 
 const ACTION_SHEET_GUID = '288ae487-6d6a-411e-b468-ab415b4ba7e6';
 const UNIT_SHEET_GUID = 'c4ca663f-445a-4bcb-bf4e-4cd51455c0a5';
 const AUGMENT_SHEET_GUID = '4d53960f-f75e-4721-ad17-90d124808b18';
 
-type ErrorType = 'unit' | 'action' | 'augment' | 'general';
+type ErrorType = 'unit' | 'action' | 'augment' | 'item' | 'general';
 type Error = {
   type: ErrorType;
   message: string;
@@ -30,6 +31,7 @@ export const useIngest = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
   const setUnits = useGameStore.use.setUnits();
   const setActions = useGameStore.use.setActions();
   const setAugments = useGameStore.use.setAugments();
+  const setItems = useGameStore.use.setItems();
   const setLoaded = useGameStore.use.setLoaded();
   const reset = useGameStore.use.reset();
   const lastSaved = useGameStore.use.lastSaved();
@@ -42,6 +44,7 @@ export const useIngest = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
         const units = ingestUnits(data.sheets);
         const actions = ingestActions(data.sheets);
         const augments = ingestAugments(data.sheets);
+        const items = {}; // V1 doesn't support items
         const ingestErrors = validateIngest(units, actions, augments);
         if (
           lastSaved &&
@@ -58,6 +61,7 @@ export const useIngest = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           setUnits(units);
           setActions(actions);
           setAugments(augments);
+          setItems(items);
           setLoaded();
           setLastSaved(data.updatedAt);
           if (onLoaded) {
@@ -72,7 +76,7 @@ export const useIngest = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
         ]);
       }
     },
-    [lastSaved, onLoaded, reset, setActions, setAugments, setLastSaved, setLoaded, setUnits],
+    [lastSaved, onLoaded, reset, setActions, setAugments, setItems, setLastSaved, setLoaded, setUnits],
   );
 
   return { ingest, errors };
@@ -123,6 +127,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
   const setUnits = useGameStore.use.setUnits();
   const setActions = useGameStore.use.setActions();
   const setAugments = useGameStore.use.setAugments();
+  const setItems = useGameStore.use.setItems();
   const setUnitIds = useGameStore.use.setUnitIds();
   const setLoaded = useGameStore.use.setLoaded();
   const reset = useGameStore.use.reset();
@@ -136,6 +141,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
         const units = ingestUnitsV2(data.units);
         const actions = ingestActionsV2(data.actions);
         const augments = ingestAugmentsV2(data.augments);
+        const items = ingestItemsV2(data.items || []);
         const unitIds = ingestUnitIds(data);
         const ingestErrors = validateIngest(units, actions, augments);
         if (
@@ -153,6 +159,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           setUnits(units);
           setActions(actions);
           setAugments(augments);
+          setItems(items);
           setUnitIds(unitIds);
           setLoaded();
           setLastSaved(data.updatedAt);
@@ -174,6 +181,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
       reset,
       setActions,
       setAugments,
+      setItems,
       setLastSaved,
       setLoaded,
       setUnitIds,
@@ -206,6 +214,14 @@ const ingestAugmentsV2 = (rawData: Array<Augment>) => {
     augmentData[augment.guid] = augment;
   });
   return augmentData;
+};
+
+const ingestItemsV2 = (rawData: Array<Item>) => {
+  const itemData = {} as Record<string, Item>;
+  rawData.forEach((item) => {
+    itemData[item.guid] = item;
+  });
+  return itemData;
 };
 
 const ingestUnitIds = (rawData: GameData) => generateUnitIdsMap(rawData.units, rawData.unitIds);
