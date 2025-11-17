@@ -4,16 +4,18 @@ import { FieldValues, Path, PathValue, useFormContext } from 'react-hook-form';
 
 import { useActions } from '../store/getters/action';
 import { useAugments } from '../store/getters/augment';
+import { useItems } from '../store/getters/item';
 import { useUnits } from '../store/getters/unit';
 import { Action } from '../types/action';
 import { Augment } from '../types/augment';
+import { Item } from '../types/item';
 import { Unit } from '../types/unit';
 import { assertUnreachable } from '../utils/assertUnreachable';
 
 export interface ArraySelectProps<T extends FieldValues> {
   label: string;
   id: Path<T>;
-  type: 'UNIT' | 'ACTION' | 'AUGMENT';
+  type: 'UNIT' | 'ACTION' | 'AUGMENT' | 'ITEM';
 }
 
 const mapFromInitalValue = (initialValue: Array<string>) => {
@@ -28,9 +30,10 @@ const ArraySelect = <T extends FieldValues>({ label, id, type }: ArraySelectProp
   const units = useUnits();
   const actions = useActions();
   const augments = useAugments();
+  const itemsData = useItems();
 
   const options = React.useMemo(() => {
-    let optionData: Unit[] | Action[] | Augment[];
+    let optionData: Unit[] | Action[] | Augment[] | Item[];
 
     switch (type) {
       case 'UNIT':
@@ -42,6 +45,9 @@ const ArraySelect = <T extends FieldValues>({ label, id, type }: ArraySelectProp
       case 'AUGMENT':
         optionData = augments;
         break;
+      case 'ITEM':
+        optionData = itemsData;
+        break;
       default:
         assertUnreachable(type);
         optionData = [];
@@ -52,7 +58,7 @@ const ArraySelect = <T extends FieldValues>({ label, id, type }: ArraySelectProp
       name: option.name,
       value: option.guid,
     }));
-  }, [actions, augments, type, units]);
+  }, [actions, augments, itemsData, type, units]);
 
   const [initialized, setInitialized] = React.useState(false);
 

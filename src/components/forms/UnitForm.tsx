@@ -262,6 +262,7 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
         {isCurrentlyTrainable && (
           <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
             <QuantitySelect id="unit_cost" label="Unit Cost" type="UNIT" />
+            <QuantitySelect id="item_cost" label="Item Cost" type="ITEM" />
             <LabeledInput
               id="required_leadership"
               label="Required Leadership"

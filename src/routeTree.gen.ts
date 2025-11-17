@@ -14,10 +14,13 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as DamageCalculatorImport } from './routes/damage-calculator'
 import { Route as IndexImport } from './routes/index'
 import { Route as UnitsIndexImport } from './routes/units.index'
+import { Route as ItemsIndexImport } from './routes/items.index'
 import { Route as AugmentsIndexImport } from './routes/augments.index'
 import { Route as ActionsIndexImport } from './routes/actions.index'
 import { Route as UnitsNewImport } from './routes/units.new'
 import { Route as UnitsUnitIdImport } from './routes/units.$unitId'
+import { Route as ItemsNewImport } from './routes/items.new'
+import { Route as ItemsItemIdImport } from './routes/items.$itemId'
 import { Route as AugmentsNewImport } from './routes/augments.new'
 import { Route as AugmentsAugmentIdImport } from './routes/augments.$augmentId'
 import { Route as ActionsNewImport } from './routes/actions.new'
@@ -43,6 +46,12 @@ const UnitsIndexRoute = UnitsIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const ItemsIndexRoute = ItemsIndexImport.update({
+  id: '/items/',
+  path: '/items/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const AugmentsIndexRoute = AugmentsIndexImport.update({
   id: '/augments/',
   path: '/augments/',
@@ -64,6 +73,18 @@ const UnitsNewRoute = UnitsNewImport.update({
 const UnitsUnitIdRoute = UnitsUnitIdImport.update({
   id: '/units/$unitId',
   path: '/units/$unitId',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ItemsNewRoute = ItemsNewImport.update({
+  id: '/items/new',
+  path: '/items/new',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ItemsItemIdRoute = ItemsItemIdImport.update({
+  id: '/items/$itemId',
+  path: '/items/$itemId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -137,6 +158,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AugmentsNewImport
       parentRoute: typeof rootRoute
     }
+    '/items/$itemId': {
+      id: '/items/$itemId'
+      path: '/items/$itemId'
+      fullPath: '/items/$itemId'
+      preLoaderRoute: typeof ItemsItemIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/items/new': {
+      id: '/items/new'
+      path: '/items/new'
+      fullPath: '/items/new'
+      preLoaderRoute: typeof ItemsNewImport
+      parentRoute: typeof rootRoute
+    }
     '/units/$unitId': {
       id: '/units/$unitId'
       path: '/units/$unitId'
@@ -165,6 +200,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AugmentsIndexImport
       parentRoute: typeof rootRoute
     }
+    '/items/': {
+      id: '/items/'
+      path: '/items'
+      fullPath: '/items'
+      preLoaderRoute: typeof ItemsIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/units/': {
       id: '/units/'
       path: '/units'
@@ -184,10 +226,13 @@ export interface FileRoutesByFullPath {
   '/actions/new': typeof ActionsNewRoute
   '/augments/$augmentId': typeof AugmentsAugmentIdRoute
   '/augments/new': typeof AugmentsNewRoute
+  '/items/$itemId': typeof ItemsItemIdRoute
+  '/items/new': typeof ItemsNewRoute
   '/units/$unitId': typeof UnitsUnitIdRoute
   '/units/new': typeof UnitsNewRoute
   '/actions': typeof ActionsIndexRoute
   '/augments': typeof AugmentsIndexRoute
+  '/items': typeof ItemsIndexRoute
   '/units': typeof UnitsIndexRoute
 }
 
@@ -198,10 +243,13 @@ export interface FileRoutesByTo {
   '/actions/new': typeof ActionsNewRoute
   '/augments/$augmentId': typeof AugmentsAugmentIdRoute
   '/augments/new': typeof AugmentsNewRoute
+  '/items/$itemId': typeof ItemsItemIdRoute
+  '/items/new': typeof ItemsNewRoute
   '/units/$unitId': typeof UnitsUnitIdRoute
   '/units/new': typeof UnitsNewRoute
   '/actions': typeof ActionsIndexRoute
   '/augments': typeof AugmentsIndexRoute
+  '/items': typeof ItemsIndexRoute
   '/units': typeof UnitsIndexRoute
 }
 
@@ -213,10 +261,13 @@ export interface FileRoutesById {
   '/actions/new': typeof ActionsNewRoute
   '/augments/$augmentId': typeof AugmentsAugmentIdRoute
   '/augments/new': typeof AugmentsNewRoute
+  '/items/$itemId': typeof ItemsItemIdRoute
+  '/items/new': typeof ItemsNewRoute
   '/units/$unitId': typeof UnitsUnitIdRoute
   '/units/new': typeof UnitsNewRoute
   '/actions/': typeof ActionsIndexRoute
   '/augments/': typeof AugmentsIndexRoute
+  '/items/': typeof ItemsIndexRoute
   '/units/': typeof UnitsIndexRoute
 }
 
@@ -229,10 +280,13 @@ export interface FileRouteTypes {
     | '/actions/new'
     | '/augments/$augmentId'
     | '/augments/new'
+    | '/items/$itemId'
+    | '/items/new'
     | '/units/$unitId'
     | '/units/new'
     | '/actions'
     | '/augments'
+    | '/items'
     | '/units'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -242,10 +296,13 @@ export interface FileRouteTypes {
     | '/actions/new'
     | '/augments/$augmentId'
     | '/augments/new'
+    | '/items/$itemId'
+    | '/items/new'
     | '/units/$unitId'
     | '/units/new'
     | '/actions'
     | '/augments'
+    | '/items'
     | '/units'
   id:
     | '__root__'
@@ -255,10 +312,13 @@ export interface FileRouteTypes {
     | '/actions/new'
     | '/augments/$augmentId'
     | '/augments/new'
+    | '/items/$itemId'
+    | '/items/new'
     | '/units/$unitId'
     | '/units/new'
     | '/actions/'
     | '/augments/'
+    | '/items/'
     | '/units/'
   fileRoutesById: FileRoutesById
 }
@@ -270,10 +330,13 @@ export interface RootRouteChildren {
   ActionsNewRoute: typeof ActionsNewRoute
   AugmentsAugmentIdRoute: typeof AugmentsAugmentIdRoute
   AugmentsNewRoute: typeof AugmentsNewRoute
+  ItemsItemIdRoute: typeof ItemsItemIdRoute
+  ItemsNewRoute: typeof ItemsNewRoute
   UnitsUnitIdRoute: typeof UnitsUnitIdRoute
   UnitsNewRoute: typeof UnitsNewRoute
   ActionsIndexRoute: typeof ActionsIndexRoute
   AugmentsIndexRoute: typeof AugmentsIndexRoute
+  ItemsIndexRoute: typeof ItemsIndexRoute
   UnitsIndexRoute: typeof UnitsIndexRoute
 }
 
@@ -284,10 +347,13 @@ const rootRouteChildren: RootRouteChildren = {
   ActionsNewRoute: ActionsNewRoute,
   AugmentsAugmentIdRoute: AugmentsAugmentIdRoute,
   AugmentsNewRoute: AugmentsNewRoute,
+  ItemsItemIdRoute: ItemsItemIdRoute,
+  ItemsNewRoute: ItemsNewRoute,
   UnitsUnitIdRoute: UnitsUnitIdRoute,
   UnitsNewRoute: UnitsNewRoute,
   ActionsIndexRoute: ActionsIndexRoute,
   AugmentsIndexRoute: AugmentsIndexRoute,
+  ItemsIndexRoute: ItemsIndexRoute,
   UnitsIndexRoute: UnitsIndexRoute,
 }
 
@@ -307,10 +373,13 @@ export const routeTree = rootRoute
         "/actions/new",
         "/augments/$augmentId",
         "/augments/new",
+        "/items/$itemId",
+        "/items/new",
         "/units/$unitId",
         "/units/new",
         "/actions/",
         "/augments/",
+        "/items/",
         "/units/"
       ]
     },
@@ -332,6 +401,12 @@ export const routeTree = rootRoute
     "/augments/new": {
       "filePath": "augments.new.tsx"
     },
+    "/items/$itemId": {
+      "filePath": "items.$itemId.tsx"
+    },
+    "/items/new": {
+      "filePath": "items.new.tsx"
+    },
     "/units/$unitId": {
       "filePath": "units.$unitId.tsx"
     },
@@ -343,6 +418,9 @@ export const routeTree = rootRoute
     },
     "/augments/": {
       "filePath": "augments.index.tsx"
+    },
+    "/items/": {
+      "filePath": "items.index.tsx"
     },
     "/units/": {
       "filePath": "units.index.tsx"
