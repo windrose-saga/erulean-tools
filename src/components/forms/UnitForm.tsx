@@ -277,6 +277,12 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
               allowFloats={false}
               required={isCurrentlyTrainable}
             />
+            <LabeledInput
+              id="train_button_text"
+              label="Train Button Text"
+              type="text"
+              required={isCurrentlyTrainable}
+            />
           </div>
         )}
       </form>

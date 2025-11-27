@@ -26,6 +26,7 @@ export type Unit = {
   commander_data: CommanderData;
   actions: Actions;
   trainable: boolean;
+  train_button_text: string;
   gold_cost: number;
   required_leadership: number;
   unit_cost: Record<string, number>;

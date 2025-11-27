@@ -48,6 +48,7 @@ export const DEFAULT_UNIT: Unit = {
   inaction_limit: 20,
   actions: DEFAULT_ACTIONS,
   trainable: false,
+  train_button_text: '',
   unit_cost: {},
   item_cost: {},
   required_leadership: 0,
