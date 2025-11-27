@@ -51,6 +51,6 @@ export const DEFAULT_UNIT: Unit = {
   train_button_text: '',
   unit_cost: {},
   item_cost: {},
-  required_leadership: 0,
+  required_level: 0,
   gold_cost: 0,
 };

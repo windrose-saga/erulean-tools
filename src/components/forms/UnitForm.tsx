@@ -264,7 +264,7 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
             <QuantitySelect id="unit_cost" label="Unit Cost" type="UNIT" />
             <QuantitySelect id="item_cost" label="Item Cost" type="ITEM" />
             <LabeledInput
-              id="required_leadership"
+              id="required_level"
               label="Required Leadership"
               type="number"
               allowFloats={false}

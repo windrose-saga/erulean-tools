@@ -32,7 +32,7 @@ export const getUnitData = ({
   train_button_text,
   unit_cost,
   item_cost,
-  required_leadership,
+  required_level,
   gold_cost,
   commander_data: raw_commander_data,
 }: any): Unit => {
@@ -71,7 +71,7 @@ export const getUnitData = ({
     train_button_text: train_button_text || '',
     unit_cost,
     item_cost,
-    required_leadership,
+    required_level,
     gold_cost,
   };
 };

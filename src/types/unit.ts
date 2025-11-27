@@ -28,7 +28,7 @@ export type Unit = {
   trainable: boolean;
   train_button_text: string;
   gold_cost: number;
-  required_leadership: number;
+  required_level: number;
   unit_cost: Record<string, number>;
   item_cost: Record<string, number>;
 };
