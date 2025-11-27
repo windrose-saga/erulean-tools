@@ -21,6 +21,7 @@ export const useExportStore = () => {
     const translation_id: string = `unit.${unit.id}`;
     const name_translation_key: string = `${translation_id}.name`;
     const description_translation_key: string = `${translation_id}.description`;
+    const train_button_text_translation_key: string = `${translation_id}.train_button_text`;
 
     const translatedCommanderData = {
       ...unit.commander_data,
@@ -32,6 +33,7 @@ export const useExportStore = () => {
       translation_id,
       name_translation_key,
       description_translation_key,
+      train_button_text_translation_key,
     };
   });
 
