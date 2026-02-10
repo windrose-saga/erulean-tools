@@ -163,12 +163,11 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
             options={createSelectOptions(MOVEMENT_STRATEGIES)}
           />
         </div>
-        <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+        <div className="grid grid-cols-2 border rounded justify-items-center gap-3 mb-6 p-6">
           <FormActionSelect label="Primary" id="actions.primary_action" />
           <FormActionSelect label="Special" id="actions.special_action" />
-          <FormActionSelect label="Passive" id="actions.passive_action" />
         </div>
-        <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+        <div className="grid grid-cols-2 border rounded justify-items-center gap-3 mb-6 p-6">
           <LabeledInput
             id="actions.primary_action_mana_delta"
             label="Primary Action Mana Delta"
@@ -180,14 +179,6 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
           <LabeledInput
             id="actions.special_action_mana_delta"
             label="Special Action Mana Delta"
-            type="number"
-            allowFloats={false}
-            allowNegativeValue
-            required
-          />
-          <LabeledInput
-            id="actions.passive_action_mana_delta"
-            label="Passive Action Mana Delta"
             type="number"
             allowFloats={false}
             allowNegativeValue
