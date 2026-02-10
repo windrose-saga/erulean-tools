@@ -1,5 +1,9 @@
 import { AugmentBuffType, AugmentDomain, AugmentTarget } from './augment';
 
+export const TARGETING_PREFERENCES = ['CLOSEST', 'FURTHEST', 'MEDIAN'] as const satisfies string[];
+type TargetingPreferences = typeof TARGETING_PREFERENCES;
+export type TargetingPreference = TargetingPreferences[number];
+
 export const APPROACH_STRATEGIES = ['HOLD', 'PROCEED'] as const satisfies string[];
 type ApproachStrategies = typeof APPROACH_STRATEGIES;
 export type ApproachStrategy = ApproachStrategies[number];
@@ -44,6 +48,10 @@ export type Action = {
   delay: number;
   approach_strategy: ApproachStrategy;
   target_self: boolean;
+  targeting_preference: TargetingPreference;
+  is_aoe: boolean;
+  aoe_radius: number;
+  aoe_include_self: boolean;
   action_type: ActionType;
   augment_domain: AugmentDomain;
   damage_action_props: DamageActionData;

@@ -39,6 +39,10 @@ export const getActionData = ({
   action_type,
   augment_domain,
   approach_strategy,
+  targeting_preference,
+  is_aoe,
+  aoe_radius,
+  aoe_include_self,
   target_self,
   ...line
 }: any): Action => {
@@ -62,6 +66,10 @@ export const getActionData = ({
     augment_domain: augment_domain || 'UNIT',
     approach_strategy,
     target_self,
+    targeting_preference: targeting_preference || 'CLOSEST',
+    is_aoe: is_aoe || false,
+    aoe_radius: aoe_radius || 1,
+    aoe_include_self: aoe_include_self ?? true,
     damage_action_props: DEFAULT_DAMAGE_ACTION_DATA,
     heal_props: DEFAULT_HEAL_ACTION_DATA,
     mana_action_props: DEFAULT_MANA_ACTION_DATA,
