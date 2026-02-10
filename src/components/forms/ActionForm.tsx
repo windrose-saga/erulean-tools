@@ -400,6 +400,11 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
             allowFloats={false}
             required
           />
+          <LabeledSelect
+            id="augment_domain"
+            label="Augment Domain"
+            options={createSelectOptions(AUGMENT_DOMAINS)}
+          />
         </div>
 
         <div className="grid grid-cols-2 border rounded justify-items-center gap-3 mb-6 p-6">

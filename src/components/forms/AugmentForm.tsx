@@ -154,11 +154,6 @@ export const AugmentForm: React.FC<{ augment: Augment }> = ({ augment }) => {
                 options={createSelectOptions(AUGMENT_BUFF_TYPES)}
               />
               <LabeledSelect
-                id="domain"
-                label="Domain"
-                options={createSelectOptions(AUGMENT_DOMAINS)}
-              />
-              <LabeledSelect
                 id="augment_class"
                 label="Augment Class"
                 options={createSelectOptions(AUGMENT_TYPES)}

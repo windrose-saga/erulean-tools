@@ -11,7 +11,6 @@ const augmentColumns: Column<Augment>[] = [
   { name: 'Name', field: 'name' },
   { name: 'Augment Class', field: 'augment_class' },
   { name: 'Type', field: 'type' },
-  { name: 'Domain', field: 'domain' },
   { name: 'Durational', field: 'durational' },
   { name: 'Duration', field: 'duration' },
   { name: 'Undispellable', field: 'undispellable' },

@@ -28,7 +28,6 @@ export const DEFAULT_AUGMENT: Augment = {
   unique: false,
   unique_identifier: '',
   replenishable: false,
-  domain: 'UNIT',
   durational: false,
   duration: 0,
   augment_class: 'FLAT_STAT',

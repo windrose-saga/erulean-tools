@@ -50,6 +50,7 @@ export type Action = {
   approach_strategy: ApproachStrategy;
   target_self: boolean;
   action_type: ActionType;
+  augment_domain: AugmentDomain;
   damage_action_props: DamageActionData;
   heal_props: HealActionData;
   mana_action_props: ManaActionData;

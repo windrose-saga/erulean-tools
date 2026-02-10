@@ -38,6 +38,7 @@ export const getActionData = ({
   break_vanguard,
   delay,
   action_type,
+  augment_domain,
   approach_strategy,
   target_self,
   ...line
@@ -60,6 +61,7 @@ export const getActionData = ({
     break_vanguard,
     delay,
     action_type,
+    augment_domain: augment_domain || 'UNIT',
     approach_strategy,
     target_self,
     damage_action_props: DEFAULT_DAMAGE_ACTION_DATA,

@@ -94,6 +94,7 @@ export const DEFAULT_ACTION_DATA: Action = {
   approach_strategy: 'PROCEED',
   target_self: false,
   action_type: 'DAMAGE_ACTION',
+  augment_domain: 'UNIT',
   damage_action_props: DEFAULT_DAMAGE_ACTION_DATA,
   heal_props: DEFAULT_HEAL_ACTION_DATA,
   mana_action_props: DEFAULT_MANA_ACTION_DATA,
