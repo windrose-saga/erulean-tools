@@ -1,10 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { merge } from 'lodash';
 import * as React from 'react';
 
 import { generateItemIdsMap } from './generateItemIdsMap';
 import { generateUnitIdsMap } from './generateUnitIdsMap';
 import { validateIngest } from './validateIngest';
 
+import { DEFAULT_ACTION_DATA, DEFAULT_AUGMENT_ACTION_DATA } from '../constants/action';
+import { DEFAULT_ITEM_DATA } from '../constants/item';
+import { DEFAULT_UNIT } from '../constants/unit';
 import { useGameStore } from '../store/useGameStore';
 import { Action } from '../types/action';
 import { Augment } from '../types/augment';
@@ -96,7 +100,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
 const ingestUnitsV2 = (rawData: Array<Unit>) => {
   const unitData = {} as Record<string, Unit>;
   rawData.forEach((unit) => {
-    unitData[unit.guid] = unit;
+    unitData[unit.guid] = merge({}, DEFAULT_UNIT, unit);
   });
   return unitData;
 };
@@ -104,7 +108,7 @@ const ingestUnitsV2 = (rawData: Array<Unit>) => {
 const ingestActionsV2 = (rawData: Array<Action>) => {
   const actionData = {} as Record<string, Action>;
   rawData.forEach((action) => {
-    actionData[action.guid] = action;
+    actionData[action.guid] = merge({}, DEFAULT_ACTION_DATA, action);
   });
   return actionData;
 };
@@ -112,7 +116,7 @@ const ingestActionsV2 = (rawData: Array<Action>) => {
 const ingestAugmentsV2 = (rawData: Array<Augment>) => {
   const augmentData = {} as Record<string, Augment>;
   rawData.forEach((augment) => {
-    augmentData[augment.guid] = augment;
+    augmentData[augment.guid] = merge({}, DEFAULT_AUGMENT_ACTION_DATA, augment);
   });
   return augmentData;
 };
@@ -120,7 +124,7 @@ const ingestAugmentsV2 = (rawData: Array<Augment>) => {
 const ingestItemsV2 = (rawData: Array<Item>) => {
   const itemData = {} as Record<string, Item>;
   rawData.forEach((item) => {
-    itemData[item.guid] = item;
+    itemData[item.guid] = merge({}, DEFAULT_ITEM_DATA, item);
   });
   return itemData;
 };
