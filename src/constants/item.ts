@@ -2,6 +2,7 @@ import { Item } from '../types/item';
 
 export const DEFAULT_EQUIPMENT_PROPS = {
   effects: [],
+  everlasting: false,
 };
 
 export const DEFAULT_ITEM_DATA: Item = {

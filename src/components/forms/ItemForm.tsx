@@ -51,8 +51,9 @@ export const ItemForm: React.FC<{ item: Item }> = ({ item }) => {
     switch (itemType) {
       case 'EQUIPMENT':
         return (
-          <div className="grid grid-cols-1 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+          <div className="grid grid-cols-2 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
             <ArraySelect id="equipment_props.effects" label="Effects" type="AUGMENT" />
+            <LabeledInput id="equipment_props.everlasting" label="Everlasting" type="checkbox" />
           </div>
         );
       case 'ITEM':
