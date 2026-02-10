@@ -39,6 +39,7 @@ export const DEFAULT_UNIT: Unit = {
   bravery: 0,
   movement: 1,
   point_value: 0,
+  exp_value: 0,
   can_flee: true,
   faithful: false,
   movement_strategy: 'ADVANCE',
@@ -49,6 +50,9 @@ export const DEFAULT_UNIT: Unit = {
   train_button_text: '',
   unit_cost: {},
   item_cost: {},
+  item_slots: 3,
+  reward_for_defeat: {},
+  returned_on_death: {},
   required_level: 0,
   gold_cost: 0,
 };
