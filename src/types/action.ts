@@ -1,9 +1,5 @@
 import { AugmentBuffType, AugmentDomain, AugmentTarget } from './augment';
 
-export const TARGETING_TYPES = ['EXACT', 'UP_TO', 'SELF'] as const satisfies string[];
-type TargetingTypes = typeof TARGETING_TYPES;
-export type TargetingType = TargetingTypes[number];
-
 export const APPROACH_STRATEGIES = ['HOLD', 'PROCEED'] as const satisfies string[];
 type ApproachStrategies = typeof APPROACH_STRATEGIES;
 export type ApproachStrategy = ApproachStrategies[number];
@@ -35,7 +31,6 @@ export type Action = {
   id: string;
   name: string;
   description: string;
-  targeting_type: TargetingType;
   targeting_range: number;
   max_targets: number;
   splash: number;

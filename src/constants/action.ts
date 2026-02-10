@@ -79,7 +79,6 @@ export const DEFAULT_ACTION_DATA: Action = {
   id: '',
   name: '',
   description: '',
-  targeting_type: 'UP_TO',
   targeting_range: 1,
   max_targets: 1,
   splash: 0,

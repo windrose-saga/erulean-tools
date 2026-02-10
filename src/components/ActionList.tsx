@@ -14,7 +14,6 @@ const actionColumns: Column<Action>[] = [
   { name: 'Approach Strategy', field: 'approach_strategy' },
   { name: 'Splash', field: 'splash' },
   { name: 'Chain', field: 'chain' },
-  { name: 'Targeting Type', field: 'targeting_type' },
   { name: 'Target Self', field: 'target_self' },
   { name: 'Targeting Range', field: 'targeting_range' },
   { name: 'Max Targets', field: 'max_targets' },

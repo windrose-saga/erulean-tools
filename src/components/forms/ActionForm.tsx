@@ -4,13 +4,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 
 import { useActions } from '../../store/getters/action';
 import { useGameStore } from '../../store/useGameStore';
-import {
-  Action,
-  ACTION_TYPES,
-  APPROACH_STRATEGIES,
-  DISPEL_ACTION_MODES,
-  TARGETING_TYPES,
-} from '../../types/action';
+import { Action, ACTION_TYPES, APPROACH_STRATEGIES, DISPEL_ACTION_MODES } from '../../types/action';
 import { AUGMENT_BUFF_TYPES, AUGMENT_DOMAINS, AUGMENT_TARGETS } from '../../types/augment';
 import { createSelectOptions } from '../../utils/createSelectOptions';
 import ArraySelect from '../ArraySelect';
@@ -365,11 +359,6 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
         </div>
 
         <div className="grid grid-cols-2 border rounded justify-items-center gap-3 mb-6 p-6">
-          <LabeledSelect
-            id="targeting_type"
-            label="Targeting Type"
-            options={createSelectOptions(TARGETING_TYPES)}
-          />
           <LabeledSelect
             id="approach_strategy"
             label="Approach Strategy"
