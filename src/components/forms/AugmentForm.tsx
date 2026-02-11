@@ -181,7 +181,7 @@ export const AugmentForm: React.FC<{ augment: Augment }> = ({ augment }) => {
         <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
           <LabeledInput id="unique" label="Is Unique" type="checkbox" />
           <LabeledInput
-            id="unique_indentifier"
+            id="unique_identifier"
             label="Unique Identifier"
             type="text"
             disabled={!isUnique}
