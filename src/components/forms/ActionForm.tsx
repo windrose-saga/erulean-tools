@@ -99,21 +99,8 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
               required
             />
             <LabeledInput
-              id="damage_action_props.base_dex_damage"
-              label="Base Dexterity Damage"
-              type="number"
-              allowFloats={false}
-              required
-            />
-            <LabeledInput
               id="damage_action_props.unit_speed_modifier"
               label="Unit Speed Modifier"
-              type="number"
-              required
-            />
-            <LabeledInput
-              id="damage_action_props.target_speed_modifier"
-              label="Target Speed Modifier"
               type="number"
               required
             />

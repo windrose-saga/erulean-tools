@@ -70,9 +70,7 @@ export type DamageActionData = {
   base_magic_damage: number;
   unit_int_modifier: number;
   target_spec_defense_modifier: number;
-  base_dex_damage: number;
   unit_speed_modifier: number;
-  target_speed_modifier: number;
   crit_modifier: number;
   base_damage: number;
   total_damage_multiplier: number;
