@@ -17,6 +17,7 @@ export type Unit = {
   bravery: number;
   movement: number;
   point_value: number;
+  exp_value: number;
   can_flee: boolean;
   faithful: boolean;
   movement_strategy: MovementStrategy;
@@ -31,6 +32,9 @@ export type Unit = {
   required_level: number;
   unit_cost: Record<string, number>;
   item_cost: Record<string, number>;
+  item_slots: number;
+  reward_for_defeat: Record<string, number>;
+  returned_on_death: Record<string, number>;
 };
 
 export const MOVEMENT_STRATEGIES = ['ADVANCE', 'KEEP_DISTANCE'] as const satisfies string[];
@@ -49,10 +53,8 @@ export type CommanderData = {
 };
 
 export type Actions = {
-  passive_action: string | null;
   primary_action: string | null;
   special_action: string | null;
   primary_action_mana_delta: number;
   special_action_mana_delta: number;
-  passive_action_mana_delta: number;
 };

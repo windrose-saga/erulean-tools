@@ -73,13 +73,6 @@ const CalculatorActionForm: React.FC<Props> = ({ setParams, params }) => {
             id="base_magic_damage"
             title="base_magic_damage"
           />
-          <label htmlFor="base_dex_damage">Base Dexterity Dmg</label>
-          <input
-            value={damageParams.base_dex_damage}
-            type="number"
-            id="base_dex_damage"
-            title="base_dex_damage"
-          />
           <label htmlFor="base_damage">Base Damage</label>
           <input
             value={damageParams.base_damage}
@@ -134,13 +127,6 @@ const CalculatorActionForm: React.FC<Props> = ({ setParams, params }) => {
             type="number"
             id="target_spec_defense_modifier"
             title="target_spec_defense_modifier"
-          />
-          <label htmlFor="target_speed_modifier">Speed Modifier</label>
-          <input
-            value={damageParams.target_speed_modifier}
-            type="number"
-            id="target_speed_modifier"
-            title="target_speed_modifier"
           />
         </div>
       </div>

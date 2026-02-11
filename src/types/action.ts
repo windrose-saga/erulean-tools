@@ -1,8 +1,8 @@
 import { AugmentBuffType, AugmentDomain, AugmentTarget } from './augment';
 
-export const TARGETING_TYPES = ['EXACT', 'UP_TO', 'SELF'] as const satisfies string[];
-type TargetingTypes = typeof TARGETING_TYPES;
-export type TargetingType = TargetingTypes[number];
+export const TARGETING_PREFERENCES = ['CLOSEST', 'FURTHEST', 'MEDIAN'] as const satisfies string[];
+type TargetingPreferences = typeof TARGETING_PREFERENCES;
+export type TargetingPreference = TargetingPreferences[number];
 
 export const APPROACH_STRATEGIES = ['HOLD', 'PROCEED'] as const satisfies string[];
 type ApproachStrategies = typeof APPROACH_STRATEGIES;
@@ -35,7 +35,6 @@ export type Action = {
   id: string;
   name: string;
   description: string;
-  targeting_type: TargetingType;
   targeting_range: number;
   max_targets: number;
   splash: number;
@@ -49,7 +48,12 @@ export type Action = {
   delay: number;
   approach_strategy: ApproachStrategy;
   target_self: boolean;
+  targeting_preference: TargetingPreference;
+  is_aoe: boolean;
+  aoe_radius: number;
+  aoe_include_self: boolean;
   action_type: ActionType;
+  augment_domain: AugmentDomain;
   damage_action_props: DamageActionData;
   heal_props: HealActionData;
   mana_action_props: ManaActionData;
@@ -66,9 +70,7 @@ export type DamageActionData = {
   base_magic_damage: number;
   unit_int_modifier: number;
   target_spec_defense_modifier: number;
-  base_dex_damage: number;
   unit_speed_modifier: number;
-  target_speed_modifier: number;
   crit_modifier: number;
   base_damage: number;
   total_damage_multiplier: number;

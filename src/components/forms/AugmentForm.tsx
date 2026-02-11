@@ -154,11 +154,6 @@ export const AugmentForm: React.FC<{ augment: Augment }> = ({ augment }) => {
                 options={createSelectOptions(AUGMENT_BUFF_TYPES)}
               />
               <LabeledSelect
-                id="domain"
-                label="Domain"
-                options={createSelectOptions(AUGMENT_DOMAINS)}
-              />
-              <LabeledSelect
                 id="augment_class"
                 label="Augment Class"
                 options={createSelectOptions(AUGMENT_TYPES)}
@@ -186,7 +181,7 @@ export const AugmentForm: React.FC<{ augment: Augment }> = ({ augment }) => {
         <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
           <LabeledInput id="unique" label="Is Unique" type="checkbox" />
           <LabeledInput
-            id="unique_indentifier"
+            id="unique_identifier"
             label="Unique Identifier"
             type="text"
             disabled={!isUnique}

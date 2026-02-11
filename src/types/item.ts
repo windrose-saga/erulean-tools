@@ -13,4 +13,5 @@ export type Item = {
 
 type EquipmentProps = {
   effects: Array<string>;
+  everlasting: boolean;
 };

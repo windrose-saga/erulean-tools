@@ -71,13 +71,22 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
           <LabeledInput id="name" label="Name" type="text" required />
           <LabeledInput id="description" label="Description" type="text" required />
           <div className="flex justify-between">
-            <LabeledInput
-              id="point_value"
-              label="Point Value"
-              type="number"
-              allowFloats={false}
-              required
-            />
+            <div className="flex flex-col">
+              <LabeledInput
+                id="point_value"
+                label="Point Value"
+                type="number"
+                allowFloats={false}
+                required
+              />
+              <LabeledInput
+                id="exp_value"
+                label="Exp Value"
+                type="number"
+                allowFloats={false}
+                required
+              />
+            </div>
             <div className="flex flex-col gap-3 p-3">
               <button
                 className="bg-gray-500 active:bg-gray-600 disabled:bg-gray-300 border-white rounded p-3 w-36"
@@ -163,12 +172,11 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
             options={createSelectOptions(MOVEMENT_STRATEGIES)}
           />
         </div>
-        <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+        <div className="grid grid-cols-2 border rounded justify-items-center gap-3 mb-6 p-6">
           <FormActionSelect label="Primary" id="actions.primary_action" />
           <FormActionSelect label="Special" id="actions.special_action" />
-          <FormActionSelect label="Passive" id="actions.passive_action" />
         </div>
-        <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+        <div className="grid grid-cols-2 border rounded justify-items-center gap-3 mb-6 p-6">
           <LabeledInput
             id="actions.primary_action_mana_delta"
             label="Primary Action Mana Delta"
@@ -180,14 +188,6 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
           <LabeledInput
             id="actions.special_action_mana_delta"
             label="Special Action Mana Delta"
-            type="number"
-            allowFloats={false}
-            allowNegativeValue
-            required
-          />
-          <LabeledInput
-            id="actions.passive_action_mana_delta"
-            label="Passive Action Mana Delta"
             type="number"
             allowFloats={false}
             allowNegativeValue
@@ -259,6 +259,17 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
             </div>
           </>
         )}
+        <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+          <LabeledInput
+            id="item_slots"
+            label="Item Slots"
+            type="number"
+            allowFloats={false}
+            required
+          />
+          <QuantitySelect id="reward_for_defeat" label="Reward for Defeat" type="ITEM" />
+          <QuantitySelect id="returned_on_death" label="Returned on Death" type="ITEM" />
+        </div>
         {isCurrentlyTrainable && (
           <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
             <QuantitySelect id="unit_cost" label="Unit Cost" type="UNIT" />

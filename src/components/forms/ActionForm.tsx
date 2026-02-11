@@ -9,7 +9,7 @@ import {
   ACTION_TYPES,
   APPROACH_STRATEGIES,
   DISPEL_ACTION_MODES,
-  TARGETING_TYPES,
+  TARGETING_PREFERENCES,
 } from '../../types/action';
 import { AUGMENT_BUFF_TYPES, AUGMENT_DOMAINS, AUGMENT_TARGETS } from '../../types/augment';
 import { createSelectOptions } from '../../utils/createSelectOptions';
@@ -99,21 +99,8 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
               required
             />
             <LabeledInput
-              id="damage_action_props.base_dex_damage"
-              label="Base Dexterity Damage"
-              type="number"
-              allowFloats={false}
-              required
-            />
-            <LabeledInput
               id="damage_action_props.unit_speed_modifier"
               label="Unit Speed Modifier"
-              type="number"
-              required
-            />
-            <LabeledInput
-              id="damage_action_props.target_speed_modifier"
-              label="Target Speed Modifier"
               type="number"
               required
             />
@@ -366,14 +353,9 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
 
         <div className="grid grid-cols-2 border rounded justify-items-center gap-3 mb-6 p-6">
           <LabeledSelect
-            id="targeting_type"
-            label="Targeting Type"
-            options={createSelectOptions(TARGETING_TYPES)}
-          />
-          <LabeledSelect
-            id="approach_strategy"
-            label="Approach Strategy"
-            options={createSelectOptions(APPROACH_STRATEGIES)}
+            id="targeting_preference"
+            label="Targeting Preference"
+            options={createSelectOptions(TARGETING_PREFERENCES)}
           />
           <LabeledInput
             id="targeting_range"
@@ -381,6 +363,11 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
             type="number"
             allowFloats={false}
             required
+          />
+          <LabeledSelect
+            id="approach_strategy"
+            label="Approach Strategy"
+            options={createSelectOptions(APPROACH_STRATEGIES)}
           />
           <LabeledInput id="break_vanguard" label="Break Vanguard" type="checkbox" />
           <LabeledInput
@@ -400,8 +387,24 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
             allowFloats={false}
             required
           />
+          <LabeledSelect
+            id="augment_domain"
+            label="Augment Domain"
+            options={createSelectOptions(AUGMENT_DOMAINS)}
+          />
         </div>
 
+        <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
+          <LabeledInput id="is_aoe" label="Is AOE" type="checkbox" />
+          <LabeledInput
+            id="aoe_radius"
+            label="AOE Radius"
+            type="number"
+            allowFloats={false}
+            required
+          />
+          <LabeledInput id="aoe_include_self" label="AOE Include Self" type="checkbox" />
+        </div>
         <div className="grid grid-cols-2 border rounded justify-items-center gap-3 mb-6 p-6">
           <LabeledInput id="should_check_evasion" label="Should Check Evasion" type="checkbox" />
           <LabeledInput id="can_crit" label="Can Crit" type="checkbox" />

@@ -53,7 +53,6 @@ export type Augment = {
   unique: boolean;
   unique_identifier: string;
   replenishable: boolean;
-  domain: AugmentDomain;
   durational: boolean;
   duration: number;
   augment_class: AugmentType;
