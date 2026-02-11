@@ -6,7 +6,7 @@ export const useColumnVisibility = <T extends object>(columns: Column<T>[]) => {
   const [columnState, setColumnState] = useState<Record<keyof T, boolean>>(
     columns.reduce(
       (acc, column) => {
-        acc[column.field] = true;
+        acc[column.field] = column.field === 'name';
         return acc;
       },
       {} as Record<keyof T, boolean>,
