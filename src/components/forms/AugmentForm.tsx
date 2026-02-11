@@ -65,6 +65,7 @@ export const AugmentForm: React.FC<{ augment: Augment }> = ({ augment }) => {
               label="Flat Damage"
               type="number"
               allowFloats={false}
+              allowNegativeValue
               required
             />
             <LabeledInput
@@ -104,6 +105,7 @@ export const AugmentForm: React.FC<{ augment: Augment }> = ({ augment }) => {
               label="Amount"
               type="number"
               allowFloats={false}
+              allowNegativeValue
               required
             />
           </div>
