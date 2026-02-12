@@ -38,6 +38,7 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
   };
 
   const actionType = watch('action_type');
+  const dispelMode = watch('dispel_action_props.mode');
   const buttonText = isDirty ? 'Cancel' : 'Back';
   const initialId = action.id;
 
@@ -213,28 +214,36 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
               label="Domain"
               options={createSelectOptions(AUGMENT_DOMAINS)}
             />
-            <LabeledSelect
-              id="dispel_action_props.target"
-              label="Target"
-              options={createSelectOptions(AUGMENT_TARGETS)}
-            />
-            <LabeledInput
-              id="dispel_action_props.augment_name"
-              label="Augment Name"
-              type="text"
-              required
-            />
-            <LabeledInput
-              id="dispel_action_props.unique_identifier"
-              label="Unique Identifier"
-              type="text"
-              required
-            />
-            <LabeledSelect
-              id="dispel_action_props.type"
-              label="Type"
-              options={createSelectOptions(AUGMENT_BUFF_TYPES)}
-            />
+            {dispelMode === 'TARGET' && (
+              <LabeledSelect
+                id="dispel_action_props.target"
+                label="Target"
+                options={createSelectOptions(AUGMENT_TARGETS)}
+              />
+            )}
+            {dispelMode === 'NAME' && (
+              <LabeledInput
+                id="dispel_action_props.augment_name"
+                label="Augment Name"
+                type="text"
+                required={dispelMode === 'NAME'}
+              />
+            )}
+            {dispelMode === 'UNIQUE_IDENTIFIER' && (
+              <LabeledInput
+                id="dispel_action_props.unique_identifier"
+                label="Unique Identifier"
+                type="text"
+                required={dispelMode === 'UNIQUE_IDENTIFIER'}
+              />
+            )}
+            {dispelMode === 'TYPE' && (
+              <LabeledSelect
+                id="dispel_action_props.type"
+                label="Type"
+                options={createSelectOptions(AUGMENT_BUFF_TYPES)}
+              />
+            )}
             <LabeledInput
               id="dispel_action_props.force_dispel"
               label="Force Dispel"
@@ -305,7 +314,7 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
       default:
         return <p>Encountered a problem. Not a valid Action Type.</p>;
     }
-  }, [actionType]);
+  }, [actionType, dispelMode]);
 
   return (
     <FormProvider {...methods}>
