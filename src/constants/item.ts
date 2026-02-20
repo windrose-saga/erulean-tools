@@ -1,8 +1,12 @@
-import { Item } from '../types/item';
+import { DEFAULT_SHARED_AUGMENT_DATA } from './augment';
 
-export const DEFAULT_EQUIPMENT_PROPS = {
+import { EquipmentProps, Item } from '../types/item';
+
+export const DEFAULT_EQUIPMENT_PROPS: EquipmentProps = {
   effects: [],
   everlasting: false,
+  shared_augment_data: DEFAULT_SHARED_AUGMENT_DATA,
+  augment_effects: [],
 };
 
 export const DEFAULT_ITEM_DATA: Item = {
