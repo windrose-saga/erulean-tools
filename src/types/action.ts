@@ -1,4 +1,10 @@
-import { AugmentBuffType, AugmentDomain, AugmentTarget } from './augment';
+import {
+  AugmentBuffType,
+  AugmentDomain,
+  AugmentEffect,
+  AugmentTarget,
+  SharedAugmentData,
+} from './augment';
 
 export const TARGETING_PREFERENCES = ['CLOSEST', 'FURTHEST', 'MEDIAN'] as const satisfies string[];
 type TargetingPreferences = typeof TARGETING_PREFERENCES;
@@ -97,6 +103,9 @@ export type AugmentActionData = {
   crit_augments: Array<string>;
   should_reapply: boolean;
   should_target_enemy: boolean;
+  shared_augment_data: SharedAugmentData;
+  augment_effects: Array<AugmentEffect>;
+  crit_augment_effects: Array<AugmentEffect>;
 };
 
 export type DispelActionData = {

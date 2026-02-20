@@ -1,3 +1,5 @@
+import { DEFAULT_SHARED_AUGMENT_DATA } from './augment';
+
 import {
   Action,
   AugmentActionData,
@@ -42,6 +44,9 @@ export const DEFAULT_AUGMENT_ACTION_DATA: AugmentActionData = {
   crit_augments: [],
   should_reapply: false,
   should_target_enemy: false,
+  shared_augment_data: DEFAULT_SHARED_AUGMENT_DATA,
+  augment_effects: [],
+  crit_augment_effects: [],
 };
 
 export const DEFAULT_DISPEL_ACTION_DATA: DispelActionData = {
