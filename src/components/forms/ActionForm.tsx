@@ -133,8 +133,12 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
                 type="number"
                 required
               />
-              <FormAugmentSelect id="damage_action_props.augment" label="Augment" />
-              <FormAugmentSelect id="damage_action_props.crit_augment" label="Crit Augment" />
+              <ArraySelect id="damage_action_props.augments" label="Augments" type="AUGMENT" />
+              <ArraySelect
+                id="damage_action_props.crit_augments"
+                label="Crit Augments"
+                type="AUGMENT"
+              />
             </div>
             <h3 className="font-bold text-lg mb-3">Shared Augment Data</h3>
             <div className="grid grid-cols-4 border rounded justify-items-center gap-3 mb-6 p-6">

@@ -81,8 +81,8 @@ export type DamageActionData = {
   base_damage: number;
   total_damage_multiplier: number;
   target_augment_self: boolean;
-  augment: string | null;
-  crit_augment: string | null;
+  augments: Array<string>;
+  crit_augments: Array<string>;
   shared_augment_data: SharedAugmentData;
   augment_effects: Array<AugmentEffect>;
   crit_augment_effects: Array<AugmentEffect>;
