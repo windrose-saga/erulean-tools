@@ -83,6 +83,9 @@ export type DamageActionData = {
   target_augment_self: boolean;
   augment: string | null;
   crit_augment: string | null;
+  shared_augment_data: SharedAugmentData;
+  augment_effects: Array<AugmentEffect>;
+  crit_augment_effects: Array<AugmentEffect>;
 };
 
 export type HealActionData = {

@@ -25,6 +25,9 @@ export const DEFAULT_DAMAGE_ACTION_DATA: DamageActionData = {
   target_augment_self: false,
   augment: null,
   crit_augment: null,
+  shared_augment_data: DEFAULT_SHARED_AUGMENT_DATA,
+  augment_effects: [],
+  crit_augment_effects: [],
 };
 
 export const DEFAULT_HEAL_ACTION_DATA: HealActionData = {
