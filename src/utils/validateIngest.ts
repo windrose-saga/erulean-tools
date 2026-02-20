@@ -126,10 +126,9 @@ const validateActions = (
     }
 
     if (action.action_type === 'DAMAGE_ACTION') {
-      const invalidAugments = [
-        action.damage_action_props.augment,
-        action.damage_action_props.crit_augment,
-      ].filter((augmentId) => augmentId !== null && !(augmentId in augments));
+      const invalidAugments = action.damage_action_props.augments
+        .concat(action.damage_action_props.crit_augments)
+        .filter((augmentId) => !(augmentId in augments));
 
       if (invalidAugments.length > 0) {
         errors.push({

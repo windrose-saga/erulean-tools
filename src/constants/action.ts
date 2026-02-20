@@ -1,3 +1,5 @@
+import { DEFAULT_SHARED_AUGMENT_DATA } from './augment';
+
 import {
   Action,
   AugmentActionData,
@@ -21,8 +23,11 @@ export const DEFAULT_DAMAGE_ACTION_DATA: DamageActionData = {
   base_damage: 0,
   total_damage_multiplier: 1,
   target_augment_self: false,
-  augment: null,
-  crit_augment: null,
+  augments: [],
+  crit_augments: [],
+  shared_augment_data: DEFAULT_SHARED_AUGMENT_DATA,
+  augment_effects: [],
+  crit_augment_effects: [],
 };
 
 export const DEFAULT_HEAL_ACTION_DATA: HealActionData = {
@@ -42,6 +47,9 @@ export const DEFAULT_AUGMENT_ACTION_DATA: AugmentActionData = {
   crit_augments: [],
   should_reapply: false,
   should_target_enemy: false,
+  shared_augment_data: DEFAULT_SHARED_AUGMENT_DATA,
+  augment_effects: [],
+  crit_augment_effects: [],
 };
 
 export const DEFAULT_DISPEL_ACTION_DATA: DispelActionData = {

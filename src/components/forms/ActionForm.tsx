@@ -14,6 +14,7 @@ import {
 import { AUGMENT_BUFF_TYPES, AUGMENT_DOMAINS, AUGMENT_TARGETS } from '../../types/augment';
 import { createSelectOptions } from '../../utils/createSelectOptions';
 import ArraySelect from '../ArraySelect';
+import AugmentEffectFieldArray from '../AugmentEffectFieldArray';
 import FormAugmentSelect from '../FormAugmentSelect';
 import LabeledInput from '../LabledInput';
 import LabeledSelect from '../LabledSelect';
@@ -39,6 +40,8 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
 
   const actionType = watch('action_type');
   const dispelMode = watch('dispel_action_props.mode');
+  const isDurational = watch('augment_action_props.shared_augment_data.durational');
+  const isDamageDurational = watch('damage_action_props.shared_augment_data.durational');
   const buttonText = isDirty ? 'Cancel' : 'Back';
   const initialId = action.id;
 
@@ -60,78 +63,120 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
     switch (actionType) {
       case 'DAMAGE_ACTION':
         return (
-          <div className="grid grid-cols-3 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
-            <LabeledInput
-              id="damage_action_props.base_phys_damage"
-              label="Base Physical Damage"
-              type="number"
-              allowFloats={false}
-              required
-            />
-            <LabeledInput
-              id="damage_action_props.unit_strength_modifier"
-              label="Unit Strength Modifier"
-              type="number"
-              required
-            />
-            <LabeledInput
-              id="damage_action_props.target_phys_defense_modifier"
-              label="Target Physical Defense Modifier"
-              type="number"
-              required
-            />
-            <LabeledInput
-              id="damage_action_props.base_magic_damage"
-              label="Base Magic Damage"
-              type="number"
-              allowFloats={false}
-              required
-            />
-            <LabeledInput
-              id="damage_action_props.unit_int_modifier"
-              label="Unit Intelligence Modifier"
-              type="number"
-              required
-            />
-            <LabeledInput
-              id="damage_action_props.target_spec_defense_modifier"
-              label="Target Special Defense Modifier"
-              type="number"
-              required
-            />
-            <LabeledInput
-              id="damage_action_props.unit_speed_modifier"
-              label="Unit Speed Modifier"
-              type="number"
-              required
-            />
-            <LabeledInput
-              id="damage_action_props.crit_modifier"
-              label="Crit Modifier"
-              type="number"
-              required
-            />
-            <LabeledInput
-              id="damage_action_props.base_damage"
-              label="Base Damage"
-              type="number"
-              allowFloats={false}
-              required
-            />
-            <LabeledInput
-              id="damage_action_props.target_augment_self"
-              label="Target Augment Self"
-              type="checkbox"
-            />
-            <LabeledInput
-              id="damage_action_props.total_damage_multiplier"
-              label="Total Damage Multiplier"
-              type="number"
-              required
-            />
-            <FormAugmentSelect id="damage_action_props.augment" label="Augment" />
-            <FormAugmentSelect id="damage_action_props.crit_augment" label="Crit Augment" />
-          </div>
+          <>
+            <div className="grid grid-cols-3 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+              <LabeledInput
+                id="damage_action_props.base_phys_damage"
+                label="Base Physical Damage"
+                type="number"
+                allowFloats={false}
+                required
+              />
+              <LabeledInput
+                id="damage_action_props.unit_strength_modifier"
+                label="Unit Strength Modifier"
+                type="number"
+                required
+              />
+              <LabeledInput
+                id="damage_action_props.target_phys_defense_modifier"
+                label="Target Physical Defense Modifier"
+                type="number"
+                required
+              />
+              <LabeledInput
+                id="damage_action_props.base_magic_damage"
+                label="Base Magic Damage"
+                type="number"
+                allowFloats={false}
+                required
+              />
+              <LabeledInput
+                id="damage_action_props.unit_int_modifier"
+                label="Unit Intelligence Modifier"
+                type="number"
+                required
+              />
+              <LabeledInput
+                id="damage_action_props.target_spec_defense_modifier"
+                label="Target Special Defense Modifier"
+                type="number"
+                required
+              />
+              <LabeledInput
+                id="damage_action_props.unit_speed_modifier"
+                label="Unit Speed Modifier"
+                type="number"
+                required
+              />
+              <LabeledInput
+                id="damage_action_props.crit_modifier"
+                label="Crit Modifier"
+                type="number"
+                required
+              />
+              <LabeledInput
+                id="damage_action_props.base_damage"
+                label="Base Damage"
+                type="number"
+                allowFloats={false}
+                required
+              />
+              <LabeledInput
+                id="damage_action_props.target_augment_self"
+                label="Target Augment Self"
+                type="checkbox"
+              />
+              <LabeledInput
+                id="damage_action_props.total_damage_multiplier"
+                label="Total Damage Multiplier"
+                type="number"
+                required
+              />
+              <ArraySelect id="damage_action_props.augments" label="Augments" type="AUGMENT" />
+              <ArraySelect
+                id="damage_action_props.crit_augments"
+                label="Crit Augments"
+                type="AUGMENT"
+              />
+            </div>
+            <h3 className="font-bold text-lg mb-3">Shared Augment Data</h3>
+            <div className="grid grid-cols-4 border rounded justify-items-center gap-3 mb-6 p-6">
+              <LabeledInput
+                id="damage_action_props.shared_augment_data.undispellable"
+                label="Undispellable"
+                type="checkbox"
+              />
+              <LabeledInput
+                id="damage_action_props.shared_augment_data.replenishable"
+                label="Replenishable"
+                type="checkbox"
+              />
+              <LabeledInput
+                id="damage_action_props.shared_augment_data.durational"
+                label="Durational"
+                type="checkbox"
+              />
+              <LabeledInput
+                id="damage_action_props.shared_augment_data.duration"
+                label="Duration"
+                type="number"
+                allowFloats={false}
+                disabled={!isDamageDurational}
+                required={isDamageDurational}
+              />
+            </div>
+            <div className="border rounded gap-3 mb-6 p-6">
+              <AugmentEffectFieldArray<Action>
+                name="damage_action_props.augment_effects"
+                label="Augment Effects"
+              />
+              <AugmentEffectFieldArray<Action>
+                name="damage_action_props.crit_augment_effects"
+                label="Crit Augment Effects"
+              />
+            </div>
+          </>
         );
       case 'HEAL':
         return (
@@ -182,24 +227,66 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
         );
       case 'AUGMENT_ACTION':
         return (
-          <div className="grid grid-cols-4 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
-            <ArraySelect id="augment_action_props.augments" label="Augments" type="AUGMENT" />
-            <ArraySelect
-              id="augment_action_props.crit_augments"
-              label="Crit Augments"
-              type="AUGMENT"
-            />
-            <LabeledInput
-              id="augment_action_props.should_reapply"
-              label="Should Reapply"
-              type="checkbox"
-            />
-            <LabeledInput
-              id="augment_action_props.should_target_enemy"
-              label="Should Target Enemy"
-              type="checkbox"
-            />
-          </div>
+          <>
+            <div className="grid grid-cols-4 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+              <ArraySelect
+                id="augment_action_props.augments"
+                label="Augments (legacy)"
+                type="AUGMENT"
+              />
+              <ArraySelect
+                id="augment_action_props.crit_augments"
+                label="Crit Augments (legacy)"
+                type="AUGMENT"
+              />
+              <LabeledInput
+                id="augment_action_props.should_reapply"
+                label="Should Reapply"
+                type="checkbox"
+              />
+              <LabeledInput
+                id="augment_action_props.should_target_enemy"
+                label="Should Target Enemy"
+                type="checkbox"
+              />
+            </div>
+            <h3 className="font-bold text-lg mb-3">Shared Augment Data</h3>
+            <div className="grid grid-cols-4 border rounded justify-items-center gap-3 mb-6 p-6">
+              <LabeledInput
+                id="augment_action_props.shared_augment_data.undispellable"
+                label="Undispellable"
+                type="checkbox"
+              />
+              <LabeledInput
+                id="augment_action_props.shared_augment_data.replenishable"
+                label="Replenishable"
+                type="checkbox"
+              />
+              <LabeledInput
+                id="augment_action_props.shared_augment_data.durational"
+                label="Durational"
+                type="checkbox"
+              />
+              <LabeledInput
+                id="augment_action_props.shared_augment_data.duration"
+                label="Duration"
+                type="number"
+                allowFloats={false}
+                disabled={!isDurational}
+                required={isDurational}
+              />
+            </div>
+            <div className="border rounded gap-3 mb-6 p-6">
+              <AugmentEffectFieldArray<Action>
+                name="augment_action_props.augment_effects"
+                label="Augment Effects"
+              />
+              <AugmentEffectFieldArray<Action>
+                name="augment_action_props.crit_augment_effects"
+                label="Crit Augment Effects"
+              />
+            </div>
+          </>
         );
       case 'DISPEL_ACTION':
         return (
@@ -314,7 +401,7 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
       default:
         return <p>Encountered a problem. Not a valid Action Type.</p>;
     }
-  }, [actionType, dispelMode]);
+  }, [actionType, dispelMode, isDurational, isDamageDurational]);
 
   return (
     <FormProvider {...methods}>

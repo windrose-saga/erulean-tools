@@ -78,3 +78,13 @@ export type FlatStatProps = {
   stat: AugmentStat;
   amount: number;
 };
+
+export type AugmentEffect = Pick<
+  Augment,
+  'augment_class' | 'type' | 'dot_augment_props' | 'flat_stat_props' | 'stat_mult_props'
+>;
+
+export type SharedAugmentData = Pick<
+  Augment,
+  'undispellable' | 'replenishable' | 'durational' | 'duration'
+>;
