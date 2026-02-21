@@ -111,4 +111,8 @@ export const DEFAULT_ACTION_DATA: Action = {
   dispel_action_props: DEFAULT_DISPEL_ACTION_DATA,
   tag_action_props: DEFAULT_TAG_ACTION_DATA,
   summon_action_props: DEFAULT_SUMMON_ACTION_DATA,
+  allow_range_augments: true,
+  allow_aoe_augments: true,
+  allow_aoe_radius_augments: true,
+  allow_max_targets_augments: true,
 };
