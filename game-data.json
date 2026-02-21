@@ -2830,10 +2830,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": "12",
@@ -2850,7 +2858,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -2877,6 +2893,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": -12,
       "translation_id": "action.AREAHEALI",
@@ -2919,10 +2939,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": "12",
@@ -2939,7 +2967,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -2966,6 +3002,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": -12,
       "translation_id": "action.AREAHEALII",
@@ -3008,10 +3048,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -3030,7 +3078,15 @@
         ],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -3057,11 +3113,159 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": -12,
       "translation_id": "action.AREASUNDERI",
       "name_translation_key": "action.AREASUNDERI.name",
       "description_translation_key": "action.AREASUNDERI.description"
+    },
+    {
+      "guid": "63a873a7-48ec-4f96-abdb-0c95ba83018d",
+      "id": "AUGMENTEFFECTTEST",
+      "name": "Augment Effects Test",
+      "description": "test",
+      "targeting_range": 1,
+      "max_targets": 1,
+      "splash": 0,
+      "chain": false,
+      "max_chain_depth": 0,
+      "should_check_evasion": false,
+      "evasion_multiplier": 1,
+      "can_crit": false,
+      "crit_chance_multiplier": 1,
+      "break_vanguard": false,
+      "delay": 0,
+      "approach_strategy": "PROCEED",
+      "target_self": false,
+      "targeting_preference": "CLOSEST",
+      "is_aoe": false,
+      "aoe_radius": 1,
+      "aoe_include_self": true,
+      "action_type": "AUGMENT_ACTION",
+      "augment_domain": "UNIT",
+      "damage_action_props": {
+        "base_phys_damage": 0,
+        "unit_strength_modifier": 0,
+        "target_phys_defense_modifier": 0,
+        "base_magic_damage": 0,
+        "unit_int_modifier": 0,
+        "target_spec_defense_modifier": 0,
+        "unit_speed_modifier": 0,
+        "crit_modifier": 2,
+        "base_damage": 0,
+        "total_damage_multiplier": 1,
+        "target_augment_self": false,
+        "augments": [],
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
+      },
+      "heal_props": {
+        "hp": 0,
+        "decay": 0,
+        "should_target_full_hp": false
+      },
+      "mana_action_props": {
+        "should_target_enemy": false,
+        "mana_amount": 0,
+        "should_target_full_mp": false,
+        "tag_augment": null
+      },
+      "augment_action_props": {
+        "augments": [],
+        "crit_augments": [],
+        "should_reapply": false,
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": true,
+          "duration": "3"
+        },
+        "augment_effects": [
+          {
+            "augment_class": "FLAT_STAT",
+            "type": "BUFF",
+            "dot_augment_props": {
+              "flat_damage": 0,
+              "phys_def_reduction_modifier": 0,
+              "spec_def_reduction_modifier": 0,
+              "resource": "HEALTH",
+              "resolution_type": "UNIT"
+            },
+            "flat_stat_props": {
+              "stat": "PHYSICAL_DEFENSE",
+              "amount": "2"
+            },
+            "stat_mult_props": {
+              "stat": "PHYSICAL_DEFENSE",
+              "multiplier": 1
+            }
+          },
+          {
+            "augment_class": "FLAT_STAT",
+            "type": "DEBUFF",
+            "dot_augment_props": {
+              "flat_damage": 0,
+              "phys_def_reduction_modifier": 0,
+              "spec_def_reduction_modifier": 0,
+              "resource": "HEALTH",
+              "resolution_type": "UNIT"
+            },
+            "flat_stat_props": {
+              "stat": "SPECIAL_DEFENSE",
+              "amount": "-2"
+            },
+            "stat_mult_props": {
+              "stat": "PHYSICAL_DEFENSE",
+              "multiplier": 1
+            }
+          }
+        ],
+        "crit_augment_effects": []
+      },
+      "dispel_action_props": {
+        "mode": "TARGET",
+        "domain": "UNIT",
+        "target": "ALLEGIANCE",
+        "augment_name": "",
+        "unique_identifier": "",
+        "type": "BUFF",
+        "force_dispel": false,
+        "force_on_crit": false,
+        "should_target_enemy": false,
+        "only_target_augmented_units": false,
+        "ignore_target_allegiance": false
+      },
+      "tag_action_props": {
+        "tag_augment": "",
+        "should_target_enemy": false,
+        "follow_tagged_unit": false
+      },
+      "summon_action_props": {
+        "summons": [],
+        "summoning_range": 0,
+        "should_target_enemy": false,
+        "summon_augment": null,
+        "should_summon_impact_morale": false
+      },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
+      "translation_id": "action.AUGMENTEFFECTTEST",
+      "name_translation_key": "action.AUGMENTEFFECTTEST.name",
+      "description_translation_key": "action.AUGMENTEFFECTTEST.description"
     },
     {
       "guid": "c6648d0d-6615-4503-856c-c2a911f98d11",
@@ -3099,10 +3303,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -3121,7 +3333,15 @@
         ],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": true
+        "should_target_enemy": true,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -3148,6 +3368,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": -6,
       "translation_id": "action.BETRAYAL",
@@ -3190,10 +3414,18 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 0,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 0
       },
       "heal_props": {
         "hp": 0,
@@ -3210,7 +3442,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -3237,6 +3477,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": 2,
       "translation_id": "action.BITE",
@@ -3279,10 +3523,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -3299,7 +3551,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -3326,6 +3586,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": 1,
       "translation_id": "action.CHARGEUP",
@@ -3368,10 +3632,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -3388,7 +3660,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -3415,6 +3695,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "SELF",
       "mana_delta": -10,
       "translation_id": "action.CLEAREYES",
@@ -3457,10 +3741,18 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": "0",
-        "target_speed_modifier": 0,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": "0",
+        "target_speed_modifier": 0
       },
       "heal_props": {
         "hp": 0,
@@ -3477,7 +3769,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -3504,6 +3804,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": -16,
       "translation_id": "action.CORONABLAST",
@@ -3546,12 +3850,20 @@
         "base_damage": 0,
         "total_damage_multiplier": "1",
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": "0",
         "augments": [
           "b1ca2d87-d68d-4b9d-8b21-506ea7e480ca"
         ],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -3568,7 +3880,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -3595,6 +3915,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "translation_id": "action.CBREATH",
       "name_translation_key": "action.CBREATH.name",
@@ -3637,7 +3961,15 @@
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "heal_props": {
         "hp": 0,
@@ -3656,7 +3988,15 @@
         ],
         "crit_augments": [],
         "should_reapply": "0",
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -3683,6 +4023,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "translation_id": "action.DMNREGEN",
       "name_translation_key": "action.DMNREGEN.name",
       "description_translation_key": "action.DMNREGEN.description"
@@ -3724,7 +4068,15 @@
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "heal_props": {
         "hp": 0,
@@ -3741,7 +4093,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "ALL",
@@ -3768,6 +4128,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "translation_id": "action.DISPEL",
       "name_translation_key": "action.DISPEL.name",
       "description_translation_key": "action.DISPEL.description"
@@ -3808,12 +4172,20 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 0,
         "augments": [
           "4bbab512-4c48-4a26-ae8f-cdd5efa9b491"
         ],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 0
       },
       "heal_props": {
         "hp": 0,
@@ -3830,7 +4202,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -3857,6 +4237,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": 2,
       "translation_id": "action.DISPBLAST",
@@ -3899,10 +4283,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -3921,7 +4313,15 @@
         ],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -3948,6 +4348,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "SELF",
       "mana_delta": -10,
       "translation_id": "action.SWIFTSTANCE",
@@ -3990,10 +4394,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": "0",
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -4010,7 +4422,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -4037,6 +4457,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "translation_id": "action.SHARDAOE",
       "name_translation_key": "action.SHARDAOE.name",
@@ -4078,10 +4502,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": "0",
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -4098,7 +4530,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -4125,6 +4565,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "translation_id": "action.FAIRYF",
       "name_translation_key": "action.FAIRYF.name",
@@ -4166,10 +4610,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -4188,7 +4640,15 @@
         ],
         "crit_augments": [],
         "should_reapply": true,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -4215,6 +4675,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "SELF",
       "mana_delta": "-10",
       "translation_id": "action.STRFOCUS",
@@ -4257,10 +4721,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -4279,7 +4751,15 @@
         ],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": true
+        "should_target_enemy": true,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -4306,6 +4786,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": -10,
       "translation_id": "action.FUNGALFEAR",
@@ -4348,10 +4832,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -4368,7 +4860,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -4395,6 +4895,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "translation_id": "action.WATCH",
       "name_translation_key": "action.WATCH.name",
@@ -4436,12 +4940,20 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 0,
         "augments": [
           "5943c08f-0ec4-4443-84e4-4bafe2cba447"
         ],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 0
       },
       "heal_props": {
         "hp": 0,
@@ -4458,7 +4970,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -4485,6 +5005,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": 2,
       "translation_id": "action.HEADWEB",
@@ -4527,10 +5051,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": "13",
@@ -4547,7 +5079,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -4574,6 +5114,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": 2,
       "translation_id": "action.HEALI",
@@ -4616,10 +5160,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": "23",
@@ -4636,7 +5188,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -4663,6 +5223,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": 2,
       "translation_id": "action.HEALII",
@@ -4705,10 +5269,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": "4",
@@ -4725,7 +5297,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -4752,6 +5332,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "SELF",
       "translation_id": "action.PHEAL1",
       "name_translation_key": "action.PHEAL1.name",
@@ -4794,7 +5378,15 @@
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "heal_props": {
         "hp": 0,
@@ -4811,7 +5403,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -4838,6 +5438,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "translation_id": "action.ILLUORB",
       "name_translation_key": "action.ILLUORB.name",
       "description_translation_key": "action.ILLUORB.description"
@@ -4878,10 +5482,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -4898,7 +5510,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -4925,6 +5545,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": -2,
       "translation_id": "action.MANAGIFT",
@@ -4967,12 +5591,20 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 0,
         "augments": [
           "584ace2f-6284-49ed-87f6-cb0a62527dc3"
         ],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 0
       },
       "heal_props": {
         "hp": 0,
@@ -4989,7 +5621,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -5016,6 +5656,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": -12,
       "translation_id": "action.AREABETRAY1",
@@ -5058,10 +5702,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -5078,7 +5730,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -5107,6 +5767,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "SELF",
       "mana_delta": -6,
       "translation_id": "action.EMAGE1",
@@ -5152,7 +5816,15 @@
         "augments": [
           "65073072-2712-4a5f-8958-308edc3c33ca"
         ],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "heal_props": {
         "hp": 0,
@@ -5169,7 +5841,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -5196,6 +5876,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "translation_id": "action.PPOISON",
       "name_translation_key": "action.PPOISON.name",
       "description_translation_key": "action.PPOISON.description"
@@ -5236,10 +5920,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -5258,7 +5950,15 @@
         ],
         "crit_augments": [],
         "should_reapply": true,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -5285,6 +5985,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "SELF",
       "mana_delta": -10,
       "translation_id": "action.RALLY",
@@ -5327,10 +6031,18 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 0,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 0
       },
       "heal_props": {
         "hp": 0,
@@ -5347,7 +6059,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -5374,6 +6094,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": -4,
       "translation_id": "action.RATRAGE",
@@ -5416,12 +6140,20 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": "0",
         "augments": [
           "4bbab512-4c48-4a26-ae8f-cdd5efa9b491"
         ],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -5438,7 +6170,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -5465,6 +6205,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": "2",
       "translation_id": "action.IREARY",
@@ -5507,10 +6251,18 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": "0",
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -5527,7 +6279,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -5554,6 +6314,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": "2",
       "translation_id": "action.REDRUM",
@@ -5596,10 +6360,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -5618,7 +6390,15 @@
         ],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -5645,6 +6425,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": -10,
       "translation_id": "action.SHIELDGUARDI",
@@ -5687,10 +6471,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -5709,7 +6501,15 @@
         ],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -5736,6 +6536,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": -10,
       "translation_id": "action.SHIELDGUARDII",
@@ -5778,10 +6582,18 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": "0",
-        "target_speed_modifier": "0",
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": "0",
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -5798,7 +6610,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -5825,6 +6645,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": 1,
       "translation_id": "action.SHOOT",
@@ -5867,10 +6691,18 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 0,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 0
       },
       "heal_props": {
         "hp": 0,
@@ -5887,7 +6719,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -5914,6 +6754,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": 2,
       "translation_id": "action.SLASH",
@@ -5956,10 +6800,18 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": "0",
-        "target_speed_modifier": "0",
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": "0",
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -5976,7 +6828,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -6003,6 +6863,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": -5,
       "translation_id": "action.SNIPE",
@@ -6045,12 +6909,20 @@
         "base_damage": 1,
         "total_damage_multiplier": 1,
         "target_augment_self": true,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 0,
         "augments": [
           "4bbab512-4c48-4a26-ae8f-cdd5efa9b491"
         ],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 0
       },
       "heal_props": {
         "hp": 0,
@@ -6067,7 +6939,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -6094,6 +6974,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": 2,
       "translation_id": "action.SPORE",
@@ -6136,10 +7020,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": "0",
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -6156,7 +7048,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -6183,6 +7083,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "translation_id": "action.STOMP",
       "name_translation_key": "action.STOMP.name",
@@ -6224,10 +7128,18 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 0,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 0
       },
       "heal_props": {
         "hp": 0,
@@ -6244,7 +7156,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -6271,6 +7191,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": 2,
       "translation_id": "action.STRIKE",
@@ -6313,12 +7237,20 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": "0",
         "augments": [
           "4bbab512-4c48-4a26-ae8f-cdd5efa9b491"
         ],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -6337,7 +7269,15 @@
         ],
         "crit_augments": [],
         "should_reapply": true,
-        "should_target_enemy": true
+        "should_target_enemy": true,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -6364,6 +7304,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "translation_id": "action.AREAMSUNDER",
       "name_translation_key": "action.AREAMSUNDER.name",
@@ -6405,10 +7349,18 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 0,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 0
       },
       "heal_props": {
         "hp": 0,
@@ -6425,7 +7377,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -6452,6 +7412,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": -10,
       "translation_id": "action.STRONGSLASH",
@@ -6494,10 +7458,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -6514,7 +7486,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -6543,6 +7523,10 @@
         "summon_augment": "f2972853-f988-442d-883d-4dbb74ae2e18",
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "SELF",
       "mana_delta": -1,
       "translation_id": "action.TEST_SUMMON",
@@ -6585,10 +7569,18 @@
         "base_damage": "10",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": "0",
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -6605,7 +7597,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -6632,6 +7632,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": "-16",
       "translation_id": "action.SUMMONANTI",
@@ -6674,10 +7678,18 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": "0",
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -6694,7 +7706,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -6721,6 +7741,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": "2",
       "translation_id": "action.SUMMONFIRE",
@@ -6764,7 +7788,15 @@
         "total_damage_multiplier": 1,
         "target_augment_self": false,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "heal_props": {
         "hp": 0,
@@ -6781,7 +7813,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -6810,6 +7850,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": "0"
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "translation_id": "action.SMNFOX",
       "name_translation_key": "action.SMNFOX.name",
       "description_translation_key": "action.SMNFOX.description"
@@ -6850,10 +7894,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -6870,7 +7922,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -6900,6 +7960,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": true
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "SELF",
       "mana_delta": "-12",
       "translation_id": "action.SMNRAT",
@@ -6942,10 +8006,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 1,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 1
       },
       "heal_props": {
         "hp": 0,
@@ -6962,7 +8034,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -6991,6 +8071,10 @@
         "summon_augment": "f2972853-f988-442d-883d-4dbb74ae2e18",
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "SELF",
       "translation_id": "action.SUMMONSHARDA",
       "name_translation_key": "action.SUMMONSHARDA.name",
@@ -7032,10 +8116,18 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": "0",
-        "target_speed_modifier": 0,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": "0",
+        "target_speed_modifier": 0
       },
       "heal_props": {
         "hp": 0,
@@ -7052,7 +8144,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -7079,6 +8179,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "mana_delta": 2,
       "translation_id": "action.SWIFTSLASH",
@@ -7121,10 +8225,18 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": 0,
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": 0
       },
       "heal_props": {
         "hp": 0,
@@ -7141,7 +8253,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -7168,6 +8288,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "mana_delta": 1,
       "translation_id": "action.TEST",
@@ -7210,10 +8334,18 @@
         "base_damage": 0,
         "total_damage_multiplier": "1",
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": "0",
         "augments": [],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -7230,7 +8362,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -7257,6 +8397,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "EXACT",
       "translation_id": "action.SPINSLASH",
       "name_translation_key": "action.SPINSLASH.name",
@@ -7298,12 +8442,20 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "base_dex_damage": 0,
-        "target_speed_modifier": "0",
         "augments": [
           "1e46f7f8-3d48-4900-93a7-0cf2d5ce3156"
         ],
-        "crit_augments": []
+        "crit_augments": [],
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": [],
+        "base_dex_damage": 0,
+        "target_speed_modifier": "0"
       },
       "heal_props": {
         "hp": 0,
@@ -7320,7 +8472,15 @@
         "augments": [],
         "crit_augments": [],
         "should_reapply": false,
-        "should_target_enemy": false
+        "should_target_enemy": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [],
+        "crit_augment_effects": []
       },
       "dispel_action_props": {
         "mode": "TARGET",
@@ -7347,6 +8507,10 @@
         "summon_augment": null,
         "should_summon_impact_morale": false
       },
+      "allow_range_augments": true,
+      "allow_aoe_augments": true,
+      "allow_aoe_radius_augments": true,
+      "allow_max_targets_augments": true,
       "targeting_type": "UP_TO",
       "translation_id": "action.WKISS",
       "name_translation_key": "action.WKISS.name",
@@ -7355,10 +8519,6 @@
   ],
   "augments": [
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "7d128cb8-8409-490e-950a-29ec2980985f",
       "id": "CHARGEUP",
       "name": "Attendant's Devotion",
@@ -7368,7 +8528,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "UNIT",
       "durational": false,
       "duration": 0,
       "augment_class": "TAG",
@@ -7387,15 +8546,39 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "translation_id": "augment.CHARGEUP",
       "name_translation_key": "augment.CHARGEUP.name",
       "description_translation_key": "augment.CHARGEUP.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "95b279bd-f75b-451d-85db-17a68e2307d2",
       "id": "PLUSINTI",
       "name": "Attenuation",
@@ -7423,15 +8606,38 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
       "translation_id": "augment.PLUSINTI",
       "name_translation_key": "augment.PLUSINTI.name",
       "description_translation_key": "augment.PLUSINTI.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "584ace2f-6284-49ed-87f6-cb0a62527dc3",
       "id": "BETRAY",
       "name": "Betrayal",
@@ -7441,7 +8647,6 @@
       "unique": true,
       "unique_identifier": "BETRAYAL",
       "replenishable": false,
-      "domain": "UNIT",
       "durational": true,
       "duration": 6,
       "augment_class": "ALLEGIANCE",
@@ -7460,15 +8665,39 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "translation_id": "augment.BETRAY",
       "name_translation_key": "augment.BETRAY.name",
       "description_translation_key": "augment.BETRAY.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "02353711-8900-4511-8b3a-252d015b8aa6",
       "id": "CLEAREYES",
       "name": "BLANK",
@@ -7478,7 +8707,6 @@
       "unique": true,
       "unique_identifier": "CLEAREYES",
       "replenishable": true,
-      "domain": "ARMY",
       "durational": true,
       "duration": 4,
       "augment_class": "ALLEGIANCE",
@@ -7497,15 +8725,39 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "ARMY",
       "translation_id": "augment.CLEAREYES",
       "name_translation_key": "augment.CLEAREYES.name",
       "description_translation_key": "augment.CLEAREYES.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "f63e6ae6-8e55-4c50-b0da-9d1a9ee7fb51",
       "id": "FUNGALFEAR",
       "name": "BLANK",
@@ -7515,7 +8767,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "ARMY",
       "durational": false,
       "duration": 3,
       "augment_class": "FLAT_STAT",
@@ -7534,15 +8785,39 @@
         "stat": "BRAVERY",
         "amount": -30
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "ARMY",
       "translation_id": "augment.FUNGALFEAR",
       "name_translation_key": "augment.FUNGALFEAR.name",
       "description_translation_key": "augment.FUNGALFEAR.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "c73a6630-237e-4ac5-817c-8bd4e07ccd52",
       "id": "DMNREGEN",
       "name": "Demonic Regeneration",
@@ -7570,15 +8845,38 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
       "translation_id": "augment.DMNREGEN",
       "name_translation_key": "augment.DMNREGEN.name",
       "description_translation_key": "augment.DMNREGEN.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "9202c140-4084-41da-83f0-d840778a04df",
       "id": "SWIFTSTANCE",
       "name": "Elliptic Stance",
@@ -7588,7 +8886,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "UNIT",
       "durational": true,
       "duration": 3,
       "augment_class": "STAT_MULT",
@@ -7607,15 +8904,39 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "translation_id": "augment.SWIFTSTANCE",
       "name_translation_key": "augment.SWIFTSTANCE.name",
       "description_translation_key": "augment.SWIFTSTANCE.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "1e46f7f8-3d48-4900-93a7-0cf2d5ce3156",
       "id": "FEARI",
       "name": "Fear I",
@@ -7625,7 +8946,6 @@
       "unique": true,
       "unique_identifier": "FEARI",
       "replenishable": true,
-      "domain": "UNIT",
       "durational": true,
       "duration": "3",
       "augment_class": "FLAT_STAT",
@@ -7644,16 +8964,40 @@
         "stat": "BRAVERY",
         "amount": "-20"
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "unique_indentifier": "FEAR",
       "translation_id": "augment.FEARI",
       "name_translation_key": "augment.FEARI.name",
       "description_translation_key": "augment.FEARI.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "939c9505-57d0-4d9c-b461-94a03e27a7c9",
       "id": "STREFOCUS",
       "name": "Focus",
@@ -7663,7 +9007,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "UNIT",
       "durational": true,
       "duration": "3",
       "augment_class": "FLAT_STAT",
@@ -7682,16 +9025,40 @@
         "stat": "STRENGTH",
         "amount": "10"
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "unique_indentifier": "",
       "translation_id": "augment.STREFOCUS",
       "name_translation_key": "augment.STREFOCUS.name",
       "description_translation_key": "augment.STREFOCUS.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "dce8c4f8-3fa5-4d6c-85bd-7c4f04eca9d1",
       "id": "PHYSDI",
       "name": "Fortify Defense",
@@ -7719,15 +9086,38 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": "5"
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
       "translation_id": "augment.PHYSDI",
       "name_translation_key": "augment.PHYSDI.name",
       "description_translation_key": "augment.PHYSDI.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "32f7d1ce-d74b-4600-b431-a252e8eb8327",
       "id": "LUCKAURAI",
       "name": "Fortunate Aura",
@@ -7737,7 +9127,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "ARMY",
       "durational": false,
       "duration": 0,
       "augment_class": "FLAT_STAT",
@@ -7756,16 +9145,40 @@
         "stat": "LUCK",
         "amount": "2"
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "ARMY",
       "unique_indentifier": "",
       "translation_id": "augment.LUCKAURAI",
       "name_translation_key": "augment.LUCKAURAI.name",
       "description_translation_key": "augment.LUCKAURAI.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "171617e4-c39a-4005-96b6-8a93c6ca126a",
       "id": "WATCH",
       "name": "Grove Guardian",
@@ -7775,7 +9188,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "UNIT",
       "durational": false,
       "duration": 0,
       "augment_class": "TAG",
@@ -7794,16 +9206,40 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "unique_indentifier": "",
       "translation_id": "augment.WATCH",
       "name_translation_key": "augment.WATCH.name",
       "description_translation_key": "augment.WATCH.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "5943c08f-0ec4-4443-84e4-4bafe2cba447",
       "id": "HEADWEB",
       "name": "Headache",
@@ -7813,7 +9249,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "UNIT",
       "durational": true,
       "duration": 3,
       "augment_class": "FLAT_STAT",
@@ -7832,15 +9267,39 @@
         "stat": "SPEED",
         "amount": -4
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "translation_id": "augment.HEADWEB",
       "name_translation_key": "augment.HEADWEB.name",
       "description_translation_key": "augment.HEADWEB.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "db21a490-0bc6-4d04-8662-a610b9718566",
       "id": "SDFS",
       "name": "Magic Membrane",
@@ -7868,15 +9327,38 @@
         "stat": "SPECIAL_DEFENSE",
         "amount": "6"
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
       "translation_id": "augment.SDFS",
       "name_translation_key": "augment.SDFS.name",
       "description_translation_key": "augment.SDFS.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "4bbab512-4c48-4a26-ae8f-cdd5efa9b491",
       "id": "MAGICSUNDERI",
       "name": "Magic Sunder I",
@@ -7886,7 +9368,6 @@
       "unique": true,
       "unique_identifier": "MSUNDER",
       "replenishable": true,
-      "domain": "UNIT",
       "durational": true,
       "duration": 2,
       "augment_class": "FLAT_STAT",
@@ -7905,16 +9386,40 @@
         "stat": "SPECIAL_DEFENSE",
         "amount": "-5"
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "translation_id": "augment.MAGICSUNDERI",
       "name_translation_key": "augment.MAGICSUNDERI.name",
       "description_translation_key": "augment.MAGICSUNDERI.description",
       "unique_indentifier": "MSUNDERI"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "68165a30-5277-4e9e-a504-4e8e23442b5a",
       "id": "ARMYPSNONE",
       "name": "Noxious Aura",
@@ -7924,7 +9429,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "UNIT",
       "durational": false,
       "duration": 0,
       "augment_class": "DOT",
@@ -7943,16 +9447,40 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "unique_indentifier": "",
       "translation_id": "augment.ARMYPSNONE",
       "name_translation_key": "augment.ARMYPSNONE.name",
       "description_translation_key": "augment.ARMYPSNONE.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "65073072-2712-4a5f-8958-308edc3c33ca",
       "id": "PPOISON",
       "name": "Poacher's Poison",
@@ -7980,15 +9508,38 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
       "translation_id": "augment.PPOISON",
       "name_translation_key": "augment.PPOISON.name",
       "description_translation_key": "augment.PPOISON.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "2f521c9e-2653-4fd0-981a-ba163a471f8e",
       "id": "RALLY",
       "name": "Rally",
@@ -7998,7 +9549,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "UNIT",
       "durational": false,
       "duration": 0,
       "augment_class": "FLAT_STAT",
@@ -8017,15 +9567,39 @@
         "stat": "BRAVERY",
         "amount": 5
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "translation_id": "augment.RALLY",
       "name_translation_key": "augment.RALLY.name",
       "description_translation_key": "augment.RALLY.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "6198ea9d-80be-421a-b6a8-3e9c30e012de",
       "id": "HOTI",
       "name": "Regenerative Blessing",
@@ -8053,15 +9627,38 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
       "translation_id": "augment.HOTI",
       "name_translation_key": "augment.HOTI.name",
       "description_translation_key": "augment.HOTI.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "f2f02dc4-5872-427a-80d0-7f8ec18be36f",
       "id": "SLOWHAZE",
       "name": "Relaxing Fog",
@@ -8071,7 +9668,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "GLOBAL",
       "durational": false,
       "duration": 0,
       "augment_class": "FLAT_STAT",
@@ -8090,16 +9686,40 @@
         "stat": "SPEED",
         "amount": "-1"
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "GLOBAL",
       "unique_indentifier": "",
       "translation_id": "augment.SLOWHAZE",
       "name_translation_key": "augment.SLOWHAZE.name",
       "description_translation_key": "augment.SLOWHAZE.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "6da6f270-0787-4f52-bc11-5a10beaffb03",
       "id": "SHIELDGUARDI",
       "name": "Shieldguard I",
@@ -8109,7 +9729,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "UNIT",
       "durational": true,
       "duration": 3,
       "augment_class": "FLAT_STAT",
@@ -8128,16 +9747,40 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": "2"
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "unique_indentifier": "",
       "translation_id": "augment.SHIELDGUARDI",
       "name_translation_key": "augment.SHIELDGUARDI.name",
       "description_translation_key": "augment.SHIELDGUARDI.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "b1bd08ac-28c7-4870-a9b4-5a354317fbc1",
       "id": "SHIELDGUARDII",
       "name": "Shieldguard II",
@@ -8147,7 +9790,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "UNIT",
       "durational": true,
       "duration": 3,
       "augment_class": "FLAT_STAT",
@@ -8166,15 +9808,39 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 8
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "translation_id": "augment.SHIELDGUARDII",
       "name_translation_key": "augment.SHIELDGUARDII.name",
       "description_translation_key": "augment.SHIELDGUARDII.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "b1ca2d87-d68d-4b9d-8b21-506ea7e480ca",
       "id": "SUNDERI",
       "name": "Sunder I",
@@ -8184,7 +9850,6 @@
       "unique": true,
       "unique_identifier": "SUNDER",
       "replenishable": true,
-      "domain": "UNIT",
       "durational": true,
       "duration": 2,
       "augment_class": "FLAT_STAT",
@@ -8203,16 +9868,40 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": "-5"
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "translation_id": "augment.SUNDERI",
       "name_translation_key": "augment.SUNDERI.name",
       "description_translation_key": "augment.SUNDERI.description",
       "unique_indentifier": "SUDNERI"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "bc107e17-77df-4741-a46f-5682cfc21a4f",
       "id": "TEST",
       "name": "TEST",
@@ -8222,7 +9911,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "UNIT",
       "durational": false,
       "duration": 0,
       "augment_class": "ALLEGIANCE",
@@ -8241,15 +9929,39 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "translation_id": "augment.TEST",
       "name_translation_key": "augment.TEST.name",
       "description_translation_key": "augment.TEST.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "f2972853-f988-442d-883d-4dbb74ae2e18",
       "id": "VANISHING",
       "name": "Vanishing",
@@ -8259,7 +9971,6 @@
       "unique": false,
       "unique_identifier": "",
       "replenishable": false,
-      "domain": "UNIT",
       "durational": true,
       "duration": "7",
       "augment_class": "DOOM",
@@ -8278,16 +9989,40 @@
         "stat": "PHYSICAL_DEFENSE",
         "amount": 0
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
+      "domain": "UNIT",
       "unique_indentifier": "",
       "translation_id": "augment.VANISHING",
       "name_translation_key": "augment.VANISHING.name",
       "description_translation_key": "augment.VANISHING.description"
     },
     {
-      "augments": [],
-      "crit_augments": [],
-      "should_reapply": false,
-      "should_target_enemy": false,
       "guid": "dc730070-d2a4-40b5-bcb6-60af267e50a9",
       "id": "WMW",
       "name": "Well Made Weapon",
@@ -8315,6 +10050,33 @@
         "stat": "STRENGTH",
         "amount": "1"
       },
+      "range_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "aoe_augment_props": {
+        "mode": "ENABLE"
+      },
+      "aoe_radius_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "max_targets_augment_props": {
+        "mode": "FLAT",
+        "amount": 0
+      },
+      "augments": [],
+      "crit_augments": [],
+      "should_reapply": false,
+      "should_target_enemy": false,
+      "shared_augment_data": {
+        "undispellable": false,
+        "replenishable": false,
+        "durational": false,
+        "duration": 0
+      },
+      "augment_effects": [],
+      "crit_augment_effects": [],
       "translation_id": "augment.WMW",
       "name_translation_key": "augment.WMW.name",
       "description_translation_key": "augment.WMW.description"
@@ -8331,7 +10093,14 @@
         "effects": [
           "95b279bd-f75b-451d-85db-17a68e2307d2"
         ],
-        "everlasting": true
+        "everlasting": true,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": []
       },
       "translation_id": "item.STAFFW",
       "name_translation_key": "item.STAFFW.name",
@@ -8345,7 +10114,14 @@
       "item_type": "ITEM",
       "equipment_props": {
         "effects": [],
-        "everlasting": false
+        "everlasting": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": []
       },
       "translation_id": "item.CHEESE",
       "name_translation_key": "item.CHEESE.name",
@@ -8361,7 +10137,34 @@
         "effects": [
           "9202c140-4084-41da-83f0-d840778a04df"
         ],
-        "everlasting": false
+        "everlasting": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": [
+          {
+            "augment_class": "FLAT_STAT",
+            "type": "BUFF",
+            "dot_augment_props": {
+              "flat_damage": 0,
+              "phys_def_reduction_modifier": 0,
+              "spec_def_reduction_modifier": 0,
+              "resource": "HEALTH",
+              "resolution_type": "UNIT"
+            },
+            "flat_stat_props": {
+              "stat": "STRENGTH",
+              "amount": "2"
+            },
+            "stat_mult_props": {
+              "stat": "PHYSICAL_DEFENSE",
+              "multiplier": 1
+            }
+          }
+        ]
       },
       "translation_id": "item.TEST",
       "name_translation_key": "item.TEST.name",
@@ -8375,7 +10178,14 @@
       "item_type": "ITEM",
       "equipment_props": {
         "effects": [],
-        "everlasting": false
+        "everlasting": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": []
       },
       "translation_id": "item.SILVERH",
       "name_translation_key": "item.SILVERH.name",
@@ -8391,7 +10201,14 @@
         "effects": [
           "32f7d1ce-d74b-4600-b431-a252e8eb8327"
         ],
-        "everlasting": false
+        "everlasting": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": []
       },
       "translation_id": "item.BCRYST",
       "name_translation_key": "item.BCRYST.name",
@@ -8405,7 +10222,14 @@
       "item_type": "ITEM",
       "equipment_props": {
         "effects": [],
-        "everlasting": false
+        "everlasting": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": []
       },
       "translation_id": "item.GCRYST",
       "name_translation_key": "item.GCRYST.name",
@@ -8421,7 +10245,14 @@
         "effects": [
           "6198ea9d-80be-421a-b6a8-3e9c30e012de"
         ],
-        "everlasting": true
+        "everlasting": true,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": []
       },
       "translation_id": "item.HRING",
       "name_translation_key": "item.HRING.name",
@@ -8437,7 +10268,14 @@
         "effects": [
           "dce8c4f8-3fa5-4d6c-85bd-7c4f04eca9d1"
         ],
-        "everlasting": false
+        "everlasting": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": []
       },
       "translation_id": "item.MBUCKLER",
       "name_translation_key": "item.MBUCKLER.name",
@@ -8453,7 +10291,14 @@
         "effects": [
           "dc730070-d2a4-40b5-bcb6-60af267e50a9"
         ],
-        "everlasting": false
+        "everlasting": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": []
       },
       "translation_id": "item.SPEAR",
       "name_translation_key": "item.SPEAR.name",
@@ -8467,7 +10312,14 @@
       "item_type": "ITEM",
       "equipment_props": {
         "effects": [],
-        "everlasting": false
+        "everlasting": false,
+        "shared_augment_data": {
+          "undispellable": false,
+          "replenishable": false,
+          "durational": false,
+          "duration": 0
+        },
+        "augment_effects": []
       },
       "translation_id": "item.FEATHER",
       "name_translation_key": "item.FEATHER.name",
@@ -8552,5 +10404,5 @@
     "STRIX",
     "YELLOW"
   ],
-  "updatedAt": 1771516654883
+  "updatedAt": 1771657605235
 }
