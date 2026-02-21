@@ -5,12 +5,16 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useAugments } from '../../store/getters/augment';
 import { useGameStore } from '../../store/useGameStore';
 import {
+  AOE_AUGMENT_MODES,
+  AOE_RADIUS_AUGMENT_MODES,
   Augment,
   AUGMENT_BUFF_TYPES,
   AUGMENT_DOMAINS,
   AUGMENT_RESOURCES,
   AUGMENT_STATS,
   AUGMENT_TYPES,
+  MAX_TARGETS_AUGMENT_MODES,
+  RANGE_AUGMENT_MODES,
 } from '../../types/augment';
 import { createSelectOptions } from '../../utils/createSelectOptions';
 import LabeledInput from '../LabledInput';
@@ -122,6 +126,67 @@ export const AugmentForm: React.FC<{ augment: Augment }> = ({ augment }) => {
               id="stat_mult_props.multiplier"
               label="Multiplier"
               type="number"
+              required
+            />
+          </div>
+        );
+      case 'RANGE':
+        return (
+          <div className="grid grid-cols-2 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+            <LabeledSelect
+              id="range_augment_props.mode"
+              label="Mode"
+              options={createSelectOptions(RANGE_AUGMENT_MODES)}
+            />
+            <LabeledInput
+              id="range_augment_props.amount"
+              label="Amount"
+              type="number"
+              allowNegativeValue
+              required
+            />
+          </div>
+        );
+      case 'AOE':
+        return (
+          <div className="grid grid-cols-1 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+            <LabeledSelect
+              id="aoe_augment_props.mode"
+              label="Mode"
+              options={createSelectOptions(AOE_AUGMENT_MODES)}
+            />
+          </div>
+        );
+      case 'AOE_RADIUS':
+        return (
+          <div className="grid grid-cols-2 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+            <LabeledSelect
+              id="aoe_radius_augment_props.mode"
+              label="Mode"
+              options={createSelectOptions(AOE_RADIUS_AUGMENT_MODES)}
+            />
+            <LabeledInput
+              id="aoe_radius_augment_props.amount"
+              label="Amount"
+              type="number"
+              allowNegativeValue
+              required
+            />
+          </div>
+        );
+      case 'MAX_TARGETS':
+        return (
+          <div className="grid grid-cols-2 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+            <LabeledSelect
+              id="max_targets_augment_props.mode"
+              label="Mode"
+              options={createSelectOptions(MAX_TARGETS_AUGMENT_MODES)}
+            />
+            <LabeledInput
+              id="max_targets_augment_props.amount"
+              label="Amount"
+              type="number"
+              allowNegativeValue
               required
             />
           </div>

@@ -517,6 +517,21 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
         <div className="flex justify-evenly border rounded gap-3 mb-6 p-6">
           <LabeledInput id="delay" label="Delay" type="number" required />
         </div>
+        <h3 className="font-bold text-lg mb-3">Augment Eligibility</h3>
+        <div className="grid grid-cols-4 border rounded justify-items-center gap-3 mb-6 p-6">
+          <LabeledInput id="allow_range_augments" label="Allow Range Augments" type="checkbox" />
+          <LabeledInput id="allow_aoe_augments" label="Allow AOE Augments" type="checkbox" />
+          <LabeledInput
+            id="allow_aoe_radius_augments"
+            label="Allow AOE Radius Augments"
+            type="checkbox"
+          />
+          <LabeledInput
+            id="allow_max_targets_augments"
+            label="Allow Max Targets Augments"
+            type="checkbox"
+          />
+        </div>
         {actionTypeForm}
       </form>
     </FormProvider>

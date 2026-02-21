@@ -67,6 +67,10 @@ export type Action = {
   dispel_action_props: DispelActionData;
   tag_action_props: TagActionData;
   summon_action_props: SummonActionData;
+  allow_range_augments: boolean;
+  allow_aoe_augments: boolean;
+  allow_aoe_radius_augments: boolean;
+  allow_max_targets_augments: boolean;
 };
 
 export type DamageActionData = {

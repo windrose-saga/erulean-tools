@@ -6,7 +6,8 @@ import { generateItemIdsMap } from './generateItemIdsMap';
 import { generateUnitIdsMap } from './generateUnitIdsMap';
 import { validateIngest } from './validateIngest';
 
-import { DEFAULT_ACTION_DATA, DEFAULT_AUGMENT_ACTION_DATA } from '../constants/action';
+import { DEFAULT_ACTION_DATA } from '../constants/action';
+import { DEFAULT_AUGMENT } from '../constants/augment';
 import { DEFAULT_ITEM_DATA } from '../constants/item';
 import { DEFAULT_UNIT } from '../constants/unit';
 import { useGameStore } from '../store/useGameStore';
@@ -116,7 +117,7 @@ const ingestActionsV2 = (rawData: Array<Action>) => {
 const ingestAugmentsV2 = (rawData: Array<Augment>) => {
   const augmentData = {} as Record<string, Augment>;
   rawData.forEach((augment) => {
-    augmentData[augment.guid] = merge({}, DEFAULT_AUGMENT_ACTION_DATA, augment);
+    augmentData[augment.guid] = merge({}, DEFAULT_AUGMENT, augment);
   });
   return augmentData;
 };

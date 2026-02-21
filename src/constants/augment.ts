@@ -1,8 +1,12 @@
 import {
+  AOEAugmentProps,
+  AOERadiusAugmentProps,
   Augment,
   AugmentEffect,
   DotAugmentProps,
   FlatStatProps,
+  MaxTargetsAugmentProps,
+  RangeAugmentProps,
   SharedAugmentData,
   StatMultProps,
 } from '../types/augment';
@@ -25,12 +29,35 @@ export const DEFAULT_FLAT_STAT_PROPS: FlatStatProps = {
   amount: 0,
 };
 
+export const DEFAULT_RANGE_AUGMENT_PROPS: RangeAugmentProps = {
+  mode: 'FLAT',
+  amount: 0,
+};
+
+export const DEFAULT_AOE_AUGMENT_PROPS: AOEAugmentProps = {
+  mode: 'ENABLE',
+};
+
+export const DEFAULT_AOE_RADIUS_AUGMENT_PROPS: AOERadiusAugmentProps = {
+  mode: 'FLAT',
+  amount: 0,
+};
+
+export const DEFAULT_MAX_TARGETS_AUGMENT_PROPS: MaxTargetsAugmentProps = {
+  mode: 'FLAT',
+  amount: 0,
+};
+
 export const DEFAULT_AUGMENT_EFFECT: AugmentEffect = {
   augment_class: 'FLAT_STAT',
   type: 'BUFF',
   dot_augment_props: DEFAULT_DOT_AUGMENT_PROPS,
   flat_stat_props: DEFAULT_FLAT_STAT_PROPS,
   stat_mult_props: DEFAULT_STAT_MULT_PROPS,
+  range_augment_props: DEFAULT_RANGE_AUGMENT_PROPS,
+  aoe_augment_props: DEFAULT_AOE_AUGMENT_PROPS,
+  aoe_radius_augment_props: DEFAULT_AOE_RADIUS_AUGMENT_PROPS,
+  max_targets_augment_props: DEFAULT_MAX_TARGETS_AUGMENT_PROPS,
 };
 
 export const DEFAULT_SHARED_AUGMENT_DATA: SharedAugmentData = {
@@ -56,4 +83,8 @@ export const DEFAULT_AUGMENT: Augment = {
   dot_augment_props: DEFAULT_DOT_AUGMENT_PROPS,
   stat_mult_props: DEFAULT_STAT_MULT_PROPS,
   flat_stat_props: DEFAULT_FLAT_STAT_PROPS,
+  range_augment_props: DEFAULT_RANGE_AUGMENT_PROPS,
+  aoe_augment_props: DEFAULT_AOE_AUGMENT_PROPS,
+  aoe_radius_augment_props: DEFAULT_AOE_RADIUS_AUGMENT_PROPS,
+  max_targets_augment_props: DEFAULT_MAX_TARGETS_AUGMENT_PROPS,
 };
