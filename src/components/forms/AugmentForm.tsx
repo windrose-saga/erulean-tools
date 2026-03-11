@@ -262,7 +262,7 @@ export const AugmentForm: React.FC<{ augment: Augment }> = ({ augment }) => {
           />
         </div>
         <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
-          <LabeledInput id="undispellable" label="Is Dispellable" type="checkbox" />
+          <LabeledInput id="undispellable" label="Is Undispellable" type="checkbox" />
           <LabeledInput id="durational" label="Is Durational" type="checkbox" />
           <LabeledInput
             id="duration"
