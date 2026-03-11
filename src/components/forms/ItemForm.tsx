@@ -120,6 +120,8 @@ export const ItemForm: React.FC<{ item: Item }> = ({ item }) => {
           />
           <LabeledInput id="name" label="Name" type="text" required />
           <LabeledInput id="description" label="Description" type="text" required />
+          <LabeledInput id="gold_value" label="Gold Value" type="number" allowFloats={false} />
+          <LabeledInput id="sellable" label="Sellable" type="checkbox" />
           <div className="flex justify-between">
             <div className="flex flex-col">
               <LabeledSelect
