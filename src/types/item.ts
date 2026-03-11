@@ -10,6 +10,8 @@ export type Item = {
   name: string;
   description: string;
   item_type: ItemType;
+  gold_value: number;
+  sellable: boolean;
   equipment_props: EquipmentProps;
 };
 
