@@ -10,6 +10,7 @@ import ArraySelect from '../ArraySelect';
 import AugmentEffectFieldArray from '../AugmentEffectFieldArray';
 import LabeledInput from '../LabledInput';
 import LabeledSelect from '../LabledSelect';
+import RoleMultiSelect from '../RoleMultiSelect';
 
 export const ItemForm: React.FC<{ item: Item }> = ({ item }) => {
   const items = useItems();
@@ -57,6 +58,21 @@ export const ItemForm: React.FC<{ item: Item }> = ({ item }) => {
             <div className="grid grid-cols-2 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
               <ArraySelect id="equipment_props.effects" label="Effects" type="AUGMENT" />
               <LabeledInput id="equipment_props.everlasting" label="Everlasting" type="checkbox" />
+            </div>
+            <div className="grid grid-cols-3 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+              <LabeledInput
+                id="equipment_props.slot"
+                label="Slot"
+                type="number"
+                allowFloats={false}
+              />
+              <LabeledInput
+                id="equipment_props.quality"
+                label="Quality"
+                type="number"
+                allowFloats={false}
+              />
+              <RoleMultiSelect<Item> id="equipment_props.for_role" label="For Role" />
             </div>
             <h3 className="font-bold text-lg mb-3">Shared Augment Data</h3>
             <div className="grid grid-cols-4 border rounded justify-items-center gap-3 mb-6 p-6">

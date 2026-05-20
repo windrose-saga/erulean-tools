@@ -22,6 +22,7 @@ export const DEFAULT_UNIT: Unit = {
   guid: '',
   id: '',
   name: '',
+  role: 'NONE',
   description: '',
   is_commander: false,
   commander_data: DEFAULT_COMMANDER_DATA,

@@ -4,7 +4,7 @@ import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
 
 import { useUnits } from '../../store/getters/unit';
 import { useGameStore } from '../../store/useGameStore';
-import { MOVEMENT_STRATEGIES, Unit } from '../../types/unit';
+import { MOVEMENT_STRATEGIES, ROLES, Unit } from '../../types/unit';
 import { createSelectOptions } from '../../utils/createSelectOptions';
 import ArraySelect from '../ArraySelect';
 import FormActionSelect from '../FormActionSelect';
@@ -70,6 +70,7 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
           />
           <LabeledInput id="name" label="Name" type="text" required />
           <LabeledInput id="description" label="Description" type="text" required />
+          <LabeledSelect id="role" label="Role" options={createSelectOptions(ROLES)} />
           <div className="flex justify-between">
             <div className="flex flex-col">
               <LabeledInput
