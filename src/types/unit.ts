@@ -1,7 +1,21 @@
+export const ROLES = [
+  'NONE',
+  'UTILITY',
+  'FRONTLINE',
+  'MIDLINE',
+  'MAGECORE',
+  'BACKLINE',
+  'HEALER',
+  'FLANKER',
+] as const satisfies string[];
+type Roles = typeof ROLES;
+export type Role = Roles[number];
+
 export type Unit = {
   guid: string;
   id: string;
   name: string;
+  role: Role;
   description: string;
   max_hp: number;
   starting_hp: number;

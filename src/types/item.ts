@@ -1,4 +1,5 @@
 import { AugmentEffect, SharedAugmentData } from './augment';
+import { Role } from './unit';
 
 export const ITEM_TYPES = ['ITEM', 'EQUIPMENT'] as const satisfies string[];
 type ItemTypes = typeof ITEM_TYPES;
@@ -18,6 +19,9 @@ export type Item = {
 export type EquipmentProps = {
   effects: Array<string>;
   everlasting: boolean;
+  slot: number;
+  quality: number;
+  for_role: Array<Role>;
   shared_augment_data: SharedAugmentData;
   augment_effects: Array<AugmentEffect>;
 };

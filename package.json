@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "packageManager": "yarn@1.22.22",
   "homepage": "https://windrose-saga.github.io/erulean-tools/",
   "scripts": {
     "dev": "vite --port=3001",

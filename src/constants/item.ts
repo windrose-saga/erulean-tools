@@ -5,6 +5,9 @@ import { EquipmentProps, Item } from '../types/item';
 export const DEFAULT_EQUIPMENT_PROPS: EquipmentProps = {
   effects: [],
   everlasting: false,
+  slot: 0,
+  quality: 0,
+  for_role: [],
   shared_augment_data: DEFAULT_SHARED_AUGMENT_DATA,
   augment_effects: [],
 };
