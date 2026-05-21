@@ -7,6 +7,7 @@ import { useGameStore } from '../../store/useGameStore';
 import { MOVEMENT_STRATEGIES, ROLES, Unit } from '../../types/unit';
 import { createSelectOptions } from '../../utils/createSelectOptions';
 import ArraySelect from '../ArraySelect';
+import FactionMultiSelect from '../FactionMultiSelect';
 import FormActionSelect from '../FormActionSelect';
 import LabeledInputBase, { LabeledInputProps } from '../LabledInput';
 import LabeledSelect from '../LabledSelect';
@@ -71,6 +72,7 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
           <LabeledInput id="name" label="Name" type="text" required />
           <LabeledInput id="description" label="Description" type="text" required />
           <LabeledSelect id="role" label="Role" options={createSelectOptions(ROLES)} />
+          <FactionMultiSelect<Unit> id="factions" label="Factions" />
           <div className="flex justify-between">
             <div className="flex flex-col">
               <LabeledInput

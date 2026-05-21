@@ -11,11 +11,16 @@ export const ROLES = [
 type Roles = typeof ROLES;
 export type Role = Roles[number];
 
+export const FACTIONS = ['ERULEAN', 'MARCH'] as const satisfies string[];
+type Factions = typeof FACTIONS;
+export type Faction = Factions[number];
+
 export type Unit = {
   guid: string;
   id: string;
   name: string;
   role: Role;
+  factions: Array<Faction>;
   description: string;
   max_hp: number;
   starting_hp: number;

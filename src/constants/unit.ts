@@ -23,6 +23,7 @@ export const DEFAULT_UNIT: Unit = {
   id: '',
   name: '',
   role: 'NONE',
+  factions: [],
   description: '',
   is_commander: false,
   commander_data: DEFAULT_COMMANDER_DATA,
