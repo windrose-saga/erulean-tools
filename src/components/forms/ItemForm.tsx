@@ -10,6 +10,7 @@ import ArraySelect from '../ArraySelect';
 import AugmentEffectFieldArray from '../AugmentEffectFieldArray';
 import LabeledInput from '../LabledInput';
 import LabeledSelect from '../LabledSelect';
+import LootCategoryMultiSelect from '../LootCategoryMultiSelect';
 import RoleMultiSelect from '../RoleMultiSelect';
 
 export const ItemForm: React.FC<{ item: Item }> = ({ item }) => {
@@ -138,6 +139,8 @@ export const ItemForm: React.FC<{ item: Item }> = ({ item }) => {
           <LabeledInput id="description" label="Description" type="text" required />
           <LabeledInput id="gold_value" label="Gold Value" type="number" allowFloats={false} />
           <LabeledInput id="sellable" label="Sellable" type="checkbox" />
+          <LabeledInput id="rarity" label="Rarity" type="number" />
+          <LootCategoryMultiSelect<Item> id="loot_categories" label="Loot Categories" />
           <div className="flex justify-between">
             <div className="flex flex-col">
               <LabeledSelect
