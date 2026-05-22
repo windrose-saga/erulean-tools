@@ -20,5 +20,7 @@ export const DEFAULT_ITEM_DATA: Item = {
   item_type: 'ITEM',
   gold_value: 0,
   sellable: true,
+  rarity: 0,
+  loot_categories: [],
   equipment_props: DEFAULT_EQUIPMENT_PROPS,
 };
