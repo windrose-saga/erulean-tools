@@ -98,7 +98,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
   return { ingest, errors };
 };
 
-const ingestUnitsV2 = (rawData: Array<Unit>) => {
+export const ingestUnitsV2 = (rawData: Array<Unit>) => {
   const unitData = {} as Record<string, Unit>;
   rawData.forEach((unit) => {
     unitData[unit.guid] = merge({}, DEFAULT_UNIT, unit);
