@@ -60,15 +60,29 @@ export const MOVEMENT_STRATEGIES = ['ADVANCE', 'KEEP_DISTANCE'] as const satisfi
 type MovementStrategies = typeof MOVEMENT_STRATEGIES;
 export type MovementStrategy = MovementStrategies[number];
 
+export type CommanderLevel = {
+  experience: number;
+  point_value_limit: number;
+  grid_size_x: number;
+  grid_size_y: number;
+  dungeon_grid_size_x: number;
+  dungeon_grid_size_y: number;
+};
+
 export type CommanderData = {
   leadership: number;
   point_limit: number;
   grid_size_x: number;
   grid_size_y: number;
+  dungeon_grid_size_x: number;
+  dungeon_grid_size_y: number;
+  turn_movements: number;
+  turn_actions: number;
   global_augments: Array<string>;
   army_augments: Array<string>;
   enemy_army_augments: Array<string>;
   army_name: string;
+  levels: Array<CommanderLevel>;
 };
 
 export type Actions = {

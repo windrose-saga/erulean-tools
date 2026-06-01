@@ -1,14 +1,28 @@
-import { Actions, CommanderData, Unit } from '../types/unit';
+import { Actions, CommanderData, CommanderLevel, Unit } from '../types/unit';
+
+export const DEFAULT_COMMANDER_LEVEL: CommanderLevel = {
+  experience: 0,
+  point_value_limit: 0,
+  grid_size_x: 1,
+  grid_size_y: 1,
+  dungeon_grid_size_x: 2,
+  dungeon_grid_size_y: 5,
+};
 
 export const DEFAULT_COMMANDER_DATA: CommanderData = {
   leadership: 0,
   point_limit: 0,
   grid_size_x: 1,
   grid_size_y: 1,
+  dungeon_grid_size_x: 2,
+  dungeon_grid_size_y: 5,
+  turn_movements: 1,
+  turn_actions: 1,
   global_augments: [],
   army_augments: [],
   enemy_army_augments: [],
   army_name: '',
+  levels: [],
 };
 
 export const DEFAULT_ACTIONS: Actions = {
