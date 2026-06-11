@@ -11,6 +11,7 @@ export const LOOT_CATEGORIES = [
   'MATERIAL',
   'MEADOWMERE',
   'WOODMERE',
+  'CONSUMABLE',
 ] as const satisfies string[];
 type LootCategories = typeof LOOT_CATEGORIES;
 export type LootCategory = LootCategories[number];
