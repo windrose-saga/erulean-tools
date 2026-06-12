@@ -3,6 +3,7 @@ import * as React from 'react';
 import { useActions } from '../store/getters/action';
 import { useAugments } from '../store/getters/augment';
 import { useItems } from '../store/getters/item';
+import { usePrefabs } from '../store/getters/prefab';
 import { useUnits } from '../store/getters/unit';
 import { useGameStore } from '../store/useGameStore';
 import { GameData } from '../types/gameData';
@@ -12,10 +13,12 @@ export const useExportStore = () => {
   const actions = useActions();
   const augments = useAugments();
   const items = useItems();
+  const prefabs = usePrefabs();
   const lastLoaded = useGameStore.use.lastLoaded();
   const setExported = useGameStore.use.setExported();
   const unitIds = useGameStore.use.unitIds();
   const itemIds = useGameStore.use.itemIds();
+  const prefabIds = useGameStore.use.prefabIds();
 
   const translatedUnits = units.map((unit) => {
     const translation_id: string = `unit.${unit.id}`;
@@ -84,8 +87,10 @@ export const useExportStore = () => {
       actions: translatedActions,
       augments: translatedAugments,
       items: translatedItems,
+      prefabs,
       unitIds: Array.from(unitIds.values()),
       itemIds: Array.from(itemIds.values()),
+      prefabIds: Array.from(prefabIds.values()),
       trainable_units: trainableUnits,
       updatedAt: lastLoaded ?? Date.now(),
     };
@@ -104,8 +109,10 @@ export const useExportStore = () => {
     translatedActions,
     translatedAugments,
     translatedItems,
+    prefabs,
     unitIds,
     itemIds,
+    prefabIds,
     trainableUnits,
     lastLoaded,
     setExported,

@@ -1,8 +1,9 @@
 import { Action } from '../types/action';
 import { Augment } from '../types/augment';
+import { DungeonPrefab } from '../types/dungeonPrefab';
 import { Unit } from '../types/unit';
 
-type ErrorType = 'unit' | 'action' | 'augment';
+type ErrorType = 'unit' | 'action' | 'augment' | 'prefab';
 type Error = {
   type: ErrorType;
   message: string;
@@ -12,10 +13,48 @@ export const validateIngest = (
   units: Record<string, Unit>,
   actions: Record<string, Action>,
   augments: Record<string, Augment>,
+  prefabs: Record<string, DungeonPrefab> = {},
 ) => {
   const unitErrors = validateUnits(units, actions, augments);
   const actionErrors = validateActions(actions, augments, units);
-  return [...unitErrors, ...actionErrors];
+  const prefabErrors = validatePrefabs(prefabs);
+  return [...unitErrors, ...actionErrors, ...prefabErrors];
+};
+
+const validatePrefabs = (prefabs: Record<string, DungeonPrefab>) => {
+  const errors: Error[] = [];
+  const ids = Object.values(prefabs).map((prefab) => prefab.id);
+  const uniqueIds = new Set(ids);
+  if (ids.length !== uniqueIds.size) {
+    const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
+    errors.push({
+      type: 'prefab',
+      message: `Duplicate prefab ids found: ${duplicateIds.join(', ')}`,
+    });
+  }
+
+  Object.values(prefabs).forEach((prefab) => {
+    if (!/^[A-Z0-9]+$/.test(prefab.id)) {
+      errors.push({
+        type: 'prefab',
+        message: `Prefab id '${prefab.id}' must be all caps letters/numbers with no spaces or symbols`,
+      });
+    }
+    if (!/[.*]/.test(prefab.layout)) {
+      errors.push({
+        type: 'prefab',
+        message: `Prefab ${prefab.id} has no floor cells (needs at least one '.' or '*')`,
+      });
+    }
+    if (!prefab.layout.includes('*')) {
+      errors.push({
+        type: 'prefab',
+        message: `Prefab ${prefab.id} has no entrance (needs at least one '*' connector)`,
+      });
+    }
+  });
+
+  return errors;
 };
 
 const validateUnits = (

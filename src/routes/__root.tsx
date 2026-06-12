@@ -69,6 +69,14 @@ function RootComponent() {
               >
                 Items
               </Link>
+              <Link
+                to="/prefabs"
+                activeProps={{
+                  className: 'font-bold',
+                }}
+              >
+                Dungeon Prefabs
+              </Link>
             </>
           )}
           <Link

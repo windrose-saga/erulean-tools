@@ -14,11 +14,14 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as DamageCalculatorImport } from './routes/damage-calculator'
 import { Route as IndexImport } from './routes/index'
 import { Route as UnitsIndexImport } from './routes/units.index'
+import { Route as PrefabsIndexImport } from './routes/prefabs.index'
 import { Route as ItemsIndexImport } from './routes/items.index'
 import { Route as AugmentsIndexImport } from './routes/augments.index'
 import { Route as ActionsIndexImport } from './routes/actions.index'
 import { Route as UnitsNewImport } from './routes/units.new'
 import { Route as UnitsUnitIdImport } from './routes/units.$unitId'
+import { Route as PrefabsNewImport } from './routes/prefabs.new'
+import { Route as PrefabsPrefabIdImport } from './routes/prefabs.$prefabId'
 import { Route as ItemsNewImport } from './routes/items.new'
 import { Route as ItemsItemIdImport } from './routes/items.$itemId'
 import { Route as AugmentsNewImport } from './routes/augments.new'
@@ -43,6 +46,12 @@ const IndexRoute = IndexImport.update({
 const UnitsIndexRoute = UnitsIndexImport.update({
   id: '/units/',
   path: '/units/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PrefabsIndexRoute = PrefabsIndexImport.update({
+  id: '/prefabs/',
+  path: '/prefabs/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -73,6 +82,18 @@ const UnitsNewRoute = UnitsNewImport.update({
 const UnitsUnitIdRoute = UnitsUnitIdImport.update({
   id: '/units/$unitId',
   path: '/units/$unitId',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PrefabsNewRoute = PrefabsNewImport.update({
+  id: '/prefabs/new',
+  path: '/prefabs/new',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PrefabsPrefabIdRoute = PrefabsPrefabIdImport.update({
+  id: '/prefabs/$prefabId',
+  path: '/prefabs/$prefabId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -172,6 +193,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ItemsNewImport
       parentRoute: typeof rootRoute
     }
+    '/prefabs/$prefabId': {
+      id: '/prefabs/$prefabId'
+      path: '/prefabs/$prefabId'
+      fullPath: '/prefabs/$prefabId'
+      preLoaderRoute: typeof PrefabsPrefabIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/prefabs/new': {
+      id: '/prefabs/new'
+      path: '/prefabs/new'
+      fullPath: '/prefabs/new'
+      preLoaderRoute: typeof PrefabsNewImport
+      parentRoute: typeof rootRoute
+    }
     '/units/$unitId': {
       id: '/units/$unitId'
       path: '/units/$unitId'
@@ -207,6 +242,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ItemsIndexImport
       parentRoute: typeof rootRoute
     }
+    '/prefabs/': {
+      id: '/prefabs/'
+      path: '/prefabs'
+      fullPath: '/prefabs'
+      preLoaderRoute: typeof PrefabsIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/units/': {
       id: '/units/'
       path: '/units'
@@ -228,11 +270,14 @@ export interface FileRoutesByFullPath {
   '/augments/new': typeof AugmentsNewRoute
   '/items/$itemId': typeof ItemsItemIdRoute
   '/items/new': typeof ItemsNewRoute
+  '/prefabs/$prefabId': typeof PrefabsPrefabIdRoute
+  '/prefabs/new': typeof PrefabsNewRoute
   '/units/$unitId': typeof UnitsUnitIdRoute
   '/units/new': typeof UnitsNewRoute
   '/actions': typeof ActionsIndexRoute
   '/augments': typeof AugmentsIndexRoute
   '/items': typeof ItemsIndexRoute
+  '/prefabs': typeof PrefabsIndexRoute
   '/units': typeof UnitsIndexRoute
 }
 
@@ -245,11 +290,14 @@ export interface FileRoutesByTo {
   '/augments/new': typeof AugmentsNewRoute
   '/items/$itemId': typeof ItemsItemIdRoute
   '/items/new': typeof ItemsNewRoute
+  '/prefabs/$prefabId': typeof PrefabsPrefabIdRoute
+  '/prefabs/new': typeof PrefabsNewRoute
   '/units/$unitId': typeof UnitsUnitIdRoute
   '/units/new': typeof UnitsNewRoute
   '/actions': typeof ActionsIndexRoute
   '/augments': typeof AugmentsIndexRoute
   '/items': typeof ItemsIndexRoute
+  '/prefabs': typeof PrefabsIndexRoute
   '/units': typeof UnitsIndexRoute
 }
 
@@ -263,11 +311,14 @@ export interface FileRoutesById {
   '/augments/new': typeof AugmentsNewRoute
   '/items/$itemId': typeof ItemsItemIdRoute
   '/items/new': typeof ItemsNewRoute
+  '/prefabs/$prefabId': typeof PrefabsPrefabIdRoute
+  '/prefabs/new': typeof PrefabsNewRoute
   '/units/$unitId': typeof UnitsUnitIdRoute
   '/units/new': typeof UnitsNewRoute
   '/actions/': typeof ActionsIndexRoute
   '/augments/': typeof AugmentsIndexRoute
   '/items/': typeof ItemsIndexRoute
+  '/prefabs/': typeof PrefabsIndexRoute
   '/units/': typeof UnitsIndexRoute
 }
 
@@ -282,11 +333,14 @@ export interface FileRouteTypes {
     | '/augments/new'
     | '/items/$itemId'
     | '/items/new'
+    | '/prefabs/$prefabId'
+    | '/prefabs/new'
     | '/units/$unitId'
     | '/units/new'
     | '/actions'
     | '/augments'
     | '/items'
+    | '/prefabs'
     | '/units'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -298,11 +352,14 @@ export interface FileRouteTypes {
     | '/augments/new'
     | '/items/$itemId'
     | '/items/new'
+    | '/prefabs/$prefabId'
+    | '/prefabs/new'
     | '/units/$unitId'
     | '/units/new'
     | '/actions'
     | '/augments'
     | '/items'
+    | '/prefabs'
     | '/units'
   id:
     | '__root__'
@@ -314,11 +371,14 @@ export interface FileRouteTypes {
     | '/augments/new'
     | '/items/$itemId'
     | '/items/new'
+    | '/prefabs/$prefabId'
+    | '/prefabs/new'
     | '/units/$unitId'
     | '/units/new'
     | '/actions/'
     | '/augments/'
     | '/items/'
+    | '/prefabs/'
     | '/units/'
   fileRoutesById: FileRoutesById
 }
@@ -332,11 +392,14 @@ export interface RootRouteChildren {
   AugmentsNewRoute: typeof AugmentsNewRoute
   ItemsItemIdRoute: typeof ItemsItemIdRoute
   ItemsNewRoute: typeof ItemsNewRoute
+  PrefabsPrefabIdRoute: typeof PrefabsPrefabIdRoute
+  PrefabsNewRoute: typeof PrefabsNewRoute
   UnitsUnitIdRoute: typeof UnitsUnitIdRoute
   UnitsNewRoute: typeof UnitsNewRoute
   ActionsIndexRoute: typeof ActionsIndexRoute
   AugmentsIndexRoute: typeof AugmentsIndexRoute
   ItemsIndexRoute: typeof ItemsIndexRoute
+  PrefabsIndexRoute: typeof PrefabsIndexRoute
   UnitsIndexRoute: typeof UnitsIndexRoute
 }
 
@@ -349,11 +412,14 @@ const rootRouteChildren: RootRouteChildren = {
   AugmentsNewRoute: AugmentsNewRoute,
   ItemsItemIdRoute: ItemsItemIdRoute,
   ItemsNewRoute: ItemsNewRoute,
+  PrefabsPrefabIdRoute: PrefabsPrefabIdRoute,
+  PrefabsNewRoute: PrefabsNewRoute,
   UnitsUnitIdRoute: UnitsUnitIdRoute,
   UnitsNewRoute: UnitsNewRoute,
   ActionsIndexRoute: ActionsIndexRoute,
   AugmentsIndexRoute: AugmentsIndexRoute,
   ItemsIndexRoute: ItemsIndexRoute,
+  PrefabsIndexRoute: PrefabsIndexRoute,
   UnitsIndexRoute: UnitsIndexRoute,
 }
 
@@ -375,11 +441,14 @@ export const routeTree = rootRoute
         "/augments/new",
         "/items/$itemId",
         "/items/new",
+        "/prefabs/$prefabId",
+        "/prefabs/new",
         "/units/$unitId",
         "/units/new",
         "/actions/",
         "/augments/",
         "/items/",
+        "/prefabs/",
         "/units/"
       ]
     },
@@ -407,6 +476,12 @@ export const routeTree = rootRoute
     "/items/new": {
       "filePath": "items.new.tsx"
     },
+    "/prefabs/$prefabId": {
+      "filePath": "prefabs.$prefabId.tsx"
+    },
+    "/prefabs/new": {
+      "filePath": "prefabs.new.tsx"
+    },
     "/units/$unitId": {
       "filePath": "units.$unitId.tsx"
     },
@@ -421,6 +496,9 @@ export const routeTree = rootRoute
     },
     "/items/": {
       "filePath": "items.index.tsx"
+    },
+    "/prefabs/": {
+      "filePath": "prefabs.index.tsx"
     },
     "/units/": {
       "filePath": "units.index.tsx"
