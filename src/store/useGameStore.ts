@@ -4,6 +4,7 @@ import { immer } from 'zustand/middleware/immer';
 
 import { Action } from '../types/action';
 import { Augment } from '../types/augment';
+import { DungeonPrefab } from '../types/dungeonPrefab';
 import { Item } from '../types/item';
 import { Unit } from '../types/unit';
 import { createSelectors } from '../utils/createSelectors';
@@ -17,8 +18,10 @@ type State = {
   actions: Record<string, Action>;
   augments: Record<string, Augment>;
   items: Record<string, Item>;
+  prefabs: Record<string, DungeonPrefab>;
   unitIds: Map<string, string>;
   itemIds: Map<string, string>;
+  prefabIds: Map<string, string>;
 };
 
 type Actions = {
@@ -28,12 +31,15 @@ type Actions = {
   setActions: (actions: Record<string, Action>) => void;
   setAugments: (augments: Record<string, Augment>) => void;
   setItems: (items: Record<string, Item>) => void;
+  setPrefabs: (prefabs: Record<string, DungeonPrefab>) => void;
   setUnitIds: (unitIds: Map<string, string>) => void;
   setItemIds: (itemIds: Map<string, string>) => void;
+  setPrefabIds: (prefabIds: Map<string, string>) => void;
   setUnit: (unit: Unit) => void;
   setAction: (action: Action) => void;
   setAugment: (augment: Augment) => void;
   setItem: (item: Item) => void;
+  setPrefab: (prefab: DungeonPrefab) => void;
   setLastSaved: (savedAt: number) => void;
   setExported: () => void;
 };
@@ -46,8 +52,10 @@ const initialState: State = {
   actions: {},
   augments: {},
   items: {},
+  prefabs: {},
   unitIds: new Map<string, string>(),
   itemIds: new Map<string, string>(),
+  prefabIds: new Map<string, string>(),
 };
 
 export type GameStore = State & Actions;
@@ -90,6 +98,10 @@ const useGameStoreBase = create<GameStore>()(
         set((state) => {
           state.items = items;
         }),
+      setPrefabs: (prefabs) =>
+        set((state) => {
+          state.prefabs = prefabs;
+        }),
       setUnitIds: (unitIds) =>
         set((state) => {
           state.unitIds = new Map(unitIds);
@@ -97,6 +109,10 @@ const useGameStoreBase = create<GameStore>()(
       setItemIds: (itemIds) =>
         set((state) => {
           state.itemIds = new Map(itemIds);
+        }),
+      setPrefabIds: (prefabIds) =>
+        set((state) => {
+          state.prefabIds = new Map(prefabIds);
         }),
       setUnit: (unit) =>
         set((state) => {
@@ -115,6 +131,11 @@ const useGameStoreBase = create<GameStore>()(
         set((state) => {
           state.items[item.guid] = item;
           state.itemIds.set(item.guid, item.id);
+        }),
+      setPrefab: (prefab) =>
+        set((state) => {
+          state.prefabs[prefab.guid] = prefab;
+          state.prefabIds.set(prefab.guid, prefab.id);
         }),
     })),
     {

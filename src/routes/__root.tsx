@@ -69,6 +69,14 @@ function RootComponent() {
               >
                 Items
               </Link>
+              <Link
+                to="/prefabs"
+                activeProps={{
+                  className: 'font-bold',
+                }}
+              >
+                Dungeon Prefabs
+              </Link>
             </>
           )}
           <Link
@@ -78,14 +86,6 @@ function RootComponent() {
             }}
           >
             Damage Calculator
-          </Link>
-          <Link
-            to="/dungeon-prefab-editor"
-            activeProps={{
-              className: 'font-bold',
-            }}
-          >
-            Dungeon Prefabs
           </Link>
         </div>
         {loaded && (

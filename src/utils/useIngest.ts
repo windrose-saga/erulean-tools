@@ -3,21 +3,24 @@ import { merge } from 'lodash';
 import * as React from 'react';
 
 import { generateItemIdsMap } from './generateItemIdsMap';
+import { generatePrefabIdsMap } from './generatePrefabIdsMap';
 import { generateUnitIdsMap } from './generateUnitIdsMap';
 import { validateIngest } from './validateIngest';
 
 import { DEFAULT_ACTION_DATA } from '../constants/action';
 import { DEFAULT_AUGMENT } from '../constants/augment';
+import { DEFAULT_DUNGEON_PREFAB } from '../constants/dungeonPrefab';
 import { DEFAULT_ITEM_DATA } from '../constants/item';
 import { DEFAULT_UNIT } from '../constants/unit';
 import { useGameStore } from '../store/useGameStore';
 import { Action } from '../types/action';
 import { Augment } from '../types/augment';
+import { DungeonPrefab } from '../types/dungeonPrefab';
 import { GameData } from '../types/gameData';
 import { Item } from '../types/item';
 import { Unit } from '../types/unit';
 
-type ErrorType = 'unit' | 'action' | 'augment' | 'item' | 'general';
+type ErrorType = 'unit' | 'action' | 'augment' | 'item' | 'prefab' | 'general';
 type Error = {
   type: ErrorType;
   message: string;
@@ -30,8 +33,10 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
   const setActions = useGameStore.use.setActions();
   const setAugments = useGameStore.use.setAugments();
   const setItems = useGameStore.use.setItems();
+  const setPrefabs = useGameStore.use.setPrefabs();
   const setUnitIds = useGameStore.use.setUnitIds();
   const setItemIds = useGameStore.use.setItemIds();
+  const setPrefabIds = useGameStore.use.setPrefabIds();
   const setLoaded = useGameStore.use.setLoaded();
   const reset = useGameStore.use.reset();
   const lastSaved = useGameStore.use.lastSaved();
@@ -45,9 +50,11 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
         const actions = ingestActionsV2(data.actions);
         const augments = ingestAugmentsV2(data.augments);
         const items = ingestItemsV2(data.items || []);
+        const prefabs = ingestPrefabsV2(data.prefabs || []);
         const unitIds = ingestUnitIds(data);
         const itemIds = ingestItemIds(data);
-        const ingestErrors = validateIngest(units, actions, augments);
+        const prefabIds = ingestPrefabIds(data);
+        const ingestErrors = validateIngest(units, actions, augments, prefabs);
         if (
           lastSaved &&
           data.updatedAt < lastSaved &&
@@ -64,8 +71,10 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           setActions(actions);
           setAugments(augments);
           setItems(items);
+          setPrefabs(prefabs);
           setUnitIds(unitIds);
           setItemIds(itemIds);
+          setPrefabIds(prefabIds);
           setLoaded();
           setLastSaved(data.updatedAt);
           if (onLoaded) {
@@ -88,6 +97,8 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
       setAugments,
       setItems,
       setItemIds,
+      setPrefabs,
+      setPrefabIds,
       setLastSaved,
       setLoaded,
       setUnitIds,
@@ -130,6 +141,22 @@ const ingestItemsV2 = (rawData: Array<Item>) => {
   return itemData;
 };
 
+export const ingestPrefabsV2 = (rawData: Array<DungeonPrefab>) => {
+  const prefabData = {} as Record<string, DungeonPrefab>;
+  rawData.forEach((prefab) => {
+    prefabData[prefab.guid] = merge({}, DEFAULT_DUNGEON_PREFAB, prefab);
+  });
+  return prefabData;
+};
+
 const ingestUnitIds = (rawData: GameData) => generateUnitIdsMap(rawData.units, rawData.unitIds);
 
 const ingestItemIds = (rawData: GameData) => generateItemIdsMap(rawData.items, rawData.itemIds);
+
+export const ingestPrefabIds = (rawData: Partial<GameData>) => {
+  const prefabs = rawData.prefabs || [];
+  // Backward-compat: older exports may omit prefabIds. Derive the order from the
+  // prefabs themselves so ingest -> export never drops the enum id list.
+  const prefabIds = rawData.prefabIds ?? prefabs.map((prefab) => prefab.id);
+  return generatePrefabIdsMap(prefabs, prefabIds);
+};

@@ -89,3 +89,38 @@ export const resizeDungeonPrefabGrid = (
 
 export const serializeDungeonPrefabGrid = (grid: DungeonPrefabGrid): string =>
   grid.map((row) => row.join('')).join('\n');
+
+// Flood-fills the contiguous (4-connected) region of cells sharing the tile at
+// (startX, startY), replacing them with `tile`. Returns the original grid when the
+// start is out of bounds or already the target tile.
+export const floodFillDungeonPrefabGrid = (
+  grid: DungeonPrefabGrid,
+  startX: number,
+  startY: number,
+  tile: DungeonPrefabTile,
+): DungeonPrefabGrid => {
+  const height = grid.length;
+  const width = grid[0]?.length ?? 0;
+
+  if (startX < 0 || startX >= width || startY < 0 || startY >= height) {
+    return grid;
+  }
+
+  const target = grid[startY][startX];
+  if (target === tile) {
+    return grid;
+  }
+
+  const next = grid.map((row) => [...row]);
+  const stack: Array<[number, number]> = [[startX, startY]];
+
+  while (stack.length > 0) {
+    const [x, y] = stack.pop() as [number, number];
+    if (x >= 0 && x < width && y >= 0 && y < height && next[y][x] === target) {
+      next[y][x] = tile;
+      stack.push([x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]);
+    }
+  }
+
+  return next;
+};
