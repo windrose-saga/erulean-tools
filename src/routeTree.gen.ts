@@ -11,6 +11,7 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as DungeonPrefabEditorImport } from './routes/dungeon-prefab-editor'
 import { Route as DamageCalculatorImport } from './routes/damage-calculator'
 import { Route as IndexImport } from './routes/index'
 import { Route as UnitsIndexImport } from './routes/units.index'
@@ -27,6 +28,12 @@ import { Route as ActionsNewImport } from './routes/actions.new'
 import { Route as ActionsActionIdImport } from './routes/actions.$actionId'
 
 // Create/Update Routes
+
+const DungeonPrefabEditorRoute = DungeonPrefabEditorImport.update({
+  id: '/dungeon-prefab-editor',
+  path: '/dungeon-prefab-editor',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const DamageCalculatorRoute = DamageCalculatorImport.update({
   id: '/damage-calculator',
@@ -130,6 +137,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DamageCalculatorImport
       parentRoute: typeof rootRoute
     }
+    '/dungeon-prefab-editor': {
+      id: '/dungeon-prefab-editor'
+      path: '/dungeon-prefab-editor'
+      fullPath: '/dungeon-prefab-editor'
+      preLoaderRoute: typeof DungeonPrefabEditorImport
+      parentRoute: typeof rootRoute
+    }
     '/actions/$actionId': {
       id: '/actions/$actionId'
       path: '/actions/$actionId'
@@ -222,6 +236,7 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/damage-calculator': typeof DamageCalculatorRoute
+  '/dungeon-prefab-editor': typeof DungeonPrefabEditorRoute
   '/actions/$actionId': typeof ActionsActionIdRoute
   '/actions/new': typeof ActionsNewRoute
   '/augments/$augmentId': typeof AugmentsAugmentIdRoute
@@ -239,6 +254,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/damage-calculator': typeof DamageCalculatorRoute
+  '/dungeon-prefab-editor': typeof DungeonPrefabEditorRoute
   '/actions/$actionId': typeof ActionsActionIdRoute
   '/actions/new': typeof ActionsNewRoute
   '/augments/$augmentId': typeof AugmentsAugmentIdRoute
@@ -257,6 +273,7 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/damage-calculator': typeof DamageCalculatorRoute
+  '/dungeon-prefab-editor': typeof DungeonPrefabEditorRoute
   '/actions/$actionId': typeof ActionsActionIdRoute
   '/actions/new': typeof ActionsNewRoute
   '/augments/$augmentId': typeof AugmentsAugmentIdRoute
@@ -276,6 +293,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/damage-calculator'
+    | '/dungeon-prefab-editor'
     | '/actions/$actionId'
     | '/actions/new'
     | '/augments/$augmentId'
@@ -292,6 +310,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/damage-calculator'
+    | '/dungeon-prefab-editor'
     | '/actions/$actionId'
     | '/actions/new'
     | '/augments/$augmentId'
@@ -308,6 +327,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/damage-calculator'
+    | '/dungeon-prefab-editor'
     | '/actions/$actionId'
     | '/actions/new'
     | '/augments/$augmentId'
@@ -326,6 +346,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DamageCalculatorRoute: typeof DamageCalculatorRoute
+  DungeonPrefabEditorRoute: typeof DungeonPrefabEditorRoute
   ActionsActionIdRoute: typeof ActionsActionIdRoute
   ActionsNewRoute: typeof ActionsNewRoute
   AugmentsAugmentIdRoute: typeof AugmentsAugmentIdRoute
@@ -343,6 +364,7 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DamageCalculatorRoute: DamageCalculatorRoute,
+  DungeonPrefabEditorRoute: DungeonPrefabEditorRoute,
   ActionsActionIdRoute: ActionsActionIdRoute,
   ActionsNewRoute: ActionsNewRoute,
   AugmentsAugmentIdRoute: AugmentsAugmentIdRoute,
@@ -369,6 +391,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/damage-calculator",
+        "/dungeon-prefab-editor",
         "/actions/$actionId",
         "/actions/new",
         "/augments/$augmentId",
@@ -388,6 +411,9 @@ export const routeTree = rootRoute
     },
     "/damage-calculator": {
       "filePath": "damage-calculator.tsx"
+    },
+    "/dungeon-prefab-editor": {
+      "filePath": "dungeon-prefab-editor.tsx"
     },
     "/actions/$actionId": {
       "filePath": "actions.$actionId.tsx"
