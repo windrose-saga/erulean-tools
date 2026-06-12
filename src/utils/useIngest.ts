@@ -10,14 +10,14 @@ import { validateIngest } from './validateIngest';
 import { DEFAULT_ACTION_DATA } from '../constants/action';
 import { DEFAULT_AUGMENT } from '../constants/augment';
 import { DEFAULT_DUNGEON_PREFAB } from '../constants/dungeonPrefab';
-import { DEFAULT_ITEM_DATA } from '../constants/item';
+import { DEFAULT_CONSUMABLE_EFFECT, DEFAULT_ITEM_DATA } from '../constants/item';
 import { DEFAULT_UNIT } from '../constants/unit';
 import { useGameStore } from '../store/useGameStore';
 import { Action } from '../types/action';
 import { Augment } from '../types/augment';
 import { DungeonPrefab } from '../types/dungeonPrefab';
 import { GameData } from '../types/gameData';
-import { Item } from '../types/item';
+import { isDurationalEffectClass, Item } from '../types/item';
 import { Unit } from '../types/unit';
 
 type ErrorType = 'unit' | 'action' | 'augment' | 'item' | 'prefab' | 'general';
@@ -133,10 +133,22 @@ const ingestAugmentsV2 = (rawData: Array<Augment>) => {
   return augmentData;
 };
 
-const ingestItemsV2 = (rawData: Array<Item>) => {
+export const ingestItemsV2 = (rawData: Array<Item>) => {
   const itemData = {} as Record<string, Item>;
   rawData.forEach((item) => {
-    itemData[item.guid] = merge({}, DEFAULT_ITEM_DATA, item);
+    const merged: Item = merge({}, DEFAULT_ITEM_DATA, item);
+    // The top-level merge backfills `consumable_props` but not fields inside authored effect
+    // objects (lodash merges arrays by index against an empty default). Backfill each effect
+    // from DEFAULT_CONSUMABLE_EFFECT, and ensure durational effects have a stable save_key so
+    // imported/sparse data matches UI-authored effects (which get a UUID at append-time).
+    merged.consumable_props.effects = merged.consumable_props.effects.map((effect) => {
+      const mergedEffect = merge({}, DEFAULT_CONSUMABLE_EFFECT, effect);
+      if (isDurationalEffectClass(mergedEffect.effect_class) && !mergedEffect.save_key) {
+        mergedEffect.save_key = crypto.randomUUID();
+      }
+      return mergedEffect;
+    });
+    itemData[item.guid] = merged;
   });
   return itemData;
 };

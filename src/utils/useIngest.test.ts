@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
-import { ingestUnitsV2 } from './useIngest';
+import { ingestItemsV2, ingestUnitsV2 } from './useIngest';
 
+import { ConsumableEffect, Item } from '../types/item';
 import { CommanderData, Unit } from '../types/unit';
 
 // Build a raw unit with only the fields a test cares about; ingest fills the
@@ -99,5 +100,77 @@ describe('ingestUnitsV2 commander_data backfill', () => {
     });
 
     expect(unit.commander_data.levels).toHaveLength(1);
+  });
+});
+
+// Build a raw item with only the fields a test cares about; ingest fills the rest from
+// DEFAULT_ITEM_DATA / DEFAULT_CONSUMABLE_EFFECT via lodash `merge`.
+const rawItem = (overrides: Partial<Item>): Item =>
+  ({ guid: 'item-1', id: 'POTION', item_type: 'CONSUMABLE', ...overrides }) as unknown as Item;
+
+const ingestOneItem = (overrides: Partial<Item>): Item =>
+  ingestItemsV2([rawItem(overrides)])['item-1'];
+
+describe('ingestItemsV2 consumable backfill', () => {
+  it('applies full default consumable_props when none is provided', () => {
+    const item = ingestOneItem({});
+
+    expect(item.consumable_props.consumed_on_use).toBe(true);
+    expect(item.consumable_props.effects).toEqual([]);
+  });
+
+  it('backfills missing fields inside a partial effect entry from the effect default', () => {
+    const item = ingestOneItem({
+      consumable_props: {
+        consumed_on_use: false,
+        effects: [
+          { effect_class: 'SPAWN_ENEMIES', spawn_enemies_props: { count: 7 } },
+        ] as unknown as Array<ConsumableEffect>,
+      },
+    });
+
+    const effect = item.consumable_props.effects[0];
+    // authored field preserved...
+    expect(effect.spawn_enemies_props.count).toBe(7);
+    // ...and the rest of the buckets/scalars backfilled from DEFAULT_CONSUMABLE_EFFECT.
+    expect(effect.duration).toBe(1);
+    expect(effect.restore_party_health_props.mode).toBe('FULL');
+    expect(effect.grant_movement_props.moves).toBe(1);
+    expect(item.consumable_props.consumed_on_use).toBe(false);
+  });
+
+  it('generates a save_key for a durational effect that has none', () => {
+    const item = ingestOneItem({
+      consumable_props: {
+        consumed_on_use: true,
+        effects: [
+          { effect_class: 'EXPAND_VISION', expand_vision_props: { bonus_radius: 4 } },
+        ] as unknown as Array<ConsumableEffect>,
+      },
+    });
+
+    const effect = item.consumable_props.effects[0];
+    expect(effect.save_key).toBeTruthy();
+    expect(effect.expand_vision_props.bonus_radius).toBe(4);
+  });
+
+  it('preserves an existing save_key and does not touch instant effects', () => {
+    const item = ingestOneItem({
+      consumable_props: {
+        consumed_on_use: true,
+        effects: [
+          {
+            effect_class: 'BOOST_EXP_RATE',
+            save_key: 'fixed-key',
+            boost_exp_rate_props: { multiplier: 2 },
+          },
+          { effect_class: 'REVEAL_FLOOR' },
+        ] as unknown as Array<ConsumableEffect>,
+      },
+    });
+
+    expect(item.consumable_props.effects[0].save_key).toBe('fixed-key');
+    // Instant effects keep the default empty save_key (unused at runtime).
+    expect(item.consumable_props.effects[1].save_key).toBe('');
   });
 });
