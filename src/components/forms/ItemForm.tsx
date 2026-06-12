@@ -4,10 +4,16 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 
 import { useItems } from '../../store/getters/item';
 import { useGameStore } from '../../store/useGameStore';
-import { Item, ITEM_TYPES } from '../../types/item';
+import {
+  CONSUMABLE_EFFECT_CLASS_DOMAINS,
+  ConsumableEffect,
+  Item,
+  ITEM_TYPES,
+} from '../../types/item';
 import { createSelectOptions } from '../../utils/createSelectOptions';
 import ArraySelect from '../ArraySelect';
 import AugmentEffectFieldArray from '../AugmentEffectFieldArray';
+import ConsumableEffectFieldArray from '../ConsumableEffectFieldArray';
 import LabeledInput from '../LabledInput';
 import LabeledSelect from '../LabledSelect';
 import LootCategoryMultiSelect from '../LootCategoryMultiSelect';
@@ -34,8 +40,24 @@ export const ItemForm: React.FC<{ item: Item }> = ({ item }) => {
 
   const itemType = watch('item_type');
   const isDurational = watch('equipment_props.shared_augment_data.durational');
+  const consumableEffects = watch('consumable_props.effects');
   const buttonText = isDirty ? 'Cancel' : 'Back';
   const initialId = item.id;
+
+  // Mirror Consumable.is_domain_valid(): a consumable needs at least one effect and may not
+  // mix DUNGEON and WORLDMAP effects. Blocks Save so unusable data never reaches game-data.json.
+  const consumableDomainError = React.useMemo<string | null>(() => {
+    if (itemType !== 'CONSUMABLE') return null;
+    const effects: Array<ConsumableEffect> = consumableEffects ?? [];
+    if (effects.length === 0) return 'A consumable must have at least one effect.';
+    const domains = new Set(
+      effects.map((effect) => CONSUMABLE_EFFECT_CLASS_DOMAINS[effect.effect_class]),
+    );
+    if (domains.has('DUNGEON') && domains.has('WORLDMAP')) {
+      return 'A consumable cannot mix DUNGEON and WORLDMAP effects.';
+    }
+    return null;
+  }, [itemType, consumableEffects]);
 
   const validateId = React.useCallback(
     (id: string) => {
@@ -109,6 +131,24 @@ export const ItemForm: React.FC<{ item: Item }> = ({ item }) => {
             </div>
           </>
         );
+      case 'CONSUMABLE':
+        return (
+          <>
+            <div className="grid grid-cols-1 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+              <LabeledInput
+                id="consumable_props.consumed_on_use"
+                label="Consumed On Use"
+                type="checkbox"
+              />
+            </div>
+            {consumableDomainError && (
+              <p className="text-red-500 mb-3">{consumableDomainError}</p>
+            )}
+            <div className="border rounded gap-3 mb-6 p-6">
+              <ConsumableEffectFieldArray<Item> name="consumable_props.effects" label="Effects" />
+            </div>
+          </>
+        );
       case 'ITEM':
         return (
           <div className="grid grid-cols-1 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
@@ -118,7 +158,7 @@ export const ItemForm: React.FC<{ item: Item }> = ({ item }) => {
       default:
         return <p>Encountered a problem. Not a valid Item Type.</p>;
     }
-  }, [itemType, isDurational]);
+  }, [itemType, isDurational, consumableDomainError]);
 
   return (
     <FormProvider {...methods}>
@@ -153,7 +193,7 @@ export const ItemForm: React.FC<{ item: Item }> = ({ item }) => {
               <button
                 className="bg-gray-500 active:bg-gray-600 disabled:bg-gray-300 border-white rounded p-3 w-36"
                 type="submit"
-                disabled={!isDirty || !isValid}
+                disabled={!isDirty || !isValid || !!consumableDomainError}
               >
                 Save
               </button>
