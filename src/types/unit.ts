@@ -11,16 +11,16 @@ export const ROLES = [
 type Roles = typeof ROLES;
 export type Role = Roles[number];
 
-export const FACTIONS = ['ERULEAN', 'MARCH'] as const satisfies string[];
-type Factions = typeof FACTIONS;
-export type Faction = Factions[number];
+export const GENERATOR_TAGS = ['ERULEAN', 'MARCH'] as const satisfies string[];
+type GeneratorTags = typeof GENERATOR_TAGS;
+export type GeneratorTag = GeneratorTags[number];
 
 export type Unit = {
   guid: string;
   id: string;
   name: string;
   role: Role;
-  factions: Array<Faction>;
+  generator_tags: Array<GeneratorTag>;
   description: string;
   max_hp: number;
   starting_hp: number;
