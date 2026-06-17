@@ -5,7 +5,12 @@ export const ITEM_TYPES = ['ITEM', 'EQUIPMENT', 'CONSUMABLE'] as const satisfies
 type ItemTypes = typeof ITEM_TYPES;
 export type ItemType = ItemTypes[number];
 
-export const LOOT_CATEGORIES = [
+// Loot categories are now a data-driven vocabulary authored in the tools and persisted in
+// game-data.json (see `lootCategoryIds`/`removedLootCategoryIds` on GameData). This constant is
+// only the seed/default set used to migrate legacy files that predate those fields, and the
+// protected built-ins that may not be renamed or removed (their enum ordinals back hand-authored
+// Godot resources). A LootCategory is therefore just a string at the type level.
+export const SEED_LOOT_CATEGORIES = [
   'WEAPON',
   'ARMOR',
   'MATERIAL',
@@ -13,8 +18,7 @@ export const LOOT_CATEGORIES = [
   'WOODMERE',
   'CONSUMABLE',
 ] as const satisfies string[];
-type LootCategories = typeof LOOT_CATEGORIES;
-export type LootCategory = LootCategories[number];
+export type LootCategory = string;
 
 export type Item = {
   guid: string;
@@ -70,36 +74,42 @@ export const CONSUMABLE_EFFECT_CLASSES = [
 type ConsumableEffectClasses = typeof CONSUMABLE_EFFECT_CLASSES;
 export type ConsumableEffectClass = ConsumableEffectClasses[number];
 
-export const CONSUMABLE_EFFECT_DOMAINS = ['GLOBAL', 'DUNGEON', 'WORLDMAP'] as const satisfies string[];
+export const CONSUMABLE_EFFECT_DOMAINS = [
+  'GLOBAL',
+  'DUNGEON',
+  'WORLDMAP',
+] as const satisfies string[];
 type ConsumableEffectDomains = typeof CONSUMABLE_EFFECT_DOMAINS;
 export type ConsumableEffectDomain = ConsumableEffectDomains[number];
 
 // Domain each effect declares in Godot (get_domain()). Drives editor domain-validity:
 // a consumable may not mix DUNGEON and WORLDMAP effects (Consumable.is_domain_valid()).
-export const CONSUMABLE_EFFECT_CLASS_DOMAINS: Record<ConsumableEffectClass, ConsumableEffectDomain> =
-  {
-    GRANT_MOVEMENT: 'WORLDMAP',
-    GRANT_ACTION: 'WORLDMAP',
-    WARP_TO_RESPAWN: 'WORLDMAP',
-    REDUCE_ARMY_AGGRO: 'WORLDMAP',
-    RESTORE_PARTY_HEALTH: 'DUNGEON',
-    REVEAL_FLOOR: 'DUNGEON',
-    EXPAND_VISION: 'DUNGEON',
-    MARK_CHESTS: 'DUNGEON',
-    MARK_ENEMIES: 'DUNGEON',
-    FREEZE_ENEMIES: 'DUNGEON',
-    DISABLE_ENEMY_AGGRO: 'DUNGEON',
-    REDUCE_ENEMY_VISION: 'DUNGEON',
-    ESCAPE_ROPE: 'DUNGEON',
-    UNLOCK_DOORS: 'DUNGEON',
-    SPAWN_ENEMIES: 'DUNGEON',
-    EXTRA_FLOOR: 'DUNGEON',
-    REDRAW_FLOOR: 'DUNGEON',
-    NEXT_BATTLE_AUGMENTS: 'GLOBAL',
-    BOOST_DROP_RATE: 'GLOBAL',
-    BOOST_EXP_RATE: 'GLOBAL',
-    REDUCE_MORTALITY: 'GLOBAL',
-  };
+export const CONSUMABLE_EFFECT_CLASS_DOMAINS: Record<
+  ConsumableEffectClass,
+  ConsumableEffectDomain
+> = {
+  GRANT_MOVEMENT: 'WORLDMAP',
+  GRANT_ACTION: 'WORLDMAP',
+  WARP_TO_RESPAWN: 'WORLDMAP',
+  REDUCE_ARMY_AGGRO: 'WORLDMAP',
+  RESTORE_PARTY_HEALTH: 'DUNGEON',
+  REVEAL_FLOOR: 'DUNGEON',
+  EXPAND_VISION: 'DUNGEON',
+  MARK_CHESTS: 'DUNGEON',
+  MARK_ENEMIES: 'DUNGEON',
+  FREEZE_ENEMIES: 'DUNGEON',
+  DISABLE_ENEMY_AGGRO: 'DUNGEON',
+  REDUCE_ENEMY_VISION: 'DUNGEON',
+  ESCAPE_ROPE: 'DUNGEON',
+  UNLOCK_DOORS: 'DUNGEON',
+  SPAWN_ENEMIES: 'DUNGEON',
+  EXTRA_FLOOR: 'DUNGEON',
+  REDRAW_FLOOR: 'DUNGEON',
+  NEXT_BATTLE_AUGMENTS: 'GLOBAL',
+  BOOST_DROP_RATE: 'GLOBAL',
+  BOOST_EXP_RATE: 'GLOBAL',
+  REDUCE_MORTALITY: 'GLOBAL',
+};
 
 // Effects extending DurationalConsumableEffect (carry duration + save_key). The form shows
 // the duration input for these, except NEXT_BATTLE_AUGMENTS (NEXT_BATTLE clock ignores it).

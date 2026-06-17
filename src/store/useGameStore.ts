@@ -5,16 +5,22 @@ import { immer } from 'zustand/middleware/immer';
 import { Action } from '../types/action';
 import { Augment } from '../types/augment';
 import { DungeonPrefab } from '../types/dungeonPrefab';
-import { Item } from '../types/item';
+import { Item, SEED_LOOT_CATEGORIES } from '../types/item';
 import {
   DungeonGridLevelClass,
   ExpLevelClass,
   GridLevelClass,
   PvLevelClass,
 } from '../types/levelClass';
-import { Unit } from '../types/unit';
+import { SEED_GENERATOR_TAGS, Unit } from '../types/unit';
 import { createSelectors } from '../utils/createSelectors';
 import env from '../utils/env';
+import {
+  isProtectedGeneratorTag,
+  isProtectedLootCategory,
+  isValidVocabId,
+  normalizeVocabId,
+} from '../utils/vocabId';
 
 type State = {
   loaded: boolean;
@@ -36,6 +42,13 @@ type State = {
   pvLevelClassIds: Map<string, string>;
   gridLevelClassIds: Map<string, string>;
   dungeonGridLevelClassIds: Map<string, string>;
+  // Append-only ordered vocabularies (index = Godot enum ordinal). `removed*` are tombstoned
+  // names: hidden from the UI and stripped from items/units, but never spliced out of the
+  // ordered list so existing ordinals stay stable.
+  lootCategoryIds: string[];
+  removedLootCategoryIds: string[];
+  generatorTagIds: string[];
+  removedGeneratorTagIds: string[];
 };
 
 type Actions = {
@@ -68,6 +81,14 @@ type Actions = {
   setDungeonGridLevelClass: (levelClass: DungeonGridLevelClass) => void;
   setLastSaved: (savedAt: number) => void;
   setExported: () => void;
+  setLootCategoryIds: (full: string[], removed: string[]) => void;
+  addLootCategory: (name: string) => void;
+  removeLootCategory: (name: string) => void;
+  renameLootCategory: (oldName: string, newName: string) => void;
+  setGeneratorTagIds: (full: string[], removed: string[]) => void;
+  addGeneratorTag: (name: string) => void;
+  removeGeneratorTag: (name: string) => void;
+  renameGeneratorTag: (oldName: string, newName: string) => void;
 };
 
 const initialState: State = {
@@ -90,6 +111,10 @@ const initialState: State = {
   pvLevelClassIds: new Map<string, string>(),
   gridLevelClassIds: new Map<string, string>(),
   dungeonGridLevelClassIds: new Map<string, string>(),
+  lootCategoryIds: [...SEED_LOOT_CATEGORIES],
+  removedLootCategoryIds: [],
+  generatorTagIds: [...SEED_GENERATOR_TAGS],
+  removedGeneratorTagIds: [],
 };
 
 export type GameStore = State & Actions;
@@ -222,6 +247,130 @@ const useGameStoreBase = create<GameStore>()(
         set((state) => {
           state.dungeonGridLevelClasses[levelClass.guid] = levelClass;
           state.dungeonGridLevelClassIds.set(levelClass.guid, levelClass.id);
+        }),
+      setLootCategoryIds: (full, removed) =>
+        set((state) => {
+          state.lootCategoryIds = [...full];
+          state.removedLootCategoryIds = [...removed];
+        }),
+      addLootCategory: (name) =>
+        set((state) => {
+          const normalized = normalizeVocabId(name);
+          if (!isValidVocabId(normalized)) {
+            return;
+          }
+          // Re-adding a tombstoned value revives its existing slot rather than appending a dup.
+          const tombstoneIndex = state.removedLootCategoryIds.indexOf(normalized);
+          if (tombstoneIndex !== -1) {
+            state.removedLootCategoryIds.splice(tombstoneIndex, 1);
+            return;
+          }
+          if (!state.lootCategoryIds.includes(normalized)) {
+            state.lootCategoryIds.push(normalized);
+          }
+        }),
+      removeLootCategory: (name) =>
+        set((state) => {
+          if (isProtectedLootCategory(name) || !state.lootCategoryIds.includes(name)) {
+            return;
+          }
+          if (!state.removedLootCategoryIds.includes(name)) {
+            state.removedLootCategoryIds.push(name);
+          }
+          // Cascade-strip the tombstoned value from every item that referenced it.
+          Object.values(state.items).forEach((item) => {
+            if (item.loot_categories.includes(name)) {
+              item.loot_categories = item.loot_categories.filter((category) => category !== name);
+            }
+          });
+        }),
+      renameLootCategory: (oldName, newName) =>
+        set((state) => {
+          const normalized = normalizeVocabId(newName);
+          if (
+            isProtectedLootCategory(oldName) ||
+            !isValidVocabId(normalized) ||
+            !state.lootCategoryIds.includes(oldName)
+          ) {
+            return;
+          }
+          // Reject collision with any existing name (active or tombstoned) other than a no-op.
+          if (normalized !== oldName && state.lootCategoryIds.includes(normalized)) {
+            return;
+          }
+          // Rename in place: the ordinal (index) is preserved.
+          state.lootCategoryIds[state.lootCategoryIds.indexOf(oldName)] = normalized;
+          const removedIndex = state.removedLootCategoryIds.indexOf(oldName);
+          if (removedIndex !== -1) {
+            state.removedLootCategoryIds[removedIndex] = normalized;
+          }
+          Object.values(state.items).forEach((item) => {
+            if (item.loot_categories.includes(oldName)) {
+              item.loot_categories = item.loot_categories.map((category) =>
+                category === oldName ? normalized : category,
+              );
+            }
+          });
+        }),
+      setGeneratorTagIds: (full, removed) =>
+        set((state) => {
+          state.generatorTagIds = [...full];
+          state.removedGeneratorTagIds = [...removed];
+        }),
+      addGeneratorTag: (name) =>
+        set((state) => {
+          const normalized = normalizeVocabId(name);
+          if (!isValidVocabId(normalized)) {
+            return;
+          }
+          const tombstoneIndex = state.removedGeneratorTagIds.indexOf(normalized);
+          if (tombstoneIndex !== -1) {
+            state.removedGeneratorTagIds.splice(tombstoneIndex, 1);
+            return;
+          }
+          if (!state.generatorTagIds.includes(normalized)) {
+            state.generatorTagIds.push(normalized);
+          }
+        }),
+      removeGeneratorTag: (name) =>
+        set((state) => {
+          if (isProtectedGeneratorTag(name) || !state.generatorTagIds.includes(name)) {
+            return;
+          }
+          if (!state.removedGeneratorTagIds.includes(name)) {
+            state.removedGeneratorTagIds.push(name);
+          }
+          Object.values(state.units).forEach((unit) => {
+            if (unit.generator_tags.includes(name)) {
+              unit.generator_tags = unit.generator_tags.filter((tag) => tag !== name);
+            }
+          });
+        }),
+      renameGeneratorTag: (oldName, newName) =>
+        set((state) => {
+          const normalized = normalizeVocabId(newName);
+          if (
+            isProtectedGeneratorTag(oldName) ||
+            !isValidVocabId(normalized) ||
+            !state.generatorTagIds.includes(oldName)
+          ) {
+            return;
+          }
+          if (normalized !== oldName && state.generatorTagIds.includes(normalized)) {
+            return;
+          }
+          state.generatorTagIds[state.generatorTagIds.indexOf(oldName)] = normalized;
+          const removedIndex = state.removedGeneratorTagIds.indexOf(oldName);
+          if (removedIndex !== -1) {
+            state.removedGeneratorTagIds[removedIndex] = normalized;
+          }
+          Object.values(state.units).forEach((unit) => {
+            if (unit.generator_tags.includes(oldName)) {
+              unit.generator_tags = unit.generator_tags.map((tag) =>
+                tag === oldName ? normalized : tag,
+              );
+            }
+          });
         }),
     })),
     {

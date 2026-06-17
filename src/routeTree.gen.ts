@@ -16,8 +16,10 @@ import { Route as IndexImport } from './routes/index'
 import { Route as UnitsIndexImport } from './routes/units.index'
 import { Route as PvLevelClassesIndexImport } from './routes/pv-level-classes.index'
 import { Route as PrefabsIndexImport } from './routes/prefabs.index'
+import { Route as LootCategoriesIndexImport } from './routes/loot-categories.index'
 import { Route as ItemsIndexImport } from './routes/items.index'
 import { Route as GridLevelClassesIndexImport } from './routes/grid-level-classes.index'
+import { Route as GeneratorTagsIndexImport } from './routes/generator-tags.index'
 import { Route as ExpLevelClassesIndexImport } from './routes/exp-level-classes.index'
 import { Route as DungeonGridLevelClassesIndexImport } from './routes/dungeon-grid-level-classes.index'
 import { Route as AugmentsIndexImport } from './routes/augments.index'
@@ -73,6 +75,12 @@ const PrefabsIndexRoute = PrefabsIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const LootCategoriesIndexRoute = LootCategoriesIndexImport.update({
+  id: '/loot-categories/',
+  path: '/loot-categories/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const ItemsIndexRoute = ItemsIndexImport.update({
   id: '/items/',
   path: '/items/',
@@ -82,6 +90,12 @@ const ItemsIndexRoute = ItemsIndexImport.update({
 const GridLevelClassesIndexRoute = GridLevelClassesIndexImport.update({
   id: '/grid-level-classes/',
   path: '/grid-level-classes/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GeneratorTagsIndexRoute = GeneratorTagsIndexImport.update({
+  id: '/generator-tags/',
+  path: '/generator-tags/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -392,6 +406,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExpLevelClassesIndexImport
       parentRoute: typeof rootRoute
     }
+    '/generator-tags/': {
+      id: '/generator-tags/'
+      path: '/generator-tags'
+      fullPath: '/generator-tags'
+      preLoaderRoute: typeof GeneratorTagsIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/grid-level-classes/': {
       id: '/grid-level-classes/'
       path: '/grid-level-classes'
@@ -404,6 +425,13 @@ declare module '@tanstack/react-router' {
       path: '/items'
       fullPath: '/items'
       preLoaderRoute: typeof ItemsIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/loot-categories/': {
+      id: '/loot-categories/'
+      path: '/loot-categories'
+      fullPath: '/loot-categories'
+      preLoaderRoute: typeof LootCategoriesIndexImport
       parentRoute: typeof rootRoute
     }
     '/prefabs/': {
@@ -457,8 +485,10 @@ export interface FileRoutesByFullPath {
   '/augments': typeof AugmentsIndexRoute
   '/dungeon-grid-level-classes': typeof DungeonGridLevelClassesIndexRoute
   '/exp-level-classes': typeof ExpLevelClassesIndexRoute
+  '/generator-tags': typeof GeneratorTagsIndexRoute
   '/grid-level-classes': typeof GridLevelClassesIndexRoute
   '/items': typeof ItemsIndexRoute
+  '/loot-categories': typeof LootCategoriesIndexRoute
   '/prefabs': typeof PrefabsIndexRoute
   '/pv-level-classes': typeof PvLevelClassesIndexRoute
   '/units': typeof UnitsIndexRoute
@@ -489,8 +519,10 @@ export interface FileRoutesByTo {
   '/augments': typeof AugmentsIndexRoute
   '/dungeon-grid-level-classes': typeof DungeonGridLevelClassesIndexRoute
   '/exp-level-classes': typeof ExpLevelClassesIndexRoute
+  '/generator-tags': typeof GeneratorTagsIndexRoute
   '/grid-level-classes': typeof GridLevelClassesIndexRoute
   '/items': typeof ItemsIndexRoute
+  '/loot-categories': typeof LootCategoriesIndexRoute
   '/prefabs': typeof PrefabsIndexRoute
   '/pv-level-classes': typeof PvLevelClassesIndexRoute
   '/units': typeof UnitsIndexRoute
@@ -522,8 +554,10 @@ export interface FileRoutesById {
   '/augments/': typeof AugmentsIndexRoute
   '/dungeon-grid-level-classes/': typeof DungeonGridLevelClassesIndexRoute
   '/exp-level-classes/': typeof ExpLevelClassesIndexRoute
+  '/generator-tags/': typeof GeneratorTagsIndexRoute
   '/grid-level-classes/': typeof GridLevelClassesIndexRoute
   '/items/': typeof ItemsIndexRoute
+  '/loot-categories/': typeof LootCategoriesIndexRoute
   '/prefabs/': typeof PrefabsIndexRoute
   '/pv-level-classes/': typeof PvLevelClassesIndexRoute
   '/units/': typeof UnitsIndexRoute
@@ -556,8 +590,10 @@ export interface FileRouteTypes {
     | '/augments'
     | '/dungeon-grid-level-classes'
     | '/exp-level-classes'
+    | '/generator-tags'
     | '/grid-level-classes'
     | '/items'
+    | '/loot-categories'
     | '/prefabs'
     | '/pv-level-classes'
     | '/units'
@@ -587,8 +623,10 @@ export interface FileRouteTypes {
     | '/augments'
     | '/dungeon-grid-level-classes'
     | '/exp-level-classes'
+    | '/generator-tags'
     | '/grid-level-classes'
     | '/items'
+    | '/loot-categories'
     | '/prefabs'
     | '/pv-level-classes'
     | '/units'
@@ -618,8 +656,10 @@ export interface FileRouteTypes {
     | '/augments/'
     | '/dungeon-grid-level-classes/'
     | '/exp-level-classes/'
+    | '/generator-tags/'
     | '/grid-level-classes/'
     | '/items/'
+    | '/loot-categories/'
     | '/prefabs/'
     | '/pv-level-classes/'
     | '/units/'
@@ -651,8 +691,10 @@ export interface RootRouteChildren {
   AugmentsIndexRoute: typeof AugmentsIndexRoute
   DungeonGridLevelClassesIndexRoute: typeof DungeonGridLevelClassesIndexRoute
   ExpLevelClassesIndexRoute: typeof ExpLevelClassesIndexRoute
+  GeneratorTagsIndexRoute: typeof GeneratorTagsIndexRoute
   GridLevelClassesIndexRoute: typeof GridLevelClassesIndexRoute
   ItemsIndexRoute: typeof ItemsIndexRoute
+  LootCategoriesIndexRoute: typeof LootCategoriesIndexRoute
   PrefabsIndexRoute: typeof PrefabsIndexRoute
   PvLevelClassesIndexRoute: typeof PvLevelClassesIndexRoute
   UnitsIndexRoute: typeof UnitsIndexRoute
@@ -683,8 +725,10 @@ const rootRouteChildren: RootRouteChildren = {
   AugmentsIndexRoute: AugmentsIndexRoute,
   DungeonGridLevelClassesIndexRoute: DungeonGridLevelClassesIndexRoute,
   ExpLevelClassesIndexRoute: ExpLevelClassesIndexRoute,
+  GeneratorTagsIndexRoute: GeneratorTagsIndexRoute,
   GridLevelClassesIndexRoute: GridLevelClassesIndexRoute,
   ItemsIndexRoute: ItemsIndexRoute,
+  LootCategoriesIndexRoute: LootCategoriesIndexRoute,
   PrefabsIndexRoute: PrefabsIndexRoute,
   PvLevelClassesIndexRoute: PvLevelClassesIndexRoute,
   UnitsIndexRoute: UnitsIndexRoute,
@@ -724,8 +768,10 @@ export const routeTree = rootRoute
         "/augments/",
         "/dungeon-grid-level-classes/",
         "/exp-level-classes/",
+        "/generator-tags/",
         "/grid-level-classes/",
         "/items/",
+        "/loot-categories/",
         "/prefabs/",
         "/pv-level-classes/",
         "/units/"
@@ -803,11 +849,17 @@ export const routeTree = rootRoute
     "/exp-level-classes/": {
       "filePath": "exp-level-classes.index.tsx"
     },
+    "/generator-tags/": {
+      "filePath": "generator-tags.index.tsx"
+    },
     "/grid-level-classes/": {
       "filePath": "grid-level-classes.index.tsx"
     },
     "/items/": {
       "filePath": "items.index.tsx"
+    },
+    "/loot-categories/": {
+      "filePath": "loot-categories.index.tsx"
     },
     "/prefabs/": {
       "filePath": "prefabs.index.tsx"

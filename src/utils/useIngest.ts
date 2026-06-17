@@ -24,9 +24,9 @@ import { Action } from '../types/action';
 import { Augment } from '../types/augment';
 import { DungeonPrefab } from '../types/dungeonPrefab';
 import { GameData } from '../types/gameData';
-import { isDurationalEffectClass, Item } from '../types/item';
+import { isDurationalEffectClass, Item, SEED_LOOT_CATEGORIES } from '../types/item';
 import { IntLevelClass, VectorLevelClass } from '../types/levelClass';
-import { Unit } from '../types/unit';
+import { SEED_GENERATOR_TAGS, Unit } from '../types/unit';
 
 type ErrorType = 'unit' | 'action' | 'augment' | 'item' | 'prefab' | 'levelClass' | 'general';
 type Error = {
@@ -53,6 +53,8 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
   const setPvLevelClassIds = useGameStore.use.setPvLevelClassIds();
   const setGridLevelClassIds = useGameStore.use.setGridLevelClassIds();
   const setDungeonGridLevelClassIds = useGameStore.use.setDungeonGridLevelClassIds();
+  const setLootCategoryIds = useGameStore.use.setLootCategoryIds();
+  const setGeneratorTagIds = useGameStore.use.setGeneratorTagIds();
   const setLoaded = useGameStore.use.setLoaded();
   const reset = useGameStore.use.reset();
   const lastSaved = useGameStore.use.lastSaved();
@@ -92,12 +94,33 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           Object.values(dungeonGridLevelClasses),
           data.dungeonGridLevelClassIds,
         );
-        const ingestErrors = validateIngest(units, actions, augments, prefabs, {
-          expLevelClasses,
-          pvLevelClasses,
-          gridLevelClasses,
-          dungeonGridLevelClasses,
-        });
+        // Presence-based legacy fallback: a missing field means a pre-vocabulary file (seed the
+        // defaults); an explicit empty array must stay empty (so `|| defaults` would be wrong).
+        const lootCategoryIds =
+          data.lootCategoryIds === undefined ? [...SEED_LOOT_CATEGORIES] : data.lootCategoryIds;
+        const removedLootCategoryIds = data.removedLootCategoryIds ?? [];
+        const generatorTagIds =
+          data.generatorTagIds === undefined ? [...SEED_GENERATOR_TAGS] : data.generatorTagIds;
+        const removedGeneratorTagIds = data.removedGeneratorTagIds ?? [];
+        const ingestErrors = validateIngest(
+          units,
+          actions,
+          augments,
+          prefabs,
+          {
+            expLevelClasses,
+            pvLevelClasses,
+            gridLevelClasses,
+            dungeonGridLevelClasses,
+          },
+          {
+            items,
+            lootCategoryIds,
+            removedLootCategoryIds,
+            generatorTagIds,
+            removedGeneratorTagIds,
+          },
+        );
         if (
           lastSaved &&
           data.updatedAt < lastSaved &&
@@ -126,6 +149,8 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           setPvLevelClassIds(pvLevelClassIds);
           setGridLevelClassIds(gridLevelClassIds);
           setDungeonGridLevelClassIds(dungeonGridLevelClassIds);
+          setLootCategoryIds(lootCategoryIds, removedLootCategoryIds);
+          setGeneratorTagIds(generatorTagIds, removedGeneratorTagIds);
           setLoaded();
           setLastSaved(data.updatedAt);
           if (onLoaded) {
@@ -162,6 +187,8 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
       setLoaded,
       setUnitIds,
       setUnits,
+      setLootCategoryIds,
+      setGeneratorTagIds,
     ],
   );
 

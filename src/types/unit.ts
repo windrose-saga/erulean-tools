@@ -11,9 +11,12 @@ export const ROLES = [
 type Roles = typeof ROLES;
 export type Role = Roles[number];
 
-export const GENERATOR_TAGS = ['ERULEAN', 'MARCH'] as const satisfies string[];
-type GeneratorTags = typeof GENERATOR_TAGS;
-export type GeneratorTag = GeneratorTags[number];
+// Generator tags are a data-driven vocabulary authored in the tools and persisted in
+// game-data.json (`generatorTagIds`/`removedGeneratorTagIds`). This constant is only the
+// seed/default set for migrating legacy files, plus the protected built-ins that may not be
+// renamed or removed. A GeneratorTag is just a string at the type level.
+export const SEED_GENERATOR_TAGS = ['ERULEAN', 'MARCH'] as const satisfies string[];
+export type GeneratorTag = string;
 
 export type Unit = {
   guid: string;

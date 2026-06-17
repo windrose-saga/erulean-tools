@@ -109,6 +109,22 @@ function RootComponent() {
               >
                 Dungeon Grid Classes
               </Link>
+              <Link
+                to="/loot-categories"
+                activeProps={{
+                  className: 'font-bold',
+                }}
+              >
+                Loot Categories
+              </Link>
+              <Link
+                to="/generator-tags"
+                activeProps={{
+                  className: 'font-bold',
+                }}
+              >
+                Generator Tags
+              </Link>
             </>
           )}
           <Link

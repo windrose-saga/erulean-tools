@@ -1,10 +1,13 @@
+import { isValidVocabId } from './vocabId';
+
 import { Action } from '../types/action';
 import { Augment } from '../types/augment';
 import { DungeonPrefab } from '../types/dungeonPrefab';
+import { Item } from '../types/item';
 import { IntLevelClass, VectorLevelClass } from '../types/levelClass';
 import { Unit } from '../types/unit';
 
-type ErrorType = 'unit' | 'action' | 'augment' | 'prefab' | 'levelClass';
+type ErrorType = 'unit' | 'action' | 'augment' | 'prefab' | 'levelClass' | 'item';
 type Error = {
   type: ErrorType;
   message: string;
@@ -17,18 +20,114 @@ type LevelClassRecords = {
   dungeonGridLevelClasses: Record<string, VectorLevelClass>;
 };
 
+type VocabularyInput = {
+  items: Record<string, Item>;
+  lootCategoryIds: string[];
+  removedLootCategoryIds: string[];
+  generatorTagIds: string[];
+  removedGeneratorTagIds: string[];
+};
+
 export const validateIngest = (
   units: Record<string, Unit>,
   actions: Record<string, Action>,
   augments: Record<string, Augment>,
   prefabs: Record<string, DungeonPrefab> = {},
   levelClasses?: LevelClassRecords,
+  vocabularies?: VocabularyInput,
 ) => {
   const unitErrors = validateUnits(units, actions, augments);
   const actionErrors = validateActions(actions, augments, units);
   const prefabErrors = validatePrefabs(prefabs);
   const levelClassErrors = levelClasses ? validateLevelClasses(levelClasses) : [];
-  return [...unitErrors, ...actionErrors, ...prefabErrors, ...levelClassErrors];
+  const vocabularyErrors = vocabularies ? validateVocabularies(units, vocabularies) : [];
+  return [
+    ...unitErrors,
+    ...actionErrors,
+    ...prefabErrors,
+    ...levelClassErrors,
+    ...vocabularyErrors,
+  ];
+};
+
+// Loot-category / generator-tag vocabularies feed Godot enum codegen (Item/UnitConstants.gd) and
+// their ordinals back persisted resources, so these are hard errors: invalid identifiers,
+// duplicates, a tombstone list that is not a clean subset, or any item/unit referencing an
+// unknown OR tombstoned value.
+const validateVocabularies = (units: Record<string, Unit>, vocab: VocabularyInput) => {
+  const errors: Error[] = [];
+
+  const checkList = (
+    type: ErrorType,
+    label: string,
+    full: string[],
+    removed: string[],
+    references: Array<{ owner: string; values: string[] }>,
+  ) => {
+    full.forEach((name) => {
+      if (!isValidVocabId(name)) {
+        errors.push({
+          type,
+          message: `${label} '${name}' must be UPPER_CASE letters/digits/underscores starting with a letter or underscore`,
+        });
+      }
+    });
+    const uniqueFull = new Set(full);
+    if (full.length !== uniqueFull.size) {
+      const duplicates = full.filter((name, index) => full.indexOf(name) !== index);
+      errors.push({ type, message: `Duplicate ${label} values found: ${duplicates.join(', ')}` });
+    }
+    const uniqueRemoved = new Set(removed);
+    if (removed.length !== uniqueRemoved.size) {
+      const duplicates = removed.filter((name, index) => removed.indexOf(name) !== index);
+      errors.push({
+        type,
+        message: `Duplicate removed ${label} values found: ${duplicates.join(', ')}`,
+      });
+    }
+    removed.forEach((name) => {
+      if (!uniqueFull.has(name)) {
+        errors.push({
+          type,
+          message: `Removed ${label} '${name}' is not present in the full list`,
+        });
+      }
+    });
+
+    const activeSet = new Set(full.filter((name) => !uniqueRemoved.has(name)));
+    references.forEach(({ owner, values }) => {
+      values.forEach((value) => {
+        if (!uniqueFull.has(value)) {
+          errors.push({ type, message: `${owner} references unknown ${label} '${value}'` });
+        } else if (!activeSet.has(value)) {
+          errors.push({ type, message: `${owner} references removed ${label} '${value}'` });
+        }
+      });
+    });
+  };
+
+  checkList(
+    'item',
+    'loot category',
+    vocab.lootCategoryIds,
+    vocab.removedLootCategoryIds,
+    Object.values(vocab.items).map((item) => ({
+      owner: `Item ${item.id}`,
+      values: item.loot_categories,
+    })),
+  );
+  checkList(
+    'unit',
+    'generator tag',
+    vocab.generatorTagIds,
+    vocab.removedGeneratorTagIds,
+    Object.values(units).map((unit) => ({
+      owner: `Unit ${unit.id}`,
+      values: unit.generator_tags,
+    })),
+  );
+
+  return errors;
 };
 
 // Level-class ids feed Godot enum codegen (LevelClassConstants.gd), so invalid
