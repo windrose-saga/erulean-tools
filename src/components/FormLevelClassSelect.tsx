@@ -34,10 +34,7 @@ const FormLevelClassSelect = <T extends FieldValues>({
   const list = byKind[kind];
 
   const options = React.useMemo(
-    () =>
-      list
-        .map((levelClass) => ({ name: levelClass.name, value: levelClass.guid }))
-        .concat([{ name: '(None)', value: '' }]),
+    () => list.map((levelClass) => ({ name: levelClass.name, value: levelClass.guid })),
     [list],
   );
 
