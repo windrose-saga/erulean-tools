@@ -14,7 +14,16 @@ interface ListProps<T> {
   defaultIndex: keyof T;
   onRowClick?: (item: T) => void;
   searchFields: Array<keyof T>;
-  objectCreationType: 'unit' | 'action' | 'augment' | 'item' | 'prefab';
+  objectCreationType:
+    | 'unit'
+    | 'action'
+    | 'augment'
+    | 'item'
+    | 'prefab'
+    | 'expLevelClass'
+    | 'pvLevelClass'
+    | 'gridLevelClass'
+    | 'dungeonGridLevelClass';
 }
 
 export const List = <T extends object>({
@@ -88,6 +97,14 @@ export const List = <T extends object>({
         return '/items/new';
       case 'prefab':
         return '/prefabs/new';
+      case 'expLevelClass':
+        return '/exp-level-classes/new';
+      case 'pvLevelClass':
+        return '/pv-level-classes/new';
+      case 'gridLevelClass':
+        return '/grid-level-classes/new';
+      case 'dungeonGridLevelClass':
+        return '/dungeon-grid-level-classes/new';
       default:
         assertUnreachable(objectCreationType);
         return '/';

@@ -1,12 +1,20 @@
 import { Action } from '../types/action';
 import { Augment } from '../types/augment';
 import { DungeonPrefab } from '../types/dungeonPrefab';
+import { IntLevelClass, VectorLevelClass } from '../types/levelClass';
 import { Unit } from '../types/unit';
 
-type ErrorType = 'unit' | 'action' | 'augment' | 'prefab';
+type ErrorType = 'unit' | 'action' | 'augment' | 'prefab' | 'levelClass';
 type Error = {
   type: ErrorType;
   message: string;
+};
+
+type LevelClassRecords = {
+  expLevelClasses: Record<string, IntLevelClass>;
+  pvLevelClasses: Record<string, IntLevelClass>;
+  gridLevelClasses: Record<string, VectorLevelClass>;
+  dungeonGridLevelClasses: Record<string, VectorLevelClass>;
 };
 
 export const validateIngest = (
@@ -14,11 +22,47 @@ export const validateIngest = (
   actions: Record<string, Action>,
   augments: Record<string, Augment>,
   prefabs: Record<string, DungeonPrefab> = {},
+  levelClasses?: LevelClassRecords,
 ) => {
   const unitErrors = validateUnits(units, actions, augments);
   const actionErrors = validateActions(actions, augments, units);
   const prefabErrors = validatePrefabs(prefabs);
-  return [...unitErrors, ...actionErrors, ...prefabErrors];
+  const levelClassErrors = levelClasses ? validateLevelClasses(levelClasses) : [];
+  return [...unitErrors, ...actionErrors, ...prefabErrors, ...levelClassErrors];
+};
+
+// Level-class ids feed Godot enum codegen (LevelClassConstants.gd), so invalid
+// or duplicate ids are hard errors per table, matching the unit/prefab pattern.
+const validateLevelClasses = (levelClasses: LevelClassRecords) => {
+  const errors: Error[] = [];
+  const tables: Array<[string, Record<string, { id: string }>]> = [
+    ['EXP', levelClasses.expLevelClasses],
+    ['PV', levelClasses.pvLevelClasses],
+    ['Grid', levelClasses.gridLevelClasses],
+    ['Dungeon Grid', levelClasses.dungeonGridLevelClasses],
+  ];
+
+  tables.forEach(([label, table]) => {
+    const ids = Object.values(table).map((levelClass) => levelClass.id);
+    const uniqueIds = new Set(ids);
+    if (ids.length !== uniqueIds.size) {
+      const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
+      errors.push({
+        type: 'levelClass',
+        message: `Duplicate ${label} level-class ids found: ${duplicateIds.join(', ')}`,
+      });
+    }
+    ids.forEach((id) => {
+      if (!/^[A-Z0-9_]+$/.test(id)) {
+        errors.push({
+          type: 'levelClass',
+          message: `${label} level-class id '${id}' must be all caps letters/numbers/underscores with no spaces or symbols`,
+        });
+      }
+    });
+  });
+
+  return errors;
 };
 
 const validatePrefabs = (prefabs: Record<string, DungeonPrefab>) => {

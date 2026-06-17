@@ -1,8 +1,21 @@
 import { describe, expect, it } from 'vitest';
 
-import { ingestItemsV2, ingestUnitsV2 } from './useIngest';
+import {
+  ingestExpLevelClassesV2,
+  ingestGridLevelClassesV2,
+  ingestItemsV2,
+  ingestUnitsV2,
+} from './useIngest';
 
+import {
+  DEFAULT_DUNGEON_GRID_LEVEL_CLASS_GUID,
+  DEFAULT_EXP_LEVEL_CLASS_GUID,
+  DEFAULT_EXP_LEVEL_CLASS_ID,
+  DEFAULT_GRID_LEVEL_CLASS_GUID,
+  DEFAULT_PV_LEVEL_CLASS_GUID,
+} from '../constants/levelClass';
 import { ConsumableEffect, Item } from '../types/item';
+import { IntLevelClass, VectorLevelClass } from '../types/levelClass';
 import { CommanderData, Unit } from '../types/unit';
 
 // Build a raw unit with only the fields a test cares about; ingest fills the
@@ -17,89 +30,71 @@ const ingestOne = (overrides: Partial<Unit>): Unit => {
 };
 
 describe('ingestUnitsV2 commander_data backfill', () => {
-  it('backfills missing levels/turn_movements/turn_actions/dungeon grid from defaults', () => {
+  it('backfills missing level-class refs / turn values from defaults', () => {
     const unit = ingestOne({
       is_commander: true,
       commander_data: {
         leadership: 110,
-        grid_size_x: 6,
-        grid_size_y: 10,
         army_name: 'Test Army',
       } as unknown as CommanderData,
     });
 
-    expect(unit.commander_data.levels).toEqual([]);
     expect(unit.commander_data.turn_movements).toBe(1);
     expect(unit.commander_data.turn_actions).toBe(1);
-    expect(unit.commander_data.dungeon_grid_size_x).toBe(2);
-    expect(unit.commander_data.dungeon_grid_size_y).toBe(5);
+    expect(unit.commander_data.exp_level_class).toBe(DEFAULT_EXP_LEVEL_CLASS_GUID);
+    expect(unit.commander_data.pv_level_class).toBe(DEFAULT_PV_LEVEL_CLASS_GUID);
+    expect(unit.commander_data.grid_level_class).toBe(DEFAULT_GRID_LEVEL_CLASS_GUID);
+    expect(unit.commander_data.dungeon_grid_level_class).toBe(
+      DEFAULT_DUNGEON_GRID_LEVEL_CLASS_GUID,
+    );
   });
 
   it('applies full default commander_data when none is provided', () => {
     const unit = ingestOne({ is_commander: false });
 
-    expect(unit.commander_data.levels).toEqual([]);
     expect(unit.commander_data.turn_movements).toBe(1);
     expect(unit.commander_data.turn_actions).toBe(1);
-    expect(unit.commander_data.dungeon_grid_size_x).toBe(2);
-    expect(unit.commander_data.dungeon_grid_size_y).toBe(5);
+    expect(unit.commander_data.exp_level_class).toBe(DEFAULT_EXP_LEVEL_CLASS_GUID);
   });
 
-  it('preserves authored levels and turn values instead of overwriting with defaults', () => {
-    const levels = [
-      {
-        experience: 0,
-        point_value_limit: 80,
-        grid_size_x: 10,
-        grid_size_y: 10,
-        dungeon_grid_size_x: 2,
-        dungeon_grid_size_y: 5,
-      },
-      {
-        experience: 35,
-        point_value_limit: 190,
-        grid_size_x: 10,
-        grid_size_y: 12,
-        dungeon_grid_size_x: 0,
-        dungeon_grid_size_y: 0,
-      },
-    ];
+  it('preserves authored level-class refs and turn values', () => {
     const unit = ingestOne({
       is_commander: true,
       commander_data: {
         leadership: 120,
         turn_movements: 2,
         turn_actions: 2,
-        levels,
+        exp_level_class: 'custom-exp-guid',
       } as unknown as CommanderData,
     });
 
     expect(unit.commander_data.turn_movements).toBe(2);
     expect(unit.commander_data.turn_actions).toBe(2);
-    expect(unit.commander_data.levels).toHaveLength(2);
-    expect(unit.commander_data.levels[1]).toEqual(levels[1]);
+    expect(unit.commander_data.exp_level_class).toBe('custom-exp-guid');
+    // Unspecified refs still fall back to the defaults.
+    expect(unit.commander_data.pv_level_class).toBe(DEFAULT_PV_LEVEL_CLASS_GUID);
+  });
+});
+
+describe('level-class ingestion', () => {
+  it('seeds the default class and normalizes int levels to numbers', () => {
+    const raw = [
+      { guid: 'exp-1', id: 'FAST', name: 'Fast', levels: ['0', '500'] },
+    ] as unknown as IntLevelClass[];
+    const result = ingestExpLevelClassesV2(raw);
+
+    expect(result[DEFAULT_EXP_LEVEL_CLASS_GUID].id).toBe(DEFAULT_EXP_LEVEL_CLASS_ID);
+    expect(result['exp-1'].levels).toEqual([0, 500]);
   });
 
-  it('does not leave stale trailing level entries (default levels array is empty)', () => {
-    // lodash `merge` blends arrays by index; an empty default means the authored
-    // array length is preserved exactly rather than padded from a template.
-    const unit = ingestOne({
-      is_commander: true,
-      commander_data: {
-        levels: [
-          {
-            experience: 0,
-            point_value_limit: 1000,
-            grid_size_x: 12,
-            grid_size_y: 26,
-            dungeon_grid_size_x: 0,
-            dungeon_grid_size_y: 0,
-          },
-        ],
-      } as unknown as CommanderData,
-    });
+  it('normalizes vector levels to numeric {x,y}', () => {
+    const raw = [
+      { guid: 'grid-1', id: 'WIDE', name: 'Wide', levels: [{ x: '8', y: '12' }] },
+    ] as unknown as VectorLevelClass[];
+    const result = ingestGridLevelClassesV2(raw);
 
-    expect(unit.commander_data.levels).toHaveLength(1);
+    expect(result['grid-1'].levels).toEqual([{ x: 8, y: 12 }]);
+    expect(result[DEFAULT_GRID_LEVEL_CLASS_GUID]).toBeDefined();
   });
 });
 

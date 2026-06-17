@@ -3,6 +3,7 @@ import { merge } from 'lodash';
 import * as React from 'react';
 
 import { generateItemIdsMap } from './generateItemIdsMap';
+import { generateLevelClassIdsMap } from './generateLevelClassIdsMap';
 import { generatePrefabIdsMap } from './generatePrefabIdsMap';
 import { generateUnitIdsMap } from './generateUnitIdsMap';
 import { validateIngest } from './validateIngest';
@@ -11,6 +12,12 @@ import { DEFAULT_ACTION_DATA } from '../constants/action';
 import { DEFAULT_AUGMENT } from '../constants/augment';
 import { DEFAULT_DUNGEON_PREFAB } from '../constants/dungeonPrefab';
 import { DEFAULT_CONSUMABLE_EFFECT, DEFAULT_ITEM_DATA } from '../constants/item';
+import {
+  DEFAULT_DUNGEON_GRID_LEVEL_CLASS,
+  DEFAULT_EXP_LEVEL_CLASS,
+  DEFAULT_GRID_LEVEL_CLASS,
+  DEFAULT_PV_LEVEL_CLASS,
+} from '../constants/levelClass';
 import { DEFAULT_UNIT } from '../constants/unit';
 import { useGameStore } from '../store/useGameStore';
 import { Action } from '../types/action';
@@ -18,9 +25,10 @@ import { Augment } from '../types/augment';
 import { DungeonPrefab } from '../types/dungeonPrefab';
 import { GameData } from '../types/gameData';
 import { isDurationalEffectClass, Item } from '../types/item';
+import { IntLevelClass, VectorLevelClass } from '../types/levelClass';
 import { Unit } from '../types/unit';
 
-type ErrorType = 'unit' | 'action' | 'augment' | 'item' | 'prefab' | 'general';
+type ErrorType = 'unit' | 'action' | 'augment' | 'item' | 'prefab' | 'levelClass' | 'general';
 type Error = {
   type: ErrorType;
   message: string;
@@ -34,9 +42,17 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
   const setAugments = useGameStore.use.setAugments();
   const setItems = useGameStore.use.setItems();
   const setPrefabs = useGameStore.use.setPrefabs();
+  const setExpLevelClasses = useGameStore.use.setExpLevelClasses();
+  const setPvLevelClasses = useGameStore.use.setPvLevelClasses();
+  const setGridLevelClasses = useGameStore.use.setGridLevelClasses();
+  const setDungeonGridLevelClasses = useGameStore.use.setDungeonGridLevelClasses();
   const setUnitIds = useGameStore.use.setUnitIds();
   const setItemIds = useGameStore.use.setItemIds();
   const setPrefabIds = useGameStore.use.setPrefabIds();
+  const setExpLevelClassIds = useGameStore.use.setExpLevelClassIds();
+  const setPvLevelClassIds = useGameStore.use.setPvLevelClassIds();
+  const setGridLevelClassIds = useGameStore.use.setGridLevelClassIds();
+  const setDungeonGridLevelClassIds = useGameStore.use.setDungeonGridLevelClassIds();
   const setLoaded = useGameStore.use.setLoaded();
   const reset = useGameStore.use.reset();
   const lastSaved = useGameStore.use.lastSaved();
@@ -51,10 +67,37 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
         const augments = ingestAugmentsV2(data.augments);
         const items = ingestItemsV2(data.items || []);
         const prefabs = ingestPrefabsV2(data.prefabs || []);
+        const expLevelClasses = ingestExpLevelClassesV2(data.expLevelClasses || []);
+        const pvLevelClasses = ingestPvLevelClassesV2(data.pvLevelClasses || []);
+        const gridLevelClasses = ingestGridLevelClassesV2(data.gridLevelClasses || []);
+        const dungeonGridLevelClasses = ingestDungeonGridLevelClassesV2(
+          data.dungeonGridLevelClasses || [],
+        );
         const unitIds = ingestUnitIds(data);
         const itemIds = ingestItemIds(data);
         const prefabIds = ingestPrefabIds(data);
-        const ingestErrors = validateIngest(units, actions, augments, prefabs);
+        const expLevelClassIds = generateLevelClassIdsMap(
+          Object.values(expLevelClasses),
+          data.expLevelClassIds,
+        );
+        const pvLevelClassIds = generateLevelClassIdsMap(
+          Object.values(pvLevelClasses),
+          data.pvLevelClassIds,
+        );
+        const gridLevelClassIds = generateLevelClassIdsMap(
+          Object.values(gridLevelClasses),
+          data.gridLevelClassIds,
+        );
+        const dungeonGridLevelClassIds = generateLevelClassIdsMap(
+          Object.values(dungeonGridLevelClasses),
+          data.dungeonGridLevelClassIds,
+        );
+        const ingestErrors = validateIngest(units, actions, augments, prefabs, {
+          expLevelClasses,
+          pvLevelClasses,
+          gridLevelClasses,
+          dungeonGridLevelClasses,
+        });
         if (
           lastSaved &&
           data.updatedAt < lastSaved &&
@@ -72,9 +115,17 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           setAugments(augments);
           setItems(items);
           setPrefabs(prefabs);
+          setExpLevelClasses(expLevelClasses);
+          setPvLevelClasses(pvLevelClasses);
+          setGridLevelClasses(gridLevelClasses);
+          setDungeonGridLevelClasses(dungeonGridLevelClasses);
           setUnitIds(unitIds);
           setItemIds(itemIds);
           setPrefabIds(prefabIds);
+          setExpLevelClassIds(expLevelClassIds);
+          setPvLevelClassIds(pvLevelClassIds);
+          setGridLevelClassIds(gridLevelClassIds);
+          setDungeonGridLevelClassIds(dungeonGridLevelClassIds);
           setLoaded();
           setLastSaved(data.updatedAt);
           if (onLoaded) {
@@ -99,6 +150,14 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
       setItemIds,
       setPrefabs,
       setPrefabIds,
+      setExpLevelClasses,
+      setPvLevelClasses,
+      setGridLevelClasses,
+      setDungeonGridLevelClasses,
+      setExpLevelClassIds,
+      setPvLevelClassIds,
+      setGridLevelClassIds,
+      setDungeonGridLevelClassIds,
       setLastSaved,
       setLoaded,
       setUnitIds,
@@ -172,3 +231,54 @@ export const ingestPrefabIds = (rawData: Partial<GameData>) => {
   const prefabIds = rawData.prefabIds ?? prefabs.map((prefab) => prefab.id);
   return generatePrefabIdsMap(prefabs, prefabIds);
 };
+
+const normalizeIntLevelClass = (levelClass: IntLevelClass): IntLevelClass => ({
+  guid: levelClass.guid,
+  id: levelClass.id,
+  name: levelClass.name,
+  levels: (levelClass.levels ?? []).map((value) => Number(value)),
+});
+
+const normalizeVectorLevelClass = (levelClass: VectorLevelClass): VectorLevelClass => ({
+  guid: levelClass.guid,
+  id: levelClass.id,
+  name: levelClass.name,
+  levels: (levelClass.levels ?? []).map((vector) => ({
+    x: Number(vector.x),
+    y: Number(vector.y),
+  })),
+});
+
+// Each table is seeded with its well-known default class first so commanders
+// (which default to the default-class guid) always resolve, then authored
+// classes are layered on (overriding the default if they share a guid).
+const ingestIntLevelClasses = (rawData: Array<IntLevelClass>, defaultClass: IntLevelClass) => {
+  const out: Record<string, IntLevelClass> = { [defaultClass.guid]: defaultClass };
+  rawData.forEach((levelClass) => {
+    out[levelClass.guid] = normalizeIntLevelClass(levelClass);
+  });
+  return out;
+};
+
+const ingestVectorLevelClasses = (
+  rawData: Array<VectorLevelClass>,
+  defaultClass: VectorLevelClass,
+) => {
+  const out: Record<string, VectorLevelClass> = { [defaultClass.guid]: defaultClass };
+  rawData.forEach((levelClass) => {
+    out[levelClass.guid] = normalizeVectorLevelClass(levelClass);
+  });
+  return out;
+};
+
+export const ingestExpLevelClassesV2 = (rawData: Array<IntLevelClass>) =>
+  ingestIntLevelClasses(rawData, DEFAULT_EXP_LEVEL_CLASS);
+
+export const ingestPvLevelClassesV2 = (rawData: Array<IntLevelClass>) =>
+  ingestIntLevelClasses(rawData, DEFAULT_PV_LEVEL_CLASS);
+
+export const ingestGridLevelClassesV2 = (rawData: Array<VectorLevelClass>) =>
+  ingestVectorLevelClasses(rawData, DEFAULT_GRID_LEVEL_CLASS);
+
+export const ingestDungeonGridLevelClassesV2 = (rawData: Array<VectorLevelClass>) =>
+  ingestVectorLevelClasses(rawData, DEFAULT_DUNGEON_GRID_LEVEL_CLASS);
