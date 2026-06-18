@@ -7,15 +7,12 @@ export type LevelClassConfigEntry = {
   title: string;
   levelLabel: string;
   variant: LevelClassVariant;
-  objectCreationType:
-    | 'expLevelClass'
-    | 'pvLevelClass'
-    | 'gridLevelClass'
-    | 'dungeonGridLevelClass';
+  objectCreationType: 'expLevelClass' | 'pvLevelClass' | 'gridLevelClass' | 'dungeonGridLevelClass';
   warn?: (levels: number[]) => string | null;
+  blockOnWarning?: boolean;
 };
 
-const expWarn = (levels: number[]): string | null => {
+export const expWarn = (levels: number[]): string | null => {
   if (levels.some((value) => value < 0)) return 'Experience values should be non-negative.';
   const monotonic = levels.every((value, index) => index === 0 || value > levels[index - 1]);
   return monotonic ? null : 'Experience should strictly increase from one level to the next.';
@@ -32,6 +29,7 @@ export const LEVEL_CLASS_CONFIG: Record<LevelClassKind, LevelClassConfigEntry> =
     variant: 'int',
     objectCreationType: 'expLevelClass',
     warn: expWarn,
+    blockOnWarning: true,
   },
   PV: {
     routeBase: 'pv-level-classes',

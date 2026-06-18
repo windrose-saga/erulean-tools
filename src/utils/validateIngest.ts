@@ -36,7 +36,7 @@ export const validateIngest = (
   levelClasses?: LevelClassRecords,
   vocabularies?: VocabularyInput,
 ) => {
-  const unitErrors = validateUnits(units, actions, augments);
+  const unitErrors = validateUnits(units, actions, augments, levelClasses);
   const actionErrors = validateActions(actions, augments, units);
   const prefabErrors = validatePrefabs(prefabs);
   const levelClassErrors = levelClasses ? validateLevelClasses(levelClasses) : [];
@@ -152,13 +152,26 @@ const validateLevelClasses = (levelClasses: LevelClassRecords) => {
       });
     }
     ids.forEach((id) => {
-      if (!/^[A-Z0-9_]+$/.test(id)) {
+      if (!isValidVocabId(id)) {
         errors.push({
           type: 'levelClass',
-          message: `${label} level-class id '${id}' must be all caps letters/numbers/underscores with no spaces or symbols`,
+          message: `${label} level-class id '${id}' must be an upper-case identifier that does not start with a digit`,
         });
       }
     });
+  });
+
+  Object.values(levelClasses.expLevelClasses).forEach((levelClass) => {
+    const hasNegativeValue = levelClass.levels.some((value) => value < 0);
+    const isStrictlyIncreasing = levelClass.levels.every(
+      (value, index) => index === 0 || value > levelClass.levels[index - 1],
+    );
+    if (hasNegativeValue || !isStrictlyIncreasing) {
+      errors.push({
+        type: 'levelClass',
+        message: `EXP level class ${levelClass.id} must contain non-negative, strictly increasing values`,
+      });
+    }
   });
 
   return errors;
@@ -204,6 +217,7 @@ const validateUnits = (
   units: Record<string, Unit>,
   actions: Record<string, Action>,
   augments: Record<string, Augment>,
+  levelClasses?: LevelClassRecords,
 ) => {
   const errors: Error[] = [];
   const ids = Object.values(units).map((unit) => unit.id);
@@ -233,6 +247,29 @@ const validateUnits = (
           errors.push({
             type: 'unit',
             message: `Unit ${unit.id} references invalid augments: ${invalidAugments.join(', ')}`,
+          });
+        }
+
+        if (levelClasses) {
+          const references: Array<
+            [string, string | null, Record<string, IntLevelClass | VectorLevelClass>]
+          > = [
+            ['EXP', unit.commander_data.exp_level_class, levelClasses.expLevelClasses],
+            ['PV', unit.commander_data.pv_level_class, levelClasses.pvLevelClasses],
+            ['Grid', unit.commander_data.grid_level_class, levelClasses.gridLevelClasses],
+            [
+              'Dungeon Grid',
+              unit.commander_data.dungeon_grid_level_class,
+              levelClasses.dungeonGridLevelClasses,
+            ],
+          ];
+          references.forEach(([label, guid, table]) => {
+            if (guid !== null && !(guid in table)) {
+              errors.push({
+                type: 'unit',
+                message: `Unit ${unit.id} references missing ${label} level class '${guid}'`,
+              });
+            }
           });
         }
       }

@@ -39,6 +39,7 @@ export const LevelClassCreate: React.FC<{ kind: LevelClassKind }> = ({ kind }) =
         routeBase={config.routeBase}
         levelLabel={config.levelLabel}
         warn={config.warn}
+        blockOnWarning={config.blockOnWarning}
       />
     );
   }

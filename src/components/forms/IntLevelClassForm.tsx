@@ -3,6 +3,7 @@ import React from 'react';
 import { FormProvider, SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 
 import { IntLevelClass } from '../../types/levelClass';
+import { VOCAB_ID_PATTERN } from '../../utils/vocabId';
 import LabeledInputBase, { LabeledInputProps } from '../LabledInput';
 
 // Editor form shape: the stored `levels: number[]` is mapped to `{ value }[]`
@@ -26,6 +27,7 @@ export interface IntLevelClassFormProps {
   routeBase: string;
   levelLabel: string;
   warn?: (levels: number[]) => string | null;
+  blockOnWarning?: boolean;
 }
 
 const toForm = (levelClass: IntLevelClass): IntFormShape => ({
@@ -42,6 +44,7 @@ export const IntLevelClassForm: React.FC<IntLevelClassFormProps> = ({
   routeBase,
   levelLabel,
   warn,
+  blockOnWarning = false,
 }) => {
   const navigate = useNavigate();
   const methods = useForm<IntFormShape>({ defaultValues: toForm(levelClass), mode: 'onChange' });
@@ -55,10 +58,7 @@ export const IntLevelClassForm: React.FC<IntLevelClassFormProps> = ({
   const { fields, append, remove } = useFieldArray({ control, name: 'levels' });
 
   const watchedLevels = watch('levels');
-  const warning = React.useMemo(
-    () => (warn ? warn((watchedLevels ?? []).map((l) => Number(l.value))) : null),
-    [warn, watchedLevels],
-  );
+  const warning = warn ? warn((watchedLevels ?? []).map((level) => Number(level.value))) : null;
 
   const initialId = levelClass.id;
   const validateId = React.useCallback(
@@ -97,8 +97,8 @@ export const IntLevelClassForm: React.FC<IntLevelClassFormProps> = ({
             type="text"
             validate={validateId}
             pattern={{
-              value: /^[A-Z0-9_]+$/,
-              message: 'ID must be all caps letters/numbers/underscores, no spaces or symbols.',
+              value: VOCAB_ID_PATTERN,
+              message: 'ID must be an upper-case identifier and cannot start with a digit.',
             }}
             required
           />
@@ -107,7 +107,7 @@ export const IntLevelClassForm: React.FC<IntLevelClassFormProps> = ({
             <button
               className="bg-gray-500 active:bg-gray-600 disabled:bg-gray-300 border-white rounded p-3 w-36"
               type="submit"
-              disabled={!isDirty || !isValid}
+              disabled={!isDirty || !isValid || (blockOnWarning && Boolean(warning))}
             >
               Save
             </button>
@@ -131,7 +131,11 @@ export const IntLevelClassForm: React.FC<IntLevelClassFormProps> = ({
               Add Level
             </button>
           </div>
-          {warning && <span className="text-yellow-600 block mb-3">{warning}</span>}
+          {warning && (
+            <span className={`${blockOnWarning ? 'text-red-500' : 'text-yellow-600'} block mb-3`}>
+              {warning}
+            </span>
+          )}
           {fields.map((field, index) => (
             <div
               key={field.id}

@@ -3,6 +3,7 @@ import React from 'react';
 import { FormProvider, SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 
 import { VectorLevelClass } from '../../types/levelClass';
+import { VOCAB_ID_PATTERN } from '../../utils/vocabId';
 import LabeledInputBase, { LabeledInputProps } from '../LabledInput';
 
 const LabeledInput = (props: LabeledInputProps<VectorLevelClass>) => (
@@ -71,8 +72,8 @@ export const VectorLevelClassForm: React.FC<VectorLevelClassFormProps> = ({
             type="text"
             validate={validateId}
             pattern={{
-              value: /^[A-Z0-9_]+$/,
-              message: 'ID must be all caps letters/numbers/underscores, no spaces or symbols.',
+              value: VOCAB_ID_PATTERN,
+              message: 'ID must be an upper-case identifier and cannot start with a digit.',
             }}
             required
           />

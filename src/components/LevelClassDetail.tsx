@@ -50,6 +50,7 @@ export const LevelClassDetail: React.FC<{ kind: LevelClassKind; guid: string }> 
         routeBase={config.routeBase}
         levelLabel={config.levelLabel}
         warn={config.warn}
+        blockOnWarning={config.blockOnWarning}
       />
     );
   }
