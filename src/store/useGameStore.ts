@@ -15,12 +15,7 @@ import {
 import { SEED_GENERATOR_TAGS, Unit } from '../types/unit';
 import { createSelectors } from '../utils/createSelectors';
 import env from '../utils/env';
-import {
-  isProtectedGeneratorTag,
-  isProtectedLootCategory,
-  isValidVocabId,
-  normalizeVocabId,
-} from '../utils/vocabId';
+import { isValidVocabId, normalizeVocabId } from '../utils/vocabId';
 
 type State = {
   loaded: boolean;
@@ -271,7 +266,7 @@ const useGameStoreBase = create<GameStore>()(
         }),
       removeLootCategory: (name) =>
         set((state) => {
-          if (isProtectedLootCategory(name) || !state.lootCategoryIds.includes(name)) {
+          if (!state.lootCategoryIds.includes(name)) {
             return;
           }
           if (!state.removedLootCategoryIds.includes(name)) {
@@ -287,11 +282,7 @@ const useGameStoreBase = create<GameStore>()(
       renameLootCategory: (oldName, newName) =>
         set((state) => {
           const normalized = normalizeVocabId(newName);
-          if (
-            isProtectedLootCategory(oldName) ||
-            !isValidVocabId(normalized) ||
-            !state.lootCategoryIds.includes(oldName)
-          ) {
+          if (!isValidVocabId(normalized) || !state.lootCategoryIds.includes(oldName)) {
             return;
           }
           // Reject collision with any existing name (active or tombstoned) other than a no-op.
@@ -334,7 +325,7 @@ const useGameStoreBase = create<GameStore>()(
         }),
       removeGeneratorTag: (name) =>
         set((state) => {
-          if (isProtectedGeneratorTag(name) || !state.generatorTagIds.includes(name)) {
+          if (!state.generatorTagIds.includes(name)) {
             return;
           }
           if (!state.removedGeneratorTagIds.includes(name)) {
@@ -349,11 +340,7 @@ const useGameStoreBase = create<GameStore>()(
       renameGeneratorTag: (oldName, newName) =>
         set((state) => {
           const normalized = normalizeVocabId(newName);
-          if (
-            isProtectedGeneratorTag(oldName) ||
-            !isValidVocabId(normalized) ||
-            !state.generatorTagIds.includes(oldName)
-          ) {
+          if (!isValidVocabId(normalized) || !state.generatorTagIds.includes(oldName)) {
             return;
           }
           if (normalized !== oldName && state.generatorTagIds.includes(normalized)) {

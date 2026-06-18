@@ -1,7 +1,6 @@
 import { VocabManager } from './VocabManager';
 
 import { useGameStore } from '../store/useGameStore';
-import { isProtectedGeneratorTag } from '../utils/vocabId';
 
 export const GeneratorTagManager = () => {
   const generatorTagIds = useGameStore.use.generatorTagIds();
@@ -18,7 +17,6 @@ export const GeneratorTagManager = () => {
       noun="tag"
       activeNames={activeNames}
       removedNames={removedGeneratorTagIds}
-      isProtected={isProtectedGeneratorTag}
       onAdd={addGeneratorTag}
       onRemove={removeGeneratorTag}
       onRename={renameGeneratorTag}

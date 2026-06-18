@@ -1,7 +1,6 @@
 import { VocabManager } from './VocabManager';
 
 import { useGameStore } from '../store/useGameStore';
-import { isProtectedLootCategory } from '../utils/vocabId';
 
 export const LootCategoryManager = () => {
   const lootCategoryIds = useGameStore.use.lootCategoryIds();
@@ -18,7 +17,6 @@ export const LootCategoryManager = () => {
       noun="category"
       activeNames={activeNames}
       removedNames={removedLootCategoryIds}
-      isProtected={isProtectedLootCategory}
       onAdd={addLootCategory}
       onRemove={removeLootCategory}
       onRename={renameLootCategory}

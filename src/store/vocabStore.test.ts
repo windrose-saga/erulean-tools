@@ -61,11 +61,11 @@ describe('loot category vocabulary actions', () => {
     expect(store().lootCategoryIds.length).toBe(lengthWhileRemoved); // no dup appended
   });
 
-  it('refuses to remove a protected built-in', () => {
+  it('allows removing a seed value (no protected built-ins) and cascades', () => {
     store().setItems({ a: itemWith('SWORD', ['WEAPON']) });
     store().removeLootCategory('WEAPON');
-    expect(store().removedLootCategoryIds).not.toContain('WEAPON');
-    expect(store().items.a.loot_categories).toEqual(['WEAPON']);
+    expect(store().removedLootCategoryIds).toContain('WEAPON');
+    expect(store().items.a.loot_categories).toEqual([]);
   });
 
   it('renames in place, preserving ordinal, and cascades to items', () => {
@@ -78,13 +78,18 @@ describe('loot category vocabulary actions', () => {
     expect(store().items.a.loot_categories).toEqual(['ARTIFACT']);
   });
 
-  it('rejects a rename that collides with an existing value or targets a protected value', () => {
+  it('rejects a rename that collides with an existing value', () => {
     store().addLootCategory('RELIC');
-    store().renameLootCategory('RELIC', 'WEAPON'); // collision
+    store().renameLootCategory('RELIC', 'WEAPON'); // collision with existing value
     expect(store().lootCategoryIds).toContain('RELIC');
-    store().renameLootCategory('WEAPON', 'WEAPONS'); // protected source
-    expect(store().lootCategoryIds).toContain('WEAPON');
-    expect(store().lootCategoryIds).not.toContain('WEAPONS');
+    expect(store().lootCategoryIds.filter((name) => name === 'WEAPON')).toHaveLength(1);
+  });
+
+  it('allows renaming a seed value (no protected built-ins), preserving its ordinal', () => {
+    const index = store().lootCategoryIds.indexOf('WEAPON');
+    store().renameLootCategory('WEAPON', 'ARMAMENT');
+    expect(store().lootCategoryIds.indexOf('ARMAMENT')).toBe(index);
+    expect(store().lootCategoryIds).not.toContain('WEAPON');
   });
 });
 

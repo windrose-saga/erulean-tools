@@ -7,9 +7,8 @@ export type ItemType = ItemTypes[number];
 
 // Loot categories are now a data-driven vocabulary authored in the tools and persisted in
 // game-data.json (see `lootCategoryIds`/`removedLootCategoryIds` on GameData). This constant is
-// only the seed/default set used to migrate legacy files that predate those fields, and the
-// protected built-ins that may not be renamed or removed (their enum ordinals back hand-authored
-// Godot resources). A LootCategory is therefore just a string at the type level.
+// only the seed/default set used to migrate legacy files that predate those fields. A
+// LootCategory is therefore just a string at the type level.
 export const SEED_LOOT_CATEGORIES = [
   'WEAPON',
   'ARMOR',

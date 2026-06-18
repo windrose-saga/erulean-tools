@@ -8,22 +8,19 @@ export interface VocabManagerProps {
   noun: string;
   activeNames: Array<string>;
   removedNames: Array<string>;
-  isProtected: (name: string) => boolean;
   onAdd: (name: string) => void;
   onRemove: (name: string) => void;
   onRename: (oldName: string, newName: string) => void;
 }
 
 // Generic add/rename/remove editor for a data-driven vocabulary (loot categories, generator
-// tags). Protected built-ins are listed but cannot be renamed or removed. Removing a value
-// tombstones it (and cascade-strips it from referencing items/units, handled by the store);
-// removed values can be revived from the collapsed section.
+// tags). Removing a value tombstones it (and cascade-strips it from referencing items/units,
+// handled by the store); removed values can be revived from the collapsed section.
 export const VocabManager = ({
   title,
   noun,
   activeNames,
   removedNames,
-  isProtected,
   onAdd,
   onRemove,
   onRename,
@@ -105,29 +102,23 @@ export const VocabManager = ({
             ) : (
               <>
                 <span className="flex-1">{name}</span>
-                {isProtected(name) ? (
-                  <span className="text-sm text-gray-500">built-in</span>
-                ) : (
-                  <>
-                    <button
-                      type="button"
-                      className="border px-2"
-                      onClick={() => {
-                        setEditing(name);
-                        setEditDraft(name);
-                      }}
-                    >
-                      Rename
-                    </button>
-                    <button
-                      type="button"
-                      className="border px-2 text-red-600"
-                      onClick={() => onRemove(name)}
-                    >
-                      Remove
-                    </button>
-                  </>
-                )}
+                <button
+                  type="button"
+                  className="border px-2"
+                  onClick={() => {
+                    setEditing(name);
+                    setEditDraft(name);
+                  }}
+                >
+                  Rename
+                </button>
+                <button
+                  type="button"
+                  className="border px-2 text-red-600"
+                  onClick={() => onRemove(name)}
+                >
+                  Remove
+                </button>
               </>
             )}
           </li>
