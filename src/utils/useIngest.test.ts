@@ -76,6 +76,22 @@ describe('ingestUnitsV2 commander_data backfill', () => {
   });
 });
 
+describe('ingestUnitsV2 reward fields', () => {
+  it('defaults rarity to 0 and can_be_reward to true for a sparse unit', () => {
+    const unit = ingestOne({});
+
+    expect(unit.rarity).toBe(0);
+    expect(unit.can_be_reward).toBe(true);
+  });
+
+  it('preserves authored rarity and can_be_reward', () => {
+    const unit = ingestOne({ rarity: 0.75, can_be_reward: false });
+
+    expect(unit.rarity).toBe(0.75);
+    expect(unit.can_be_reward).toBe(false);
+  });
+});
+
 describe('level-class ingestion', () => {
   it('seeds the default class and normalizes int levels to numbers', () => {
     const raw = [

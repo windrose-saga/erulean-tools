@@ -56,6 +56,10 @@ export type Unit = {
   item_slots: number;
   reward_for_defeat: Record<string, number>;
   returned_on_death: Record<string, number>;
+  // Reward-generator weighting (mirrors Item.rarity): 0 = common, 1 = never drops.
+  rarity: number;
+  // Gate for the reward system: false excludes this unit from reward pools entirely.
+  can_be_reward: boolean;
 };
 
 export const MOVEMENT_STRATEGIES = ['ADVANCE', 'KEEP_DISTANCE'] as const satisfies string[];

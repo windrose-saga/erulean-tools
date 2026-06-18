@@ -65,6 +65,8 @@ export const DEFAULT_UNIT: Unit = {
   item_slots: 3,
   reward_for_defeat: {},
   returned_on_death: {},
+  rarity: 0,
+  can_be_reward: true,
   required_level: 0,
   gold_cost: 0,
 };

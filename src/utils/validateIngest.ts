@@ -299,6 +299,20 @@ const validateUnits = (
       }
     }
 
+    if (!Number.isFinite(unit.rarity) || unit.rarity < 0 || unit.rarity > 1) {
+      errors.push({
+        type: 'unit',
+        message: `Unit ${unit.id} has invalid reward rarity '${unit.rarity}' (must be a number in [0, 1])`,
+      });
+    }
+
+    if (typeof unit.can_be_reward !== 'boolean') {
+      errors.push({
+        type: 'unit',
+        message: `Unit ${unit.id} has invalid can_be_reward '${String(unit.can_be_reward)}' (must be a boolean)`,
+      });
+    }
+
     Object.values(unit.actions).forEach((action) => {
       if (!Number.isNaN(action)) {
         return;

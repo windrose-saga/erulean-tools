@@ -9,7 +9,15 @@ const item = (id: string, loot_categories: string[]): Item =>
   ({ guid: id, id, loot_categories }) as unknown as Item;
 
 const unit = (id: string, generator_tags: string[]): Unit =>
-  ({ guid: id, id, generator_tags, is_commander: false, actions: {} }) as unknown as Unit;
+  ({
+    guid: id,
+    id,
+    generator_tags,
+    is_commander: false,
+    actions: {},
+    rarity: 0,
+    can_be_reward: true,
+  }) as unknown as Unit;
 
 const run = (vocab: {
   items: Record<string, Item>;
