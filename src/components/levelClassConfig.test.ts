@@ -13,3 +13,14 @@ describe('EXP level-class content validation', () => {
     expect(expWarn([0, 100, 250])).toBeNull();
   });
 });
+
+describe('PV level-class content validation', () => {
+  it('blocks non-positive point-value limits', () => {
+    expect(LEVEL_CLASS_CONFIG.PV.blockOnWarning).toBe(true);
+    expect(LEVEL_CLASS_CONFIG.PV.warn?.([100, 0])).toMatch(/positive/);
+  });
+
+  it('accepts positive point-value limits', () => {
+    expect(LEVEL_CLASS_CONFIG.PV.warn?.([100, 250])).toBeNull();
+  });
+});

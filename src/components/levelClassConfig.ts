@@ -38,6 +38,7 @@ export const LEVEL_CLASS_CONFIG: Record<LevelClassKind, LevelClassConfigEntry> =
     variant: 'int',
     objectCreationType: 'pvLevelClass',
     warn: pvWarn,
+    blockOnWarning: true,
   },
   GRID: {
     routeBase: 'grid-level-classes',

@@ -174,6 +174,30 @@ const validateLevelClasses = (levelClasses: LevelClassRecords) => {
     }
   });
 
+  Object.values(levelClasses.pvLevelClasses).forEach((levelClass) => {
+    if (levelClass.levels.some((value) => value <= 0)) {
+      errors.push({
+        type: 'levelClass',
+        message: `PV level class ${levelClass.id} must contain only positive values`,
+      });
+    }
+  });
+
+  const vectorTables: Array<[string, Record<string, VectorLevelClass>]> = [
+    ['Grid', levelClasses.gridLevelClasses],
+    ['Dungeon Grid', levelClasses.dungeonGridLevelClasses],
+  ];
+  vectorTables.forEach(([label, table]) => {
+    Object.values(table).forEach((levelClass) => {
+      if (levelClass.levels.some((value) => value.x <= 0 || value.y <= 0)) {
+        errors.push({
+          type: 'levelClass',
+          message: `${label} level class ${levelClass.id} must contain only positive dimensions`,
+        });
+      }
+    });
+  });
+
   return errors;
 };
 

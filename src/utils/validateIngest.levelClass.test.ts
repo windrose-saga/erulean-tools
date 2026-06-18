@@ -91,4 +91,33 @@ describe('level-class ingest validation', () => {
 
     expect(errors.some((error) => error.message.includes('strictly increasing'))).toBe(true);
   });
+
+  it('rejects non-positive PV values', () => {
+    const classes = levelClasses();
+    classes.pvLevelClasses[DEFAULT_PV_LEVEL_CLASS.guid] = {
+      ...DEFAULT_PV_LEVEL_CLASS,
+      levels: [100, 0],
+    };
+
+    const errors = validateIngest({}, {}, {}, {}, classes);
+
+    expect(errors.some((error) => error.message.includes('only positive values'))).toBe(true);
+  });
+
+  it('rejects non-positive regular and dungeon grid dimensions', () => {
+    const classes = levelClasses();
+    classes.gridLevelClasses[DEFAULT_GRID_LEVEL_CLASS.guid] = {
+      ...DEFAULT_GRID_LEVEL_CLASS,
+      levels: [{ x: 0, y: 10 }],
+    };
+    classes.dungeonGridLevelClasses[DEFAULT_DUNGEON_GRID_LEVEL_CLASS.guid] = {
+      ...DEFAULT_DUNGEON_GRID_LEVEL_CLASS,
+      levels: [{ x: 2, y: -1 }],
+    };
+
+    const errors = validateIngest({}, {}, {}, {}, classes);
+
+    expect(errors.some((error) => error.message.includes('Grid level class'))).toBe(true);
+    expect(errors.some((error) => error.message.includes('Dungeon Grid level class'))).toBe(true);
+  });
 });

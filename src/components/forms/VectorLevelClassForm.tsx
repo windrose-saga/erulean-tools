@@ -116,6 +116,7 @@ export const VectorLevelClassForm: React.FC<VectorLevelClassFormProps> = ({
                 label={`Level ${index} ${levelLabel} X`}
                 type="number"
                 allowFloats={false}
+                minValue={1}
                 required
               />
               <LabeledInput
@@ -123,6 +124,7 @@ export const VectorLevelClassForm: React.FC<VectorLevelClassFormProps> = ({
                 label={`Level ${index} ${levelLabel} Y`}
                 type="number"
                 allowFloats={false}
+                minValue={1}
                 required
               />
               <button
