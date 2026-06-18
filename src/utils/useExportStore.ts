@@ -3,6 +3,12 @@ import * as React from 'react';
 import { useActions } from '../store/getters/action';
 import { useAugments } from '../store/getters/augment';
 import { useItems } from '../store/getters/item';
+import {
+  useDungeonGridLevelClasses,
+  useExpLevelClasses,
+  useGridLevelClasses,
+  usePvLevelClasses,
+} from '../store/getters/levelClass';
 import { usePrefabs } from '../store/getters/prefab';
 import { useUnits } from '../store/getters/unit';
 import { useGameStore } from '../store/useGameStore';
@@ -14,11 +20,23 @@ export const useExportStore = () => {
   const augments = useAugments();
   const items = useItems();
   const prefabs = usePrefabs();
+  const expLevelClasses = useExpLevelClasses();
+  const pvLevelClasses = usePvLevelClasses();
+  const gridLevelClasses = useGridLevelClasses();
+  const dungeonGridLevelClasses = useDungeonGridLevelClasses();
   const lastLoaded = useGameStore.use.lastLoaded();
   const setExported = useGameStore.use.setExported();
   const unitIds = useGameStore.use.unitIds();
   const itemIds = useGameStore.use.itemIds();
   const prefabIds = useGameStore.use.prefabIds();
+  const expLevelClassIds = useGameStore.use.expLevelClassIds();
+  const pvLevelClassIds = useGameStore.use.pvLevelClassIds();
+  const gridLevelClassIds = useGameStore.use.gridLevelClassIds();
+  const dungeonGridLevelClassIds = useGameStore.use.dungeonGridLevelClassIds();
+  const lootCategoryIds = useGameStore.use.lootCategoryIds();
+  const removedLootCategoryIds = useGameStore.use.removedLootCategoryIds();
+  const generatorTagIds = useGameStore.use.generatorTagIds();
+  const removedGeneratorTagIds = useGameStore.use.removedGeneratorTagIds();
 
   const translatedUnits = units.map((unit) => {
     const translation_id: string = `unit.${unit.id}`;
@@ -88,9 +106,21 @@ export const useExportStore = () => {
       augments: translatedAugments,
       items: translatedItems,
       prefabs,
+      expLevelClasses,
+      pvLevelClasses,
+      gridLevelClasses,
+      dungeonGridLevelClasses,
       unitIds: Array.from(unitIds.values()),
       itemIds: Array.from(itemIds.values()),
       prefabIds: Array.from(prefabIds.values()),
+      expLevelClassIds: Array.from(expLevelClassIds.values()),
+      pvLevelClassIds: Array.from(pvLevelClassIds.values()),
+      gridLevelClassIds: Array.from(gridLevelClassIds.values()),
+      dungeonGridLevelClassIds: Array.from(dungeonGridLevelClassIds.values()),
+      lootCategoryIds: [...lootCategoryIds],
+      removedLootCategoryIds: [...removedLootCategoryIds],
+      generatorTagIds: [...generatorTagIds],
+      removedGeneratorTagIds: [...removedGeneratorTagIds],
       trainable_units: trainableUnits,
       updatedAt: lastLoaded ?? Date.now(),
     };
@@ -110,9 +140,21 @@ export const useExportStore = () => {
     translatedAugments,
     translatedItems,
     prefabs,
+    expLevelClasses,
+    pvLevelClasses,
+    gridLevelClasses,
+    dungeonGridLevelClasses,
     unitIds,
     itemIds,
     prefabIds,
+    expLevelClassIds,
+    pvLevelClassIds,
+    gridLevelClassIds,
+    dungeonGridLevelClassIds,
+    lootCategoryIds,
+    removedLootCategoryIds,
+    generatorTagIds,
+    removedGeneratorTagIds,
     trainableUnits,
     lastLoaded,
     setExported,

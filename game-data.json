@@ -10411,6 +10411,20 @@
     "WEIRDPASSAGE",
     "ZIGZAG"
   ],
+  "lootCategoryIds": [
+    "WEAPON",
+    "ARMOR",
+    "MATERIAL",
+    "MEADOWMERE",
+    "WOODMERE",
+    "CONSUMABLE"
+  ],
+  "removedLootCategoryIds": [],
+  "generatorTagIds": [
+    "ERULEAN",
+    "MARCH"
+  ],
+  "removedGeneratorTagIds": [],
   "trainable_units": [
     "ASTROATTENDENT",
     "ERUASTROLOGER",

@@ -1,28 +1,24 @@
-import { Actions, CommanderData, CommanderLevel, Unit } from '../types/unit';
+import {
+  DEFAULT_DUNGEON_GRID_LEVEL_CLASS_GUID,
+  DEFAULT_EXP_LEVEL_CLASS_GUID,
+  DEFAULT_GRID_LEVEL_CLASS_GUID,
+  DEFAULT_PV_LEVEL_CLASS_GUID,
+} from './levelClass';
 
-export const DEFAULT_COMMANDER_LEVEL: CommanderLevel = {
-  experience: 0,
-  point_value_limit: 0,
-  grid_size_x: 1,
-  grid_size_y: 1,
-  dungeon_grid_size_x: 2,
-  dungeon_grid_size_y: 5,
-};
+import { Actions, CommanderData, Unit } from '../types/unit';
 
 export const DEFAULT_COMMANDER_DATA: CommanderData = {
   leadership: 0,
-  point_limit: 0,
-  grid_size_x: 1,
-  grid_size_y: 1,
-  dungeon_grid_size_x: 2,
-  dungeon_grid_size_y: 5,
   turn_movements: 1,
   turn_actions: 1,
   global_augments: [],
   army_augments: [],
   enemy_army_augments: [],
   army_name: '',
-  levels: [],
+  exp_level_class: DEFAULT_EXP_LEVEL_CLASS_GUID,
+  pv_level_class: DEFAULT_PV_LEVEL_CLASS_GUID,
+  grid_level_class: DEFAULT_GRID_LEVEL_CLASS_GUID,
+  dungeon_grid_level_class: DEFAULT_DUNGEON_GRID_LEVEL_CLASS_GUID,
 };
 
 export const DEFAULT_ACTIONS: Actions = {
@@ -37,7 +33,7 @@ export const DEFAULT_UNIT: Unit = {
   id: '',
   name: '',
   role: 'NONE',
-  factions: [],
+  generator_tags: [],
   description: '',
   is_commander: false,
   commander_data: DEFAULT_COMMANDER_DATA,

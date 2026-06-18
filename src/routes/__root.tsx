@@ -77,6 +77,54 @@ function RootComponent() {
               >
                 Dungeon Prefabs
               </Link>
+              <Link
+                to="/exp-level-classes"
+                activeProps={{
+                  className: 'font-bold',
+                }}
+              >
+                EXP Classes
+              </Link>
+              <Link
+                to="/pv-level-classes"
+                activeProps={{
+                  className: 'font-bold',
+                }}
+              >
+                PV Classes
+              </Link>
+              <Link
+                to="/grid-level-classes"
+                activeProps={{
+                  className: 'font-bold',
+                }}
+              >
+                Grid Classes
+              </Link>
+              <Link
+                to="/dungeon-grid-level-classes"
+                activeProps={{
+                  className: 'font-bold',
+                }}
+              >
+                Dungeon Grid Classes
+              </Link>
+              <Link
+                to="/loot-categories"
+                activeProps={{
+                  className: 'font-bold',
+                }}
+              >
+                Loot Categories
+              </Link>
+              <Link
+                to="/generator-tags"
+                activeProps={{
+                  className: 'font-bold',
+                }}
+              >
+                Generator Tags
+              </Link>
             </>
           )}
           <Link

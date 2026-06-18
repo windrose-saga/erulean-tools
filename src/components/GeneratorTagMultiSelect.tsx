@@ -1,40 +1,40 @@
 import * as React from 'react';
 import { FieldValues, Path, PathValue, useFormContext } from 'react-hook-form';
 
-import { useActiveLootCategories } from '../store/getters/vocab';
+import { useActiveGeneratorTags } from '../store/getters/vocab';
 import { useGameStore } from '../store/useGameStore';
-import { LootCategory } from '../types/item';
+import { GeneratorTag } from '../types/unit';
 import { isValidVocabId, normalizeVocabId } from '../utils/vocabId';
 
-export interface LootCategoryMultiSelectProps<T extends FieldValues> {
+export interface GeneratorTagMultiSelectProps<T extends FieldValues> {
   label: string;
   id: Path<T>;
 }
 
-const LootCategoryMultiSelect = <T extends FieldValues>({
+const GeneratorTagMultiSelect = <T extends FieldValues>({
   label,
   id,
-}: LootCategoryMultiSelectProps<T>) => {
+}: GeneratorTagMultiSelectProps<T>) => {
   const { watch, setValue } = useFormContext<T>();
   const watched = watch(id);
-  const selected = React.useMemo(() => (watched ?? []) as Array<LootCategory>, [watched]);
-  const categories = useActiveLootCategories();
-  const addLootCategory = useGameStore.use.addLootCategory();
+  const selected = React.useMemo(() => (watched ?? []) as Array<GeneratorTag>, [watched]);
+  const tags = useActiveGeneratorTags();
+  const addGeneratorTag = useGameStore.use.addGeneratorTag();
   const [draft, setDraft] = React.useState('');
 
   const setSelected = React.useCallback(
-    (next: Array<LootCategory>) => {
+    (next: Array<GeneratorTag>) => {
       setValue(id, next as PathValue<T, Path<T>>, { shouldDirty: true });
     },
     [setValue, id],
   );
 
-  const toggleCategory = React.useCallback(
-    (category: LootCategory) => {
+  const toggleGeneratorTag = React.useCallback(
+    (generatorTag: GeneratorTag) => {
       setSelected(
-        selected.includes(category)
-          ? selected.filter((c) => c !== category)
-          : [...selected, category],
+        selected.includes(generatorTag)
+          ? selected.filter((t) => t !== generatorTag)
+          : [...selected, generatorTag],
       );
     },
     [selected, setSelected],
@@ -47,25 +47,25 @@ const LootCategoryMultiSelect = <T extends FieldValues>({
     if (!isValidVocabId(normalized)) {
       return;
     }
-    addLootCategory(normalized);
+    addGeneratorTag(normalized);
     if (!selected.includes(normalized)) {
       setSelected([...selected, normalized]);
     }
     setDraft('');
-  }, [draft, addLootCategory, selected, setSelected]);
+  }, [draft, addGeneratorTag, selected, setSelected]);
 
   return (
     <div className="flex flex-col gap-1 p-2">
       <span className="font-bold text-left">{label}</span>
       <div className="flex flex-wrap gap-3">
-        {categories.map((category) => (
-          <label key={category} className="flex items-center gap-1">
+        {tags.map((generatorTag) => (
+          <label key={generatorTag} className="flex items-center gap-1">
             <input
               type="checkbox"
-              checked={selected.includes(category)}
-              onChange={() => toggleCategory(category)}
+              checked={selected.includes(generatorTag)}
+              onChange={() => toggleGeneratorTag(generatorTag)}
             />
-            {category}
+            {generatorTag}
           </label>
         ))}
       </div>
@@ -73,7 +73,7 @@ const LootCategoryMultiSelect = <T extends FieldValues>({
         <input
           type="text"
           className="border px-1"
-          placeholder="Add category"
+          placeholder="Add tag"
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
           onKeyDown={(e) => {
@@ -91,4 +91,4 @@ const LootCategoryMultiSelect = <T extends FieldValues>({
   );
 };
 
-export default LootCategoryMultiSelect;
+export default GeneratorTagMultiSelect;

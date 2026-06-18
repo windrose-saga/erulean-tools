@@ -11,16 +11,18 @@ export const ROLES = [
 type Roles = typeof ROLES;
 export type Role = Roles[number];
 
-export const FACTIONS = ['ERULEAN', 'MARCH'] as const satisfies string[];
-type Factions = typeof FACTIONS;
-export type Faction = Factions[number];
+// Generator tags are a data-driven vocabulary authored in the tools and persisted in
+// game-data.json (`generatorTagIds`/`removedGeneratorTagIds`). This constant is only the
+// seed/default set for migrating legacy files. A GeneratorTag is just a string at the type level.
+export const SEED_GENERATOR_TAGS = ['ERULEAN', 'MARCH'] as const satisfies string[];
+export type GeneratorTag = string;
 
 export type Unit = {
   guid: string;
   id: string;
   name: string;
   role: Role;
-  factions: Array<Faction>;
+  generator_tags: Array<GeneratorTag>;
   description: string;
   max_hp: number;
   starting_hp: number;
@@ -60,29 +62,20 @@ export const MOVEMENT_STRATEGIES = ['ADVANCE', 'KEEP_DISTANCE'] as const satisfi
 type MovementStrategies = typeof MOVEMENT_STRATEGIES;
 export type MovementStrategy = MovementStrategies[number];
 
-export type CommanderLevel = {
-  experience: number;
-  point_value_limit: number;
-  grid_size_x: number;
-  grid_size_y: number;
-  dungeon_grid_size_x: number;
-  dungeon_grid_size_y: number;
-};
-
 export type CommanderData = {
   leadership: number;
-  point_limit: number;
-  grid_size_x: number;
-  grid_size_y: number;
-  dungeon_grid_size_x: number;
-  dungeon_grid_size_y: number;
   turn_movements: number;
   turn_actions: number;
   global_augments: Array<string>;
   army_augments: Array<string>;
   enemy_army_augments: Array<string>;
   army_name: string;
-  levels: Array<CommanderLevel>;
+  // Each references a shareable level-class by its guid (defaults to the
+  // well-known default-class guids). null only if a developer clears it.
+  exp_level_class: string | null;
+  pv_level_class: string | null;
+  grid_level_class: string | null;
+  dungeon_grid_level_class: string | null;
 };
 
 export type Actions = {

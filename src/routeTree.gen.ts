@@ -14,16 +14,30 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as DamageCalculatorImport } from './routes/damage-calculator'
 import { Route as IndexImport } from './routes/index'
 import { Route as UnitsIndexImport } from './routes/units.index'
+import { Route as PvLevelClassesIndexImport } from './routes/pv-level-classes.index'
 import { Route as PrefabsIndexImport } from './routes/prefabs.index'
+import { Route as LootCategoriesIndexImport } from './routes/loot-categories.index'
 import { Route as ItemsIndexImport } from './routes/items.index'
+import { Route as GridLevelClassesIndexImport } from './routes/grid-level-classes.index'
+import { Route as GeneratorTagsIndexImport } from './routes/generator-tags.index'
+import { Route as ExpLevelClassesIndexImport } from './routes/exp-level-classes.index'
+import { Route as DungeonGridLevelClassesIndexImport } from './routes/dungeon-grid-level-classes.index'
 import { Route as AugmentsIndexImport } from './routes/augments.index'
 import { Route as ActionsIndexImport } from './routes/actions.index'
 import { Route as UnitsNewImport } from './routes/units.new'
 import { Route as UnitsUnitIdImport } from './routes/units.$unitId'
+import { Route as PvLevelClassesNewImport } from './routes/pv-level-classes.new'
+import { Route as PvLevelClassesIdImport } from './routes/pv-level-classes.$id'
 import { Route as PrefabsNewImport } from './routes/prefabs.new'
 import { Route as PrefabsPrefabIdImport } from './routes/prefabs.$prefabId'
 import { Route as ItemsNewImport } from './routes/items.new'
 import { Route as ItemsItemIdImport } from './routes/items.$itemId'
+import { Route as GridLevelClassesNewImport } from './routes/grid-level-classes.new'
+import { Route as GridLevelClassesIdImport } from './routes/grid-level-classes.$id'
+import { Route as ExpLevelClassesNewImport } from './routes/exp-level-classes.new'
+import { Route as ExpLevelClassesIdImport } from './routes/exp-level-classes.$id'
+import { Route as DungeonGridLevelClassesNewImport } from './routes/dungeon-grid-level-classes.new'
+import { Route as DungeonGridLevelClassesIdImport } from './routes/dungeon-grid-level-classes.$id'
 import { Route as AugmentsNewImport } from './routes/augments.new'
 import { Route as AugmentsAugmentIdImport } from './routes/augments.$augmentId'
 import { Route as ActionsNewImport } from './routes/actions.new'
@@ -49,9 +63,21 @@ const UnitsIndexRoute = UnitsIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const PvLevelClassesIndexRoute = PvLevelClassesIndexImport.update({
+  id: '/pv-level-classes/',
+  path: '/pv-level-classes/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const PrefabsIndexRoute = PrefabsIndexImport.update({
   id: '/prefabs/',
   path: '/prefabs/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LootCategoriesIndexRoute = LootCategoriesIndexImport.update({
+  id: '/loot-categories/',
+  path: '/loot-categories/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -60,6 +86,31 @@ const ItemsIndexRoute = ItemsIndexImport.update({
   path: '/items/',
   getParentRoute: () => rootRoute,
 } as any)
+
+const GridLevelClassesIndexRoute = GridLevelClassesIndexImport.update({
+  id: '/grid-level-classes/',
+  path: '/grid-level-classes/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GeneratorTagsIndexRoute = GeneratorTagsIndexImport.update({
+  id: '/generator-tags/',
+  path: '/generator-tags/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ExpLevelClassesIndexRoute = ExpLevelClassesIndexImport.update({
+  id: '/exp-level-classes/',
+  path: '/exp-level-classes/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DungeonGridLevelClassesIndexRoute =
+  DungeonGridLevelClassesIndexImport.update({
+    id: '/dungeon-grid-level-classes/',
+    path: '/dungeon-grid-level-classes/',
+    getParentRoute: () => rootRoute,
+  } as any)
 
 const AugmentsIndexRoute = AugmentsIndexImport.update({
   id: '/augments/',
@@ -85,6 +136,18 @@ const UnitsUnitIdRoute = UnitsUnitIdImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const PvLevelClassesNewRoute = PvLevelClassesNewImport.update({
+  id: '/pv-level-classes/new',
+  path: '/pv-level-classes/new',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PvLevelClassesIdRoute = PvLevelClassesIdImport.update({
+  id: '/pv-level-classes/$id',
+  path: '/pv-level-classes/$id',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const PrefabsNewRoute = PrefabsNewImport.update({
   id: '/prefabs/new',
   path: '/prefabs/new',
@@ -106,6 +169,44 @@ const ItemsNewRoute = ItemsNewImport.update({
 const ItemsItemIdRoute = ItemsItemIdImport.update({
   id: '/items/$itemId',
   path: '/items/$itemId',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GridLevelClassesNewRoute = GridLevelClassesNewImport.update({
+  id: '/grid-level-classes/new',
+  path: '/grid-level-classes/new',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GridLevelClassesIdRoute = GridLevelClassesIdImport.update({
+  id: '/grid-level-classes/$id',
+  path: '/grid-level-classes/$id',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ExpLevelClassesNewRoute = ExpLevelClassesNewImport.update({
+  id: '/exp-level-classes/new',
+  path: '/exp-level-classes/new',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ExpLevelClassesIdRoute = ExpLevelClassesIdImport.update({
+  id: '/exp-level-classes/$id',
+  path: '/exp-level-classes/$id',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DungeonGridLevelClassesNewRoute = DungeonGridLevelClassesNewImport.update(
+  {
+    id: '/dungeon-grid-level-classes/new',
+    path: '/dungeon-grid-level-classes/new',
+    getParentRoute: () => rootRoute,
+  } as any,
+)
+
+const DungeonGridLevelClassesIdRoute = DungeonGridLevelClassesIdImport.update({
+  id: '/dungeon-grid-level-classes/$id',
+  path: '/dungeon-grid-level-classes/$id',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -179,6 +280,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AugmentsNewImport
       parentRoute: typeof rootRoute
     }
+    '/dungeon-grid-level-classes/$id': {
+      id: '/dungeon-grid-level-classes/$id'
+      path: '/dungeon-grid-level-classes/$id'
+      fullPath: '/dungeon-grid-level-classes/$id'
+      preLoaderRoute: typeof DungeonGridLevelClassesIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/dungeon-grid-level-classes/new': {
+      id: '/dungeon-grid-level-classes/new'
+      path: '/dungeon-grid-level-classes/new'
+      fullPath: '/dungeon-grid-level-classes/new'
+      preLoaderRoute: typeof DungeonGridLevelClassesNewImport
+      parentRoute: typeof rootRoute
+    }
+    '/exp-level-classes/$id': {
+      id: '/exp-level-classes/$id'
+      path: '/exp-level-classes/$id'
+      fullPath: '/exp-level-classes/$id'
+      preLoaderRoute: typeof ExpLevelClassesIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/exp-level-classes/new': {
+      id: '/exp-level-classes/new'
+      path: '/exp-level-classes/new'
+      fullPath: '/exp-level-classes/new'
+      preLoaderRoute: typeof ExpLevelClassesNewImport
+      parentRoute: typeof rootRoute
+    }
+    '/grid-level-classes/$id': {
+      id: '/grid-level-classes/$id'
+      path: '/grid-level-classes/$id'
+      fullPath: '/grid-level-classes/$id'
+      preLoaderRoute: typeof GridLevelClassesIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/grid-level-classes/new': {
+      id: '/grid-level-classes/new'
+      path: '/grid-level-classes/new'
+      fullPath: '/grid-level-classes/new'
+      preLoaderRoute: typeof GridLevelClassesNewImport
+      parentRoute: typeof rootRoute
+    }
     '/items/$itemId': {
       id: '/items/$itemId'
       path: '/items/$itemId'
@@ -205,6 +348,20 @@ declare module '@tanstack/react-router' {
       path: '/prefabs/new'
       fullPath: '/prefabs/new'
       preLoaderRoute: typeof PrefabsNewImport
+      parentRoute: typeof rootRoute
+    }
+    '/pv-level-classes/$id': {
+      id: '/pv-level-classes/$id'
+      path: '/pv-level-classes/$id'
+      fullPath: '/pv-level-classes/$id'
+      preLoaderRoute: typeof PvLevelClassesIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/pv-level-classes/new': {
+      id: '/pv-level-classes/new'
+      path: '/pv-level-classes/new'
+      fullPath: '/pv-level-classes/new'
+      preLoaderRoute: typeof PvLevelClassesNewImport
       parentRoute: typeof rootRoute
     }
     '/units/$unitId': {
@@ -235,6 +392,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AugmentsIndexImport
       parentRoute: typeof rootRoute
     }
+    '/dungeon-grid-level-classes/': {
+      id: '/dungeon-grid-level-classes/'
+      path: '/dungeon-grid-level-classes'
+      fullPath: '/dungeon-grid-level-classes'
+      preLoaderRoute: typeof DungeonGridLevelClassesIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/exp-level-classes/': {
+      id: '/exp-level-classes/'
+      path: '/exp-level-classes'
+      fullPath: '/exp-level-classes'
+      preLoaderRoute: typeof ExpLevelClassesIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/generator-tags/': {
+      id: '/generator-tags/'
+      path: '/generator-tags'
+      fullPath: '/generator-tags'
+      preLoaderRoute: typeof GeneratorTagsIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/grid-level-classes/': {
+      id: '/grid-level-classes/'
+      path: '/grid-level-classes'
+      fullPath: '/grid-level-classes'
+      preLoaderRoute: typeof GridLevelClassesIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/items/': {
       id: '/items/'
       path: '/items'
@@ -242,11 +427,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ItemsIndexImport
       parentRoute: typeof rootRoute
     }
+    '/loot-categories/': {
+      id: '/loot-categories/'
+      path: '/loot-categories'
+      fullPath: '/loot-categories'
+      preLoaderRoute: typeof LootCategoriesIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/prefabs/': {
       id: '/prefabs/'
       path: '/prefabs'
       fullPath: '/prefabs'
       preLoaderRoute: typeof PrefabsIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/pv-level-classes/': {
+      id: '/pv-level-classes/'
+      path: '/pv-level-classes'
+      fullPath: '/pv-level-classes'
+      preLoaderRoute: typeof PvLevelClassesIndexImport
       parentRoute: typeof rootRoute
     }
     '/units/': {
@@ -268,16 +467,30 @@ export interface FileRoutesByFullPath {
   '/actions/new': typeof ActionsNewRoute
   '/augments/$augmentId': typeof AugmentsAugmentIdRoute
   '/augments/new': typeof AugmentsNewRoute
+  '/dungeon-grid-level-classes/$id': typeof DungeonGridLevelClassesIdRoute
+  '/dungeon-grid-level-classes/new': typeof DungeonGridLevelClassesNewRoute
+  '/exp-level-classes/$id': typeof ExpLevelClassesIdRoute
+  '/exp-level-classes/new': typeof ExpLevelClassesNewRoute
+  '/grid-level-classes/$id': typeof GridLevelClassesIdRoute
+  '/grid-level-classes/new': typeof GridLevelClassesNewRoute
   '/items/$itemId': typeof ItemsItemIdRoute
   '/items/new': typeof ItemsNewRoute
   '/prefabs/$prefabId': typeof PrefabsPrefabIdRoute
   '/prefabs/new': typeof PrefabsNewRoute
+  '/pv-level-classes/$id': typeof PvLevelClassesIdRoute
+  '/pv-level-classes/new': typeof PvLevelClassesNewRoute
   '/units/$unitId': typeof UnitsUnitIdRoute
   '/units/new': typeof UnitsNewRoute
   '/actions': typeof ActionsIndexRoute
   '/augments': typeof AugmentsIndexRoute
+  '/dungeon-grid-level-classes': typeof DungeonGridLevelClassesIndexRoute
+  '/exp-level-classes': typeof ExpLevelClassesIndexRoute
+  '/generator-tags': typeof GeneratorTagsIndexRoute
+  '/grid-level-classes': typeof GridLevelClassesIndexRoute
   '/items': typeof ItemsIndexRoute
+  '/loot-categories': typeof LootCategoriesIndexRoute
   '/prefabs': typeof PrefabsIndexRoute
+  '/pv-level-classes': typeof PvLevelClassesIndexRoute
   '/units': typeof UnitsIndexRoute
 }
 
@@ -288,16 +501,30 @@ export interface FileRoutesByTo {
   '/actions/new': typeof ActionsNewRoute
   '/augments/$augmentId': typeof AugmentsAugmentIdRoute
   '/augments/new': typeof AugmentsNewRoute
+  '/dungeon-grid-level-classes/$id': typeof DungeonGridLevelClassesIdRoute
+  '/dungeon-grid-level-classes/new': typeof DungeonGridLevelClassesNewRoute
+  '/exp-level-classes/$id': typeof ExpLevelClassesIdRoute
+  '/exp-level-classes/new': typeof ExpLevelClassesNewRoute
+  '/grid-level-classes/$id': typeof GridLevelClassesIdRoute
+  '/grid-level-classes/new': typeof GridLevelClassesNewRoute
   '/items/$itemId': typeof ItemsItemIdRoute
   '/items/new': typeof ItemsNewRoute
   '/prefabs/$prefabId': typeof PrefabsPrefabIdRoute
   '/prefabs/new': typeof PrefabsNewRoute
+  '/pv-level-classes/$id': typeof PvLevelClassesIdRoute
+  '/pv-level-classes/new': typeof PvLevelClassesNewRoute
   '/units/$unitId': typeof UnitsUnitIdRoute
   '/units/new': typeof UnitsNewRoute
   '/actions': typeof ActionsIndexRoute
   '/augments': typeof AugmentsIndexRoute
+  '/dungeon-grid-level-classes': typeof DungeonGridLevelClassesIndexRoute
+  '/exp-level-classes': typeof ExpLevelClassesIndexRoute
+  '/generator-tags': typeof GeneratorTagsIndexRoute
+  '/grid-level-classes': typeof GridLevelClassesIndexRoute
   '/items': typeof ItemsIndexRoute
+  '/loot-categories': typeof LootCategoriesIndexRoute
   '/prefabs': typeof PrefabsIndexRoute
+  '/pv-level-classes': typeof PvLevelClassesIndexRoute
   '/units': typeof UnitsIndexRoute
 }
 
@@ -309,16 +536,30 @@ export interface FileRoutesById {
   '/actions/new': typeof ActionsNewRoute
   '/augments/$augmentId': typeof AugmentsAugmentIdRoute
   '/augments/new': typeof AugmentsNewRoute
+  '/dungeon-grid-level-classes/$id': typeof DungeonGridLevelClassesIdRoute
+  '/dungeon-grid-level-classes/new': typeof DungeonGridLevelClassesNewRoute
+  '/exp-level-classes/$id': typeof ExpLevelClassesIdRoute
+  '/exp-level-classes/new': typeof ExpLevelClassesNewRoute
+  '/grid-level-classes/$id': typeof GridLevelClassesIdRoute
+  '/grid-level-classes/new': typeof GridLevelClassesNewRoute
   '/items/$itemId': typeof ItemsItemIdRoute
   '/items/new': typeof ItemsNewRoute
   '/prefabs/$prefabId': typeof PrefabsPrefabIdRoute
   '/prefabs/new': typeof PrefabsNewRoute
+  '/pv-level-classes/$id': typeof PvLevelClassesIdRoute
+  '/pv-level-classes/new': typeof PvLevelClassesNewRoute
   '/units/$unitId': typeof UnitsUnitIdRoute
   '/units/new': typeof UnitsNewRoute
   '/actions/': typeof ActionsIndexRoute
   '/augments/': typeof AugmentsIndexRoute
+  '/dungeon-grid-level-classes/': typeof DungeonGridLevelClassesIndexRoute
+  '/exp-level-classes/': typeof ExpLevelClassesIndexRoute
+  '/generator-tags/': typeof GeneratorTagsIndexRoute
+  '/grid-level-classes/': typeof GridLevelClassesIndexRoute
   '/items/': typeof ItemsIndexRoute
+  '/loot-categories/': typeof LootCategoriesIndexRoute
   '/prefabs/': typeof PrefabsIndexRoute
+  '/pv-level-classes/': typeof PvLevelClassesIndexRoute
   '/units/': typeof UnitsIndexRoute
 }
 
@@ -331,16 +572,30 @@ export interface FileRouteTypes {
     | '/actions/new'
     | '/augments/$augmentId'
     | '/augments/new'
+    | '/dungeon-grid-level-classes/$id'
+    | '/dungeon-grid-level-classes/new'
+    | '/exp-level-classes/$id'
+    | '/exp-level-classes/new'
+    | '/grid-level-classes/$id'
+    | '/grid-level-classes/new'
     | '/items/$itemId'
     | '/items/new'
     | '/prefabs/$prefabId'
     | '/prefabs/new'
+    | '/pv-level-classes/$id'
+    | '/pv-level-classes/new'
     | '/units/$unitId'
     | '/units/new'
     | '/actions'
     | '/augments'
+    | '/dungeon-grid-level-classes'
+    | '/exp-level-classes'
+    | '/generator-tags'
+    | '/grid-level-classes'
     | '/items'
+    | '/loot-categories'
     | '/prefabs'
+    | '/pv-level-classes'
     | '/units'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -350,16 +605,30 @@ export interface FileRouteTypes {
     | '/actions/new'
     | '/augments/$augmentId'
     | '/augments/new'
+    | '/dungeon-grid-level-classes/$id'
+    | '/dungeon-grid-level-classes/new'
+    | '/exp-level-classes/$id'
+    | '/exp-level-classes/new'
+    | '/grid-level-classes/$id'
+    | '/grid-level-classes/new'
     | '/items/$itemId'
     | '/items/new'
     | '/prefabs/$prefabId'
     | '/prefabs/new'
+    | '/pv-level-classes/$id'
+    | '/pv-level-classes/new'
     | '/units/$unitId'
     | '/units/new'
     | '/actions'
     | '/augments'
+    | '/dungeon-grid-level-classes'
+    | '/exp-level-classes'
+    | '/generator-tags'
+    | '/grid-level-classes'
     | '/items'
+    | '/loot-categories'
     | '/prefabs'
+    | '/pv-level-classes'
     | '/units'
   id:
     | '__root__'
@@ -369,16 +638,30 @@ export interface FileRouteTypes {
     | '/actions/new'
     | '/augments/$augmentId'
     | '/augments/new'
+    | '/dungeon-grid-level-classes/$id'
+    | '/dungeon-grid-level-classes/new'
+    | '/exp-level-classes/$id'
+    | '/exp-level-classes/new'
+    | '/grid-level-classes/$id'
+    | '/grid-level-classes/new'
     | '/items/$itemId'
     | '/items/new'
     | '/prefabs/$prefabId'
     | '/prefabs/new'
+    | '/pv-level-classes/$id'
+    | '/pv-level-classes/new'
     | '/units/$unitId'
     | '/units/new'
     | '/actions/'
     | '/augments/'
+    | '/dungeon-grid-level-classes/'
+    | '/exp-level-classes/'
+    | '/generator-tags/'
+    | '/grid-level-classes/'
     | '/items/'
+    | '/loot-categories/'
     | '/prefabs/'
+    | '/pv-level-classes/'
     | '/units/'
   fileRoutesById: FileRoutesById
 }
@@ -390,16 +673,30 @@ export interface RootRouteChildren {
   ActionsNewRoute: typeof ActionsNewRoute
   AugmentsAugmentIdRoute: typeof AugmentsAugmentIdRoute
   AugmentsNewRoute: typeof AugmentsNewRoute
+  DungeonGridLevelClassesIdRoute: typeof DungeonGridLevelClassesIdRoute
+  DungeonGridLevelClassesNewRoute: typeof DungeonGridLevelClassesNewRoute
+  ExpLevelClassesIdRoute: typeof ExpLevelClassesIdRoute
+  ExpLevelClassesNewRoute: typeof ExpLevelClassesNewRoute
+  GridLevelClassesIdRoute: typeof GridLevelClassesIdRoute
+  GridLevelClassesNewRoute: typeof GridLevelClassesNewRoute
   ItemsItemIdRoute: typeof ItemsItemIdRoute
   ItemsNewRoute: typeof ItemsNewRoute
   PrefabsPrefabIdRoute: typeof PrefabsPrefabIdRoute
   PrefabsNewRoute: typeof PrefabsNewRoute
+  PvLevelClassesIdRoute: typeof PvLevelClassesIdRoute
+  PvLevelClassesNewRoute: typeof PvLevelClassesNewRoute
   UnitsUnitIdRoute: typeof UnitsUnitIdRoute
   UnitsNewRoute: typeof UnitsNewRoute
   ActionsIndexRoute: typeof ActionsIndexRoute
   AugmentsIndexRoute: typeof AugmentsIndexRoute
+  DungeonGridLevelClassesIndexRoute: typeof DungeonGridLevelClassesIndexRoute
+  ExpLevelClassesIndexRoute: typeof ExpLevelClassesIndexRoute
+  GeneratorTagsIndexRoute: typeof GeneratorTagsIndexRoute
+  GridLevelClassesIndexRoute: typeof GridLevelClassesIndexRoute
   ItemsIndexRoute: typeof ItemsIndexRoute
+  LootCategoriesIndexRoute: typeof LootCategoriesIndexRoute
   PrefabsIndexRoute: typeof PrefabsIndexRoute
+  PvLevelClassesIndexRoute: typeof PvLevelClassesIndexRoute
   UnitsIndexRoute: typeof UnitsIndexRoute
 }
 
@@ -410,16 +707,30 @@ const rootRouteChildren: RootRouteChildren = {
   ActionsNewRoute: ActionsNewRoute,
   AugmentsAugmentIdRoute: AugmentsAugmentIdRoute,
   AugmentsNewRoute: AugmentsNewRoute,
+  DungeonGridLevelClassesIdRoute: DungeonGridLevelClassesIdRoute,
+  DungeonGridLevelClassesNewRoute: DungeonGridLevelClassesNewRoute,
+  ExpLevelClassesIdRoute: ExpLevelClassesIdRoute,
+  ExpLevelClassesNewRoute: ExpLevelClassesNewRoute,
+  GridLevelClassesIdRoute: GridLevelClassesIdRoute,
+  GridLevelClassesNewRoute: GridLevelClassesNewRoute,
   ItemsItemIdRoute: ItemsItemIdRoute,
   ItemsNewRoute: ItemsNewRoute,
   PrefabsPrefabIdRoute: PrefabsPrefabIdRoute,
   PrefabsNewRoute: PrefabsNewRoute,
+  PvLevelClassesIdRoute: PvLevelClassesIdRoute,
+  PvLevelClassesNewRoute: PvLevelClassesNewRoute,
   UnitsUnitIdRoute: UnitsUnitIdRoute,
   UnitsNewRoute: UnitsNewRoute,
   ActionsIndexRoute: ActionsIndexRoute,
   AugmentsIndexRoute: AugmentsIndexRoute,
+  DungeonGridLevelClassesIndexRoute: DungeonGridLevelClassesIndexRoute,
+  ExpLevelClassesIndexRoute: ExpLevelClassesIndexRoute,
+  GeneratorTagsIndexRoute: GeneratorTagsIndexRoute,
+  GridLevelClassesIndexRoute: GridLevelClassesIndexRoute,
   ItemsIndexRoute: ItemsIndexRoute,
+  LootCategoriesIndexRoute: LootCategoriesIndexRoute,
   PrefabsIndexRoute: PrefabsIndexRoute,
+  PvLevelClassesIndexRoute: PvLevelClassesIndexRoute,
   UnitsIndexRoute: UnitsIndexRoute,
 }
 
@@ -439,16 +750,30 @@ export const routeTree = rootRoute
         "/actions/new",
         "/augments/$augmentId",
         "/augments/new",
+        "/dungeon-grid-level-classes/$id",
+        "/dungeon-grid-level-classes/new",
+        "/exp-level-classes/$id",
+        "/exp-level-classes/new",
+        "/grid-level-classes/$id",
+        "/grid-level-classes/new",
         "/items/$itemId",
         "/items/new",
         "/prefabs/$prefabId",
         "/prefabs/new",
+        "/pv-level-classes/$id",
+        "/pv-level-classes/new",
         "/units/$unitId",
         "/units/new",
         "/actions/",
         "/augments/",
+        "/dungeon-grid-level-classes/",
+        "/exp-level-classes/",
+        "/generator-tags/",
+        "/grid-level-classes/",
         "/items/",
+        "/loot-categories/",
         "/prefabs/",
+        "/pv-level-classes/",
         "/units/"
       ]
     },
@@ -470,6 +795,24 @@ export const routeTree = rootRoute
     "/augments/new": {
       "filePath": "augments.new.tsx"
     },
+    "/dungeon-grid-level-classes/$id": {
+      "filePath": "dungeon-grid-level-classes.$id.tsx"
+    },
+    "/dungeon-grid-level-classes/new": {
+      "filePath": "dungeon-grid-level-classes.new.tsx"
+    },
+    "/exp-level-classes/$id": {
+      "filePath": "exp-level-classes.$id.tsx"
+    },
+    "/exp-level-classes/new": {
+      "filePath": "exp-level-classes.new.tsx"
+    },
+    "/grid-level-classes/$id": {
+      "filePath": "grid-level-classes.$id.tsx"
+    },
+    "/grid-level-classes/new": {
+      "filePath": "grid-level-classes.new.tsx"
+    },
     "/items/$itemId": {
       "filePath": "items.$itemId.tsx"
     },
@@ -481,6 +824,12 @@ export const routeTree = rootRoute
     },
     "/prefabs/new": {
       "filePath": "prefabs.new.tsx"
+    },
+    "/pv-level-classes/$id": {
+      "filePath": "pv-level-classes.$id.tsx"
+    },
+    "/pv-level-classes/new": {
+      "filePath": "pv-level-classes.new.tsx"
     },
     "/units/$unitId": {
       "filePath": "units.$unitId.tsx"
@@ -494,11 +843,29 @@ export const routeTree = rootRoute
     "/augments/": {
       "filePath": "augments.index.tsx"
     },
+    "/dungeon-grid-level-classes/": {
+      "filePath": "dungeon-grid-level-classes.index.tsx"
+    },
+    "/exp-level-classes/": {
+      "filePath": "exp-level-classes.index.tsx"
+    },
+    "/generator-tags/": {
+      "filePath": "generator-tags.index.tsx"
+    },
+    "/grid-level-classes/": {
+      "filePath": "grid-level-classes.index.tsx"
+    },
     "/items/": {
       "filePath": "items.index.tsx"
     },
+    "/loot-categories/": {
+      "filePath": "loot-categories.index.tsx"
+    },
     "/prefabs/": {
       "filePath": "prefabs.index.tsx"
+    },
+    "/pv-level-classes/": {
+      "filePath": "pv-level-classes.index.tsx"
     },
     "/units/": {
       "filePath": "units.index.tsx"

@@ -1,15 +1,15 @@
 import { useNavigate } from '@tanstack/react-router';
 import * as React from 'react';
-import { useForm, SubmitHandler, FormProvider, useFieldArray } from 'react-hook-form';
+import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
 
-import { DEFAULT_COMMANDER_LEVEL } from '../../constants/unit';
 import { useUnits } from '../../store/getters/unit';
 import { useGameStore } from '../../store/useGameStore';
 import { MOVEMENT_STRATEGIES, ROLES, Unit } from '../../types/unit';
 import { createSelectOptions } from '../../utils/createSelectOptions';
 import ArraySelect from '../ArraySelect';
-import FactionMultiSelect from '../FactionMultiSelect';
 import FormActionSelect from '../FormActionSelect';
+import FormLevelClassSelect from '../FormLevelClassSelect';
+import GeneratorTagMultiSelect from '../GeneratorTagMultiSelect';
 import LabeledInputBase, { LabeledInputProps } from '../LabledInput';
 import LabeledSelect from '../LabledSelect';
 import QuantitySelect from '../QuantitySelect';
@@ -36,21 +36,8 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
     setUnit(data);
     navigate({ to: '/units' });
   };
-  const {
-    fields: levelFields,
-    append: appendLevel,
-    remove: removeLevel,
-  } = useFieldArray({ control: methods.control, name: 'commander_data.levels' });
   const isCurrentlyCommander = watch('is_commander');
   const isCurrentlyTrainable = watch('trainable');
-  const watchedLevels = watch('commander_data.levels');
-  const experienceIsMonotonic = React.useMemo(() => {
-    if (!isCurrentlyCommander || !watchedLevels || watchedLevels.length < 2) return true;
-    return watchedLevels.every(
-      (level, index) =>
-        index === 0 || Number(level.experience) > Number(watchedLevels[index - 1].experience),
-    );
-  }, [isCurrentlyCommander, watchedLevels]);
   const buttonText = isDirty ? 'Cancel' : 'Back';
   const initialId = unit.id;
 
@@ -86,7 +73,7 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
           <LabeledInput id="name" label="Name" type="text" required />
           <LabeledInput id="description" label="Description" type="text" required />
           <LabeledSelect id="role" label="Role" options={createSelectOptions(ROLES)} />
-          <FactionMultiSelect<Unit> id="factions" label="Factions" />
+          <GeneratorTagMultiSelect<Unit> id="generator_tags" label="Generator Tags" />
           <div className="flex justify-between">
             <div className="flex flex-col">
               <LabeledInput
@@ -108,7 +95,7 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
               <button
                 className="bg-gray-500 active:bg-gray-600 disabled:bg-gray-300 border-white rounded p-3 w-36"
                 type="submit"
-                disabled={!isDirty || !isValid || !experienceIsMonotonic}
+                disabled={!isDirty || !isValid}
               >
                 Save
               </button>
@@ -234,41 +221,6 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
                 required={isCurrentlyCommander}
               />
               <LabeledInput
-                id="commander_data.point_limit"
-                label="Point Limit"
-                type="number"
-                allowFloats={false}
-                required={isCurrentlyCommander}
-              />
-              <LabeledInput
-                id="commander_data.grid_size_x"
-                label="Grid Size X"
-                type="number"
-                allowFloats={false}
-                required={isCurrentlyCommander}
-              />
-              <LabeledInput
-                id="commander_data.grid_size_y"
-                label="Grid Size Y"
-                type="number"
-                allowFloats={false}
-                required={isCurrentlyCommander}
-              />
-              <LabeledInput
-                id="commander_data.dungeon_grid_size_x"
-                label="Dungeon Grid Size X"
-                type="number"
-                allowFloats={false}
-                required={isCurrentlyCommander}
-              />
-              <LabeledInput
-                id="commander_data.dungeon_grid_size_y"
-                label="Dungeon Grid Size Y"
-                type="number"
-                allowFloats={false}
-                required={isCurrentlyCommander}
-              />
-              <LabeledInput
                 id="commander_data.turn_movements"
                 label="Turn Movements"
                 type="number"
@@ -289,6 +241,28 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
                 required={isCurrentlyCommander}
               />
             </div>
+            <div className="grid grid-cols-2 border rounded justify-items-center gap-3 mb-6 p-6">
+              <FormLevelClassSelect<Unit>
+                kind="EXP"
+                label="EXP Level Class"
+                id="commander_data.exp_level_class"
+              />
+              <FormLevelClassSelect<Unit>
+                kind="PV"
+                label="PV Level Class"
+                id="commander_data.pv_level_class"
+              />
+              <FormLevelClassSelect<Unit>
+                kind="GRID"
+                label="Grid Level Class"
+                id="commander_data.grid_level_class"
+              />
+              <FormLevelClassSelect<Unit>
+                kind="DUNGEON_GRID"
+                label="Dungeon Grid Level Class"
+                id="commander_data.dungeon_grid_level_class"
+              />
+            </div>
             <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
               <ArraySelect
                 type="AUGMENT"
@@ -301,79 +275,6 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
                 label="Enemy Army Augments"
                 id="commander_data.enemy_army_augments"
               />
-            </div>
-            <div className="border rounded gap-3 mb-6 p-6">
-              <div className="flex justify-between items-center mb-3">
-                <h3 className="font-bold text-lg">Levels</h3>
-                <button
-                  className="bg-gray-500 active:bg-gray-600 border-white rounded p-2"
-                  type="button"
-                  onClick={() => appendLevel(DEFAULT_COMMANDER_LEVEL)}
-                >
-                  Add Level
-                </button>
-              </div>
-              {!experienceIsMonotonic && (
-                <span className="text-red-500 block mb-3">
-                  Experience must strictly increase from one level to the next.
-                </span>
-              )}
-              {levelFields.map((field, index) => (
-                <div
-                  key={field.id}
-                  className="grid grid-cols-3 border rounded justify-items-center items-end gap-3 mb-3 p-3"
-                >
-                  <LabeledInput
-                    id={`commander_data.levels.${index}.experience`}
-                    label={`Level ${index + 1} Experience`}
-                    type="number"
-                    allowFloats={false}
-                    required={isCurrentlyCommander}
-                  />
-                  <LabeledInput
-                    id={`commander_data.levels.${index}.point_value_limit`}
-                    label="Point Value Limit"
-                    type="number"
-                    allowFloats={false}
-                    required={isCurrentlyCommander}
-                  />
-                  <LabeledInput
-                    id={`commander_data.levels.${index}.grid_size_x`}
-                    label="Grid Size X"
-                    type="number"
-                    allowFloats={false}
-                    required={isCurrentlyCommander}
-                  />
-                  <LabeledInput
-                    id={`commander_data.levels.${index}.grid_size_y`}
-                    label="Grid Size Y"
-                    type="number"
-                    allowFloats={false}
-                    required={isCurrentlyCommander}
-                  />
-                  <LabeledInput
-                    id={`commander_data.levels.${index}.dungeon_grid_size_x`}
-                    label="Dungeon Grid Size X"
-                    type="number"
-                    allowFloats={false}
-                    required={isCurrentlyCommander}
-                  />
-                  <LabeledInput
-                    id={`commander_data.levels.${index}.dungeon_grid_size_y`}
-                    label="Dungeon Grid Size Y"
-                    type="number"
-                    allowFloats={false}
-                    required={isCurrentlyCommander}
-                  />
-                  <button
-                    className="bg-gray-500 active:bg-gray-600 border-white rounded p-2 w-full"
-                    type="button"
-                    onClick={() => removeLevel(index)}
-                  >
-                    Remove Level {index + 1}
-                  </button>
-                </div>
-              ))}
             </div>
           </>
         )}

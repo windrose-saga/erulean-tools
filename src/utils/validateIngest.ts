@@ -1,12 +1,31 @@
+import { isValidVocabId } from './vocabId';
+
 import { Action } from '../types/action';
 import { Augment } from '../types/augment';
 import { DungeonPrefab } from '../types/dungeonPrefab';
+import { Item } from '../types/item';
+import { IntLevelClass, VectorLevelClass } from '../types/levelClass';
 import { Unit } from '../types/unit';
 
-type ErrorType = 'unit' | 'action' | 'augment' | 'prefab';
+type ErrorType = 'unit' | 'action' | 'augment' | 'prefab' | 'levelClass' | 'item';
 type Error = {
   type: ErrorType;
   message: string;
+};
+
+type LevelClassRecords = {
+  expLevelClasses: Record<string, IntLevelClass>;
+  pvLevelClasses: Record<string, IntLevelClass>;
+  gridLevelClasses: Record<string, VectorLevelClass>;
+  dungeonGridLevelClasses: Record<string, VectorLevelClass>;
+};
+
+type VocabularyInput = {
+  items: Record<string, Item>;
+  lootCategoryIds: string[];
+  removedLootCategoryIds: string[];
+  generatorTagIds: string[];
+  removedGeneratorTagIds: string[];
 };
 
 export const validateIngest = (
@@ -14,11 +33,172 @@ export const validateIngest = (
   actions: Record<string, Action>,
   augments: Record<string, Augment>,
   prefabs: Record<string, DungeonPrefab> = {},
+  levelClasses?: LevelClassRecords,
+  vocabularies?: VocabularyInput,
 ) => {
-  const unitErrors = validateUnits(units, actions, augments);
+  const unitErrors = validateUnits(units, actions, augments, levelClasses);
   const actionErrors = validateActions(actions, augments, units);
   const prefabErrors = validatePrefabs(prefabs);
-  return [...unitErrors, ...actionErrors, ...prefabErrors];
+  const levelClassErrors = levelClasses ? validateLevelClasses(levelClasses) : [];
+  const vocabularyErrors = vocabularies ? validateVocabularies(units, vocabularies) : [];
+  return [
+    ...unitErrors,
+    ...actionErrors,
+    ...prefabErrors,
+    ...levelClassErrors,
+    ...vocabularyErrors,
+  ];
+};
+
+// Loot-category / generator-tag vocabularies feed Godot enum codegen (Item/UnitConstants.gd) and
+// their ordinals back persisted resources, so these are hard errors: invalid identifiers,
+// duplicates, a tombstone list that is not a clean subset, or any item/unit referencing an
+// unknown OR tombstoned value.
+const validateVocabularies = (units: Record<string, Unit>, vocab: VocabularyInput) => {
+  const errors: Error[] = [];
+
+  const checkList = (
+    type: ErrorType,
+    label: string,
+    full: string[],
+    removed: string[],
+    references: Array<{ owner: string; values: string[] }>,
+  ) => {
+    full.forEach((name) => {
+      if (!isValidVocabId(name)) {
+        errors.push({
+          type,
+          message: `${label} '${name}' must be UPPER_CASE letters/digits/underscores starting with a letter or underscore`,
+        });
+      }
+    });
+    const uniqueFull = new Set(full);
+    if (full.length !== uniqueFull.size) {
+      const duplicates = full.filter((name, index) => full.indexOf(name) !== index);
+      errors.push({ type, message: `Duplicate ${label} values found: ${duplicates.join(', ')}` });
+    }
+    const uniqueRemoved = new Set(removed);
+    if (removed.length !== uniqueRemoved.size) {
+      const duplicates = removed.filter((name, index) => removed.indexOf(name) !== index);
+      errors.push({
+        type,
+        message: `Duplicate removed ${label} values found: ${duplicates.join(', ')}`,
+      });
+    }
+    removed.forEach((name) => {
+      if (!uniqueFull.has(name)) {
+        errors.push({
+          type,
+          message: `Removed ${label} '${name}' is not present in the full list`,
+        });
+      }
+    });
+
+    const activeSet = new Set(full.filter((name) => !uniqueRemoved.has(name)));
+    references.forEach(({ owner, values }) => {
+      values.forEach((value) => {
+        if (!uniqueFull.has(value)) {
+          errors.push({ type, message: `${owner} references unknown ${label} '${value}'` });
+        } else if (!activeSet.has(value)) {
+          errors.push({ type, message: `${owner} references removed ${label} '${value}'` });
+        }
+      });
+    });
+  };
+
+  checkList(
+    'item',
+    'loot category',
+    vocab.lootCategoryIds,
+    vocab.removedLootCategoryIds,
+    Object.values(vocab.items).map((item) => ({
+      owner: `Item ${item.id}`,
+      values: item.loot_categories,
+    })),
+  );
+  checkList(
+    'unit',
+    'generator tag',
+    vocab.generatorTagIds,
+    vocab.removedGeneratorTagIds,
+    Object.values(units).map((unit) => ({
+      owner: `Unit ${unit.id}`,
+      values: unit.generator_tags,
+    })),
+  );
+
+  return errors;
+};
+
+// Level-class ids feed Godot enum codegen (LevelClassConstants.gd), so invalid
+// or duplicate ids are hard errors per table, matching the unit/prefab pattern.
+const validateLevelClasses = (levelClasses: LevelClassRecords) => {
+  const errors: Error[] = [];
+  const tables: Array<[string, Record<string, { id: string }>]> = [
+    ['EXP', levelClasses.expLevelClasses],
+    ['PV', levelClasses.pvLevelClasses],
+    ['Grid', levelClasses.gridLevelClasses],
+    ['Dungeon Grid', levelClasses.dungeonGridLevelClasses],
+  ];
+
+  tables.forEach(([label, table]) => {
+    const ids = Object.values(table).map((levelClass) => levelClass.id);
+    const uniqueIds = new Set(ids);
+    if (ids.length !== uniqueIds.size) {
+      const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
+      errors.push({
+        type: 'levelClass',
+        message: `Duplicate ${label} level-class ids found: ${duplicateIds.join(', ')}`,
+      });
+    }
+    ids.forEach((id) => {
+      if (!isValidVocabId(id)) {
+        errors.push({
+          type: 'levelClass',
+          message: `${label} level-class id '${id}' must be an upper-case identifier that does not start with a digit`,
+        });
+      }
+    });
+  });
+
+  Object.values(levelClasses.expLevelClasses).forEach((levelClass) => {
+    const hasNegativeValue = levelClass.levels.some((value) => value < 0);
+    const isStrictlyIncreasing = levelClass.levels.every(
+      (value, index) => index === 0 || value > levelClass.levels[index - 1],
+    );
+    if (hasNegativeValue || !isStrictlyIncreasing) {
+      errors.push({
+        type: 'levelClass',
+        message: `EXP level class ${levelClass.id} must contain non-negative, strictly increasing values`,
+      });
+    }
+  });
+
+  Object.values(levelClasses.pvLevelClasses).forEach((levelClass) => {
+    if (levelClass.levels.some((value) => value <= 0)) {
+      errors.push({
+        type: 'levelClass',
+        message: `PV level class ${levelClass.id} must contain only positive values`,
+      });
+    }
+  });
+
+  const vectorTables: Array<[string, Record<string, VectorLevelClass>]> = [
+    ['Grid', levelClasses.gridLevelClasses],
+    ['Dungeon Grid', levelClasses.dungeonGridLevelClasses],
+  ];
+  vectorTables.forEach(([label, table]) => {
+    Object.values(table).forEach((levelClass) => {
+      if (levelClass.levels.some((value) => value.x <= 0 || value.y <= 0)) {
+        errors.push({
+          type: 'levelClass',
+          message: `${label} level class ${levelClass.id} must contain only positive dimensions`,
+        });
+      }
+    });
+  });
+
+  return errors;
 };
 
 const validatePrefabs = (prefabs: Record<string, DungeonPrefab>) => {
@@ -61,6 +241,7 @@ const validateUnits = (
   units: Record<string, Unit>,
   actions: Record<string, Action>,
   augments: Record<string, Augment>,
+  levelClasses?: LevelClassRecords,
 ) => {
   const errors: Error[] = [];
   const ids = Object.values(units).map((unit) => unit.id);
@@ -90,6 +271,29 @@ const validateUnits = (
           errors.push({
             type: 'unit',
             message: `Unit ${unit.id} references invalid augments: ${invalidAugments.join(', ')}`,
+          });
+        }
+
+        if (levelClasses) {
+          const references: Array<
+            [string, string | null, Record<string, IntLevelClass | VectorLevelClass>]
+          > = [
+            ['EXP', unit.commander_data.exp_level_class, levelClasses.expLevelClasses],
+            ['PV', unit.commander_data.pv_level_class, levelClasses.pvLevelClasses],
+            ['Grid', unit.commander_data.grid_level_class, levelClasses.gridLevelClasses],
+            [
+              'Dungeon Grid',
+              unit.commander_data.dungeon_grid_level_class,
+              levelClasses.dungeonGridLevelClasses,
+            ],
+          ];
+          references.forEach(([label, guid, table]) => {
+            if (guid !== null && !(guid in table)) {
+              errors.push({
+                type: 'unit',
+                message: `Unit ${unit.id} references missing ${label} level class '${guid}'`,
+              });
+            }
           });
         }
       }
