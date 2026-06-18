@@ -46,11 +46,32 @@ tbody tr td:first-of-type {
   z-index: 1;
 }
 
+/* Tag matrix: reuse the app's gray sticky header / first-column convention (above) for
+   legibility in light and dark, but with denser padding and a bounded scroll area so the many
+   tag/category columns stay manageable. */
+.tag-matrix-scroll {
+  overflow: auto;
+  max-height: 75vh;
+  border: 1px solid #ddd;
+}
+.tag-matrix td,
+.tag-matrix th {
+  padding: 6px 10px;
+}
+.tag-matrix-row-label {
+  text-align: left;
+}
+/* Subtle zebra striping on the data cells only (the sticky label column keeps its gray). Blend the
+   system Canvas/CanvasText colors so the tint adapts to light and dark themes. */
+.tag-matrix tbody tr:nth-child(even) td:not(:first-child) {
+  background-color: color-mix(in srgb, Canvas 92%, CanvasText);
+}
+
 button {
   border-radius: 8px;
   border: 1px solid CanvasText;
   padding: 8;
-  
+
   font-weight: 500;
   cursor: pointer;
   transition: border-color 0.25s;
@@ -64,6 +85,6 @@ button:focus-visible {
 }
 button:disabled {
   cursor: not-allowed;
-  border-color:#808080;
+  border-color: #808080;
   color: #808080;
 }
