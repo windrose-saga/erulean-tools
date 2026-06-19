@@ -4,7 +4,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { ColumnFilter } from './ColumnFilter';
 import { Row } from './Row';
 
-import { Column } from '../types/list';
+import { Column, OnCellEdit } from '../types/list';
 import { assertUnreachable } from '../utils/assertUnreachable';
 import { useColumnVisibility } from '../utils/useColumnVisibility';
 
@@ -13,6 +13,7 @@ interface ListProps<T> {
   columns: Column<T>[];
   defaultIndex: keyof T;
   onRowClick?: (item: T) => void;
+  onCellEdit?: OnCellEdit<T>;
   searchFields: Array<keyof T>;
   objectCreationType:
     | 'unit'
@@ -31,13 +32,17 @@ export const List = <T extends object>({
   columns,
   defaultIndex,
   onRowClick,
+  onCellEdit,
   searchFields,
   objectCreationType,
 }: ListProps<T>) => {
   const [sortField, setSortField] = useState<keyof T>(defaultIndex);
   const [reverse, setReverse] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [editMode, setEditMode] = useState(false);
   const { columnState, visibleColumns, toggleColumn } = useColumnVisibility(columns);
+
+  const canEdit = !!onCellEdit && columns.some((column) => column.editable);
 
   const filteredItems = useMemo(() => {
     if (!searchTerm) {
@@ -58,18 +63,19 @@ export const List = <T extends object>({
     if (!filteredItems.length) {
       return filteredItems;
     }
+    const sortableItems = [...filteredItems];
     const multiplier = reverse ? -1 : 1;
-    if (typeof filteredItems[0][sortField] === 'string') {
-      return filteredItems.sort(
+    if (typeof sortableItems[0][sortField] === 'string') {
+      return sortableItems.sort(
         (a, b) => (a[sortField] as string).localeCompare(b[sortField] as string) * multiplier,
       );
     }
-    if (typeof filteredItems[0][sortField] === 'number') {
-      return filteredItems.sort(
+    if (typeof sortableItems[0][sortField] === 'number') {
+      return sortableItems.sort(
         (a, b) => ((a[sortField] as number) - (b[sortField] as number)) * multiplier,
       );
     }
-    return filteredItems.sort(
+    return sortableItems.sort(
       (a, b) => ((a[sortField] ? 0 : 1) - (b[sortField] ? 0 : 1)) * multiplier,
     );
   }, [filteredItems, sortField, reverse]);
@@ -117,6 +123,11 @@ export const List = <T extends object>({
         <Link to={createObjectPath}>
           <button>Create New</button>
         </Link>
+        {canEdit && (
+          <button type="button" onClick={() => setEditMode((value) => !value)}>
+            {editMode ? 'Done' : 'Edit'}
+          </button>
+        )}
       </div>
 
       <div className="flex flex-row">
@@ -152,6 +163,8 @@ export const List = <T extends object>({
             <Row
               key={item[defaultIndex] as string}
               onRowClick={onRowClick}
+              onCellEdit={onCellEdit}
+              editMode={editMode}
               item={item}
               columns={visibleColumns}
               defaultIndex={defaultIndex}

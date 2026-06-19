@@ -4,12 +4,13 @@ import React from 'react';
 import { List } from './List';
 
 import { useItems } from '../store/getters/item';
-import { Item } from '../types/item';
+import { useGameStore } from '../store/useGameStore';
+import { ITEM_TYPES, Item } from '../types/item';
 import { Column } from '../types/list';
 
 const itemColumns: Column<Item>[] = [
-  { name: 'Name', field: 'name' },
-  { name: 'Type', field: 'item_type' },
+  { name: 'Name', field: 'name', editable: true },
+  { name: 'Type', field: 'item_type', editable: true, options: ITEM_TYPES },
 ];
 
 const searchFields: (keyof Item)[] = ['name', 'id', 'description', 'item_type'];
@@ -17,11 +18,18 @@ const searchFields: (keyof Item)[] = ['name', 'id', 'description', 'item_type'];
 export const ItemList = () => {
   const navigate = useNavigate();
   const items = useItems();
+  const setItem = useGameStore.use.setItem();
   const onRowClick = React.useCallback(
     (item: Item) => {
       navigate({ to: '/items/$itemId', params: { itemId: item.guid } });
     },
     [navigate],
+  );
+  const onCellEdit = React.useCallback(
+    <K extends keyof Item>(item: Item, field: K, value: Item[K]) => {
+      setItem({ ...item, [field]: value });
+    },
+    [setItem],
   );
   return (
     <List
@@ -30,6 +38,7 @@ export const ItemList = () => {
       defaultIndex="id"
       searchFields={searchFields}
       onRowClick={onRowClick}
+      onCellEdit={onCellEdit}
       objectCreationType="item"
     />
   );
