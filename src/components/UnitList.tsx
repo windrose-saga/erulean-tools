@@ -32,6 +32,8 @@ const unitColumns: Column<Unit>[] = [
   { name: 'Is Commander', field: 'is_commander', editable: true },
   { name: 'Trainable', field: 'trainable', editable: true },
   { name: 'Point Value', field: 'point_value', editable: true },
+  { name: 'Rarity', field: 'rarity', editable: true },
+  { name: 'Can Be Reward', field: 'can_be_reward', editable: true },
 ];
 
 const searchFields: (keyof Unit)[] = ['name', 'id', 'description'];

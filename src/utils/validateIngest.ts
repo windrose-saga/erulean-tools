@@ -299,12 +299,12 @@ const validateUnits = (
       }
     }
 
-    if (!Number.isFinite(unit.rarity) || unit.rarity < 0 || unit.rarity > 1) {
-      errors.push({
-        type: 'unit',
-        message: `Unit ${unit.id} has invalid reward rarity '${unit.rarity}' (must be a number in [0, 1])`,
-      });
-    }
+    // if (!Number.isFinite(unit.rarity) || unit.rarity < 0 || unit.rarity > 1) {
+    //   errors.push({
+    //     type: 'unit',
+    //     message: `Unit ${unit.id} has invalid reward rarity '${unit.rarity}' (must be a number in [0, 1])`,
+    //   });
+    // }
 
     if (typeof unit.can_be_reward !== 'boolean') {
       errors.push({

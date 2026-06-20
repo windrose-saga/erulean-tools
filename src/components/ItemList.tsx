@@ -11,6 +11,7 @@ import { Column } from '../types/list';
 const itemColumns: Column<Item>[] = [
   { name: 'Name', field: 'name', editable: true },
   { name: 'Type', field: 'item_type', editable: true, options: ITEM_TYPES },
+  { name: 'Rarity', field: 'rarity', editable: true },
 ];
 
 const searchFields: (keyof Item)[] = ['name', 'id', 'description', 'item_type'];
