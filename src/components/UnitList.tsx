@@ -6,7 +6,7 @@ import { List } from './List';
 import { useUnits } from '../store/getters/unit';
 import { useGameStore } from '../store/useGameStore';
 import { Column } from '../types/list';
-import { MOVEMENT_STRATEGIES, Unit } from '../types/unit';
+import { MOVEMENT_STRATEGIES, ROLES, Unit } from '../types/unit';
 
 const unitColumns: Column<Unit>[] = [
   { name: 'Name', field: 'name', editable: true },
@@ -34,6 +34,7 @@ const unitColumns: Column<Unit>[] = [
   { name: 'Point Value', field: 'point_value', editable: true },
   { name: 'Rarity', field: 'rarity', editable: true },
   { name: 'Can Be Reward', field: 'can_be_reward', editable: true },
+  { name: 'Role', field: 'role', editable: true, options: ROLES },
 ];
 
 const searchFields: (keyof Unit)[] = ['name', 'id', 'description'];
