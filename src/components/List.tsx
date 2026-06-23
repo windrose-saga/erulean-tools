@@ -24,7 +24,8 @@ interface ListProps<T> {
     | 'expLevelClass'
     | 'pvLevelClass'
     | 'gridLevelClass'
-    | 'dungeonGridLevelClass';
+    | 'dungeonGridLevelClass'
+    | 'generatorClass';
 }
 
 export const List = <T extends object>({
@@ -111,6 +112,8 @@ export const List = <T extends object>({
         return '/grid-level-classes/new';
       case 'dungeonGridLevelClass':
         return '/dungeon-grid-level-classes/new';
+      case 'generatorClass':
+        return '/generator-classes/new';
       default:
         assertUnreachable(objectCreationType);
         return '/';

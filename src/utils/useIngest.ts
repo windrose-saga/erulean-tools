@@ -15,6 +15,7 @@ import { DEFAULT_CONSUMABLE_EFFECT, DEFAULT_ITEM_DATA } from '../constants/item'
 import {
   DEFAULT_DUNGEON_GRID_LEVEL_CLASS,
   DEFAULT_EXP_LEVEL_CLASS,
+  DEFAULT_GENERATOR_CLASS,
   DEFAULT_GRID_LEVEL_CLASS,
   DEFAULT_PV_LEVEL_CLASS,
 } from '../constants/levelClass';
@@ -25,7 +26,7 @@ import { Augment } from '../types/augment';
 import { DungeonPrefab } from '../types/dungeonPrefab';
 import { GameData } from '../types/gameData';
 import { isDurationalEffectClass, Item, SEED_LOOT_CATEGORIES } from '../types/item';
-import { IntLevelClass, VectorLevelClass } from '../types/levelClass';
+import { GeneratorClass, IntLevelClass, VectorLevelClass } from '../types/levelClass';
 import { SEED_GENERATOR_TAGS, Unit } from '../types/unit';
 
 type ErrorType = 'unit' | 'action' | 'augment' | 'item' | 'prefab' | 'levelClass' | 'general';
@@ -46,6 +47,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
   const setPvLevelClasses = useGameStore.use.setPvLevelClasses();
   const setGridLevelClasses = useGameStore.use.setGridLevelClasses();
   const setDungeonGridLevelClasses = useGameStore.use.setDungeonGridLevelClasses();
+  const setGeneratorClasses = useGameStore.use.setGeneratorClasses();
   const setUnitIds = useGameStore.use.setUnitIds();
   const setItemIds = useGameStore.use.setItemIds();
   const setPrefabIds = useGameStore.use.setPrefabIds();
@@ -53,6 +55,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
   const setPvLevelClassIds = useGameStore.use.setPvLevelClassIds();
   const setGridLevelClassIds = useGameStore.use.setGridLevelClassIds();
   const setDungeonGridLevelClassIds = useGameStore.use.setDungeonGridLevelClassIds();
+  const setGeneratorClassIds = useGameStore.use.setGeneratorClassIds();
   const setLootCategoryIds = useGameStore.use.setLootCategoryIds();
   const setGeneratorTagIds = useGameStore.use.setGeneratorTagIds();
   const setLoaded = useGameStore.use.setLoaded();
@@ -75,6 +78,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
         const dungeonGridLevelClasses = ingestDungeonGridLevelClassesV2(
           data.dungeonGridLevelClasses || [],
         );
+        const generatorClasses = ingestGeneratorClassesV2(data.generatorClasses || []);
         const unitIds = ingestUnitIds(data);
         const itemIds = ingestItemIds(data);
         const prefabIds = ingestPrefabIds(data);
@@ -94,6 +98,10 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           Object.values(dungeonGridLevelClasses),
           data.dungeonGridLevelClassIds,
         );
+        const generatorClassIds = generateLevelClassIdsMap(
+          Object.values(generatorClasses),
+          data.generatorClassIds,
+        );
         // Presence-based legacy fallback: a missing field means a pre-vocabulary file (seed the
         // defaults); an explicit empty array must stay empty (so `|| defaults` would be wrong).
         const lootCategoryIds =
@@ -112,6 +120,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
             pvLevelClasses,
             gridLevelClasses,
             dungeonGridLevelClasses,
+            generatorClasses,
           },
           {
             items,
@@ -142,6 +151,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           setPvLevelClasses(pvLevelClasses);
           setGridLevelClasses(gridLevelClasses);
           setDungeonGridLevelClasses(dungeonGridLevelClasses);
+          setGeneratorClasses(generatorClasses);
           setUnitIds(unitIds);
           setItemIds(itemIds);
           setPrefabIds(prefabIds);
@@ -149,6 +159,7 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           setPvLevelClassIds(pvLevelClassIds);
           setGridLevelClassIds(gridLevelClassIds);
           setDungeonGridLevelClassIds(dungeonGridLevelClassIds);
+          setGeneratorClassIds(generatorClassIds);
           setLootCategoryIds(lootCategoryIds, removedLootCategoryIds);
           setGeneratorTagIds(generatorTagIds, removedGeneratorTagIds);
           setLoaded();
@@ -179,10 +190,12 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
       setPvLevelClasses,
       setGridLevelClasses,
       setDungeonGridLevelClasses,
+      setGeneratorClasses,
       setExpLevelClassIds,
       setPvLevelClassIds,
       setGridLevelClassIds,
       setDungeonGridLevelClassIds,
+      setGeneratorClassIds,
       setLastSaved,
       setLoaded,
       setUnitIds,
@@ -294,6 +307,24 @@ const ingestVectorLevelClasses = (
   const out: Record<string, VectorLevelClass> = { [defaultClass.guid]: defaultClass };
   rawData.forEach((levelClass) => {
     out[levelClass.guid] = normalizeVectorLevelClass(levelClass);
+  });
+  return out;
+};
+
+const normalizeGeneratorClass = (generatorClass: GeneratorClass): GeneratorClass => ({
+  guid: generatorClass.guid,
+  id: generatorClass.id,
+  name: generatorClass.name,
+  jitter: (generatorClass.jitter ?? []).map((value) => Number(value)),
+  rarity_pressure: (generatorClass.rarity_pressure ?? []).map((value) => Number(value)),
+});
+
+export const ingestGeneratorClassesV2 = (rawData: Array<GeneratorClass>) => {
+  const out: Record<string, GeneratorClass> = {
+    [DEFAULT_GENERATOR_CLASS.guid]: DEFAULT_GENERATOR_CLASS,
+  };
+  rawData.forEach((generatorClass) => {
+    out[generatorClass.guid] = normalizeGeneratorClass(generatorClass);
   });
   return out;
 };

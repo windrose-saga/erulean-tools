@@ -20,6 +20,7 @@ import { Route as LootCategoriesIndexImport } from './routes/loot-categories.ind
 import { Route as ItemsIndexImport } from './routes/items.index'
 import { Route as GridLevelClassesIndexImport } from './routes/grid-level-classes.index'
 import { Route as GeneratorTagsIndexImport } from './routes/generator-tags.index'
+import { Route as GeneratorClassesIndexImport } from './routes/generator-classes.index'
 import { Route as ExpLevelClassesIndexImport } from './routes/exp-level-classes.index'
 import { Route as DungeonGridLevelClassesIndexImport } from './routes/dungeon-grid-level-classes.index'
 import { Route as AugmentsIndexImport } from './routes/augments.index'
@@ -34,6 +35,8 @@ import { Route as ItemsNewImport } from './routes/items.new'
 import { Route as ItemsItemIdImport } from './routes/items.$itemId'
 import { Route as GridLevelClassesNewImport } from './routes/grid-level-classes.new'
 import { Route as GridLevelClassesIdImport } from './routes/grid-level-classes.$id'
+import { Route as GeneratorClassesNewImport } from './routes/generator-classes.new'
+import { Route as GeneratorClassesIdImport } from './routes/generator-classes.$id'
 import { Route as ExpLevelClassesNewImport } from './routes/exp-level-classes.new'
 import { Route as ExpLevelClassesIdImport } from './routes/exp-level-classes.$id'
 import { Route as DungeonGridLevelClassesNewImport } from './routes/dungeon-grid-level-classes.new'
@@ -96,6 +99,12 @@ const GridLevelClassesIndexRoute = GridLevelClassesIndexImport.update({
 const GeneratorTagsIndexRoute = GeneratorTagsIndexImport.update({
   id: '/generator-tags/',
   path: '/generator-tags/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GeneratorClassesIndexRoute = GeneratorClassesIndexImport.update({
+  id: '/generator-classes/',
+  path: '/generator-classes/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -181,6 +190,18 @@ const GridLevelClassesNewRoute = GridLevelClassesNewImport.update({
 const GridLevelClassesIdRoute = GridLevelClassesIdImport.update({
   id: '/grid-level-classes/$id',
   path: '/grid-level-classes/$id',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GeneratorClassesNewRoute = GeneratorClassesNewImport.update({
+  id: '/generator-classes/new',
+  path: '/generator-classes/new',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GeneratorClassesIdRoute = GeneratorClassesIdImport.update({
+  id: '/generator-classes/$id',
+  path: '/generator-classes/$id',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -308,6 +329,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExpLevelClassesNewImport
       parentRoute: typeof rootRoute
     }
+    '/generator-classes/$id': {
+      id: '/generator-classes/$id'
+      path: '/generator-classes/$id'
+      fullPath: '/generator-classes/$id'
+      preLoaderRoute: typeof GeneratorClassesIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/generator-classes/new': {
+      id: '/generator-classes/new'
+      path: '/generator-classes/new'
+      fullPath: '/generator-classes/new'
+      preLoaderRoute: typeof GeneratorClassesNewImport
+      parentRoute: typeof rootRoute
+    }
     '/grid-level-classes/$id': {
       id: '/grid-level-classes/$id'
       path: '/grid-level-classes/$id'
@@ -406,6 +441,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExpLevelClassesIndexImport
       parentRoute: typeof rootRoute
     }
+    '/generator-classes/': {
+      id: '/generator-classes/'
+      path: '/generator-classes'
+      fullPath: '/generator-classes'
+      preLoaderRoute: typeof GeneratorClassesIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/generator-tags/': {
       id: '/generator-tags/'
       path: '/generator-tags'
@@ -471,6 +513,8 @@ export interface FileRoutesByFullPath {
   '/dungeon-grid-level-classes/new': typeof DungeonGridLevelClassesNewRoute
   '/exp-level-classes/$id': typeof ExpLevelClassesIdRoute
   '/exp-level-classes/new': typeof ExpLevelClassesNewRoute
+  '/generator-classes/$id': typeof GeneratorClassesIdRoute
+  '/generator-classes/new': typeof GeneratorClassesNewRoute
   '/grid-level-classes/$id': typeof GridLevelClassesIdRoute
   '/grid-level-classes/new': typeof GridLevelClassesNewRoute
   '/items/$itemId': typeof ItemsItemIdRoute
@@ -485,6 +529,7 @@ export interface FileRoutesByFullPath {
   '/augments': typeof AugmentsIndexRoute
   '/dungeon-grid-level-classes': typeof DungeonGridLevelClassesIndexRoute
   '/exp-level-classes': typeof ExpLevelClassesIndexRoute
+  '/generator-classes': typeof GeneratorClassesIndexRoute
   '/generator-tags': typeof GeneratorTagsIndexRoute
   '/grid-level-classes': typeof GridLevelClassesIndexRoute
   '/items': typeof ItemsIndexRoute
@@ -505,6 +550,8 @@ export interface FileRoutesByTo {
   '/dungeon-grid-level-classes/new': typeof DungeonGridLevelClassesNewRoute
   '/exp-level-classes/$id': typeof ExpLevelClassesIdRoute
   '/exp-level-classes/new': typeof ExpLevelClassesNewRoute
+  '/generator-classes/$id': typeof GeneratorClassesIdRoute
+  '/generator-classes/new': typeof GeneratorClassesNewRoute
   '/grid-level-classes/$id': typeof GridLevelClassesIdRoute
   '/grid-level-classes/new': typeof GridLevelClassesNewRoute
   '/items/$itemId': typeof ItemsItemIdRoute
@@ -519,6 +566,7 @@ export interface FileRoutesByTo {
   '/augments': typeof AugmentsIndexRoute
   '/dungeon-grid-level-classes': typeof DungeonGridLevelClassesIndexRoute
   '/exp-level-classes': typeof ExpLevelClassesIndexRoute
+  '/generator-classes': typeof GeneratorClassesIndexRoute
   '/generator-tags': typeof GeneratorTagsIndexRoute
   '/grid-level-classes': typeof GridLevelClassesIndexRoute
   '/items': typeof ItemsIndexRoute
@@ -540,6 +588,8 @@ export interface FileRoutesById {
   '/dungeon-grid-level-classes/new': typeof DungeonGridLevelClassesNewRoute
   '/exp-level-classes/$id': typeof ExpLevelClassesIdRoute
   '/exp-level-classes/new': typeof ExpLevelClassesNewRoute
+  '/generator-classes/$id': typeof GeneratorClassesIdRoute
+  '/generator-classes/new': typeof GeneratorClassesNewRoute
   '/grid-level-classes/$id': typeof GridLevelClassesIdRoute
   '/grid-level-classes/new': typeof GridLevelClassesNewRoute
   '/items/$itemId': typeof ItemsItemIdRoute
@@ -554,6 +604,7 @@ export interface FileRoutesById {
   '/augments/': typeof AugmentsIndexRoute
   '/dungeon-grid-level-classes/': typeof DungeonGridLevelClassesIndexRoute
   '/exp-level-classes/': typeof ExpLevelClassesIndexRoute
+  '/generator-classes/': typeof GeneratorClassesIndexRoute
   '/generator-tags/': typeof GeneratorTagsIndexRoute
   '/grid-level-classes/': typeof GridLevelClassesIndexRoute
   '/items/': typeof ItemsIndexRoute
@@ -576,6 +627,8 @@ export interface FileRouteTypes {
     | '/dungeon-grid-level-classes/new'
     | '/exp-level-classes/$id'
     | '/exp-level-classes/new'
+    | '/generator-classes/$id'
+    | '/generator-classes/new'
     | '/grid-level-classes/$id'
     | '/grid-level-classes/new'
     | '/items/$itemId'
@@ -590,6 +643,7 @@ export interface FileRouteTypes {
     | '/augments'
     | '/dungeon-grid-level-classes'
     | '/exp-level-classes'
+    | '/generator-classes'
     | '/generator-tags'
     | '/grid-level-classes'
     | '/items'
@@ -609,6 +663,8 @@ export interface FileRouteTypes {
     | '/dungeon-grid-level-classes/new'
     | '/exp-level-classes/$id'
     | '/exp-level-classes/new'
+    | '/generator-classes/$id'
+    | '/generator-classes/new'
     | '/grid-level-classes/$id'
     | '/grid-level-classes/new'
     | '/items/$itemId'
@@ -623,6 +679,7 @@ export interface FileRouteTypes {
     | '/augments'
     | '/dungeon-grid-level-classes'
     | '/exp-level-classes'
+    | '/generator-classes'
     | '/generator-tags'
     | '/grid-level-classes'
     | '/items'
@@ -642,6 +699,8 @@ export interface FileRouteTypes {
     | '/dungeon-grid-level-classes/new'
     | '/exp-level-classes/$id'
     | '/exp-level-classes/new'
+    | '/generator-classes/$id'
+    | '/generator-classes/new'
     | '/grid-level-classes/$id'
     | '/grid-level-classes/new'
     | '/items/$itemId'
@@ -656,6 +715,7 @@ export interface FileRouteTypes {
     | '/augments/'
     | '/dungeon-grid-level-classes/'
     | '/exp-level-classes/'
+    | '/generator-classes/'
     | '/generator-tags/'
     | '/grid-level-classes/'
     | '/items/'
@@ -677,6 +737,8 @@ export interface RootRouteChildren {
   DungeonGridLevelClassesNewRoute: typeof DungeonGridLevelClassesNewRoute
   ExpLevelClassesIdRoute: typeof ExpLevelClassesIdRoute
   ExpLevelClassesNewRoute: typeof ExpLevelClassesNewRoute
+  GeneratorClassesIdRoute: typeof GeneratorClassesIdRoute
+  GeneratorClassesNewRoute: typeof GeneratorClassesNewRoute
   GridLevelClassesIdRoute: typeof GridLevelClassesIdRoute
   GridLevelClassesNewRoute: typeof GridLevelClassesNewRoute
   ItemsItemIdRoute: typeof ItemsItemIdRoute
@@ -691,6 +753,7 @@ export interface RootRouteChildren {
   AugmentsIndexRoute: typeof AugmentsIndexRoute
   DungeonGridLevelClassesIndexRoute: typeof DungeonGridLevelClassesIndexRoute
   ExpLevelClassesIndexRoute: typeof ExpLevelClassesIndexRoute
+  GeneratorClassesIndexRoute: typeof GeneratorClassesIndexRoute
   GeneratorTagsIndexRoute: typeof GeneratorTagsIndexRoute
   GridLevelClassesIndexRoute: typeof GridLevelClassesIndexRoute
   ItemsIndexRoute: typeof ItemsIndexRoute
@@ -711,6 +774,8 @@ const rootRouteChildren: RootRouteChildren = {
   DungeonGridLevelClassesNewRoute: DungeonGridLevelClassesNewRoute,
   ExpLevelClassesIdRoute: ExpLevelClassesIdRoute,
   ExpLevelClassesNewRoute: ExpLevelClassesNewRoute,
+  GeneratorClassesIdRoute: GeneratorClassesIdRoute,
+  GeneratorClassesNewRoute: GeneratorClassesNewRoute,
   GridLevelClassesIdRoute: GridLevelClassesIdRoute,
   GridLevelClassesNewRoute: GridLevelClassesNewRoute,
   ItemsItemIdRoute: ItemsItemIdRoute,
@@ -725,6 +790,7 @@ const rootRouteChildren: RootRouteChildren = {
   AugmentsIndexRoute: AugmentsIndexRoute,
   DungeonGridLevelClassesIndexRoute: DungeonGridLevelClassesIndexRoute,
   ExpLevelClassesIndexRoute: ExpLevelClassesIndexRoute,
+  GeneratorClassesIndexRoute: GeneratorClassesIndexRoute,
   GeneratorTagsIndexRoute: GeneratorTagsIndexRoute,
   GridLevelClassesIndexRoute: GridLevelClassesIndexRoute,
   ItemsIndexRoute: ItemsIndexRoute,
@@ -754,6 +820,8 @@ export const routeTree = rootRoute
         "/dungeon-grid-level-classes/new",
         "/exp-level-classes/$id",
         "/exp-level-classes/new",
+        "/generator-classes/$id",
+        "/generator-classes/new",
         "/grid-level-classes/$id",
         "/grid-level-classes/new",
         "/items/$itemId",
@@ -768,6 +836,7 @@ export const routeTree = rootRoute
         "/augments/",
         "/dungeon-grid-level-classes/",
         "/exp-level-classes/",
+        "/generator-classes/",
         "/generator-tags/",
         "/grid-level-classes/",
         "/items/",
@@ -806,6 +875,12 @@ export const routeTree = rootRoute
     },
     "/exp-level-classes/new": {
       "filePath": "exp-level-classes.new.tsx"
+    },
+    "/generator-classes/$id": {
+      "filePath": "generator-classes.$id.tsx"
+    },
+    "/generator-classes/new": {
+      "filePath": "generator-classes.new.tsx"
     },
     "/grid-level-classes/$id": {
       "filePath": "grid-level-classes.$id.tsx"
@@ -848,6 +923,9 @@ export const routeTree = rootRoute
     },
     "/exp-level-classes/": {
       "filePath": "exp-level-classes.index.tsx"
+    },
+    "/generator-classes/": {
+      "filePath": "generator-classes.index.tsx"
     },
     "/generator-tags/": {
       "filePath": "generator-tags.index.tsx"

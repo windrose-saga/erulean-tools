@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   ingestExpLevelClassesV2,
+  ingestGeneratorClassesV2,
   ingestGridLevelClassesV2,
   ingestItemsV2,
   ingestUnitsV2,
@@ -11,11 +12,12 @@ import {
   DEFAULT_DUNGEON_GRID_LEVEL_CLASS_GUID,
   DEFAULT_EXP_LEVEL_CLASS_GUID,
   DEFAULT_EXP_LEVEL_CLASS_ID,
+  DEFAULT_GENERATOR_CLASS_GUID,
   DEFAULT_GRID_LEVEL_CLASS_GUID,
   DEFAULT_PV_LEVEL_CLASS_GUID,
 } from '../constants/levelClass';
 import { ConsumableEffect, Item } from '../types/item';
-import { IntLevelClass, VectorLevelClass } from '../types/levelClass';
+import { GeneratorClass, IntLevelClass, VectorLevelClass } from '../types/levelClass';
 import { CommanderData, Unit } from '../types/unit';
 
 // Build a raw unit with only the fields a test cares about; ingest fills the
@@ -123,6 +125,23 @@ describe('level-class ingestion', () => {
 
     expect(result['grid-1'].levels).toEqual([{ x: 8, y: 12 }]);
     expect(result[DEFAULT_GRID_LEVEL_CLASS_GUID]).toBeDefined();
+  });
+
+  it('seeds the default generator class and normalizes jitter/rarity_pressure to numbers', () => {
+    const raw = [
+      {
+        guid: 'gen-1',
+        id: 'SWINGY',
+        name: 'Swingy',
+        jitter: ['5', '20'],
+        rarity_pressure: ['1', '3'],
+      },
+    ] as unknown as GeneratorClass[];
+    const result = ingestGeneratorClassesV2(raw);
+
+    expect(result[DEFAULT_GENERATOR_CLASS_GUID]).toBeDefined();
+    expect(result['gen-1'].jitter).toEqual([5, 20]);
+    expect(result['gen-1'].rarity_pressure).toEqual([1, 3]);
   });
 });
 
