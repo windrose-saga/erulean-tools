@@ -15,6 +15,7 @@ export interface LabeledInputProps<
   validate?: (value: string) => boolean | string;
   disabled?: boolean;
   minValue?: number;
+  maxValue?: number;
 }
 
 const LabeledInput = <
@@ -31,6 +32,7 @@ const LabeledInput = <
   validate,
   disabled = false,
   minValue,
+  maxValue,
 }: LabeledInputProps<T, K>) => {
   const {
     register,
@@ -62,6 +64,7 @@ const LabeledInput = <
         step={type === 'number' && allowFloats ? "0.01" : undefined}
         id={id}
         min={minValue ?? (allowNegativeValue ? undefined : 0)}
+        max={maxValue}
         {...register(id, {
           required,
           validate,
@@ -70,6 +73,10 @@ const LabeledInput = <
             minValue === undefined
               ? undefined
               : { value: minValue, message: `Value must be at least ${minValue}.` },
+          max:
+            maxValue === undefined
+              ? undefined
+              : { value: maxValue, message: `Value must be at most ${maxValue}.` },
         })}
         disabled={disabled}
       />

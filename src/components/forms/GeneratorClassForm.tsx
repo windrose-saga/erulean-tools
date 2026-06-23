@@ -140,14 +140,15 @@ export const GeneratorClassForm: React.FC<GeneratorClassFormProps> = ({
                 id={`levels.${index}.jitter`}
                 label={`Level ${index} Jitter`}
                 type="number"
-                allowNegativeValue
+                minValue={0}
+                maxValue={100}
                 required
               />
               <LabeledInput
                 id={`levels.${index}.rarity_pressure`}
                 label={`Level ${index} Rarity Pressure`}
                 type="number"
-                allowNegativeValue
+                minValue={0}
                 required
               />
               <button
