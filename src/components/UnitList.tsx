@@ -34,6 +34,7 @@ const unitColumns: Column<Unit>[] = [
   { name: 'Point Value', field: 'point_value', editable: true },
   { name: 'Rarity', field: 'rarity', editable: true },
   { name: 'Can Be Reward', field: 'can_be_reward', editable: true },
+  { name: 'Can Horde', field: 'can_horde', editable: true },
   { name: 'Role', field: 'role', editable: true, options: ROLES },
 ];
 
