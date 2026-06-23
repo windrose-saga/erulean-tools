@@ -74,6 +74,7 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
           <LabeledInput id="description" label="Description" type="text" required />
           <LabeledSelect id="role" label="Role" options={createSelectOptions(ROLES)} />
           <GeneratorTagMultiSelect<Unit> id="generator_tags" label="Generator Tags" />
+          <LabeledInput id="unique" label="Unique" type="checkbox" />
           <LabeledInput id="can_be_reward" label="Can Be Reward" type="checkbox" />
           <LabeledInput id="rarity" label="Reward Rarity" type="number" />
           <div className="flex justify-between">
@@ -205,7 +206,6 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
           <LabeledInput id="faithful" label="Is Faithful" type="checkbox" />
           <LabeledInput id="can_flee" label="Can Flee" type="checkbox" />
           <LabeledInput id="trainable" label="Trainable" type="checkbox" />
-          <LabeledInput id="unique" label="Unique" type="checkbox" />
           <LabeledInput
             id="inaction_limit"
             label="Inaction Limit"
