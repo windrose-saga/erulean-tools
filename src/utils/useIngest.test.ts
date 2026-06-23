@@ -104,6 +104,18 @@ describe('ingestUnitsV2 reward fields', () => {
 
     expect(unit.unique).toBe(true);
   });
+
+  it('defaults can_horde to false for a sparse unit', () => {
+    const unit = ingestOne({});
+
+    expect(unit.can_horde).toBe(false);
+  });
+
+  it('preserves authored can_horde', () => {
+    const unit = ingestOne({ can_horde: true });
+
+    expect(unit.can_horde).toBe(true);
+  });
 });
 
 describe('level-class ingestion', () => {

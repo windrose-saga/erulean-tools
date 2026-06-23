@@ -62,6 +62,8 @@ export type Unit = {
   can_be_reward: boolean;
   // Army generator places at most one of this unit per generated army.
   unique: boolean;
+  // Army generator may build a single-unit-type "horde" army from this unit.
+  can_horde: boolean;
 };
 
 export const MOVEMENT_STRATEGIES = ['ADVANCE', 'KEEP_DISTANCE'] as const satisfies string[];

@@ -68,6 +68,7 @@ export const DEFAULT_UNIT: Unit = {
   rarity: 0,
   can_be_reward: true,
   unique: false,
+  can_horde: false,
   required_level: 0,
   gold_cost: 0,
 };
