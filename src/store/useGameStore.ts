@@ -9,6 +9,7 @@ import { Item, SEED_LOOT_CATEGORIES } from '../types/item';
 import {
   DungeonGridLevelClass,
   ExpLevelClass,
+  GeneratorClass,
   GridLevelClass,
   PvLevelClass,
 } from '../types/levelClass';
@@ -30,6 +31,7 @@ type State = {
   pvLevelClasses: Record<string, PvLevelClass>;
   gridLevelClasses: Record<string, GridLevelClass>;
   dungeonGridLevelClasses: Record<string, DungeonGridLevelClass>;
+  generatorClasses: Record<string, GeneratorClass>;
   unitIds: Map<string, string>;
   itemIds: Map<string, string>;
   prefabIds: Map<string, string>;
@@ -37,6 +39,7 @@ type State = {
   pvLevelClassIds: Map<string, string>;
   gridLevelClassIds: Map<string, string>;
   dungeonGridLevelClassIds: Map<string, string>;
+  generatorClassIds: Map<string, string>;
   // Append-only ordered vocabularies (index = Godot enum ordinal). `removed*` are tombstoned
   // names: hidden from the UI and stripped from items/units, but never spliced out of the
   // ordered list so existing ordinals stay stable.
@@ -58,6 +61,7 @@ type Actions = {
   setPvLevelClasses: (classes: Record<string, PvLevelClass>) => void;
   setGridLevelClasses: (classes: Record<string, GridLevelClass>) => void;
   setDungeonGridLevelClasses: (classes: Record<string, DungeonGridLevelClass>) => void;
+  setGeneratorClasses: (classes: Record<string, GeneratorClass>) => void;
   setUnitIds: (unitIds: Map<string, string>) => void;
   setItemIds: (itemIds: Map<string, string>) => void;
   setPrefabIds: (prefabIds: Map<string, string>) => void;
@@ -65,6 +69,7 @@ type Actions = {
   setPvLevelClassIds: (ids: Map<string, string>) => void;
   setGridLevelClassIds: (ids: Map<string, string>) => void;
   setDungeonGridLevelClassIds: (ids: Map<string, string>) => void;
+  setGeneratorClassIds: (ids: Map<string, string>) => void;
   setUnit: (unit: Unit) => void;
   setAction: (action: Action) => void;
   setAugment: (augment: Augment) => void;
@@ -74,6 +79,7 @@ type Actions = {
   setPvLevelClass: (levelClass: PvLevelClass) => void;
   setGridLevelClass: (levelClass: GridLevelClass) => void;
   setDungeonGridLevelClass: (levelClass: DungeonGridLevelClass) => void;
+  setGeneratorClass: (generatorClass: GeneratorClass) => void;
   setLastSaved: (savedAt: number) => void;
   setExported: () => void;
   setLootCategoryIds: (full: string[], removed: string[]) => void;
@@ -99,6 +105,7 @@ const initialState: State = {
   pvLevelClasses: {},
   gridLevelClasses: {},
   dungeonGridLevelClasses: {},
+  generatorClasses: {},
   unitIds: new Map<string, string>(),
   itemIds: new Map<string, string>(),
   prefabIds: new Map<string, string>(),
@@ -106,6 +113,7 @@ const initialState: State = {
   pvLevelClassIds: new Map<string, string>(),
   gridLevelClassIds: new Map<string, string>(),
   dungeonGridLevelClassIds: new Map<string, string>(),
+  generatorClassIds: new Map<string, string>(),
   lootCategoryIds: [...SEED_LOOT_CATEGORIES],
   removedLootCategoryIds: [],
   generatorTagIds: [...SEED_GENERATOR_TAGS],
@@ -172,6 +180,10 @@ const useGameStoreBase = create<GameStore>()(
         set((state) => {
           state.dungeonGridLevelClasses = classes;
         }),
+      setGeneratorClasses: (classes) =>
+        set((state) => {
+          state.generatorClasses = classes;
+        }),
       setUnitIds: (unitIds) =>
         set((state) => {
           state.unitIds = new Map(unitIds);
@@ -199,6 +211,10 @@ const useGameStoreBase = create<GameStore>()(
       setDungeonGridLevelClassIds: (ids) =>
         set((state) => {
           state.dungeonGridLevelClassIds = new Map(ids);
+        }),
+      setGeneratorClassIds: (ids) =>
+        set((state) => {
+          state.generatorClassIds = new Map(ids);
         }),
       setUnit: (unit) =>
         set((state) => {
@@ -242,6 +258,11 @@ const useGameStoreBase = create<GameStore>()(
         set((state) => {
           state.dungeonGridLevelClasses[levelClass.guid] = levelClass;
           state.dungeonGridLevelClassIds.set(levelClass.guid, levelClass.id);
+        }),
+      setGeneratorClass: (generatorClass) =>
+        set((state) => {
+          state.generatorClasses[generatorClass.guid] = generatorClass;
+          state.generatorClassIds.set(generatorClass.guid, generatorClass.id);
         }),
       setLootCategoryIds: (full, removed) =>
         set((state) => {

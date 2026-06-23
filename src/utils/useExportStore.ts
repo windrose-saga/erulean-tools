@@ -6,6 +6,7 @@ import { useItems } from '../store/getters/item';
 import {
   useDungeonGridLevelClasses,
   useExpLevelClasses,
+  useGeneratorClasses,
   useGridLevelClasses,
   usePvLevelClasses,
 } from '../store/getters/levelClass';
@@ -24,6 +25,7 @@ export const useExportStore = () => {
   const pvLevelClasses = usePvLevelClasses();
   const gridLevelClasses = useGridLevelClasses();
   const dungeonGridLevelClasses = useDungeonGridLevelClasses();
+  const generatorClasses = useGeneratorClasses();
   const lastLoaded = useGameStore.use.lastLoaded();
   const setExported = useGameStore.use.setExported();
   const unitIds = useGameStore.use.unitIds();
@@ -33,6 +35,7 @@ export const useExportStore = () => {
   const pvLevelClassIds = useGameStore.use.pvLevelClassIds();
   const gridLevelClassIds = useGameStore.use.gridLevelClassIds();
   const dungeonGridLevelClassIds = useGameStore.use.dungeonGridLevelClassIds();
+  const generatorClassIds = useGameStore.use.generatorClassIds();
   const lootCategoryIds = useGameStore.use.lootCategoryIds();
   const removedLootCategoryIds = useGameStore.use.removedLootCategoryIds();
   const generatorTagIds = useGameStore.use.generatorTagIds();
@@ -110,6 +113,7 @@ export const useExportStore = () => {
       pvLevelClasses,
       gridLevelClasses,
       dungeonGridLevelClasses,
+      generatorClasses,
       unitIds: Array.from(unitIds.values()),
       itemIds: Array.from(itemIds.values()),
       prefabIds: Array.from(prefabIds.values()),
@@ -117,6 +121,7 @@ export const useExportStore = () => {
       pvLevelClassIds: Array.from(pvLevelClassIds.values()),
       gridLevelClassIds: Array.from(gridLevelClassIds.values()),
       dungeonGridLevelClassIds: Array.from(dungeonGridLevelClassIds.values()),
+      generatorClassIds: Array.from(generatorClassIds.values()),
       lootCategoryIds: [...lootCategoryIds],
       removedLootCategoryIds: [...removedLootCategoryIds],
       generatorTagIds: [...generatorTagIds],
@@ -144,6 +149,7 @@ export const useExportStore = () => {
     pvLevelClasses,
     gridLevelClasses,
     dungeonGridLevelClasses,
+    generatorClasses,
     unitIds,
     itemIds,
     prefabIds,
@@ -151,6 +157,7 @@ export const useExportStore = () => {
     pvLevelClassIds,
     gridLevelClassIds,
     dungeonGridLevelClassIds,
+    generatorClassIds,
     lootCategoryIds,
     removedLootCategoryIds,
     generatorTagIds,

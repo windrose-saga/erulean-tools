@@ -7,13 +7,19 @@ import { List } from './List';
 import {
   useDungeonGridLevelClasses,
   useExpLevelClasses,
+  useGeneratorClasses,
   useGridLevelClasses,
   usePvLevelClasses,
 } from '../store/getters/levelClass';
-import { IntLevelClass, LevelClassKind, VectorLevelClass } from '../types/levelClass';
+import {
+  GeneratorClass,
+  IntLevelClass,
+  LevelClassKind,
+  VectorLevelClass,
+} from '../types/levelClass';
 import { Column } from '../types/list';
 
-type AnyLevelClass = IntLevelClass | VectorLevelClass;
+type AnyLevelClass = IntLevelClass | VectorLevelClass | GeneratorClass;
 
 const columns: Column<AnyLevelClass>[] = [
   { name: 'Name', field: 'name' },
@@ -31,6 +37,7 @@ export const LevelClassList: React.FC<{ kind: LevelClassKind }> = ({ kind }) => 
     PV: usePvLevelClasses(),
     GRID: useGridLevelClasses(),
     DUNGEON_GRID: useDungeonGridLevelClasses(),
+    GENERATOR: useGeneratorClasses(),
   };
 
   const onRowClick = React.useCallback(

@@ -53,3 +53,16 @@ export const useDungeonGridLevelClasses = () => {
     [classes],
   );
 };
+
+export const useGeneratorClass = (guid: string) => {
+  const classes = useGameStore.use.generatorClasses();
+  return classes[guid];
+};
+
+export const useGeneratorClasses = () => {
+  const classes = useGameStore.use.generatorClasses();
+  return useMemo(
+    () => Object.values(classes).sort((a, b) => a.name.localeCompare(b.name)),
+    [classes],
+  );
+};

@@ -4,7 +4,7 @@ import { Action } from '../types/action';
 import { Augment } from '../types/augment';
 import { DungeonPrefab } from '../types/dungeonPrefab';
 import { Item } from '../types/item';
-import { IntLevelClass, VectorLevelClass } from '../types/levelClass';
+import { GeneratorClass, IntLevelClass, VectorLevelClass } from '../types/levelClass';
 import { Unit } from '../types/unit';
 
 type ErrorType = 'unit' | 'action' | 'augment' | 'prefab' | 'levelClass' | 'item';
@@ -18,6 +18,7 @@ type LevelClassRecords = {
   pvLevelClasses: Record<string, IntLevelClass>;
   gridLevelClasses: Record<string, VectorLevelClass>;
   dungeonGridLevelClasses: Record<string, VectorLevelClass>;
+  generatorClasses: Record<string, GeneratorClass>;
 };
 
 type VocabularyInput = {
@@ -139,6 +140,7 @@ const validateLevelClasses = (levelClasses: LevelClassRecords) => {
     ['PV', levelClasses.pvLevelClasses],
     ['Grid', levelClasses.gridLevelClasses],
     ['Dungeon Grid', levelClasses.dungeonGridLevelClasses],
+    ['Generator', levelClasses.generatorClasses],
   ];
 
   tables.forEach(([label, table]) => {
@@ -196,6 +198,21 @@ const validateLevelClasses = (levelClasses: LevelClassRecords) => {
         });
       }
     });
+  });
+
+  Object.values(levelClasses.generatorClasses).forEach((generatorClass) => {
+    if (generatorClass.jitter.some((value) => value < 0 || value > 100)) {
+      errors.push({
+        type: 'levelClass',
+        message: `Generator class ${generatorClass.id} jitter values must be in [0, 100]`,
+      });
+    }
+    if (generatorClass.rarity_pressure.some((value) => value < 0)) {
+      errors.push({
+        type: 'levelClass',
+        message: `Generator class ${generatorClass.id} rarity_pressure values must be non-negative`,
+      });
+    }
   });
 
   return errors;

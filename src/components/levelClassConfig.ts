@@ -1,13 +1,18 @@
 import { LevelClassKind } from '../types/levelClass';
 
-export type LevelClassVariant = 'int' | 'vector';
+export type LevelClassVariant = 'int' | 'vector' | 'generator';
 
 export type LevelClassConfigEntry = {
   routeBase: string;
   title: string;
   levelLabel: string;
   variant: LevelClassVariant;
-  objectCreationType: 'expLevelClass' | 'pvLevelClass' | 'gridLevelClass' | 'dungeonGridLevelClass';
+  objectCreationType:
+    | 'expLevelClass'
+    | 'pvLevelClass'
+    | 'gridLevelClass'
+    | 'dungeonGridLevelClass'
+    | 'generatorClass';
   warn?: (levels: number[]) => string | null;
   blockOnWarning?: boolean;
 };
@@ -53,5 +58,12 @@ export const LEVEL_CLASS_CONFIG: Record<LevelClassKind, LevelClassConfigEntry> =
     levelLabel: 'Dungeon Grid Size',
     variant: 'vector',
     objectCreationType: 'dungeonGridLevelClass',
+  },
+  GENERATOR: {
+    routeBase: 'generator-classes',
+    title: 'Generator Classes',
+    levelLabel: 'Generator',
+    variant: 'generator',
+    objectCreationType: 'generatorClass',
   },
 };

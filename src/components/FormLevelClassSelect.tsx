@@ -7,10 +7,16 @@ import { LEVEL_CLASS_CONFIG } from './levelClassConfig';
 import {
   useDungeonGridLevelClasses,
   useExpLevelClasses,
+  useGeneratorClasses,
   useGridLevelClasses,
   usePvLevelClasses,
 } from '../store/getters/levelClass';
-import { IntLevelClass, LevelClassKind, VectorLevelClass } from '../types/levelClass';
+import {
+  GeneratorClass,
+  IntLevelClass,
+  LevelClassKind,
+  VectorLevelClass,
+} from '../types/levelClass';
 
 export interface FormLevelClassSelectProps<T extends FieldValues> {
   label: string;
@@ -25,11 +31,12 @@ const FormLevelClassSelect = <T extends FieldValues>({
 }: FormLevelClassSelectProps<T>) => {
   const config = LEVEL_CLASS_CONFIG[kind];
 
-  const byKind: Record<LevelClassKind, Array<IntLevelClass | VectorLevelClass>> = {
+  const byKind: Record<LevelClassKind, Array<IntLevelClass | VectorLevelClass | GeneratorClass>> = {
     EXP: useExpLevelClasses(),
     PV: usePvLevelClasses(),
     GRID: useGridLevelClasses(),
     DUNGEON_GRID: useDungeonGridLevelClasses(),
+    GENERATOR: useGeneratorClasses(),
   };
   const list = byKind[kind];
 

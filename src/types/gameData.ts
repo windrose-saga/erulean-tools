@@ -2,7 +2,13 @@ import { Action } from './action';
 import { Augment } from './augment';
 import { DungeonPrefab } from './dungeonPrefab';
 import { Item } from './item';
-import { DungeonGridLevelClass, ExpLevelClass, GridLevelClass, PvLevelClass } from './levelClass';
+import {
+  DungeonGridLevelClass,
+  ExpLevelClass,
+  GeneratorClass,
+  GridLevelClass,
+  PvLevelClass,
+} from './levelClass';
 import { Unit } from './unit';
 
 export type GameData = {
@@ -15,6 +21,7 @@ export type GameData = {
   pvLevelClasses: PvLevelClass[];
   gridLevelClasses: GridLevelClass[];
   dungeonGridLevelClasses: DungeonGridLevelClass[];
+  generatorClasses: GeneratorClass[];
   unitIds: string[];
   itemIds: string[];
   prefabIds: string[];
@@ -22,6 +29,7 @@ export type GameData = {
   pvLevelClassIds: string[];
   gridLevelClassIds: string[];
   dungeonGridLevelClassIds: string[];
+  generatorClassIds: string[];
   // Append-only, ordered vocabularies (index = Godot enum ordinal). `removed*Ids` are the
   // tombstoned subset (hidden in the UI, cascade-stripped from items/units, but kept in the
   // ordered list so existing ordinals never shift). Optional so legacy files predating these

@@ -1,13 +1,19 @@
 import React from 'react';
 
+import { GeneratorClassForm } from './forms/GeneratorClassForm';
 import { IntLevelClassForm } from './forms/IntLevelClassForm';
 import { VectorLevelClassForm } from './forms/VectorLevelClassForm';
 import { LEVEL_CLASS_CONFIG } from './levelClassConfig';
 
-import { NEW_INT_LEVEL_CLASS, NEW_VECTOR_LEVEL_CLASS } from '../constants/levelClass';
+import {
+  NEW_GENERATOR_CLASS,
+  NEW_INT_LEVEL_CLASS,
+  NEW_VECTOR_LEVEL_CLASS,
+} from '../constants/levelClass';
 import {
   useDungeonGridLevelClasses,
   useExpLevelClasses,
+  useGeneratorClasses,
   useGridLevelClasses,
   usePvLevelClasses,
 } from '../store/getters/levelClass';
@@ -22,11 +28,24 @@ export const LevelClassCreate: React.FC<{ kind: LevelClassKind }> = ({ kind }) =
   const pvList = usePvLevelClasses();
   const gridList = useGridLevelClasses();
   const dungeonList = useDungeonGridLevelClasses();
+  const generatorList = useGeneratorClasses();
 
   const setExp = useGameStore.use.setExpLevelClass();
   const setPv = useGameStore.use.setPvLevelClass();
   const setGrid = useGameStore.use.setGridLevelClass();
   const setDungeon = useGameStore.use.setDungeonGridLevelClass();
+  const setGenerator = useGameStore.use.setGeneratorClass();
+
+  if (config.variant === 'generator') {
+    return (
+      <GeneratorClassForm
+        generatorClass={{ ...NEW_GENERATOR_CLASS, guid }}
+        others={generatorList}
+        onSave={setGenerator}
+        routeBase={config.routeBase}
+      />
+    );
+  }
 
   if (config.variant === 'int') {
     const others = kind === 'EXP' ? expList : pvList;

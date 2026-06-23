@@ -5,11 +5,12 @@ import { validateIngest } from './validateIngest';
 import {
   DEFAULT_DUNGEON_GRID_LEVEL_CLASS,
   DEFAULT_EXP_LEVEL_CLASS,
+  DEFAULT_GENERATOR_CLASS,
   DEFAULT_GRID_LEVEL_CLASS,
   DEFAULT_PV_LEVEL_CLASS,
 } from '../constants/levelClass';
 import { DEFAULT_COMMANDER_DATA, DEFAULT_UNIT } from '../constants/unit';
-import { IntLevelClass, VectorLevelClass } from '../types/levelClass';
+import { GeneratorClass, IntLevelClass, VectorLevelClass } from '../types/levelClass';
 import { Unit } from '../types/unit';
 
 const levelClasses = () => ({
@@ -19,6 +20,7 @@ const levelClasses = () => ({
   dungeonGridLevelClasses: {
     [DEFAULT_DUNGEON_GRID_LEVEL_CLASS.guid]: DEFAULT_DUNGEON_GRID_LEVEL_CLASS,
   },
+  generatorClasses: { [DEFAULT_GENERATOR_CLASS.guid]: DEFAULT_GENERATOR_CLASS },
 });
 
 const commander = (overrides: Partial<Unit['commander_data']> = {}): Unit => ({
@@ -81,6 +83,7 @@ describe('level-class ingest validation', () => {
       pvLevelClasses: Record<string, IntLevelClass>;
       gridLevelClasses: Record<string, VectorLevelClass>;
       dungeonGridLevelClasses: Record<string, VectorLevelClass>;
+      generatorClasses: Record<string, GeneratorClass>;
     } = levelClasses();
     classes.expLevelClasses[DEFAULT_EXP_LEVEL_CLASS.guid] = {
       ...DEFAULT_EXP_LEVEL_CLASS,
