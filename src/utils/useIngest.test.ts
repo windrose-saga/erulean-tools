@@ -90,6 +90,18 @@ describe('ingestUnitsV2 reward fields', () => {
     expect(unit.rarity).toBe(0.75);
     expect(unit.can_be_reward).toBe(false);
   });
+
+  it('defaults unique to false for a sparse unit', () => {
+    const unit = ingestOne({});
+
+    expect(unit.unique).toBe(false);
+  });
+
+  it('preserves authored unique', () => {
+    const unit = ingestOne({ unique: true });
+
+    expect(unit.unique).toBe(true);
+  });
 });
 
 describe('level-class ingestion', () => {

@@ -60,6 +60,8 @@ export type Unit = {
   rarity: number;
   // Gate for the reward system: false excludes this unit from reward pools entirely.
   can_be_reward: boolean;
+  // Army generator places at most one of this unit per generated army.
+  unique: boolean;
 };
 
 export const MOVEMENT_STRATEGIES = ['ADVANCE', 'KEEP_DISTANCE'] as const satisfies string[];

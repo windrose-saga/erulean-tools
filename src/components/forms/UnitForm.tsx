@@ -205,6 +205,7 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
           <LabeledInput id="faithful" label="Is Faithful" type="checkbox" />
           <LabeledInput id="can_flee" label="Can Flee" type="checkbox" />
           <LabeledInput id="trainable" label="Trainable" type="checkbox" />
+          <LabeledInput id="unique" label="Unique" type="checkbox" />
           <LabeledInput
             id="inaction_limit"
             label="Inaction Limit"

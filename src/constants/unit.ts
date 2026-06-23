@@ -67,6 +67,7 @@ export const DEFAULT_UNIT: Unit = {
   returned_on_death: {},
   rarity: 0,
   can_be_reward: true,
+  unique: false,
   required_level: 0,
   gold_cost: 0,
 };
