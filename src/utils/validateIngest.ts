@@ -330,6 +330,26 @@ const validateUnits = (
       });
     }
 
+    // Accept real numbers and non-empty numeric strings (game-data.json persists numbers as
+    // strings); reject blanks, null, booleans, negatives, and fractionals. Value-based, so
+    // '1.0' is accepted as the integer 1. Typed unknown because authored JSON may carry a
+    // string even though the model declares a number.
+    const rawGeneratorLevel: unknown = unit.required_generator_level;
+    let generatorLevel = Number.NaN;
+    if (typeof rawGeneratorLevel === 'number') {
+      generatorLevel = rawGeneratorLevel;
+    } else if (typeof rawGeneratorLevel === 'string' && rawGeneratorLevel.trim() !== '') {
+      generatorLevel = Number(rawGeneratorLevel);
+    }
+    if (!Number.isInteger(generatorLevel) || generatorLevel < 0) {
+      errors.push({
+        type: 'unit',
+        message: `Unit ${unit.id} has invalid required_generator_level '${String(
+          rawGeneratorLevel,
+        )}' (must be a non-negative integer)`,
+      });
+    }
+
     Object.values(unit.actions).forEach((action) => {
       if (!Number.isNaN(action)) {
         return;
