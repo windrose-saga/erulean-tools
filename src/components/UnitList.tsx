@@ -35,6 +35,7 @@ const unitColumns: Column<Unit>[] = [
   { name: 'Rarity', field: 'rarity', editable: true },
   { name: 'Can Be Reward', field: 'can_be_reward', editable: true },
   { name: 'Can Horde', field: 'can_horde', editable: true },
+  { name: 'Required Generator Level', field: 'required_generator_level', editable: true },
   { name: 'Role', field: 'role', editable: true, options: ROLES },
 ];
 

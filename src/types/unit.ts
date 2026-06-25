@@ -64,6 +64,8 @@ export type Unit = {
   unique: boolean;
   // Army generator may build a single-unit-type "horde" army from this unit.
   can_horde: boolean;
+  // Army generator only: lowest generated-army level at which this unit may be selected.
+  required_generator_level: number;
 };
 
 export const MOVEMENT_STRATEGIES = ['ADVANCE', 'KEEP_DISTANCE'] as const satisfies string[];

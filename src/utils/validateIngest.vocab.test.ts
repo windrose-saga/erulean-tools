@@ -17,6 +17,7 @@ const unit = (id: string, generator_tags: string[]): Unit =>
     actions: {},
     rarity: 0,
     can_be_reward: true,
+    required_generator_level: 0,
   }) as unknown as Unit;
 
 const run = (vocab: {

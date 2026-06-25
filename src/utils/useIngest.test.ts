@@ -78,6 +78,18 @@ describe('ingestUnitsV2 commander_data backfill', () => {
   });
 });
 
+describe('ingestUnitsV2 required_generator_level', () => {
+  it('defaults a missing required_generator_level to 0', () => {
+    const unit = ingestOne({});
+    expect(unit.required_generator_level).toBe(0);
+  });
+
+  it('preserves an explicit required_generator_level', () => {
+    const unit = ingestOne({ required_generator_level: 4 });
+    expect(unit.required_generator_level).toBe(4);
+  });
+});
+
 describe('ingestUnitsV2 reward fields', () => {
   it('defaults rarity to 0 and can_be_reward to true for a sparse unit', () => {
     const unit = ingestOne({});

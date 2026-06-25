@@ -76,6 +76,20 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
           <GeneratorTagMultiSelect<Unit> id="generator_tags" label="Generator Tags" />
           <LabeledInput id="unique" label="Unique" type="checkbox" />
           <LabeledInput id="can_horde" label="Can Horde" type="checkbox" />
+          <LabeledInput
+            id="required_generator_level"
+            label="Required Generator Level"
+            type="number"
+            allowFloats={false}
+            minValue={0}
+            validate={(value) => {
+              if (String(value).trim() === '') {
+                return 'Must be a non-negative integer';
+              }
+              const n = Number(value);
+              return (Number.isInteger(n) && n >= 0) || 'Must be a non-negative integer';
+            }}
+          />
           <LabeledInput id="can_be_reward" label="Can Be Reward" type="checkbox" />
           <LabeledInput id="rarity" label="Reward Rarity" type="number" />
           <div className="flex justify-between">
