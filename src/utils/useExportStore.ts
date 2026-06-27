@@ -40,6 +40,8 @@ export const useExportStore = () => {
   const removedLootCategoryIds = useGameStore.use.removedLootCategoryIds();
   const generatorTagIds = useGameStore.use.generatorTagIds();
   const removedGeneratorTagIds = useGameStore.use.removedGeneratorTagIds();
+  const lootCategoryOrdinals = useGameStore.use.lootCategoryOrdinals();
+  const generatorTagOrdinals = useGameStore.use.generatorTagOrdinals();
 
   const translatedUnits = units.map((unit) => {
     const translation_id: string = `unit.${unit.id}`;
@@ -126,6 +128,8 @@ export const useExportStore = () => {
       removedLootCategoryIds: [...removedLootCategoryIds],
       generatorTagIds: [...generatorTagIds],
       removedGeneratorTagIds: [...removedGeneratorTagIds],
+      lootCategoryOrdinals: { ...lootCategoryOrdinals },
+      generatorTagOrdinals: { ...generatorTagOrdinals },
       trainable_units: trainableUnits,
       updatedAt: lastLoaded ?? Date.now(),
     };
@@ -162,6 +166,8 @@ export const useExportStore = () => {
     removedLootCategoryIds,
     generatorTagIds,
     removedGeneratorTagIds,
+    lootCategoryOrdinals,
+    generatorTagOrdinals,
     trainableUnits,
     lastLoaded,
     setExported,

@@ -38,6 +38,11 @@ export type GameData = {
   removedLootCategoryIds?: string[];
   generatorTagIds?: string[];
   removedGeneratorTagIds?: string[];
+  // Durable name -> ordinal ledgers: every name a vocabulary has ever held (including names
+  // retired by rename) mapped to its permanent ordinal, so a name can never be rebound to a
+  // different integer. Optional/legacy-safe — ingest reconstructs them from positions when absent.
+  lootCategoryOrdinals?: Record<string, number>;
+  generatorTagOrdinals?: Record<string, number>;
   trainable_units: string[];
   updatedAt: number;
 };

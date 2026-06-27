@@ -110,6 +110,9 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
         const generatorTagIds =
           data.generatorTagIds === undefined ? [...SEED_GENERATOR_TAGS] : data.generatorTagIds;
         const removedGeneratorTagIds = data.removedGeneratorTagIds ?? [];
+        // Durable name -> ordinal ledgers. Absent in legacy/authoritative files; the store
+        // reconciles them from positions, and validation only enforces a ledger when present.
+        const { lootCategoryOrdinals, generatorTagOrdinals } = data;
         const ingestErrors = validateIngest(
           units,
           actions,
@@ -128,6 +131,8 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
             removedLootCategoryIds,
             generatorTagIds,
             removedGeneratorTagIds,
+            lootCategoryOrdinals,
+            generatorTagOrdinals,
           },
         );
         if (
@@ -160,8 +165,8 @@ export const useIngestV2 = ({ onLoaded }: { onLoaded?: () => void } = {}) => {
           setGridLevelClassIds(gridLevelClassIds);
           setDungeonGridLevelClassIds(dungeonGridLevelClassIds);
           setGeneratorClassIds(generatorClassIds);
-          setLootCategoryIds(lootCategoryIds, removedLootCategoryIds);
-          setGeneratorTagIds(generatorTagIds, removedGeneratorTagIds);
+          setLootCategoryIds(lootCategoryIds, removedLootCategoryIds, lootCategoryOrdinals);
+          setGeneratorTagIds(generatorTagIds, removedGeneratorTagIds, generatorTagOrdinals);
           setLoaded();
           setLastSaved(data.updatedAt);
           if (onLoaded) {

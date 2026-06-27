@@ -27,6 +27,8 @@ const run = (vocab: {
   generatorTagIds: string[];
   removedGeneratorTagIds: string[];
   units?: Record<string, Unit>;
+  lootCategoryOrdinals?: Record<string, number>;
+  generatorTagOrdinals?: Record<string, number>;
 }) =>
   validateIngest(vocab.units ?? {}, {}, {}, {}, undefined, {
     items: vocab.items,
@@ -34,6 +36,8 @@ const run = (vocab: {
     removedLootCategoryIds: vocab.removedLootCategoryIds,
     generatorTagIds: vocab.generatorTagIds,
     removedGeneratorTagIds: vocab.removedGeneratorTagIds,
+    lootCategoryOrdinals: vocab.lootCategoryOrdinals,
+    generatorTagOrdinals: vocab.generatorTagOrdinals,
   });
 
 describe('vocabulary validation', () => {
@@ -102,5 +106,31 @@ describe('vocabulary validation', () => {
       removedGeneratorTagIds: [],
     });
     expect(errors.some((e) => e.message.includes("removed loot category 'RELIC'"))).toBe(true);
+  });
+
+  it('passes when the ordinal ledger agrees with the list positions', () => {
+    const errors = run({
+      items: {},
+      lootCategoryIds: ['WEAPON', 'ARMOR'],
+      removedLootCategoryIds: [],
+      generatorTagIds: ['MARCH', 'BANDIT'],
+      removedGeneratorTagIds: [],
+      generatorTagOrdinals: { MARCH: 0, BANDIT: 1 },
+    });
+    expect(errors).toEqual([]);
+  });
+
+  it('rejects a file whose ledger binds a name to a different index than it occupies', () => {
+    // The BANDIT-teleport shape: BANDIT historically ordinal 7, but the edited list places it at
+    // index 1. A hand-edited/stale file like this must hard-fail at the ingest boundary.
+    const errors = run({
+      items: {},
+      lootCategoryIds: ['WEAPON'],
+      removedLootCategoryIds: [],
+      generatorTagIds: ['MARCH', 'BANDIT'],
+      removedGeneratorTagIds: [],
+      generatorTagOrdinals: { MARCH: 0, BANDIT: 7 },
+    });
+    expect(errors.some((e) => e.message.includes("'BANDIT' is at index 1"))).toBe(true);
   });
 });

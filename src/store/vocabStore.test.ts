@@ -102,3 +102,50 @@ describe('generator tag vocabulary actions', () => {
     expect(store().units.u.generator_tags).toEqual(['MARCH']);
   });
 });
+
+describe('ordinal ledger (name <-> integer stability)', () => {
+  it('tracks a name -> ordinal binding through add and preserves it through rename', () => {
+    store().addGeneratorTag('BANDIT');
+    const ordinal = store().generatorTagIds.indexOf('BANDIT');
+    expect(store().generatorTagOrdinals.BANDIT).toBe(ordinal);
+    store().renameGeneratorTag('BANDIT', 'RAIDER');
+    // The new name takes the same ordinal; the retired name stays bound to it forever.
+    expect(store().generatorTagOrdinals.RAIDER).toBe(ordinal);
+    expect(store().generatorTagOrdinals.BANDIT).toBe(ordinal);
+  });
+
+  it('blocks the BANDIT teleport: a freed name cannot be rebound to a different ordinal', () => {
+    // Reproduces the real bug: rename slot N away (freeing its name), then try to rename a
+    // different slot to that freed name. The name would jump ordinals and remap persisted enums.
+    store().addGeneratorTag('MEADOW'); // ordinal a
+    store().addGeneratorTag('BANDIT'); // ordinal b (later)
+    const meadowOrdinal = store().generatorTagIds.indexOf('MEADOW');
+    const banditOrdinal = store().generatorTagIds.indexOf('BANDIT');
+
+    store().renameGeneratorTag('BANDIT', 'ERULEAN_BANDIT'); // frees the name "BANDIT"
+    store().renameGeneratorTag('MEADOW', 'BANDIT'); // must be rejected
+
+    expect(store().generatorTagIds[meadowOrdinal]).toBe('MEADOW'); // unchanged
+    expect(store().generatorTagIds[banditOrdinal]).toBe('ERULEAN_BANDIT');
+    // "BANDIT" is still bound only to its original ordinal.
+    expect(store().generatorTagOrdinals.BANDIT).toBe(banditOrdinal);
+  });
+
+  it('allows renaming a slot back to a name it previously held (same ordinal)', () => {
+    store().addGeneratorTag('BANDIT');
+    const ordinal = store().generatorTagIds.indexOf('BANDIT');
+    store().renameGeneratorTag('BANDIT', 'RAIDER');
+    store().renameGeneratorTag('RAIDER', 'BANDIT'); // back to the original name at the same ordinal
+    expect(store().generatorTagIds[ordinal]).toBe('BANDIT');
+  });
+
+  it('blocks re-adding a renamed-away name as a brand-new appended ordinal', () => {
+    store().addGeneratorTag('BANDIT');
+    const ordinal = store().generatorTagIds.indexOf('BANDIT');
+    store().renameGeneratorTag('BANDIT', 'RAIDER');
+    const lengthBefore = store().generatorTagIds.length;
+    store().addGeneratorTag('BANDIT'); // would append at a new ordinal — rejected
+    expect(store().generatorTagIds.length).toBe(lengthBefore);
+    expect(store().generatorTagOrdinals.BANDIT).toBe(ordinal); // still its original ordinal
+  });
+});

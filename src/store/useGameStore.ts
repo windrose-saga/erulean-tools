@@ -17,6 +17,7 @@ import { SEED_GENERATOR_TAGS, Unit } from '../types/unit';
 import { createSelectors } from '../utils/createSelectors';
 import env from '../utils/env';
 import { isValidVocabId, normalizeVocabId } from '../utils/vocabId';
+import { reconcileLedger, VocabLedger, wouldRemapOrdinal } from '../utils/vocabLedger';
 
 type State = {
   loaded: boolean;
@@ -47,6 +48,11 @@ type State = {
   removedLootCategoryIds: string[];
   generatorTagIds: string[];
   removedGeneratorTagIds: string[];
+  // Durable name -> ordinal ledgers (see utils/vocabLedger). They remember every name a vocabulary
+  // has ever held — including names retired by rename — so no name can be rebound to a different
+  // ordinal, which would remap persisted Godot enum integers.
+  lootCategoryOrdinals: VocabLedger;
+  generatorTagOrdinals: VocabLedger;
 };
 
 type Actions = {
@@ -82,11 +88,11 @@ type Actions = {
   setGeneratorClass: (generatorClass: GeneratorClass) => void;
   setLastSaved: (savedAt: number) => void;
   setExported: () => void;
-  setLootCategoryIds: (full: string[], removed: string[]) => void;
+  setLootCategoryIds: (full: string[], removed: string[], ledger?: VocabLedger) => void;
   addLootCategory: (name: string) => void;
   removeLootCategory: (name: string) => void;
   renameLootCategory: (oldName: string, newName: string) => void;
-  setGeneratorTagIds: (full: string[], removed: string[]) => void;
+  setGeneratorTagIds: (full: string[], removed: string[], ledger?: VocabLedger) => void;
   addGeneratorTag: (name: string) => void;
   removeGeneratorTag: (name: string) => void;
   renameGeneratorTag: (oldName: string, newName: string) => void;
@@ -118,6 +124,8 @@ const initialState: State = {
   removedLootCategoryIds: [],
   generatorTagIds: [...SEED_GENERATOR_TAGS],
   removedGeneratorTagIds: [],
+  lootCategoryOrdinals: reconcileLedger(SEED_LOOT_CATEGORIES),
+  generatorTagOrdinals: reconcileLedger(SEED_GENERATOR_TAGS),
 };
 
 export type GameStore = State & Actions;
@@ -264,10 +272,11 @@ const useGameStoreBase = create<GameStore>()(
           state.generatorClasses[generatorClass.guid] = generatorClass;
           state.generatorClassIds.set(generatorClass.guid, generatorClass.id);
         }),
-      setLootCategoryIds: (full, removed) =>
+      setLootCategoryIds: (full, removed, ledger) =>
         set((state) => {
           state.lootCategoryIds = [...full];
           state.removedLootCategoryIds = [...removed];
+          state.lootCategoryOrdinals = reconcileLedger(full, ledger);
         }),
       addLootCategory: (name) =>
         set((state) => {
@@ -281,9 +290,16 @@ const useGameStoreBase = create<GameStore>()(
             state.removedLootCategoryIds.splice(tombstoneIndex, 1);
             return;
           }
-          if (!state.lootCategoryIds.includes(normalized)) {
-            state.lootCategoryIds.push(normalized);
+          if (state.lootCategoryIds.includes(normalized)) {
+            return;
           }
+          // A name retired from another ordinal (renamed away) cannot be reborn at a new ordinal:
+          // that would bind one name to two integers. The user must rename its old slot back.
+          if (state.lootCategoryOrdinals[normalized] !== undefined) {
+            return;
+          }
+          state.lootCategoryOrdinals[normalized] = state.lootCategoryIds.length;
+          state.lootCategoryIds.push(normalized);
         }),
       removeLootCategory: (name) =>
         set((state) => {
@@ -306,12 +322,23 @@ const useGameStoreBase = create<GameStore>()(
           if (!isValidVocabId(normalized) || !state.lootCategoryIds.includes(oldName)) {
             return;
           }
-          // Reject collision with any existing name (active or tombstoned) other than a no-op.
-          if (normalized !== oldName && state.lootCategoryIds.includes(normalized)) {
+          if (normalized === oldName) {
             return;
           }
-          // Rename in place: the ordinal (index) is preserved.
-          state.lootCategoryIds[state.lootCategoryIds.indexOf(oldName)] = normalized;
+          // Reject collision with any current name (active or tombstoned).
+          if (state.lootCategoryIds.includes(normalized)) {
+            return;
+          }
+          const ordinal = state.lootCategoryIds.indexOf(oldName);
+          // Reject reusing a name the ledger bound to a *different* ordinal — that would teleport
+          // the name across enum integers and remap persisted ordinals in windrose-saga.
+          if (wouldRemapOrdinal(state.lootCategoryOrdinals, normalized, ordinal)) {
+            return;
+          }
+          // Rename in place: the ordinal (index) is preserved. The old name stays in the ledger
+          // (retired) so it can never be reattached to a different ordinal.
+          state.lootCategoryIds[ordinal] = normalized;
+          state.lootCategoryOrdinals[normalized] = ordinal;
           const removedIndex = state.removedLootCategoryIds.indexOf(oldName);
           if (removedIndex !== -1) {
             state.removedLootCategoryIds[removedIndex] = normalized;
@@ -324,10 +351,11 @@ const useGameStoreBase = create<GameStore>()(
             }
           });
         }),
-      setGeneratorTagIds: (full, removed) =>
+      setGeneratorTagIds: (full, removed, ledger) =>
         set((state) => {
           state.generatorTagIds = [...full];
           state.removedGeneratorTagIds = [...removed];
+          state.generatorTagOrdinals = reconcileLedger(full, ledger);
         }),
       addGeneratorTag: (name) =>
         set((state) => {
@@ -335,14 +363,22 @@ const useGameStoreBase = create<GameStore>()(
           if (!isValidVocabId(normalized)) {
             return;
           }
+          // Re-adding a tombstoned value revives its existing slot rather than appending a dup.
           const tombstoneIndex = state.removedGeneratorTagIds.indexOf(normalized);
           if (tombstoneIndex !== -1) {
             state.removedGeneratorTagIds.splice(tombstoneIndex, 1);
             return;
           }
-          if (!state.generatorTagIds.includes(normalized)) {
-            state.generatorTagIds.push(normalized);
+          if (state.generatorTagIds.includes(normalized)) {
+            return;
           }
+          // A name retired from another ordinal (renamed away) cannot be reborn at a new ordinal:
+          // that would bind one name to two integers. The user must rename its old slot back.
+          if (state.generatorTagOrdinals[normalized] !== undefined) {
+            return;
+          }
+          state.generatorTagOrdinals[normalized] = state.generatorTagIds.length;
+          state.generatorTagIds.push(normalized);
         }),
       removeGeneratorTag: (name) =>
         set((state) => {
@@ -364,10 +400,23 @@ const useGameStoreBase = create<GameStore>()(
           if (!isValidVocabId(normalized) || !state.generatorTagIds.includes(oldName)) {
             return;
           }
-          if (normalized !== oldName && state.generatorTagIds.includes(normalized)) {
+          if (normalized === oldName) {
             return;
           }
-          state.generatorTagIds[state.generatorTagIds.indexOf(oldName)] = normalized;
+          // Reject collision with any current name (active or tombstoned).
+          if (state.generatorTagIds.includes(normalized)) {
+            return;
+          }
+          const ordinal = state.generatorTagIds.indexOf(oldName);
+          // Reject reusing a name the ledger bound to a *different* ordinal — that would teleport
+          // the name across enum integers and remap persisted ordinals in windrose-saga.
+          if (wouldRemapOrdinal(state.generatorTagOrdinals, normalized, ordinal)) {
+            return;
+          }
+          // Rename in place: the ordinal (index) is preserved. The old name stays in the ledger
+          // (retired) so it can never be reattached to a different ordinal.
+          state.generatorTagIds[ordinal] = normalized;
+          state.generatorTagOrdinals[normalized] = ordinal;
           const removedIndex = state.removedGeneratorTagIds.indexOf(oldName);
           if (removedIndex !== -1) {
             state.removedGeneratorTagIds[removedIndex] = normalized;
@@ -383,6 +432,21 @@ const useGameStoreBase = create<GameStore>()(
     })),
     {
       name: `erulean-tools-${env.useTestData ? 'dev' : 'prod'}`,
+      // State persisted before the ordinal ledgers existed rehydrates without them, leaving the
+      // guard inconsistent with the ordered lists. Rebuild both ledgers from the persisted lists
+      // on every rehydrate so the name->ordinal invariant always holds, even pre-migration.
+      merge: (persisted, current) => {
+        const merged = { ...current, ...(persisted as Partial<GameStore>) };
+        merged.lootCategoryOrdinals = reconcileLedger(
+          merged.lootCategoryIds,
+          merged.lootCategoryOrdinals,
+        );
+        merged.generatorTagOrdinals = reconcileLedger(
+          merged.generatorTagIds,
+          merged.generatorTagOrdinals,
+        );
+        return merged;
+      },
     },
   ),
 );
