@@ -27,6 +27,8 @@ type VocabularyInput = {
   removedLootCategoryIds: string[];
   generatorTagIds: string[];
   removedGeneratorTagIds: string[];
+  lootCategoryOrdinals?: Record<string, number>;
+  generatorTagOrdinals?: Record<string, number>;
 };
 
 export const validateIngest = (
@@ -64,6 +66,7 @@ const validateVocabularies = (units: Record<string, Unit>, vocab: VocabularyInpu
     full: string[],
     removed: string[],
     references: Array<{ owner: string; values: string[] }>,
+    ordinals?: Record<string, number>,
   ) => {
     full.forEach((name) => {
       if (!isValidVocabId(name)) {
@@ -95,6 +98,21 @@ const validateVocabularies = (units: Record<string, Unit>, vocab: VocabularyInpu
       }
     });
 
+    // Ordinal-ledger guard (when the file carries one): every current name must be bound to the
+    // index it actually occupies. A mismatch means a hand-edit moved a name across ordinals, which
+    // would remap persisted Godot enum integers in windrose-saga — a hard error, not a silent fix.
+    if (ordinals) {
+      full.forEach((name, index) => {
+        const bound = ordinals[name];
+        if (bound !== undefined && bound !== index) {
+          errors.push({
+            type,
+            message: `${label} '${name}' is at index ${index} but the ordinal ledger binds it to ${bound}; reordering/renaming would remap persisted ordinals`,
+          });
+        }
+      });
+    }
+
     const activeSet = new Set(full.filter((name) => !uniqueRemoved.has(name)));
     references.forEach(({ owner, values }) => {
       values.forEach((value) => {
@@ -116,6 +134,7 @@ const validateVocabularies = (units: Record<string, Unit>, vocab: VocabularyInpu
       owner: `Item ${item.id}`,
       values: item.loot_categories,
     })),
+    vocab.lootCategoryOrdinals,
   );
   checkList(
     'unit',
@@ -126,6 +145,7 @@ const validateVocabularies = (units: Record<string, Unit>, vocab: VocabularyInpu
       owner: `Unit ${unit.id}`,
       values: unit.generator_tags,
     })),
+    vocab.generatorTagOrdinals,
   );
 
   return errors;
