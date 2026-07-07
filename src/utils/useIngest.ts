@@ -9,7 +9,7 @@ import { generateUnitIdsMap } from './generateUnitIdsMap';
 import { validateIngest } from './validateIngest';
 
 import { DEFAULT_ACTION_DATA } from '../constants/action';
-import { DEFAULT_AUGMENT } from '../constants/augment';
+import { DEFAULT_AUGMENT, DEFAULT_AUGMENT_EFFECT } from '../constants/augment';
 import { DEFAULT_DUNGEON_PREFAB } from '../constants/dungeonPrefab';
 import { DEFAULT_CONSUMABLE_EFFECT, DEFAULT_ITEM_DATA } from '../constants/item';
 import {
@@ -22,7 +22,7 @@ import {
 import { DEFAULT_UNIT } from '../constants/unit';
 import { useGameStore } from '../store/useGameStore';
 import { Action } from '../types/action';
-import { Augment } from '../types/augment';
+import { Augment, AugmentEffect } from '../types/augment';
 import { DungeonPrefab } from '../types/dungeonPrefab';
 import { GameData } from '../types/gameData';
 import { isDurationalEffectClass, Item, SEED_LOOT_CATEGORIES } from '../types/item';
@@ -221,15 +221,35 @@ export const ingestUnitsV2 = (rawData: Array<Unit>) => {
   return unitData;
 };
 
-const ingestActionsV2 = (rawData: Array<Action>) => {
+// The top-level merge backfills the *_props objects but not fields inside authored
+// inline augment-effect objects (lodash merges arrays by index against an empty default),
+// so a sparse effect (e.g. an ACTION_SWAP missing action_swap_props) wouldn't be filled.
+// Backfill each entry from DEFAULT_AUGMENT_EFFECT.
+const backfillAugmentEffects = (effects: Array<AugmentEffect>): Array<AugmentEffect> =>
+  effects.map((effect) => merge({}, DEFAULT_AUGMENT_EFFECT, effect));
+
+export const ingestActionsV2 = (rawData: Array<Action>) => {
   const actionData = {} as Record<string, Action>;
   rawData.forEach((action) => {
-    actionData[action.guid] = merge({}, DEFAULT_ACTION_DATA, action);
+    const merged: Action = merge({}, DEFAULT_ACTION_DATA, action);
+    merged.damage_action_props.augment_effects = backfillAugmentEffects(
+      merged.damage_action_props.augment_effects,
+    );
+    merged.damage_action_props.crit_augment_effects = backfillAugmentEffects(
+      merged.damage_action_props.crit_augment_effects,
+    );
+    merged.augment_action_props.augment_effects = backfillAugmentEffects(
+      merged.augment_action_props.augment_effects,
+    );
+    merged.augment_action_props.crit_augment_effects = backfillAugmentEffects(
+      merged.augment_action_props.crit_augment_effects,
+    );
+    actionData[action.guid] = merged;
   });
   return actionData;
 };
 
-const ingestAugmentsV2 = (rawData: Array<Augment>) => {
+export const ingestAugmentsV2 = (rawData: Array<Augment>) => {
   const augmentData = {} as Record<string, Augment>;
   rawData.forEach((augment) => {
     augmentData[augment.guid] = merge({}, DEFAULT_AUGMENT, augment);
@@ -252,6 +272,9 @@ export const ingestItemsV2 = (rawData: Array<Item>) => {
       }
       return mergedEffect;
     });
+    merged.equipment_props.augment_effects = backfillAugmentEffects(
+      merged.equipment_props.augment_effects,
+    );
     itemData[item.guid] = merged;
   });
   return itemData;
