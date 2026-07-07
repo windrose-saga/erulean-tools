@@ -8,9 +8,14 @@ import { useActions } from '../store/getters/action';
 export interface FormActionSelectProps<T extends FieldValues> {
   label: string;
   id: Path<T>;
+  treatEmptyAsNull?: boolean;
 }
 
-const FormActionSelect = <T extends FieldValues>({ label, id }: FormActionSelectProps<T>) => {
+const FormActionSelect = <T extends FieldValues>({
+  label,
+  id,
+  treatEmptyAsNull,
+}: FormActionSelectProps<T>) => {
   const actions = useActions();
 
   const options = React.useMemo(
@@ -24,7 +29,15 @@ const FormActionSelect = <T extends FieldValues>({ label, id }: FormActionSelect
     [actions],
   );
 
-  return <LabledSelectWithDetail id={id} label={label} options={options} pathBase="actions" />;
+  return (
+    <LabledSelectWithDetail
+      id={id}
+      label={label}
+      options={options}
+      pathBase="actions"
+      treatEmptyAsNull={treatEmptyAsNull}
+    />
+  );
 };
 
 export default FormActionSelect;

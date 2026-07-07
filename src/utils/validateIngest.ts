@@ -41,16 +41,78 @@ export const validateIngest = (
 ) => {
   const unitErrors = validateUnits(units, actions, augments, levelClasses);
   const actionErrors = validateActions(actions, augments, units);
+  const augmentErrors = validateAugments(augments, actions);
   const prefabErrors = validatePrefabs(prefabs);
   const levelClassErrors = levelClasses ? validateLevelClasses(levelClasses) : [];
   const vocabularyErrors = vocabularies ? validateVocabularies(units, vocabularies) : [];
+  const itemErrors = vocabularies ? validateItems(vocabularies.items, actions) : [];
   return [
     ...unitErrors,
     ...actionErrors,
+    ...augmentErrors,
     ...prefabErrors,
     ...levelClassErrors,
     ...vocabularyErrors,
+    ...itemErrors,
   ];
+};
+
+// An ACTION_SWAP augment/effect points its `action` at an existing Action guid. A dangling
+// guid would crash Godot's IngestData._load_action_from_guid on `filtered_lines.front()`,
+// so reject it here. '' means "(None)" and is allowed.
+const actionSwapRefError = (
+  owner: string,
+  augmentClass: string,
+  actionGuid: string,
+  actions: Record<string, Action>,
+  type: ErrorType,
+): Error | null => {
+  if (augmentClass === 'ACTION_SWAP' && actionGuid && !(actionGuid in actions)) {
+    return {
+      type,
+      message: `${owner} ACTION_SWAP references action that does not exist: ${actionGuid}`,
+    };
+  }
+  return null;
+};
+
+const validateAugments = (
+  augments: Record<string, Augment>,
+  actions: Record<string, Action>,
+) => {
+  const errors: Error[] = [];
+  Object.values(augments).forEach((augment) => {
+    const error = actionSwapRefError(
+      `Augment ${augment.id}`,
+      augment.augment_class,
+      augment.action_swap_props.action,
+      actions,
+      'augment',
+    );
+    if (error) {
+      errors.push(error);
+    }
+  });
+  return errors;
+};
+
+const validateItems = (items: Record<string, Item>, actions: Record<string, Action>) => {
+  const errors: Error[] = [];
+  Object.values(items).forEach((item) => {
+    (item.equipment_props?.augment_effects ?? []).forEach((effect) => {
+      const error = actionSwapRefError(
+        `Item ${item.id} inline effect`,
+        effect.augment_class,
+        effect.action_swap_props?.action ?? '',
+        actions,
+        'item',
+      );
+      if (error) {
+        errors.push(error);
+      }
+    });
+  });
+  return errors;
 };
 
 // Loot-category / generator-tag vocabularies feed Godot enum codegen (Item/UnitConstants.gd) and
@@ -453,6 +515,25 @@ const validateActions = (
         });
       }
     }
+
+    const inlineEffects = [
+      ...(action.damage_action_props?.augment_effects ?? []),
+      ...(action.damage_action_props?.crit_augment_effects ?? []),
+      ...(action.augment_action_props?.augment_effects ?? []),
+      ...(action.augment_action_props?.crit_augment_effects ?? []),
+    ];
+    inlineEffects.forEach((effect) => {
+      const error = actionSwapRefError(
+        `Action ${action.id} inline effect`,
+        effect.augment_class,
+        effect.action_swap_props?.action ?? '',
+        actions,
+        'action',
+      );
+      if (error) {
+        errors.push(error);
+      }
+    });
 
     if (action.action_type === 'MANA_ACTION' && action.mana_action_props.tag_augment !== null) {
       if (!(action.mana_action_props.tag_augment in augments)) {

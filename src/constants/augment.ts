@@ -1,4 +1,5 @@
 import {
+  ActionSwapProps,
   AOEAugmentProps,
   AOERadiusAugmentProps,
   Augment,
@@ -48,6 +49,11 @@ export const DEFAULT_MAX_TARGETS_AUGMENT_PROPS: MaxTargetsAugmentProps = {
   amount: 0,
 };
 
+export const DEFAULT_ACTION_SWAP_PROPS: ActionSwapProps = {
+  type: 'PRIMARY',
+  action: '',
+};
+
 export const DEFAULT_AUGMENT_EFFECT: AugmentEffect = {
   augment_class: 'FLAT_STAT',
   type: 'BUFF',
@@ -58,6 +64,7 @@ export const DEFAULT_AUGMENT_EFFECT: AugmentEffect = {
   aoe_augment_props: DEFAULT_AOE_AUGMENT_PROPS,
   aoe_radius_augment_props: DEFAULT_AOE_RADIUS_AUGMENT_PROPS,
   max_targets_augment_props: DEFAULT_MAX_TARGETS_AUGMENT_PROPS,
+  action_swap_props: DEFAULT_ACTION_SWAP_PROPS,
 };
 
 export const DEFAULT_SHARED_AUGMENT_DATA: SharedAugmentData = {
@@ -87,4 +94,5 @@ export const DEFAULT_AUGMENT: Augment = {
   aoe_augment_props: DEFAULT_AOE_AUGMENT_PROPS,
   aoe_radius_augment_props: DEFAULT_AOE_RADIUS_AUGMENT_PROPS,
   max_targets_augment_props: DEFAULT_MAX_TARGETS_AUGMENT_PROPS,
+  action_swap_props: DEFAULT_ACTION_SWAP_PROPS,
 };

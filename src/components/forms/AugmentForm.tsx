@@ -5,6 +5,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useAugments } from '../../store/getters/augment';
 import { useGameStore } from '../../store/useGameStore';
 import {
+  ACTION_SWAP_TYPES,
   AOE_AUGMENT_MODES,
   AOE_RADIUS_AUGMENT_MODES,
   Augment,
@@ -17,6 +18,7 @@ import {
   RANGE_AUGMENT_MODES,
 } from '../../types/augment';
 import { createSelectOptions } from '../../utils/createSelectOptions';
+import FormActionSelect from '../FormActionSelect';
 import LabeledInput from '../LabledInput';
 import LabeledSelect from '../LabledSelect';
 
@@ -188,6 +190,21 @@ export const AugmentForm: React.FC<{ augment: Augment }> = ({ augment }) => {
               type="number"
               allowNegativeValue
               required
+            />
+          </div>
+        );
+      case 'ACTION_SWAP':
+        return (
+          <div className="grid grid-cols-2 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+            <LabeledSelect
+              id="action_swap_props.type"
+              label="Action Slot"
+              options={createSelectOptions(ACTION_SWAP_TYPES)}
+            />
+            <FormActionSelect
+              id="action_swap_props.action"
+              label="Replacement Action"
+              treatEmptyAsNull={false}
             />
           </div>
         );

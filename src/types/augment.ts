@@ -22,6 +22,7 @@ export const AUGMENT_TYPES = [
   'AOE',
   'AOE_RADIUS',
   'MAX_TARGETS',
+  'ACTION_SWAP',
 ] as const satisfies string[];
 type AugmentTypes = typeof AUGMENT_TYPES;
 export type AugmentType = AugmentTypes[number];
@@ -39,6 +40,7 @@ export const AUGMENT_TARGETS = [
   'ACTION_IS_AOE',
   'ACTION_AOE_RADIUS',
   'ACTION_MAX_TARGETS',
+  'ACTION_SWAP',
 ] as const satisfies string[];
 type AugmentTargets = typeof AUGMENT_TARGETS;
 export type AugmentTarget = AugmentTargets[number];
@@ -71,6 +73,10 @@ export const MAX_TARGETS_AUGMENT_MODES = [
 type MaxTargetsAugmentModes = typeof MAX_TARGETS_AUGMENT_MODES;
 export type MaxTargetsAugmentMode = MaxTargetsAugmentModes[number];
 
+export const ACTION_SWAP_TYPES = ['PRIMARY', 'SPECIAL'] as const satisfies string[];
+type ActionSwapTypes = typeof ACTION_SWAP_TYPES;
+export type ActionSwapType = ActionSwapTypes[number];
+
 export type Augment = {
   guid: string;
   id: string;
@@ -91,6 +97,13 @@ export type Augment = {
   aoe_augment_props: AOEAugmentProps;
   aoe_radius_augment_props: AOERadiusAugmentProps;
   max_targets_augment_props: MaxTargetsAugmentProps;
+  action_swap_props: ActionSwapProps;
+};
+
+export type ActionSwapProps = {
+  type: ActionSwapType;
+  // Guid of an existing Action, or '' for none (matches FormActionSelect's empty value).
+  action: string;
 };
 
 export type DotAugmentProps = {
@@ -141,6 +154,7 @@ export type AugmentEffect = Pick<
   | 'aoe_augment_props'
   | 'aoe_radius_augment_props'
   | 'max_targets_augment_props'
+  | 'action_swap_props'
 >;
 
 export type SharedAugmentData = Pick<

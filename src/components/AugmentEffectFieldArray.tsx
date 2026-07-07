@@ -1,11 +1,13 @@
 import React from 'react';
 import { FieldValues, Path, useFieldArray, useFormContext, useWatch } from 'react-hook-form';
 
+import FormActionSelect from './FormActionSelect';
 import LabeledInput from './LabledInput';
 import LabeledSelect from './LabledSelect';
 
 import { DEFAULT_AUGMENT_EFFECT } from '../constants/augment';
 import {
+  ACTION_SWAP_TYPES,
   AOE_AUGMENT_MODES,
   AOE_RADIUS_AUGMENT_MODES,
   AUGMENT_BUFF_TYPES,
@@ -168,6 +170,21 @@ const AugmentEffectEntry = <T extends FieldValues>({
               type="number"
               allowNegativeValue
               required
+            />
+          </div>
+        );
+      case 'ACTION_SWAP':
+        return (
+          <div className="grid grid-cols-2 justify-evenly border rounded justify-items-center gap-3 p-4">
+            <LabeledSelect
+              id={`${prefix}.${index}.action_swap_props.type` as Path<T>}
+              label="Action Slot"
+              options={createSelectOptions(ACTION_SWAP_TYPES)}
+            />
+            <FormActionSelect
+              id={`${prefix}.${index}.action_swap_props.action` as Path<T>}
+              label="Replacement Action"
+              treatEmptyAsNull={false}
             />
           </div>
         );
