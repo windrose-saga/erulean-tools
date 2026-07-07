@@ -184,6 +184,7 @@ const AugmentEffectEntry = <T extends FieldValues>({
             <FormActionSelect
               id={`${prefix}.${index}.action_swap_props.action` as Path<T>}
               label="Replacement Action"
+              treatEmptyAsNull={false}
             />
           </div>
         );

@@ -201,7 +201,11 @@ export const AugmentForm: React.FC<{ augment: Augment }> = ({ augment }) => {
               label="Action Slot"
               options={createSelectOptions(ACTION_SWAP_TYPES)}
             />
-            <FormActionSelect id="action_swap_props.action" label="Replacement Action" />
+            <FormActionSelect
+              id="action_swap_props.action"
+              label="Replacement Action"
+              treatEmptyAsNull={false}
+            />
           </div>
         );
       default:

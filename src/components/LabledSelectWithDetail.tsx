@@ -16,11 +16,10 @@ export interface LabledSelectWithDetailProps<T extends FieldValues> extends Labe
 }
 
 const LabledSelectWithDetail = <T extends FieldValues>({
-  label,
-  id,
-  options,
   pathBase,
+  ...selectProps
 }: LabledSelectWithDetailProps<T>) => {
+  const { id } = selectProps;
   const { watch } = useFormContext<T>();
   const { isDirty } = useFormState();
   const navigate = useNavigate();
@@ -42,7 +41,7 @@ const LabledSelectWithDetail = <T extends FieldValues>({
 
   return (
     <div className="flex flex-col">
-      <LabeledSelect id={id} label={label} options={options} />
+      <LabeledSelect {...selectProps} />
       <button disabled={!value} className="h-min shrink-0" onClick={onViewPress}>
         View
       </button>
