@@ -68,8 +68,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".85",
+      "generator_rarity": 0.85,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": "0",
       "gold_cost": "5",
       "translation_id": "unit.ASTROATTENDENT",
@@ -135,9 +138,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": 0,
+      "rarity": 0.99,
+      "generator_rarity": 0.99,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.NOBLE",
@@ -209,9 +215,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": ".95",
+      "rarity": ".9",
+      "generator_rarity": 0.9,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 6,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.ERUASTROLOGER",
@@ -226,8 +235,7 @@
       "name": "Erulean Betrayer",
       "role": "MAGECORE",
       "generator_tags": [
-        "MARCH",
-        "ANAZAR"
+        "MARCH"
       ],
       "description": "An accursed Erulean Astronomer. As all selves are held thinly in fragile orchestration, one crack can shatter the mind. Even those wrought in mastery can fall when confronting Anazarbus. His will extends in brutal confusion, and seeks only to imprint.",
       "is_commander": false,
@@ -286,9 +294,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": "0",
+      "rarity": ".9",
+      "generator_rarity": 0.9,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 5,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.BETRAYER",
@@ -303,8 +314,8 @@
       "name": "Espar Mage",
       "role": "FLANKER",
       "generator_tags": [
-        "MOB",
-        "MARCH"
+        "MARCH",
+        "BANDIT"
       ],
       "description": "Clones of a once individual sorcerer, the Espar are the chaotic wreckage of a personality ravaged by experiment. The Espar were exiled from Nova and established their own college deep in the northern wastelands beyond Haradan. Their consciousness is so weakened through the erosion of replication that they lack all loyalty, even to each other.",
       "is_commander": true,
@@ -361,9 +372,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": ".9",
+      "rarity": ".85",
+      "generator_rarity": 0.85,
       "can_be_reward": true,
       "unique": true,
+      "can_horde": false,
+      "required_generator_level": 5,
       "required_level": 0,
       "gold_cost": "50",
       "translation_id": "unit.ESPARMAGE",
@@ -376,11 +390,12 @@
       "guid": "81efdd33-8a82-4595-b704-c5b6135236a4",
       "id": "FAIRY",
       "name": "Fairy Dullard",
-      "role": "HEALER",
+      "role": "MIDLINE",
       "generator_tags": [
         "ERULEAN",
-        "MOB",
-        "MEADOW"
+        "BANDIT",
+        "ERULEAN_MOB",
+        "ERU_MOB_ALLY"
       ],
       "description": "Life, so unexpectedly ordered by the fundamental elements of the cosmos, springs forth all manner of unexpected beings. The trickster fae may be smarter than he looks.",
       "is_commander": true,
@@ -437,9 +452,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": ".85",
+      "rarity": ".9",
+      "generator_rarity": 0.9,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 2,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.FAIRY",
@@ -453,8 +471,8 @@
       "name": "Fane",
       "role": "FRONTLINE",
       "generator_tags": [
-        "ERULEAN",
-        "MOB"
+        "ERU_MOB_ALLY",
+        "MOB_DUNGEON"
       ],
       "description": "Magically rendered soldiers with allegiance to their creator. Imperfect and unalive, they make better vessels for war than anything else.",
       "is_commander": false,
@@ -517,8 +535,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".8",
+      "generator_rarity": 0.8,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 2,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.FANE",
@@ -595,8 +616,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".5",
+      "generator_rarity": 0.5,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": "5",
       "translation_id": "unit.FORESTARCHER",
@@ -611,8 +635,8 @@
       "name": "Gargara",
       "role": "FRONTLINE",
       "generator_tags": [
-        "MOB",
-        "AUROKRA"
+        "ERULEAN_MOB",
+        "ERU_MOB_ALLY"
       ],
       "description": "When a dragon dreams, as a beast of pure magic, their fantasies can be drawn out of them. The Gargara is such a conjuration, kidnapped from the dreams of dragons, and leaked into the material world. They require a mage and fae vessel alike to manifest.",
       "is_commander": true,
@@ -643,7 +667,7 @@
       "luck": 25,
       "bravery": 80,
       "movement": 1,
-      "point_value": "160",
+      "point_value": "140",
       "exp_value": "60",
       "can_flee": true,
       "faithful": false,
@@ -668,9 +692,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": ".99",
+      "rarity": ".95",
+      "generator_rarity": 0.95,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 4,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.GARGARA",
@@ -683,9 +710,10 @@
       "guid": "100ae0e5-b515-4ca3-964c-f27d4f4cceb4",
       "id": "GIANTRAT",
       "name": "Giant Rat",
-      "role": "FLANKER",
+      "role": "FRONTLINE",
       "generator_tags": [
-        "MOB"
+        "ERULEAN_MOB",
+        "MOB_DUNGEON"
       ],
       "description": "The atrocious rodent. Perhaps useful?",
       "is_commander": false,
@@ -747,8 +775,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".5",
+      "generator_rarity": 0.5,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": true,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.GIANTRAT",
@@ -815,8 +846,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": 0,
+      "generator_rarity": 0,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.GIANTRATCOMMANDER",
@@ -831,7 +865,7 @@
       "name": "Golzow Mercenary",
       "role": "FRONTLINE",
       "generator_tags": [
-        "MEADOW",
+        "BANDIT",
         "MARCH",
         "ERULEAN"
       ],
@@ -893,8 +927,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".5",
+      "generator_rarity": 0.5,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": "1",
       "gold_cost": "15",
       "translation_id": "unit.GMERC",
@@ -909,10 +946,8 @@
       "name": "Harpy",
       "role": "FLANKER",
       "generator_tags": [
-        "AUROKRA",
-        "MOB",
-        "MEADOW",
-        "YOUNES"
+        "ERULEAN_MOB",
+        "MOB_DUNGEON"
       ],
       "description": "Fae creatures manifested through untamed currents of wild magics. Find them in the enchanted forests, the dungeons of wizards, or most Strong Mana Regions.",
       "is_commander": false,
@@ -970,8 +1005,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".9",
+      "generator_rarity": 0.9,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": true,
+      "required_generator_level": 4,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.HARPY",
@@ -983,7 +1021,7 @@
       "guid": "a5b3d9cb-116d-41fe-84bb-1f1ebc4ccf4b",
       "id": "HARPYQ",
       "name": "Harpy Mother",
-      "role": "UTILITY",
+      "role": "MIDLINE",
       "generator_tags": [],
       "description": "Like a Queen Bee, the Harpy Mother attracts the unconditional devotion of harpy and magic creature alike.",
       "is_commander": true,
@@ -1034,9 +1072,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": 0,
+      "rarity": 0.9,
+      "generator_rarity": 0.9,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.HARPYQ",
@@ -1051,8 +1092,7 @@
       "role": "MIDLINE",
       "generator_tags": [
         "MARCH",
-        "ANAZAR",
-        "MEADOW"
+        "BANDIT"
       ],
       "description": "A maiden of the Lazaric courts, married to a fleeting shard of Anazarbus.",
       "is_commander": true,
@@ -1105,9 +1145,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": 0,
+      "rarity": 0.8,
+      "generator_rarity": 0.8,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 3,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.WITCH",
@@ -1123,9 +1166,7 @@
       "role": "FRONTLINE",
       "generator_tags": [
         "MARCH",
-        "ANAZAR",
-        "MEADOW",
-        "AUROKRA"
+        "BANDIT"
       ],
       "description": "Untrained soldiers on the March, fighting for a chance of upward mobility. Through coercion, the poorest and most desperate conquered are offered a contract to fight. If they survive the term of their indenture, they earn back their freedom and a parcel of stolen land.",
       "is_commander": false,
@@ -1184,9 +1225,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": ".5",
+      "rarity": ".3",
+      "generator_rarity": 0.3,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.INDENTURED",
@@ -1201,8 +1245,7 @@
       "name": "Iserlohn Fencer",
       "role": "FLANKER",
       "generator_tags": [
-        "ERULEAN",
-        "MEADOW"
+        "ERULEAN"
       ],
       "description": "The warrior stewards of Iserlohn, once the seat of the ancient Erulean Kiserike. It was the order of Fencers themselves that overthrew the noble line centuries ago.",
       "is_commander": false,
@@ -1266,8 +1309,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".8",
+      "generator_rarity": 0.8,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 3,
       "required_level": 0,
       "gold_cost": "5",
       "translation_id": "unit.ISRFENCER",
@@ -1282,9 +1328,7 @@
       "name": "Knight of Abary",
       "role": "FRONTLINE",
       "generator_tags": [
-        "MARCH",
-        "ANAZAR",
-        "YOUNES"
+        "MARCH"
       ],
       "description": "Originally an attempt to bring Anazarbus to the material realm, a Lazaric warrior’s body is infused with a fragment of the Father’s cosmic will through arcane ritual. A complete and total submission, their humanity is replaced with a lucid violence and their body is endowed with great power.",
       "is_commander": true,
@@ -1339,9 +1383,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": 0,
+      "rarity": 0.9,
+      "generator_rarity": 0.9,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 12,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.ABARY",
@@ -1355,7 +1402,8 @@
       "name": "March Bowman",
       "role": "BACKLINE",
       "generator_tags": [
-        "MARCH"
+        "MARCH",
+        "BANDIT"
       ],
       "description": "Rank and file ranged unit on the March. When the first March colony in Meadowmere received delegates from Nova, it was an unidentified Bowman who broke order and fired at the approaching party.",
       "is_commander": false,
@@ -1414,9 +1462,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": 0,
+      "rarity": 0.3,
+      "generator_rarity": 0.3,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.MARCHBOW",
@@ -1490,9 +1541,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": 0,
+      "rarity": 0.3,
+      "generator_rarity": 0.3,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.MARCHSPEAR",
@@ -1506,9 +1560,7 @@
       "id": "CAPTIONRAVAGER",
       "name": "March Captain Reihnar",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "MARCH"
-      ],
+      "generator_tags": [],
       "description": "A young and renowned Lazaric March captain. Raised a devout nationalist, Reihnar volunteered to lead the March vanguard in Erulea. He won the support of the Prion Corps when he brokered the betrayal of the Lupenari merchant lords, ending the century old Erulean peace.",
       "is_commander": true,
       "commander_data": {
@@ -1560,9 +1612,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": 0,
+      "rarity": "0",
+      "generator_rarity": 0,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.CAPTIONRAVAGER",
@@ -1576,9 +1631,7 @@
       "id": "DARKSTEEL",
       "name": "March Darksteel General",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "MARCH"
-      ],
+      "generator_tags": [],
       "description": "High ranking commander in the Lazaric military. Promoted from within the Ulver Dragoons, the Darksteel are highly trained combatants with full recognition and support from the entire March. Other than direct orders from the March Keeper, the Darksteel act independently under their own understanding of the March’s best interests.",
       "is_commander": true,
       "commander_data": {
@@ -1631,8 +1684,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": 0,
+      "generator_rarity": 0,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.DARKSTEEL",
@@ -1645,10 +1701,9 @@
       "guid": "7d700079-b10b-40a3-9351-1c42df1063c9",
       "id": "WHIP",
       "name": "March Taskmaster",
-      "role": "UTILITY",
+      "role": "MIDLINE",
       "generator_tags": [
-        "MARCH",
-        "AUROKRA"
+        "MARCH"
       ],
       "description": "The taskmaster of the March.",
       "is_commander": true,
@@ -1699,9 +1754,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": 0,
+      "rarity": 0.85,
+      "generator_rarity": 0.85,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 1,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.WHIP",
@@ -1774,9 +1832,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": ".3",
-      "can_be_reward": false,
+      "rarity": ".1",
+      "generator_rarity": 0.1,
+      "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.MILITIA",
@@ -1789,10 +1850,9 @@
       "guid": "4dedb670-d235-46ae-9ca8-272556fa668c",
       "id": "MSURGEON",
       "name": "Mithrim Surgeon",
-      "role": "HEALER",
+      "role": "MIDLINE",
       "generator_tags": [
-        "ERULEAN",
-        "MEADOW"
+        "ERULEAN"
       ],
       "description": "The first Mithrim was a traveler, bound for Stargard but lost in the maze of that grand forest. It’s told that he stumbled on a procession of Unicorn, dancing in step to the reverberations of the cosmos. The encounter unearthed healing powers held deep within, and through crystal matrix attenuation students of the Mithrim are able to harness this power as well.",
       "is_commander": false,
@@ -1856,8 +1916,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".85",
+      "generator_rarity": 0.85,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 2,
       "required_level": 0,
       "gold_cost": "0",
       "translation_id": "unit.MSURGEON",
@@ -1872,10 +1935,8 @@
       "name": "Monster Hunter",
       "role": "NONE",
       "generator_tags": [
-        "ERULEAN",
-        "MEADOW",
-        "MOB",
-        "AUROKRA"
+        "BANDIT",
+        "ERULEAN"
       ],
       "description": "There are occasions when the great magic beasts of the land need to be subdued. Though they trade in poison and violence, the Monster Hunters are well regarded in Erulea, even by the magic creatures they often stalk.",
       "is_commander": false,
@@ -1935,8 +1996,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".6",
+      "generator_rarity": 0.6,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 2,
       "required_level": 0,
       "gold_cost": "13",
       "translation_id": "unit.HUNTER",
@@ -1948,11 +2012,9 @@
       "guid": "63f0648e-eddb-4790-849e-3a6ed7984260",
       "id": "MOONBLADE",
       "name": "Moonblade Gladiator",
-      "role": "FRONTLINE",
+      "role": "FLANKER",
       "generator_tags": [
         "BANDIT",
-        "MEADOW",
-        "AUROKRA",
         "MARCH"
       ],
       "description": "Born and bred in the fighting pits of Lazar. The strongest will take contracts on the March, often leading raiding forces or patrols. Numb to the fear of death.",
@@ -1984,7 +2046,7 @@
       "luck": 10,
       "bravery": 60,
       "movement": 1,
-      "point_value": 14,
+      "point_value": 28,
       "exp_value": "12",
       "can_flee": true,
       "faithful": false,
@@ -2008,9 +2070,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": ".6",
+      "rarity": ".65",
+      "generator_rarity": 0.65,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 2,
       "required_level": 0,
       "gold_cost": "25",
       "translation_id": "unit.MOONBLADE",
@@ -2024,9 +2089,7 @@
       "id": "PAUPER",
       "name": "Pauper Mage",
       "role": "MAGECORE",
-      "generator_tags": [
-        "BANDIT"
-      ],
+      "generator_tags": [],
       "description": "Every now and again, an urchin or orphan will discover, all on their own, a magical sense about the world. Untrained, and unguided, they take their ideas about life and power from what they see around them.",
       "is_commander": true,
       "commander_data": {
@@ -2081,8 +2144,11 @@
       },
       "returned_on_death": {},
       "rarity": ".75",
+      "generator_rarity": 0.75,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 3,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.PAUPER",
@@ -2094,10 +2160,9 @@
       "guid": "637d1c1e-7994-403d-9fde-b7b9f2bb6b07",
       "id": "PMAGE",
       "name": "Plainsfolk Mage",
-      "role": "MIDLINE",
+      "role": "MAGECORE",
       "generator_tags": [
-        "ERULEAN",
-        "MEADOW"
+        "ERULEAN"
       ],
       "description": "Whether by chance encounter with a creature of pure magic, or a spontaneous flash of mage sight, the Plainsfolk wanderers master arcane orchestration on their own. They are the mage school of path and trail, moving in conjunction with the Sphere Angel.",
       "is_commander": true,
@@ -2153,8 +2218,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".95",
+      "generator_rarity": 0.95,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 1,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.PMAGE",
@@ -2221,8 +2289,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": 0,
+      "generator_rarity": 0,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.PORIA",
@@ -2235,11 +2306,10 @@
       "guid": "2c94b661-1590-45e1-bf05-d8ea27e4fe8c",
       "id": "HERMIT",
       "name": "Precious Hermit",
-      "role": "HEALER",
+      "role": "MIDLINE",
       "generator_tags": [
         "ERULEAN",
-        "MEADOW",
-        "MOB"
+        "BANDIT"
       ],
       "description": "Drawn to nature in such a way that they abandon society entirely. There, they lay in the arms of the dragon and dream, and commune with magical imagination. A Hermit of Erulea is a knower of secrets.",
       "is_commander": true,
@@ -2298,8 +2368,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".85",
+      "generator_rarity": 0.85,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 2,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.HERMIT",
@@ -2314,8 +2387,7 @@
       "name": "Prion Corps Assistant",
       "role": "MIDLINE",
       "generator_tags": [
-        "MARCH",
-        "ANAZAR"
+        "MARCH"
       ],
       "description": "Servant in training of Prion Corps Mage of rank. Periodic tests of Indentured and Cadet stock identify those with latent arcanist potential. Personality erasure and Lazaric skin graft are the reward for those who can withstand the first Prion trials.",
       "is_commander": false,
@@ -2352,7 +2424,7 @@
       "luck": 11,
       "bravery": 65,
       "movement": 1,
-      "point_value": "25",
+      "point_value": "35",
       "exp_value": "12",
       "can_flee": true,
       "faithful": false,
@@ -2374,9 +2446,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": 0,
+      "rarity": 0.7,
+      "generator_rarity": 0.7,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 2,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.PRIONASSIST",
@@ -2391,8 +2466,7 @@
       "name": "Prion Corps Mage",
       "role": "MAGECORE",
       "generator_tags": [
-        "MARCH",
-        "ANAZAR"
+        "MARCH"
       ],
       "description": "Elite magician of the March Empire.",
       "is_commander": true,
@@ -2445,9 +2519,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": "0",
+      "rarity": ".9",
+      "generator_rarity": 0.9,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 4,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.PRIONMAGE",
@@ -2462,9 +2539,7 @@
       "name": "Reaper Drake",
       "role": "MIDLINE",
       "generator_tags": [
-        "MARCH",
-        "ANAZAR",
-        "AUROKRA"
+        "MARCH"
       ],
       "description": "Fell haunting beast of magical ruins. Once a mage, now denatured in sight of Anazarbus, under a geas of ruin.",
       "is_commander": true,
@@ -2521,9 +2596,12 @@
         "ad4657b7-8e7d-4a84-b00c-12eda437c347": 1
       },
       "returned_on_death": {},
-      "rarity": 0,
+      "rarity": 0.8,
+      "generator_rarity": 0.8,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 5,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.REAPER",
@@ -2538,9 +2616,9 @@
       "name": "Shanidar Knight",
       "role": "FRONTLINE",
       "generator_tags": [
-        "MEADOW",
-        "AUROKRA",
-        "MOB"
+        "BANDIT",
+        "ERULEAN_MOB",
+        "MOB_DUNGEON"
       ],
       "description": "Since the Aurokran winds ravaged Younes, mystical Neolithic warriors have on occasion been seen consorting with the creatures of wild magic. Believed to have been thawed from some subterranean glacier, their true origin is unknown.",
       "is_commander": false,
@@ -2599,9 +2677,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": 0,
+      "rarity": 0.5,
+      "generator_rarity": 0.5,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 2,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.SHANKNIGHT",
@@ -2616,8 +2697,7 @@
       "name": "Silversight Fencer",
       "role": "FRONTLINE",
       "generator_tags": [
-        "ERULEAN",
-        "MEADOW"
+        "ERULEAN"
       ],
       "description": "Armored fencer, honor guard of Nova and Astronomers of rank. The mark of discipline and loyalty. The Silversight warriors are woven bespoke matrixes of arcane defense by Nova’s magecore, and they harry enemy magicians with ensnaring magics.",
       "is_commander": false,
@@ -2681,8 +2761,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".75",
+      "generator_rarity": 0.75,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 2,
       "required_level": 0,
       "gold_cost": "5",
       "translation_id": "unit.SILVER",
@@ -2695,11 +2778,12 @@
       "guid": "a979d0b6-7568-4a15-9e40-2b16fb744090",
       "id": "FOX",
       "name": "Small Magic Fox",
-      "role": "UTILITY",
+      "role": "BACKLINE",
       "generator_tags": [
         "ERULEAN",
-        "MOB",
-        "MEADOW"
+        "BANDIT",
+        "ERULEAN_MOB",
+        "ERU_MOB_ALLY"
       ],
       "description": "Inside all living beings lies the potential for great and untold power.",
       "is_commander": false,
@@ -2760,9 +2844,12 @@
       "item_slots": "1",
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": ".9",
+      "rarity": ".95",
+      "generator_rarity": 0.95,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 2,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.FOX",
@@ -2837,9 +2924,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": ".5",
-      "can_be_reward": false,
+      "rarity": ".3",
+      "generator_rarity": 0.3,
+      "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": "2",
       "translation_id": "unit.SPEARMAN",
@@ -2854,9 +2944,9 @@
       "name": "Stone Nymph",
       "role": "MAGECORE",
       "generator_tags": [
-        "MOB",
-        "AUROKRA",
-        "MEADOW"
+        "BANDIT",
+        "ERULEAN_MOB",
+        "MOB_DUNGEON"
       ],
       "description": "The stone nymph.",
       "is_commander": true,
@@ -2914,8 +3004,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".9",
+      "generator_rarity": 0.9,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 3,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.NYMPH",
@@ -2981,8 +3074,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": 0,
+      "generator_rarity": 0,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.TEST",
@@ -3049,8 +3145,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": 0,
+      "generator_rarity": 0,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.WARDEN",
@@ -3102,7 +3201,7 @@
       "luck": 12,
       "bravery": "75",
       "movement": 1,
-      "point_value": "9",
+      "point_value": "10",
       "exp_value": "11",
       "can_flee": true,
       "faithful": false,
@@ -3124,9 +3223,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": 0,
+      "rarity": 0.5,
+      "generator_rarity": 0.5,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 1,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.DRAGOON",
@@ -3139,10 +3241,9 @@
       "guid": "f2034ba1-5597-46f9-a518-5e0e3a933a5e",
       "id": "UNICORN",
       "name": "Unicorn",
-      "role": "HEALER",
+      "role": "MIDLINE",
       "generator_tags": [
-        "ERULEAN",
-        "MEADOW"
+        "ERU_MOB_ALLY"
       ],
       "description": "Raw natural arcana embodied. Spun in the dreams of the first dragons, they dwell in the ever shifting Stargard forest. On clear nights near the forest, it’s said that one can hear the Unicorn choir commune with their cousin stars.",
       "is_commander": false,
@@ -3206,9 +3307,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": ".95",
+      "rarity": ".98",
+      "generator_rarity": 0.98,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.UNICORN",
@@ -3281,8 +3385,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": 0,
+      "generator_rarity": 0,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 0,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.SHARDSUMMON1",
@@ -3297,9 +3404,8 @@
       "name": "Wandering Strix",
       "role": "MAGECORE",
       "generator_tags": [
-        "ERULEAN",
-        "MOB",
-        "MEADOW"
+        "ERULEAN_MOB",
+        "ERU_MOB_ALLY"
       ],
       "description": "A benevolent spirit mage of mountain and plain. The Strix brokered the introduction of ancient man to the currents of arcane frequency. While they come and go, their dwellings have never been discovered.",
       "is_commander": false,
@@ -3365,8 +3471,11 @@
       "reward_for_defeat": {},
       "returned_on_death": {},
       "rarity": ".8",
+      "generator_rarity": 0.8,
       "can_be_reward": false,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 3,
       "required_level": 0,
       "gold_cost": 0,
       "translation_id": "unit.STRIX",
@@ -3381,9 +3490,8 @@
       "name": "Yellow Fencer",
       "role": "FLANKER",
       "generator_tags": [
-        "BANDIT",
         "ERULEAN",
-        "MEADOW"
+        "BANDIT"
       ],
       "description": "The gambler of the battlefield. Highly trained for one purpose, to seek the perfect strike. They will cast everything aside in their life—family, friends—in search of a single moment.",
       "is_commander": false,
@@ -3442,9 +3550,12 @@
       "item_slots": 3,
       "reward_for_defeat": {},
       "returned_on_death": {},
-      "rarity": ".75",
+      "rarity": ".7",
+      "generator_rarity": 0.7,
       "can_be_reward": true,
       "unique": false,
+      "can_horde": false,
+      "required_generator_level": 3,
       "required_level": 0,
       "gold_cost": "40",
       "translation_id": "unit.YELLOW",
@@ -5519,6 +5630,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           },
           {
@@ -5553,6 +5668,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           }
         ],
@@ -5693,6 +5812,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           }
         ],
@@ -9604,6 +9727,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -9656,6 +9783,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -9706,6 +9837,10 @@
       "max_targets_augment_props": {
         "mode": "FLAT",
         "amount": 0
+      },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
       },
       "augments": [],
       "crit_augments": [],
@@ -9759,6 +9894,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -9810,6 +9949,10 @@
       "max_targets_augment_props": {
         "mode": "FLAT",
         "amount": 0
+      },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
       },
       "augments": [],
       "crit_augments": [],
@@ -9863,6 +10006,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -9913,6 +10060,10 @@
       "max_targets_augment_props": {
         "mode": "FLAT",
         "amount": 0
+      },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
       },
       "augments": [],
       "crit_augments": [],
@@ -9965,6 +10116,10 @@
       "max_targets_augment_props": {
         "mode": "FLAT",
         "amount": 0
+      },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
       },
       "augments": [],
       "crit_augments": [],
@@ -10019,6 +10174,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -10072,6 +10231,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -10122,6 +10285,10 @@
       "max_targets_augment_props": {
         "mode": "FLAT",
         "amount": 0
+      },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
       },
       "augments": [],
       "crit_augments": [],
@@ -10176,6 +10343,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -10229,6 +10400,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -10281,6 +10456,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -10331,6 +10510,10 @@
       "max_targets_augment_props": {
         "mode": "FLAT",
         "amount": 0
+      },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
       },
       "augments": [],
       "crit_augments": [],
@@ -10385,6 +10568,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -10438,6 +10625,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -10488,6 +10679,10 @@
       "max_targets_augment_props": {
         "mode": "FLAT",
         "amount": 0
+      },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
       },
       "augments": [],
       "crit_augments": [],
@@ -10541,6 +10736,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -10591,6 +10790,10 @@
       "max_targets_augment_props": {
         "mode": "FLAT",
         "amount": 0
+      },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
       },
       "augments": [],
       "crit_augments": [],
@@ -10645,6 +10848,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -10698,6 +10905,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -10749,6 +10960,10 @@
       "max_targets_augment_props": {
         "mode": "FLAT",
         "amount": 0
+      },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
       },
       "augments": [],
       "crit_augments": [],
@@ -10803,6 +11018,10 @@
         "mode": "FLAT",
         "amount": 0
       },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
+      },
       "augments": [],
       "crit_augments": [],
       "should_reapply": false,
@@ -10854,6 +11073,10 @@
       "max_targets_augment_props": {
         "mode": "FLAT",
         "amount": 0
+      },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
       },
       "augments": [],
       "crit_augments": [],
@@ -10907,6 +11130,10 @@
       "max_targets_augment_props": {
         "mode": "FLAT",
         "amount": 0
+      },
+      "action_swap_props": {
+        "type": "PRIMARY",
+        "action": ""
       },
       "augments": [],
       "crit_augments": [],
@@ -10975,6 +11202,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           },
           {
@@ -11009,6 +11240,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           }
         ]
@@ -11233,6 +11468,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           }
         ]
@@ -11300,6 +11539,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           },
           {
@@ -11334,6 +11577,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           },
           {
@@ -11368,6 +11615,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           },
           {
@@ -11402,6 +11653,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           },
           {
@@ -11436,6 +11691,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": "3"
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           }
         ]
@@ -11506,6 +11765,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           },
           {
@@ -11540,6 +11803,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           }
         ]
@@ -11610,6 +11877,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           },
           {
@@ -11644,6 +11915,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           }
         ]
@@ -11822,6 +12097,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": "1"
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           }
         ]
@@ -12153,6 +12432,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           },
           {
@@ -12187,6 +12470,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           }
         ]
@@ -12257,6 +12544,10 @@
             "max_targets_augment_props": {
               "mode": "FLAT",
               "amount": 0
+            },
+            "action_swap_props": {
+              "type": "PRIMARY",
+              "action": ""
             }
           }
         ]
@@ -12307,6 +12598,12 @@
   ],
   "prefabs": [
     {
+      "guid": "372b83d3-dc2a-478c-9e0d-2e72f39c82b4",
+      "id": "HALL",
+      "name": "Great Hall",
+      "layout": "#####*#####\n#...#.#...#\n#.#.....#.#\n#.........#\n#.#.....#.#\n#.........#\n#.#.....#.#\n#.........#\n#.#.....#.#\n#.........#\n#.#.....#.#\n#.........#\n#.#.....#.#\n#.........#\n#.#.....#.#\n#.........#\n#.#.....#.#\n#...#.#...#\n#####*#####"
+    },
+    {
       "guid": "530077c8-0399-434c-a74e-84553ac901d8",
       "id": "TEMPLATE",
       "name": "Template",
@@ -12332,14 +12629,26 @@
       "name": "Default EXP",
       "levels": [
         0,
-        35,
-        200,
-        725,
-        1900,
-        3300,
-        4400,
-        6500,
-        8100
+        66,
+        264,
+        586,
+        1035,
+        1610,
+        2309,
+        3134,
+        4080,
+        5150,
+        6344,
+        7660,
+        9100,
+        10661,
+        12345,
+        14150,
+        16076,
+        18126,
+        20296,
+        22586,
+        25000
       ]
     },
     {
@@ -12359,14 +12668,54 @@
       "name": "Default PV",
       "levels": [
         80,
-        190,
+        124,
+        168,
+        238,
+        334,
         430,
-        620,
+        506,
+        582,
+        686,
+        818,
         950,
-        1250,
+        1070,
+        1190,
+        1320,
+        1460,
         1600,
-        2000,
+        1760,
+        1920,
+        2060,
+        2180,
         2300
+      ]
+    },
+    {
+      "guid": "b3f0a2e4-1c7d-4a8e-9f2b-5e6d7c8a9b0c",
+      "id": "EASY_PV",
+      "name": "Easy PV",
+      "levels": [
+        68,
+        105,
+        143,
+        202,
+        284,
+        366,
+        430,
+        495,
+        583,
+        695,
+        808,
+        910,
+        1012,
+        1122,
+        1241,
+        1360,
+        1496,
+        1632,
+        1751,
+        1853,
+        1955
       ]
     },
     {
@@ -12376,6 +12725,34 @@
       "levels": [
         2000,
         3000
+      ]
+    },
+    {
+      "guid": "c4a1b3f5-2d8e-4b9f-a03c-6f7e8d9b0a1d",
+      "id": "VERY_EASY_PV",
+      "name": "Very Easy PV",
+      "levels": [
+        52,
+        81,
+        109,
+        155,
+        217,
+        280,
+        329,
+        378,
+        446,
+        532,
+        618,
+        696,
+        774,
+        858,
+        949,
+        1040,
+        1144,
+        1248,
+        1339,
+        1417,
+        1495
       ]
     }
   ],
@@ -12572,12 +12949,50 @@
       "id": "DEFAULT_GENERATOR",
       "name": "Default Generator",
       "jitter": [
-        10,
-        10
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
       ],
       "rarity_pressure": [
         2,
-        1.9
+        1.98,
+        1.96,
+        1.95,
+        1.93,
+        1.92,
+        1.9,
+        1.88,
+        1.86,
+        1.85,
+        1.83,
+        1.81,
+        1.8,
+        1.78,
+        1.76,
+        1.75,
+        1.73,
+        1.73,
+        1.73,
+        1.72,
+        1.7
       ]
     }
   ],
@@ -12653,7 +13068,8 @@
   "prefabIds": [
     "TEMPLATE",
     "WEIRDPASSAGE",
-    "ZIGZAG"
+    "ZIGZAG",
+    "HALL"
   ],
   "expLevelClassIds": [
     "DEFAULT_EXP",
@@ -12661,7 +13077,9 @@
   ],
   "pvLevelClassIds": [
     "DEFAULT_PV",
-    "TUTORIAL"
+    "TUTORIAL",
+    "EASY_PV",
+    "VERY_EASY_PV"
   ],
   "gridLevelClassIds": [
     "DEFAULT_GRID",
@@ -12687,14 +13105,44 @@
   "generatorTagIds": [
     "ERULEAN",
     "MARCH",
-    "ANAZAR",
-    "MOB",
-    "YOUNES",
-    "MEADOW",
-    "AUROKRA",
-    "BANDIT"
+    "MARCH_AURO",
+    "ERULEAN_MOB",
+    "YOUNES_DESERT",
+    "ERULEAN_BANDIT",
+    "AUROKRA_MOB",
+    "BANDIT",
+    "ERU_MOB_ALLY",
+    "MOB_DUNGEON",
+    "MAR_MOB_ALLY"
   ],
-  "removedGeneratorTagIds": [],
+  "removedGeneratorTagIds": [
+    "AUROKRA_MOB",
+    "ERULEAN_BANDIT",
+    "YOUNES_DESERT",
+    "MARCH_AURO",
+    "MAR_MOB_ALLY"
+  ],
+  "lootCategoryOrdinals": {
+    "WEAPON": 0,
+    "ARMOR": 1,
+    "MATERIAL": 2,
+    "MEADOWMERE": 3,
+    "WOODMERE": 4,
+    "CONSUMABLE": 5
+  },
+  "generatorTagOrdinals": {
+    "ERULEAN": 0,
+    "MARCH": 1,
+    "MARCH_AURO": 2,
+    "ERULEAN_MOB": 3,
+    "YOUNES_DESERT": 4,
+    "ERULEAN_BANDIT": 5,
+    "AUROKRA_MOB": 6,
+    "BANDIT": 7,
+    "ERU_MOB_ALLY": 8,
+    "MOB_DUNGEON": 9,
+    "MAR_MOB_ALLY": 10
+  },
   "trainable_units": [
     "ASTROATTENDENT",
     "ERUASTROLOGER",
@@ -12716,5 +13164,5 @@
     "STRIX",
     "YELLOW"
   ],
-  "updatedAt": 1782236793798
+  "updatedAt": 1783705525306
 }
