@@ -66,6 +66,7 @@ export const DEFAULT_UNIT: Unit = {
   reward_for_defeat: {},
   returned_on_death: {},
   rarity: 0,
+  generator_rarity: 0,
   can_be_reward: true,
   unique: false,
   can_horde: false,

@@ -56,8 +56,10 @@ export type Unit = {
   item_slots: number;
   reward_for_defeat: Record<string, number>;
   returned_on_death: Record<string, number>;
-  // Reward-generator weighting (mirrors Item.rarity): 0 = common, 1 = never drops.
+  // Reward-generator weighting ONLY (mirrors Item.rarity): 0 = common, 1 = never drops.
   rarity: number;
+  // Army-generator selection weighting ONLY (separate from rarity): 0 = common, 1 = never.
+  generator_rarity: number;
   // Gate for the reward system: false excludes this unit from reward pools entirely.
   can_be_reward: boolean;
   // Army generator places at most one of this unit per generated army.
