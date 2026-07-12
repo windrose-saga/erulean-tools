@@ -90,6 +90,19 @@ describe('ingestUnitsV2 required_generator_level', () => {
   });
 });
 
+describe('ingestUnitsV2 generator_rarity', () => {
+  it('defaults a missing generator_rarity to 0', () => {
+    const unit = ingestOne({});
+    expect(unit.generator_rarity).toBe(0);
+  });
+
+  it('preserves an explicit generator_rarity independent of rarity', () => {
+    const unit = ingestOne({ rarity: 0.75, generator_rarity: 0.2 });
+    expect(unit.generator_rarity).toBe(0.2);
+    expect(unit.rarity).toBe(0.75);
+  });
+});
+
 describe('ingestUnitsV2 reward fields', () => {
   it('defaults rarity to 0 and can_be_reward to true for a sparse unit', () => {
     const unit = ingestOne({});

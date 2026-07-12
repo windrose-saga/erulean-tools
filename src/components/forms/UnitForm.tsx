@@ -92,6 +92,7 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
           />
           <LabeledInput id="can_be_reward" label="Can Be Reward" type="checkbox" />
           <LabeledInput id="rarity" label="Reward Rarity" type="number" />
+          <LabeledInput id="generator_rarity" label="Generator Rarity" type="number" />
           <div className="flex justify-between">
             <div className="flex flex-col">
               <LabeledInput
