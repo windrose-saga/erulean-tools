@@ -281,13 +281,14 @@ const validateLevelClasses = (levelClasses: LevelClassRecords) => {
 
   // Dungeon Grid classes carry a second per-level curve, `max_units` (the dungeon party-size
   // cap). Godot clamps a short curve rather than erroring, so this is the only place a
-  // misaligned or non-positive cap gets caught — a 0 would leave no unit placeable at all.
+  // misaligned or invalid cap gets caught — a 0 would leave no unit placeable at all, and
+  // non-finite values stringify to null on export.
   Object.values(levelClasses.dungeonGridLevelClasses).forEach((levelClass) => {
     const maxUnits = levelClass.max_units ?? [];
-    if (maxUnits.some((value) => value <= 0)) {
+    if (maxUnits.some((value) => !Number.isInteger(value) || value <= 0)) {
       errors.push({
         type: 'levelClass',
-        message: `Dungeon Grid level class ${levelClass.id} must contain only positive max unit counts`,
+        message: `Dungeon Grid level class ${levelClass.id} must contain only positive integer max unit counts`,
       });
     }
     if (maxUnits.length !== levelClass.levels.length) {

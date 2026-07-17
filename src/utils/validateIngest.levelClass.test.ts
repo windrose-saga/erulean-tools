@@ -133,9 +133,23 @@ describe('level-class ingest validation', () => {
 
     const errors = validateIngest({}, {}, {}, {}, classes);
 
-    expect(errors.some((error) => error.message.includes('only positive max unit counts'))).toBe(
-      true,
-    );
+    expect(
+      errors.some((error) => error.message.includes('only positive integer max unit counts')),
+    ).toBe(true);
+  });
+
+  it('rejects non-finite or fractional dungeon max unit counts', () => {
+    const classes = levelClasses();
+    classes.dungeonGridLevelClasses[DEFAULT_DUNGEON_GRID_LEVEL_CLASS.guid] = {
+      ...DEFAULT_DUNGEON_GRID_LEVEL_CLASS,
+      max_units: [4, Number.NaN, 1.5],
+    };
+
+    const errors = validateIngest({}, {}, {}, {}, classes);
+
+    expect(
+      errors.some((error) => error.message.includes('only positive integer max unit counts')),
+    ).toBe(true);
   });
 
   it('rejects a dungeon max unit curve that is not one value per level', () => {
