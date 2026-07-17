@@ -157,9 +157,7 @@
       "id": "ERUASTROLOGER",
       "name": "Erulean Astronomer",
       "role": "MAGECORE",
-      "generator_tags": [
-        "ERULEAN"
-      ],
+      "generator_tags": ["ERULEAN"],
       "description": "Masters of Erulean arcana. Sworn defenders of the Erulean Sphere Angel, Astronomers study in the star-chalk towers of Nova. Most of their lives are spent in intense observation of the deep cosmos, in search of answers to cosmic mysteries. They work to contain Anazarbus the Abandoned, which makes them a primary target of the Prion Corps.",
       "is_commander": true,
       "commander_data": {
@@ -234,9 +232,7 @@
       "id": "BETRAYER",
       "name": "Erulean Betrayer",
       "role": "MAGECORE",
-      "generator_tags": [
-        "MARCH"
-      ],
+      "generator_tags": ["MARCH"],
       "description": "An accursed Erulean Astronomer. As all selves are held thinly in fragile orchestration, one crack can shatter the mind. Even those wrought in mastery can fall when confronting Anazarbus. His will extends in brutal confusion, and seeks only to imprint.",
       "is_commander": false,
       "commander_data": {
@@ -313,10 +309,7 @@
       "id": "ESPARMAGE",
       "name": "Espar Mage",
       "role": "FLANKER",
-      "generator_tags": [
-        "MARCH",
-        "BANDIT"
-      ],
+      "generator_tags": ["MARCH", "BANDIT"],
       "description": "Clones of a once individual sorcerer, the Espar are the chaotic wreckage of a personality ravaged by experiment. The Espar were exiled from Nova and established their own college deep in the northern wastelands beyond Haradan. Their consciousness is so weakened through the erosion of replication that they lack all loyalty, even to each other.",
       "is_commander": true,
       "commander_data": {
@@ -391,12 +384,7 @@
       "id": "FAIRY",
       "name": "Fairy Dullard",
       "role": "MIDLINE",
-      "generator_tags": [
-        "ERULEAN",
-        "BANDIT",
-        "ERULEAN_MOB",
-        "ERU_MOB_ALLY"
-      ],
+      "generator_tags": ["ERULEAN", "BANDIT", "ERULEAN_MOB", "ERU_MOB_ALLY"],
       "description": "Life, so unexpectedly ordered by the fundamental elements of the cosmos, springs forth all manner of unexpected beings. The trickster fae may be smarter than he looks.",
       "is_commander": true,
       "commander_data": {
@@ -404,9 +392,7 @@
         "turn_movements": 1,
         "turn_actions": 1,
         "global_augments": [],
-        "army_augments": [
-          "6198ea9d-80be-421a-b6a8-3e9c30e012de"
-        ],
+        "army_augments": ["6198ea9d-80be-421a-b6a8-3e9c30e012de"],
         "enemy_army_augments": [],
         "army_name": "Fairy Force",
         "exp_level_class": "00000000-0000-4000-8000-000000000e01",
@@ -470,10 +456,7 @@
       "id": "FANE",
       "name": "Fane",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "ERU_MOB_ALLY",
-        "MOB_DUNGEON"
-      ],
+      "generator_tags": ["ERU_MOB_ALLY", "MOB_DUNGEON"],
       "description": "Magically rendered soldiers with allegiance to their creator. Imperfect and unalive, they make better vessels for war than anything else.",
       "is_commander": false,
       "commander_data": {
@@ -553,9 +536,7 @@
       "id": "FORESTARCHER",
       "name": "Forest Archer",
       "role": "BACKLINE",
-      "generator_tags": [
-        "ERULEAN"
-      ],
+      "generator_tags": ["ERULEAN"],
       "description": "A staple of Erulean militaries for generations, the trained archer earns her respect on the battlefield. Throughout history, the Erulean bow has decided the outcomes of war, especially when supported with suitable enchantments.",
       "is_commander": false,
       "commander_data": {
@@ -634,10 +615,7 @@
       "id": "GARGARA",
       "name": "Gargara",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "ERULEAN_MOB",
-        "ERU_MOB_ALLY"
-      ],
+      "generator_tags": ["ERULEAN_MOB", "ERU_MOB_ALLY"],
       "description": "When a dragon dreams, as a beast of pure magic, their fantasies can be drawn out of them. The Gargara is such a conjuration, kidnapped from the dreams of dragons, and leaked into the material world. They require a mage and fae vessel alike to manifest.",
       "is_commander": true,
       "commander_data": {
@@ -711,10 +689,7 @@
       "id": "GIANTRAT",
       "name": "Giant Rat",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "ERULEAN_MOB",
-        "MOB_DUNGEON"
-      ],
+      "generator_tags": ["ERULEAN_MOB", "MOB_DUNGEON"],
       "description": "The atrocious rodent. Perhaps useful?",
       "is_commander": false,
       "commander_data": {
@@ -864,11 +839,7 @@
       "id": "GMERC",
       "name": "Golzow Mercenary",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "BANDIT",
-        "MARCH",
-        "ERULEAN"
-      ],
+      "generator_tags": ["BANDIT", "MARCH", "ERULEAN"],
       "description": "Experienced soldier of fortune. They hail from lands overseas, and long to return home. The Golzow are said to be the first to strike, and the first to flee.",
       "is_commander": false,
       "commander_data": {
@@ -945,10 +916,7 @@
       "id": "HARPY",
       "name": "Harpy",
       "role": "FLANKER",
-      "generator_tags": [
-        "ERULEAN_MOB",
-        "MOB_DUNGEON"
-      ],
+      "generator_tags": ["ERULEAN_MOB", "MOB_DUNGEON"],
       "description": "Fae creatures manifested through untamed currents of wild magics. Find them in the enchanted forests, the dungeons of wizards, or most Strong Mana Regions.",
       "is_commander": false,
       "commander_data": {
@@ -1090,10 +1058,7 @@
       "id": "WITCH",
       "name": "High Thurzan Witch",
       "role": "MIDLINE",
-      "generator_tags": [
-        "MARCH",
-        "BANDIT"
-      ],
+      "generator_tags": ["MARCH", "BANDIT"],
       "description": "A maiden of the Lazaric courts, married to a fleeting shard of Anazarbus.",
       "is_commander": true,
       "commander_data": {
@@ -1164,10 +1129,7 @@
       "id": "INDENTURED",
       "name": "Indentured Solider",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "MARCH",
-        "BANDIT"
-      ],
+      "generator_tags": ["MARCH", "BANDIT"],
       "description": "Untrained soldiers on the March, fighting for a chance of upward mobility. Through coercion, the poorest and most desperate conquered are offered a contract to fight. If they survive the term of their indenture, they earn back their freedom and a parcel of stolen land.",
       "is_commander": false,
       "commander_data": {
@@ -1244,9 +1206,7 @@
       "id": "ISRFENCER",
       "name": "Iserlohn Fencer",
       "role": "FLANKER",
-      "generator_tags": [
-        "ERULEAN"
-      ],
+      "generator_tags": ["ERULEAN"],
       "description": "The warrior stewards of Iserlohn, once the seat of the ancient Erulean Kiserike. It was the order of Fencers themselves that overthrew the noble line centuries ago.",
       "is_commander": false,
       "commander_data": {
@@ -1327,9 +1287,7 @@
       "id": "ABARY",
       "name": "Knight of Abary",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "MARCH"
-      ],
+      "generator_tags": ["MARCH"],
       "description": "Originally an attempt to bring Anazarbus to the material realm, a Lazaric warrior’s body is infused with a fragment of the Father’s cosmic will through arcane ritual. A complete and total submission, their humanity is replaced with a lucid violence and their body is endowed with great power.",
       "is_commander": true,
       "commander_data": {
@@ -1337,12 +1295,8 @@
         "turn_movements": 1,
         "turn_actions": 1,
         "global_augments": [],
-        "army_augments": [
-          "6198ea9d-80be-421a-b6a8-3e9c30e012de"
-        ],
-        "enemy_army_augments": [
-          "68165a30-5277-4e9e-a504-4e8e23442b5a"
-        ],
+        "army_augments": ["6198ea9d-80be-421a-b6a8-3e9c30e012de"],
+        "enemy_army_augments": ["68165a30-5277-4e9e-a504-4e8e23442b5a"],
         "army_name": "Abaric Phalanx",
         "exp_level_class": "00000000-0000-4000-8000-000000000e01",
         "pv_level_class": "00000000-0000-4000-8000-000000000e02",
@@ -1401,10 +1355,7 @@
       "id": "MARCHBOW",
       "name": "March Bowman",
       "role": "BACKLINE",
-      "generator_tags": [
-        "MARCH",
-        "BANDIT"
-      ],
+      "generator_tags": ["MARCH", "BANDIT"],
       "description": "Rank and file ranged unit on the March. When the first March colony in Meadowmere received delegates from Nova, it was an unidentified Bowman who broke order and fired at the approaching party.",
       "is_commander": false,
       "commander_data": {
@@ -1481,9 +1432,7 @@
       "id": "MARCHSPEAR",
       "name": "March Cadet",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "MARCH"
-      ],
+      "generator_tags": ["MARCH"],
       "description": "The March find their strength in numbers, and none in their ranks are as numerous as the Cadets. Nearly all Cadets are formerly indentured soldiers, who by one way or another resolve to abandon their heritage and adopt Lazaric skin.",
       "is_commander": false,
       "commander_data": {
@@ -1702,9 +1651,7 @@
       "id": "WHIP",
       "name": "March Taskmaster",
       "role": "MIDLINE",
-      "generator_tags": [
-        "MARCH"
-      ],
+      "generator_tags": ["MARCH"],
       "description": "The taskmaster of the March.",
       "is_commander": true,
       "commander_data": {
@@ -1772,9 +1719,7 @@
       "id": "MILITIA",
       "name": "Militia",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "ERULEAN"
-      ],
+      "generator_tags": ["ERULEAN"],
       "description": "In Erulea, children are taught that justice is their right. So long held is this belief that no crown or conqueror has been able to hold dominion since the Kiserike betrayal. When the call to battle is heard, any and every Erulean will make their own judgement to join as they see fit.",
       "is_commander": false,
       "commander_data": {
@@ -1851,9 +1796,7 @@
       "id": "MSURGEON",
       "name": "Mithrim Surgeon",
       "role": "MIDLINE",
-      "generator_tags": [
-        "ERULEAN"
-      ],
+      "generator_tags": ["ERULEAN"],
       "description": "The first Mithrim was a traveler, bound for Stargard but lost in the maze of that grand forest. It’s told that he stumbled on a procession of Unicorn, dancing in step to the reverberations of the cosmos. The encounter unearthed healing powers held deep within, and through crystal matrix attenuation students of the Mithrim are able to harness this power as well.",
       "is_commander": false,
       "commander_data": {
@@ -1934,10 +1877,7 @@
       "id": "HUNTER",
       "name": "Monster Hunter",
       "role": "NONE",
-      "generator_tags": [
-        "BANDIT",
-        "ERULEAN"
-      ],
+      "generator_tags": ["BANDIT", "ERULEAN"],
       "description": "There are occasions when the great magic beasts of the land need to be subdued. Though they trade in poison and violence, the Monster Hunters are well regarded in Erulea, even by the magic creatures they often stalk.",
       "is_commander": false,
       "commander_data": {
@@ -2013,10 +1953,7 @@
       "id": "MOONBLADE",
       "name": "Moonblade Gladiator",
       "role": "FLANKER",
-      "generator_tags": [
-        "BANDIT",
-        "MARCH"
-      ],
+      "generator_tags": ["BANDIT", "MARCH"],
       "description": "Born and bred in the fighting pits of Lazar. The strongest will take contracts on the March, often leading raiding forces or patrols. Numb to the fear of death.",
       "is_commander": true,
       "commander_data": {
@@ -2097,9 +2034,7 @@
         "turn_movements": 1,
         "turn_actions": 1,
         "global_augments": [],
-        "army_augments": [
-          "32f7d1ce-d74b-4600-b431-a252e8eb8327"
-        ],
+        "army_augments": ["32f7d1ce-d74b-4600-b431-a252e8eb8327"],
         "enemy_army_augments": [],
         "army_name": "Beggar Army",
         "exp_level_class": "00000000-0000-4000-8000-000000000e01",
@@ -2161,9 +2096,7 @@
       "id": "PMAGE",
       "name": "Plainsfolk Mage",
       "role": "MAGECORE",
-      "generator_tags": [
-        "ERULEAN"
-      ],
+      "generator_tags": ["ERULEAN"],
       "description": "Whether by chance encounter with a creature of pure magic, or a spontaneous flash of mage sight, the Plainsfolk wanderers master arcane orchestration on their own. They are the mage school of path and trail, moving in conjunction with the Sphere Angel.",
       "is_commander": true,
       "commander_data": {
@@ -2171,9 +2104,7 @@
         "turn_movements": 2,
         "turn_actions": 2,
         "global_augments": [],
-        "army_augments": [
-          "32f7d1ce-d74b-4600-b431-a252e8eb8327"
-        ],
+        "army_augments": ["32f7d1ce-d74b-4600-b431-a252e8eb8327"],
         "enemy_army_augments": [],
         "army_name": "Band of the Plainsfolk Mage",
         "exp_level_class": "00000000-0000-4000-8000-000000000e01",
@@ -2307,10 +2238,7 @@
       "id": "HERMIT",
       "name": "Precious Hermit",
       "role": "MIDLINE",
-      "generator_tags": [
-        "ERULEAN",
-        "BANDIT"
-      ],
+      "generator_tags": ["ERULEAN", "BANDIT"],
       "description": "Drawn to nature in such a way that they abandon society entirely. There, they lay in the arms of the dragon and dream, and commune with magical imagination. A Hermit of Erulea is a knower of secrets.",
       "is_commander": true,
       "commander_data": {
@@ -2386,9 +2314,7 @@
       "id": "PRIONASSIST",
       "name": "Prion Corps Assistant",
       "role": "MIDLINE",
-      "generator_tags": [
-        "MARCH"
-      ],
+      "generator_tags": ["MARCH"],
       "description": "Servant in training of Prion Corps Mage of rank. Periodic tests of Indentured and Cadet stock identify those with latent arcanist potential. Personality erasure and Lazaric skin graft are the reward for those who can withstand the first Prion trials.",
       "is_commander": false,
       "commander_data": {
@@ -2465,9 +2391,7 @@
       "id": "PRIONMAGE",
       "name": "Prion Corps Mage",
       "role": "MAGECORE",
-      "generator_tags": [
-        "MARCH"
-      ],
+      "generator_tags": ["MARCH"],
       "description": "Elite magician of the March Empire.",
       "is_commander": true,
       "commander_data": {
@@ -2538,9 +2462,7 @@
       "id": "REAPER",
       "name": "Reaper Drake",
       "role": "MIDLINE",
-      "generator_tags": [
-        "MARCH"
-      ],
+      "generator_tags": ["MARCH"],
       "description": "Fell haunting beast of magical ruins. Once a mage, now denatured in sight of Anazarbus, under a geas of ruin.",
       "is_commander": true,
       "commander_data": {
@@ -2549,9 +2471,7 @@
         "turn_actions": 1,
         "global_augments": [],
         "army_augments": [],
-        "enemy_army_augments": [
-          "1e46f7f8-3d48-4900-93a7-0cf2d5ce3156"
-        ],
+        "enemy_army_augments": ["1e46f7f8-3d48-4900-93a7-0cf2d5ce3156"],
         "army_name": "Reaper's Flock",
         "exp_level_class": "00000000-0000-4000-8000-000000000e01",
         "pv_level_class": "00000000-0000-4000-8000-000000000e02",
@@ -2615,11 +2535,7 @@
       "id": "SHANKNIGHT",
       "name": "Shanidar Knight",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "BANDIT",
-        "ERULEAN_MOB",
-        "MOB_DUNGEON"
-      ],
+      "generator_tags": ["BANDIT", "ERULEAN_MOB", "MOB_DUNGEON"],
       "description": "Since the Aurokran winds ravaged Younes, mystical Neolithic warriors have on occasion been seen consorting with the creatures of wild magic. Believed to have been thawed from some subterranean glacier, their true origin is unknown.",
       "is_commander": false,
       "commander_data": {
@@ -2696,9 +2612,7 @@
       "id": "SILVER",
       "name": "Silversight Fencer",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "ERULEAN"
-      ],
+      "generator_tags": ["ERULEAN"],
       "description": "Armored fencer, honor guard of Nova and Astronomers of rank. The mark of discipline and loyalty. The Silversight warriors are woven bespoke matrixes of arcane defense by Nova’s magecore, and they harry enemy magicians with ensnaring magics.",
       "is_commander": false,
       "commander_data": {
@@ -2779,12 +2693,7 @@
       "id": "FOX",
       "name": "Small Magic Fox",
       "role": "BACKLINE",
-      "generator_tags": [
-        "ERULEAN",
-        "BANDIT",
-        "ERULEAN_MOB",
-        "ERU_MOB_ALLY"
-      ],
+      "generator_tags": ["ERULEAN", "BANDIT", "ERULEAN_MOB", "ERU_MOB_ALLY"],
       "description": "Inside all living beings lies the potential for great and untold power.",
       "is_commander": false,
       "commander_data": {
@@ -2862,9 +2771,7 @@
       "id": "SPEARMAN",
       "name": "Spearman",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "ERULEAN"
-      ],
+      "generator_tags": ["ERULEAN"],
       "description": "The spear has been the center of Erulean warcraft since time immemorial. From the fall of Altair to the March of Lazar, the spearman are the foundation of Erulean martial capacity.",
       "is_commander": false,
       "commander_data": {
@@ -2943,11 +2850,7 @@
       "id": "NYMPH",
       "name": "Stone Nymph",
       "role": "MAGECORE",
-      "generator_tags": [
-        "BANDIT",
-        "ERULEAN_MOB",
-        "MOB_DUNGEON"
-      ],
+      "generator_tags": ["BANDIT", "ERULEAN_MOB", "MOB_DUNGEON"],
       "description": "The stone nymph.",
       "is_commander": true,
       "commander_data": {
@@ -2955,9 +2858,7 @@
         "turn_movements": 1,
         "turn_actions": 1,
         "global_augments": [],
-        "army_augments": [
-          "db21a490-0bc6-4d04-8662-a610b9718566"
-        ],
+        "army_augments": ["db21a490-0bc6-4d04-8662-a610b9718566"],
         "enemy_army_augments": [],
         "army_name": "Oread Van",
         "exp_level_class": "00000000-0000-4000-8000-000000000e01",
@@ -3163,9 +3064,7 @@
       "id": "DRAGOON",
       "name": "Ulver Dragoon",
       "role": "FRONTLINE",
-      "generator_tags": [
-        "MARCH"
-      ],
+      "generator_tags": ["MARCH"],
       "description": "Elite armored conquesting soldier of the March. The strongest and most loyal of the Cadets are given armament tokens, and once they can afford their full steel case they are honored with the rank of Dragoon. The Ulver Dragoons are sworn to Captain Reihnar, who rents their service out to lesser March commanders.",
       "is_commander": false,
       "commander_data": {
@@ -3242,9 +3141,7 @@
       "id": "UNICORN",
       "name": "Unicorn",
       "role": "MIDLINE",
-      "generator_tags": [
-        "ERU_MOB_ALLY"
-      ],
+      "generator_tags": ["ERU_MOB_ALLY"],
       "description": "Raw natural arcana embodied. Spun in the dreams of the first dragons, they dwell in the ever shifting Stargard forest. On clear nights near the forest, it’s said that one can hear the Unicorn choir commune with their cousin stars.",
       "is_commander": false,
       "commander_data": {
@@ -3403,10 +3300,7 @@
       "id": "STRIX",
       "name": "Wandering Strix",
       "role": "MAGECORE",
-      "generator_tags": [
-        "ERULEAN_MOB",
-        "ERU_MOB_ALLY"
-      ],
+      "generator_tags": ["ERULEAN_MOB", "ERU_MOB_ALLY"],
       "description": "A benevolent spirit mage of mountain and plain. The Strix brokered the introduction of ancient man to the currents of arcane frequency. While they come and go, their dwellings have never been discovered.",
       "is_commander": false,
       "commander_data": {
@@ -3489,10 +3383,7 @@
       "id": "YELLOW",
       "name": "Yellow Fencer",
       "role": "FLANKER",
-      "generator_tags": [
-        "ERULEAN",
-        "BANDIT"
-      ],
+      "generator_tags": ["ERULEAN", "BANDIT"],
       "description": "The gambler of the battlefield. Highly trained for one purpose, to seek the perfect strike. They will cast everything aside in their life—family, friends—in search of a single moment.",
       "is_commander": false,
       "commander_data": {
@@ -3844,9 +3735,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "b1ca2d87-d68d-4b9d-8b21-506ea7e480ca"
-        ],
+        "augments": ["b1ca2d87-d68d-4b9d-8b21-506ea7e480ca"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false,
@@ -3955,9 +3844,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "584ace2f-6284-49ed-87f6-cb0a62527dc3"
-        ],
+        "augments": ["584ace2f-6284-49ed-87f6-cb0a62527dc3"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": true,
@@ -4477,9 +4364,7 @@
         "base_damage": 0,
         "total_damage_multiplier": "1",
         "target_augment_self": false,
-        "augments": [
-          "b1ca2d87-d68d-4b9d-8b21-506ea7e480ca"
-        ],
+        "augments": ["b1ca2d87-d68d-4b9d-8b21-506ea7e480ca"],
         "crit_augments": [],
         "shared_augment_data": {
           "undispellable": false,
@@ -4610,9 +4495,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "c73a6630-237e-4ac5-817c-8bd4e07ccd52"
-        ],
+        "augments": ["c73a6630-237e-4ac5-817c-8bd4e07ccd52"],
         "crit_augments": [],
         "should_reapply": "0",
         "should_target_enemy": false,
@@ -4799,9 +4682,7 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "augments": [
-          "4bbab512-4c48-4a26-ae8f-cdd5efa9b491"
-        ],
+        "augments": ["4bbab512-4c48-4a26-ae8f-cdd5efa9b491"],
         "crit_augments": [],
         "shared_augment_data": {
           "undispellable": false,
@@ -4935,9 +4816,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "9202c140-4084-41da-83f0-d840778a04df"
-        ],
+        "augments": ["9202c140-4084-41da-83f0-d840778a04df"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false,
@@ -5367,9 +5246,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "939c9505-57d0-4d9c-b461-94a03e27a7c9"
-        ],
+        "augments": ["939c9505-57d0-4d9c-b461-94a03e27a7c9"],
         "crit_augments": [],
         "should_reapply": true,
         "should_target_enemy": false,
@@ -5478,9 +5355,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "f63e6ae6-8e55-4c50-b0da-9d1a9ee7fb51"
-        ],
+        "augments": ["f63e6ae6-8e55-4c50-b0da-9d1a9ee7fb51"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": true,
@@ -5998,9 +5873,7 @@
         "base_damage": "0",
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "augments": [
-          "5943c08f-0ec4-4443-84e4-4bafe2cba447"
-        ],
+        "augments": ["5943c08f-0ec4-4443-84e4-4bafe2cba447"],
         "crit_augments": [],
         "shared_augment_data": {
           "undispellable": false,
@@ -6649,9 +6522,7 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "augments": [
-          "584ace2f-6284-49ed-87f6-cb0a62527dc3"
-        ],
+        "augments": ["584ace2f-6284-49ed-87f6-cb0a62527dc3"],
         "crit_augments": [],
         "shared_augment_data": {
           "undispellable": false,
@@ -6817,9 +6688,7 @@
         "follow_tagged_unit": false
       },
       "summon_action_props": {
-        "summons": [
-          "aff553bb-a721-4b0d-aaf2-9a6d8907027e"
-        ],
+        "summons": ["aff553bb-a721-4b0d-aaf2-9a6d8907027e"],
         "summoning_range": "3",
         "should_target_enemy": false,
         "summon_augment": null,
@@ -6871,9 +6740,7 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "augments": [
-          "65073072-2712-4a5f-8958-308edc3c33ca"
-        ],
+        "augments": ["65073072-2712-4a5f-8958-308edc3c33ca"],
         "crit_augments": [],
         "shared_augment_data": {
           "undispellable": false,
@@ -7003,9 +6870,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "2f521c9e-2653-4fd0-981a-ba163a471f8e"
-        ],
+        "augments": ["2f521c9e-2653-4fd0-981a-ba163a471f8e"],
         "crit_augments": [],
         "should_reapply": true,
         "should_target_enemy": false,
@@ -7198,9 +7063,7 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "augments": [
-          "4bbab512-4c48-4a26-ae8f-cdd5efa9b491"
-        ],
+        "augments": ["4bbab512-4c48-4a26-ae8f-cdd5efa9b491"],
         "crit_augments": [],
         "shared_augment_data": {
           "undispellable": false,
@@ -7473,10 +7336,7 @@
         "follow_tagged_unit": false
       },
       "summon_action_props": {
-        "summons": [
-          "bc6fddf0-f03a-41c1-8efd-d18d42287233",
-          "bc6fddf0-f03a-41c1-8efd-d18d42287233"
-        ],
+        "summons": ["bc6fddf0-f03a-41c1-8efd-d18d42287233", "bc6fddf0-f03a-41c1-8efd-d18d42287233"],
         "summoning_range": "1",
         "should_target_enemy": false,
         "summon_augment": "f2972853-f988-442d-883d-4dbb74ae2e18",
@@ -7551,9 +7411,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "6da6f270-0787-4f52-bc11-5a10beaffb03"
-        ],
+        "augments": ["6da6f270-0787-4f52-bc11-5a10beaffb03"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false,
@@ -7662,9 +7520,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "b1bd08ac-28c7-4870-a9b4-5a354317fbc1"
-        ],
+        "augments": ["b1bd08ac-28c7-4870-a9b4-5a354317fbc1"],
         "crit_augments": [],
         "should_reapply": false,
         "should_target_enemy": false,
@@ -8075,9 +7931,7 @@
         "base_damage": 1,
         "total_damage_multiplier": 1,
         "target_augment_self": true,
-        "augments": [
-          "4bbab512-4c48-4a26-ae8f-cdd5efa9b491"
-        ],
+        "augments": ["4bbab512-4c48-4a26-ae8f-cdd5efa9b491"],
         "crit_augments": [],
         "shared_augment_data": {
           "undispellable": false,
@@ -8403,9 +8257,7 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "augments": [
-          "4bbab512-4c48-4a26-ae8f-cdd5efa9b491"
-        ],
+        "augments": ["4bbab512-4c48-4a26-ae8f-cdd5efa9b491"],
         "crit_augments": [],
         "shared_augment_data": {
           "undispellable": false,
@@ -8430,9 +8282,7 @@
         "tag_augment": null
       },
       "augment_action_props": {
-        "augments": [
-          "4bbab512-4c48-4a26-ae8f-cdd5efa9b491"
-        ],
+        "augments": ["4bbab512-4c48-4a26-ae8f-cdd5efa9b491"],
         "crit_augments": [],
         "should_reapply": true,
         "should_target_enemy": true,
@@ -8681,9 +8531,7 @@
         "follow_tagged_unit": false
       },
       "summon_action_props": {
-        "summons": [
-          "919675ce-54a3-4044-8747-2a0a070af326"
-        ],
+        "summons": ["919675ce-54a3-4044-8747-2a0a070af326"],
         "summoning_range": 2,
         "should_target_enemy": false,
         "summon_augment": "f2972853-f988-442d-883d-4dbb74ae2e18",
@@ -9008,9 +8856,7 @@
         "follow_tagged_unit": false
       },
       "summon_action_props": {
-        "summons": [
-          "a979d0b6-7568-4a15-9e40-2b16fb744090"
-        ],
+        "summons": ["a979d0b6-7568-4a15-9e40-2b16fb744090"],
         "summoning_range": "1",
         "should_target_enemy": false,
         "summon_augment": null,
@@ -9117,10 +8963,7 @@
         "follow_tagged_unit": false
       },
       "summon_action_props": {
-        "summons": [
-          "100ae0e5-b515-4ca3-964c-f27d4f4cceb4",
-          "100ae0e5-b515-4ca3-964c-f27d4f4cceb4"
-        ],
+        "summons": ["100ae0e5-b515-4ca3-964c-f27d4f4cceb4", "100ae0e5-b515-4ca3-964c-f27d4f4cceb4"],
         "summoning_range": "3",
         "should_target_enemy": false,
         "summon_augment": null,
@@ -9229,9 +9072,7 @@
         "follow_tagged_unit": false
       },
       "summon_action_props": {
-        "summons": [
-          "35303ea1-0ecf-4265-911b-5a979f8f2b5a"
-        ],
+        "summons": ["35303ea1-0ecf-4265-911b-5a979f8f2b5a"],
         "summoning_range": "1",
         "should_target_enemy": false,
         "summon_augment": "f2972853-f988-442d-883d-4dbb74ae2e18",
@@ -9608,9 +9449,7 @@
         "base_damage": 0,
         "total_damage_multiplier": 1,
         "target_augment_self": false,
-        "augments": [
-          "1e46f7f8-3d48-4900-93a7-0cf2d5ce3156"
-        ],
+        "augments": ["1e46f7f8-3d48-4900-93a7-0cf2d5ce3156"],
         "crit_augments": [],
         "shared_augment_data": {
           "undispellable": false,
@@ -11160,9 +10999,7 @@
         "everlasting": true,
         "slot": 1,
         "quality": 2,
-        "for_role": [
-          "MAGECORE"
-        ],
+        "for_role": ["MAGECORE"],
         "shared_augment_data": {
           "undispellable": false,
           "replenishable": false,
@@ -11265,9 +11102,7 @@
       "gold_value": 0,
       "sellable": true,
       "rarity": 0,
-      "loot_categories": [
-        "CONSUMABLE"
-      ],
+      "loot_categories": ["CONSUMABLE"],
       "equipment_props": {
         "effects": [],
         "everlasting": false,
@@ -11342,9 +11177,7 @@
       "gold_value": "5",
       "sellable": true,
       "rarity": "0.4",
-      "loot_categories": [
-        "CONSUMABLE"
-      ],
+      "loot_categories": ["CONSUMABLE"],
       "equipment_props": {
         "effects": [],
         "everlasting": false,
@@ -11419,10 +11252,7 @@
       "gold_value": "20",
       "sellable": true,
       "rarity": "0.5",
-      "loot_categories": [
-        "ARMOR",
-        "WOODMERE"
-      ],
+      "loot_categories": ["ARMOR", "WOODMERE"],
       "equipment_props": {
         "effects": [],
         "everlasting": true,
@@ -11722,10 +11552,7 @@
         "everlasting": false,
         "slot": 2,
         "quality": 0,
-        "for_role": [
-          "FRONTLINE",
-          "FLANKER"
-        ],
+        "for_role": ["FRONTLINE", "FLANKER"],
         "shared_augment_data": {
           "undispellable": false,
           "replenishable": false,
@@ -11834,10 +11661,7 @@
         "everlasting": false,
         "slot": 3,
         "quality": 0,
-        "for_role": [
-          "FRONTLINE",
-          "FLANKER"
-        ],
+        "for_role": ["FRONTLINE", "FLANKER"],
         "shared_augment_data": {
           "undispellable": false,
           "replenishable": false,
@@ -11940,11 +11764,7 @@
       "gold_value": "1",
       "sellable": true,
       "rarity": "0.1",
-      "loot_categories": [
-        "MATERIAL",
-        "MEADOWMERE",
-        "WOODMERE"
-      ],
+      "loot_categories": ["MATERIAL", "MEADOWMERE", "WOODMERE"],
       "equipment_props": {
         "effects": [],
         "everlasting": false,
@@ -11978,9 +11798,7 @@
       "rarity": 0,
       "loot_categories": [],
       "equipment_props": {
-        "effects": [
-          "9202c140-4084-41da-83f0-d840778a04df"
-        ],
+        "effects": ["9202c140-4084-41da-83f0-d840778a04df"],
         "everlasting": false,
         "slot": 0,
         "quality": 0,
@@ -12010,10 +11828,7 @@
       "gold_value": "5",
       "sellable": true,
       "rarity": "0.3",
-      "loot_categories": [
-        "MATERIAL",
-        "MEADOWMERE"
-      ],
+      "loot_categories": ["MATERIAL", "MEADOWMERE"],
       "equipment_props": {
         "effects": [],
         "everlasting": false,
@@ -12045,19 +11860,13 @@
       "gold_value": "25",
       "sellable": true,
       "rarity": "0.7",
-      "loot_categories": [
-        "WEAPON",
-        "MEADOWMERE",
-        "WOODMERE"
-      ],
+      "loot_categories": ["WEAPON", "MEADOWMERE", "WOODMERE"],
       "equipment_props": {
         "effects": [],
         "everlasting": true,
         "slot": 1,
         "quality": 2,
-        "for_role": [
-          "MAGECORE"
-        ],
+        "for_role": ["MAGECORE"],
         "shared_augment_data": {
           "undispellable": false,
           "replenishable": false,
@@ -12122,14 +11931,9 @@
       "gold_value": "5",
       "sellable": true,
       "rarity": "0.2",
-      "loot_categories": [
-        "MATERIAL",
-        "MEADOWMERE"
-      ],
+      "loot_categories": ["MATERIAL", "MEADOWMERE"],
       "equipment_props": {
-        "effects": [
-          "32f7d1ce-d74b-4600-b431-a252e8eb8327"
-        ],
+        "effects": ["32f7d1ce-d74b-4600-b431-a252e8eb8327"],
         "everlasting": false,
         "slot": 0,
         "quality": 0,
@@ -12159,9 +11963,7 @@
       "gold_value": "5",
       "sellable": true,
       "rarity": "0.1",
-      "loot_categories": [
-        "MATERIAL"
-      ],
+      "loot_categories": ["MATERIAL"],
       "equipment_props": {
         "effects": [],
         "everlasting": false,
@@ -12193,9 +11995,7 @@
       "gold_value": "5",
       "sellable": true,
       "rarity": 0,
-      "loot_categories": [
-        "CONSUMABLE"
-      ],
+      "loot_categories": ["CONSUMABLE"],
       "equipment_props": {
         "effects": [],
         "everlasting": false,
@@ -12270,9 +12070,7 @@
       "gold_value": 0,
       "sellable": true,
       "rarity": 0,
-      "loot_categories": [
-        "CONSUMABLE"
-      ],
+      "loot_categories": ["CONSUMABLE"],
       "equipment_props": {
         "effects": [],
         "everlasting": false,
@@ -12349,15 +12147,11 @@
       "rarity": 0,
       "loot_categories": [],
       "equipment_props": {
-        "effects": [
-          "6198ea9d-80be-421a-b6a8-3e9c30e012de"
-        ],
+        "effects": ["6198ea9d-80be-421a-b6a8-3e9c30e012de"],
         "everlasting": true,
         "slot": 2,
         "quality": 1,
-        "for_role": [
-          "MAGECORE"
-        ],
+        "for_role": ["MAGECORE"],
         "shared_augment_data": {
           "undispellable": false,
           "replenishable": false,
@@ -12389,10 +12183,7 @@
         "everlasting": true,
         "slot": 2,
         "quality": 1,
-        "for_role": [
-          "FRONTLINE",
-          "FLANKER"
-        ],
+        "for_role": ["FRONTLINE", "FLANKER"],
         "shared_augment_data": {
           "undispellable": false,
           "replenishable": false,
@@ -12501,10 +12292,7 @@
         "everlasting": false,
         "slot": 1,
         "quality": 0,
-        "for_role": [
-          "FRONTLINE",
-          "FLANKER"
-        ],
+        "for_role": ["FRONTLINE", "FLANKER"],
         "shared_augment_data": {
           "undispellable": false,
           "replenishable": false,
@@ -12569,10 +12357,7 @@
       "gold_value": "5",
       "sellable": true,
       "rarity": "0.1",
-      "loot_categories": [
-        "MATERIAL",
-        "MEADOWMERE"
-      ],
+      "loot_categories": ["MATERIAL", "MEADOWMERE"],
       "equipment_props": {
         "effects": [],
         "everlasting": false,
@@ -12628,37 +12413,15 @@
       "id": "DEFAULT_EXP",
       "name": "Default EXP",
       "levels": [
-        0,
-        66,
-        264,
-        586,
-        1035,
-        1610,
-        2309,
-        3134,
-        4080,
-        5150,
-        6344,
-        7660,
-        9100,
-        10661,
-        12345,
-        14150,
-        16076,
-        18126,
-        20296,
-        22586,
-        25000
+        0, 66, 264, 586, 1035, 1610, 2309, 3134, 4080, 5150, 6344, 7660, 9100, 10661, 12345, 14150,
+        16076, 18126, 20296, 22586, 25000
       ]
     },
     {
       "guid": "a0b6d898-76d3-466c-bd28-d6cd5c73261e",
       "id": "TUTORIAL",
       "name": "Tutorial",
-      "levels": [
-        0,
-        1000
-      ]
+      "levels": [0, 1000]
     }
   ],
   "pvLevelClasses": [
@@ -12667,27 +12430,8 @@
       "id": "DEFAULT_PV",
       "name": "Default PV",
       "levels": [
-        80,
-        124,
-        168,
-        238,
-        334,
-        430,
-        506,
-        582,
-        686,
-        818,
-        950,
-        1070,
-        1190,
-        1320,
-        1460,
-        1600,
-        1760,
-        1920,
-        2060,
-        2180,
-        2300
+        80, 124, 168, 238, 334, 430, 506, 582, 686, 818, 950, 1070, 1190, 1320, 1460, 1600, 1760,
+        1920, 2060, 2180, 2300
       ]
     },
     {
@@ -12695,64 +12439,23 @@
       "id": "EASY_PV",
       "name": "Easy PV",
       "levels": [
-        68,
-        105,
-        143,
-        202,
-        284,
-        366,
-        430,
-        495,
-        583,
-        695,
-        808,
-        910,
-        1012,
-        1122,
-        1241,
-        1360,
-        1496,
-        1632,
-        1751,
-        1853,
-        1955
+        68, 105, 143, 202, 284, 366, 430, 495, 583, 695, 808, 910, 1012, 1122, 1241, 1360, 1496,
+        1632, 1751, 1853, 1955
       ]
     },
     {
       "guid": "70e1bef8-39f4-45fc-a1b6-8aae810c3d4b",
       "id": "TUTORIAL",
       "name": "Tutorial",
-      "levels": [
-        2000,
-        3000
-      ]
+      "levels": [2000, 3000]
     },
     {
       "guid": "c4a1b3f5-2d8e-4b9f-a03c-6f7e8d9b0a1d",
       "id": "VERY_EASY_PV",
       "name": "Very Easy PV",
       "levels": [
-        52,
-        81,
-        109,
-        155,
-        217,
-        280,
-        329,
-        378,
-        446,
-        532,
-        618,
-        696,
-        774,
-        858,
-        949,
-        1040,
-        1144,
-        1248,
-        1339,
-        1417,
-        1495
+        52, 81, 109, 155, 217, 280, 329, 378, 446, 532, 618, 696, 774, 858, 949, 1040, 1144, 1248,
+        1339, 1417, 1495
       ]
     }
   ],
@@ -12940,7 +12643,8 @@
           "x": 2,
           "y": 5
         }
-      ]
+      ],
+      "max_units": [4, 4, 5, 5, 6, 6, 7, 8, 8]
     }
   ],
   "generatorClasses": [
@@ -12948,51 +12652,10 @@
       "guid": "00000000-0000-4000-8000-000000000e05",
       "id": "DEFAULT_GENERATOR",
       "name": "Default Generator",
-      "jitter": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "jitter": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       "rarity_pressure": [
-        2,
-        1.98,
-        1.96,
-        1.95,
-        1.93,
-        1.92,
-        1.9,
-        1.88,
-        1.86,
-        1.85,
-        1.83,
-        1.81,
-        1.8,
-        1.78,
-        1.76,
-        1.75,
-        1.73,
-        1.73,
-        1.73,
-        1.72,
-        1.7
+        2, 1.98, 1.96, 1.95, 1.93, 1.92, 1.9, 1.88, 1.86, 1.85, 1.83, 1.81, 1.8, 1.78, 1.76, 1.75,
+        1.73, 1.73, 1.73, 1.72, 1.7
       ]
     }
   ],
@@ -13065,42 +12728,13 @@
     "ESCAPE",
     "ACTIONPOT"
   ],
-  "prefabIds": [
-    "TEMPLATE",
-    "WEIRDPASSAGE",
-    "ZIGZAG",
-    "HALL"
-  ],
-  "expLevelClassIds": [
-    "DEFAULT_EXP",
-    "TUTORIAL"
-  ],
-  "pvLevelClassIds": [
-    "DEFAULT_PV",
-    "TUTORIAL",
-    "EASY_PV",
-    "VERY_EASY_PV"
-  ],
-  "gridLevelClassIds": [
-    "DEFAULT_GRID",
-    "TUTORIAL",
-    "DEFAULT_DUNGEON",
-    "STRIKE_TEAM"
-  ],
-  "dungeonGridLevelClassIds": [
-    "DEFAULT_DUNGEON_GRID"
-  ],
-  "generatorClassIds": [
-    "DEFAULT_GENERATOR"
-  ],
-  "lootCategoryIds": [
-    "WEAPON",
-    "ARMOR",
-    "MATERIAL",
-    "MEADOWMERE",
-    "WOODMERE",
-    "CONSUMABLE"
-  ],
+  "prefabIds": ["TEMPLATE", "WEIRDPASSAGE", "ZIGZAG", "HALL"],
+  "expLevelClassIds": ["DEFAULT_EXP", "TUTORIAL"],
+  "pvLevelClassIds": ["DEFAULT_PV", "TUTORIAL", "EASY_PV", "VERY_EASY_PV"],
+  "gridLevelClassIds": ["DEFAULT_GRID", "TUTORIAL", "DEFAULT_DUNGEON", "STRIKE_TEAM"],
+  "dungeonGridLevelClassIds": ["DEFAULT_DUNGEON_GRID"],
+  "generatorClassIds": ["DEFAULT_GENERATOR"],
+  "lootCategoryIds": ["WEAPON", "ARMOR", "MATERIAL", "MEADOWMERE", "WOODMERE", "CONSUMABLE"],
   "removedLootCategoryIds": [],
   "generatorTagIds": [
     "ERULEAN",

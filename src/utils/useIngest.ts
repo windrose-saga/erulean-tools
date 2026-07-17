@@ -315,6 +315,11 @@ const normalizeVectorLevelClass = (levelClass: VectorLevelClass): VectorLevelCla
     x: Number(vector.x),
     y: Number(vector.y),
   })),
+  // Only DungeonGrid classes carry a cap curve; omit the key entirely for Grid classes so
+  // they export byte-identically to before.
+  ...(levelClass.max_units
+    ? { max_units: levelClass.max_units.map((value) => Number(value)) }
+    : {}),
 });
 
 // Each table is seeded with its well-known default class first so commanders

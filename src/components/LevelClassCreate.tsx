@@ -72,6 +72,7 @@ export const LevelClassCreate: React.FC<{ kind: LevelClassKind }> = ({ kind }) =
       onSave={onSave}
       routeBase={config.routeBase}
       levelLabel={config.levelLabel}
+      withMaxUnits={config.maxUnits}
     />
   );
 };
