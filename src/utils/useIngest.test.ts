@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  ingestDungeonGridLevelClassesV2,
   ingestExpLevelClassesV2,
   ingestGeneratorClassesV2,
   ingestGridLevelClassesV2,
@@ -162,6 +163,32 @@ describe('level-class ingestion', () => {
 
     expect(result['grid-1'].levels).toEqual([{ x: 8, y: 12 }]);
     expect(result[DEFAULT_GRID_LEVEL_CLASS_GUID]).toBeDefined();
+  });
+
+  it('normalizes dungeon max_units to numbers alongside the levels', () => {
+    const raw = [
+      {
+        guid: 'dungeon-1',
+        id: 'TIGHT',
+        name: 'Tight',
+        levels: [{ x: '2', y: '5' }],
+        max_units: ['3'],
+      },
+    ] as unknown as VectorLevelClass[];
+    const result = ingestDungeonGridLevelClassesV2(raw);
+
+    expect(result['dungeon-1'].levels).toEqual([{ x: 2, y: 5 }]);
+    expect(result['dungeon-1'].max_units).toEqual([3]);
+    expect(result[DEFAULT_DUNGEON_GRID_LEVEL_CLASS_GUID].max_units).toEqual([4, 4]);
+  });
+
+  it('leaves grid classes without a max_units key', () => {
+    const raw = [
+      { guid: 'grid-1', id: 'WIDE', name: 'Wide', levels: [{ x: '8', y: '12' }] },
+    ] as unknown as VectorLevelClass[];
+    const result = ingestGridLevelClassesV2(raw);
+
+    expect('max_units' in result['grid-1']).toBe(false);
   });
 
   it('seeds the default generator class and normalizes jitter/rarity_pressure to numbers', () => {

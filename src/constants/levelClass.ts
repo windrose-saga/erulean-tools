@@ -54,6 +54,7 @@ export const DEFAULT_DUNGEON_GRID_LEVEL_CLASS: DungeonGridLevelClass = {
     { x: 2, y: 5 },
     { x: 2, y: 5 },
   ],
+  max_units: [4, 4],
 };
 
 export const DEFAULT_GENERATOR_CLASS: GeneratorClass = {

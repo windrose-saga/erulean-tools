@@ -15,6 +15,8 @@ export type LevelClassConfigEntry = {
     | 'generatorClass';
   warn?: (levels: number[]) => string | null;
   blockOnWarning?: boolean;
+  // Vector classes only: also edit the parallel per-level `max_units` cap curve.
+  maxUnits?: boolean;
 };
 
 export const expWarn = (levels: number[]): string | null => {
@@ -58,6 +60,7 @@ export const LEVEL_CLASS_CONFIG: Record<LevelClassKind, LevelClassConfigEntry> =
     levelLabel: 'Dungeon Grid Size',
     variant: 'vector',
     objectCreationType: 'dungeonGridLevelClass',
+    maxUnits: true,
   },
   GENERATOR: {
     routeBase: 'generator-classes',

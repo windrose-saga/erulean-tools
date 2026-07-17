@@ -6,8 +6,21 @@ import { VectorLevelClass } from '../../types/levelClass';
 import { VOCAB_ID_PATTERN } from '../../utils/vocabId';
 import LabeledInputBase, { LabeledInputProps } from '../LabledInput';
 
-const LabeledInput = (props: LabeledInputProps<VectorLevelClass>) => (
-  <LabeledInputBase<VectorLevelClass> {...props} />
+// Editor form shape: the stored `levels` vectors and the parallel `max_units` cap curve are
+// zipped into a single per-level row list so adding/removing a level affects both together,
+// then split back apart on save. Kept distinct from VectorLevelClass, whose `levels` is a
+// bare Vector2[] that cannot host the cap field.
+type VectorFormShape = {
+  guid: string;
+  id: string;
+  name: string;
+  levels: Array<{ x: number; y: number; max_units: number }>;
+};
+
+const DEFAULT_MAX_UNITS = 4;
+
+const LabeledInput = (props: LabeledInputProps<VectorFormShape>) => (
+  <LabeledInputBase<VectorFormShape> {...props} />
 );
 
 export interface VectorLevelClassFormProps {
@@ -16,7 +29,19 @@ export interface VectorLevelClassFormProps {
   onSave: (levelClass: VectorLevelClass) => void;
   routeBase: string;
   levelLabel: string;
+  withMaxUnits?: boolean;
 }
+
+const toForm = (levelClass: VectorLevelClass): VectorFormShape => ({
+  guid: levelClass.guid,
+  id: levelClass.id,
+  name: levelClass.name,
+  levels: levelClass.levels.map((level, index) => ({
+    x: level.x,
+    y: level.y,
+    max_units: levelClass.max_units?.[index] ?? DEFAULT_MAX_UNITS,
+  })),
+});
 
 export const VectorLevelClassForm: React.FC<VectorLevelClassFormProps> = ({
   levelClass,
@@ -24,9 +49,13 @@ export const VectorLevelClassForm: React.FC<VectorLevelClassFormProps> = ({
   onSave,
   routeBase,
   levelLabel,
+  withMaxUnits = false,
 }) => {
   const navigate = useNavigate();
-  const methods = useForm<VectorLevelClass>({ defaultValues: levelClass, mode: 'onChange' });
+  const methods = useForm<VectorFormShape>({
+    defaultValues: toForm(levelClass),
+    mode: 'onChange',
+  });
   const {
     handleSubmit,
     reset,
@@ -46,12 +75,13 @@ export const VectorLevelClassForm: React.FC<VectorLevelClassFormProps> = ({
     [others, initialId],
   );
 
-  const onSubmit: SubmitHandler<VectorLevelClass> = (data) => {
+  const onSubmit: SubmitHandler<VectorFormShape> = (data) => {
     onSave({
       guid: levelClass.guid,
       id: data.id,
       name: data.name,
       levels: data.levels.map((l) => ({ x: Number(l.x), y: Number(l.y) })),
+      ...(withMaxUnits ? { max_units: data.levels.map((l) => Number(l.max_units)) } : {}),
     });
     navigate({ to: `/${routeBase}` });
   };
@@ -101,7 +131,7 @@ export const VectorLevelClassForm: React.FC<VectorLevelClassFormProps> = ({
             <button
               className="bg-gray-500 active:bg-gray-600 border-white rounded p-2"
               type="button"
-              onClick={() => append({ x: 1, y: 1 })}
+              onClick={() => append({ x: 1, y: 1, max_units: DEFAULT_MAX_UNITS })}
             >
               Add Level
             </button>
@@ -109,7 +139,9 @@ export const VectorLevelClassForm: React.FC<VectorLevelClassFormProps> = ({
           {fields.map((field, index) => (
             <div
               key={field.id}
-              className="grid grid-cols-3 border rounded justify-items-center items-end gap-3 mb-3 p-3"
+              className={`grid ${
+                withMaxUnits ? 'grid-cols-4' : 'grid-cols-3'
+              } border rounded justify-items-center items-end gap-3 mb-3 p-3`}
             >
               <LabeledInput
                 id={`levels.${index}.x`}
@@ -127,6 +159,16 @@ export const VectorLevelClassForm: React.FC<VectorLevelClassFormProps> = ({
                 minValue={1}
                 required
               />
+              {withMaxUnits && (
+                <LabeledInput
+                  id={`levels.${index}.max_units`}
+                  label={`Level ${index} Max Units`}
+                  type="number"
+                  allowFloats={false}
+                  minValue={1}
+                  required
+                />
+              )}
               <button
                 className="bg-gray-500 active:bg-gray-600 border-white rounded p-2 w-full"
                 type="button"
