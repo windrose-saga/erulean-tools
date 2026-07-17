@@ -538,6 +538,7 @@ const validateActions = (
       ...(action.damage_action_props?.crit_augment_effects ?? []),
       ...(action.augment_action_props?.augment_effects ?? []),
       ...(action.augment_action_props?.crit_augment_effects ?? []),
+      ...(action.summon_action_props?.augment_effects ?? []),
     ];
     inlineEffects.forEach((effect) => {
       const error = actionSwapRefError(

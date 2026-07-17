@@ -376,27 +376,38 @@ export const ActionForm: React.FC<{ action: Action }> = ({ action }) => {
         );
       case 'SUMMON_ACTION':
         return (
-          <div className="grid grid-cols-3 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
-            <ArraySelect id="summon_action_props.summons" label="Summons" type="UNIT" />
-            <LabeledInput
-              id="summon_action_props.should_target_enemy"
-              label="Should Target Enemy"
-              type="checkbox"
-            />
-            <FormAugmentSelect id="summon_action_props.summon_augment" label="Summon Augment" />
-            <LabeledInput
-              id="summon_action_props.summoning_range"
-              label="Summoning Range"
-              type="number"
-              allowFloats={false}
-              required
-            />
-            <LabeledInput
-              id="summon_action_props.should_summon_impact_morale"
-              label="Should Summon Impact Morale"
-              type="checkbox"
-            />
-          </div>
+          <>
+            <div className="grid grid-cols-3 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+              <ArraySelect id="summon_action_props.summons" label="Summons" type="UNIT" />
+              <LabeledInput
+                id="summon_action_props.should_target_enemy"
+                label="Should Target Enemy"
+                type="checkbox"
+              />
+              <FormAugmentSelect
+                id="summon_action_props.summon_augment"
+                label="Summon Augment (legacy)"
+              />
+              <LabeledInput
+                id="summon_action_props.summoning_range"
+                label="Summoning Range"
+                type="number"
+                allowFloats={false}
+                required
+              />
+              <LabeledInput
+                id="summon_action_props.should_summon_impact_morale"
+                label="Should Summon Impact Morale"
+                type="checkbox"
+              />
+            </div>
+            <div className="border rounded gap-3 mb-6 p-6">
+              <AugmentEffectFieldArray<Action>
+                name="summon_action_props.augment_effects"
+                label="Augment Effects"
+              />
+            </div>
+          </>
         );
       default:
         return <p>Encountered a problem. Not a valid Action Type.</p>;

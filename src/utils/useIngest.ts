@@ -244,6 +244,9 @@ export const ingestActionsV2 = (rawData: Array<Action>) => {
     merged.augment_action_props.crit_augment_effects = backfillAugmentEffects(
       merged.augment_action_props.crit_augment_effects,
     );
+    merged.summon_action_props.augment_effects = backfillAugmentEffects(
+      merged.summon_action_props.augment_effects,
+    );
     actionData[action.guid] = merged;
   });
   return actionData;

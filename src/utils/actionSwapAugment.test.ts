@@ -43,6 +43,20 @@ describe('inline ACTION_SWAP backfill', () => {
     });
   });
 
+  it('backfills a sparse inline effect on a summon action', () => {
+    const actions = ingestActionsV2([
+      {
+        guid: 'act-1',
+        id: 'CALL',
+        summon_action_props: { augment_effects: [{ augment_class: 'ACTION_SWAP' }] },
+      } as unknown as Action,
+    ]);
+    expect(actions['act-1'].summon_action_props.augment_effects[0].action_swap_props).toEqual({
+      type: 'PRIMARY',
+      action: '',
+    });
+  });
+
   it('backfills a sparse inline effect on equipment', () => {
     const items = ingestItemsV2([
       {
@@ -101,6 +115,25 @@ describe('validateIngest ACTION_SWAP action references', () => {
     expect(errors.some((error) => error.message.includes('Action ATK inline effect ACTION_SWAP'))).toBe(
       true,
     );
+  });
+
+  it('rejects a dangling inline action guid on a summon action', () => {
+    const actions = ingestActionsV2([
+      {
+        guid: 'act-1',
+        id: 'CALL',
+        action_type: 'SUMMON_ACTION',
+        summon_action_props: {
+          augment_effects: [
+            { augment_class: 'ACTION_SWAP', action_swap_props: { type: 'PRIMARY', action: 'missing' } },
+          ],
+        },
+      } as unknown as Action,
+    ]);
+    const errors = validateIngest({}, actions, {});
+    expect(
+      errors.some((error) => error.message.includes('Action CALL inline effect ACTION_SWAP')),
+    ).toBe(true);
   });
 
   it('rejects a dangling inline action guid on equipment', () => {

@@ -141,4 +141,5 @@ export type SummonActionData = {
   should_target_enemy: boolean;
   summon_augment: string | null;
   should_summon_impact_morale: boolean;
+  augment_effects: Array<AugmentEffect>;
 };

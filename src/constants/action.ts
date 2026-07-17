@@ -78,6 +78,7 @@ export const DEFAULT_SUMMON_ACTION_DATA: SummonActionData = {
   should_target_enemy: false,
   summon_augment: null,
   should_summon_impact_morale: false,
+  augment_effects: [],
 };
 
 export const DEFAULT_ACTION_DATA: Action = {
