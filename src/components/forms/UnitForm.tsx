@@ -130,14 +130,6 @@ export const UnitForm: React.FC<{ unit: Unit }> = ({ unit }) => {
         </div>
         <div className="grid grid-cols-3 border rounded justify-items-center gap-3 mb-6 p-6">
           <LabeledInput id="max_hp" label="Max HP" type="number" allowFloats={false} required />
-          <LabeledInput id="max_mana" label="Max Mana" type="number" allowFloats={false} required />
-          <LabeledInput
-            id="mana_growth"
-            label="Mana Growth"
-            type="number"
-            allowFloats={false}
-            required
-          />
           <LabeledInput
             id="starting_hp"
             label="Starting HP"

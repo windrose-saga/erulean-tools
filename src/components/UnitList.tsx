@@ -11,7 +11,6 @@ import { MOVEMENT_STRATEGIES, ROLES, Unit } from '../types/unit';
 const unitColumns: Column<Unit>[] = [
   { name: 'Name', field: 'name', editable: true },
   { name: 'Max HP', field: 'max_hp', editable: true },
-  { name: 'Max Mana', field: 'max_mana', editable: true },
   { name: 'Physical Defense', field: 'phys_defense', editable: true },
   { name: 'Special Defense', field: 'spec_defense', editable: true },
   { name: 'Speed', field: 'speed', editable: true },

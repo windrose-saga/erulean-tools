@@ -14,11 +14,9 @@ const DEFAULT_STATS: Unit = {
   phys_defense: 10,
   spec_defense: 10,
   luck: 10,
-  mana_growth: 0,
   // not used from here down
   max_hp: 100,
   starting_hp: 100,
-  max_mana: 10,
   starting_mana: 0,
   point_value: 1,
   bravery: 99,
