@@ -116,6 +116,23 @@ export const AugmentForm: React.FC<{ augment: Augment }> = ({ augment }) => {
             />
           </div>
         );
+      case 'SET_STAT':
+        return (
+          <div className="grid grid-cols-2 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+            <LabeledSelect
+              id="set_stat_props.stat"
+              label="Stat"
+              options={createSelectOptions(AUGMENT_STATS)}
+            />
+            <LabeledInput
+              id="set_stat_props.stat_value"
+              label="New Value"
+              type="number"
+              allowFloats={false}
+              required
+            />
+          </div>
+        );
       case 'STAT_MULT':
         return (
           <div className="grid grid-cols-2 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
