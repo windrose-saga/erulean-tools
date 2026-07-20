@@ -14,6 +14,7 @@ export type AugmentStat = AugmentStats[number];
 export const AUGMENT_TYPES = [
   'DOT',
   'FLAT_STAT',
+  'SET_STAT',
   'STAT_MULT',
   'ALLEGIANCE',
   'TAG',
@@ -92,6 +93,7 @@ export type Augment = {
   augment_class: AugmentType;
   dot_augment_props: DotAugmentProps;
   flat_stat_props: FlatStatProps;
+  set_stat_props: SetStatProps;
   stat_mult_props: StatMultProps;
   range_augment_props: RangeAugmentProps;
   aoe_augment_props: AOEAugmentProps;
@@ -124,6 +126,11 @@ export type FlatStatProps = {
   amount: number;
 };
 
+export type SetStatProps = {
+  stat: AugmentStat;
+  stat_value: number;
+};
+
 export type RangeAugmentProps = {
   mode: RangeAugmentMode;
   amount: number;
@@ -149,6 +156,7 @@ export type AugmentEffect = Pick<
   | 'type'
   | 'dot_augment_props'
   | 'flat_stat_props'
+  | 'set_stat_props'
   | 'stat_mult_props'
   | 'range_augment_props'
   | 'aoe_augment_props'

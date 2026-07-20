@@ -96,6 +96,23 @@ const AugmentEffectEntry = <T extends FieldValues>({
             />
           </div>
         );
+      case 'SET_STAT':
+        return (
+          <div className="grid grid-cols-2 justify-evenly border rounded justify-items-center gap-3 p-4">
+            <LabeledSelect
+              id={`${prefix}.${index}.set_stat_props.stat` as Path<T>}
+              label="Stat"
+              options={createSelectOptions(AUGMENT_STATS)}
+            />
+            <LabeledInput
+              id={`${prefix}.${index}.set_stat_props.stat_value` as Path<T>}
+              label="New Value"
+              type="number"
+              allowFloats={false}
+              required
+            />
+          </div>
+        );
       case 'STAT_MULT':
         return (
           <div className="grid grid-cols-2 justify-evenly border rounded justify-items-center gap-3 p-4">
