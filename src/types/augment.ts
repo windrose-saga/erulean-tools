@@ -24,6 +24,7 @@ export const AUGMENT_TYPES = [
   'AOE_RADIUS',
   'MAX_TARGETS',
   'ACTION_SWAP',
+  'MANA_DELTA',
 ] as const satisfies string[];
 type AugmentTypes = typeof AUGMENT_TYPES;
 export type AugmentType = AugmentTypes[number];
@@ -42,6 +43,7 @@ export const AUGMENT_TARGETS = [
   'ACTION_AOE_RADIUS',
   'ACTION_MAX_TARGETS',
   'ACTION_SWAP',
+  'ACTION_MANA_DELTA',
 ] as const satisfies string[];
 type AugmentTargets = typeof AUGMENT_TARGETS;
 export type AugmentTarget = AugmentTargets[number];
@@ -78,6 +80,14 @@ export const ACTION_SWAP_TYPES = ['PRIMARY', 'SPECIAL'] as const satisfies strin
 type ActionSwapTypes = typeof ACTION_SWAP_TYPES;
 export type ActionSwapType = ActionSwapTypes[number];
 
+export const MANA_DELTA_ACTIONS = ['PRIMARY', 'SPECIAL'] as const satisfies string[];
+type ManaDeltaActions = typeof MANA_DELTA_ACTIONS;
+export type ManaDeltaAction = ManaDeltaActions[number];
+
+export const MANA_DELTA_MODES = ['FLAT', 'SET'] as const satisfies string[];
+type ManaDeltaModes = typeof MANA_DELTA_MODES;
+export type ManaDeltaMode = ManaDeltaModes[number];
+
 export type Augment = {
   guid: string;
   id: string;
@@ -100,6 +110,13 @@ export type Augment = {
   aoe_radius_augment_props: AOERadiusAugmentProps;
   max_targets_augment_props: MaxTargetsAugmentProps;
   action_swap_props: ActionSwapProps;
+  mana_delta_props: ManaDeltaProps;
+};
+
+export type ManaDeltaProps = {
+  action: ManaDeltaAction;
+  mode: ManaDeltaMode;
+  amount: number;
 };
 
 export type ActionSwapProps = {
@@ -163,6 +180,7 @@ export type AugmentEffect = Pick<
   | 'aoe_radius_augment_props'
   | 'max_targets_augment_props'
   | 'action_swap_props'
+  | 'mana_delta_props'
 >;
 
 export type SharedAugmentData = Pick<
