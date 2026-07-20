@@ -26,9 +26,7 @@ export type Unit = {
   description: string;
   max_hp: number;
   starting_hp: number;
-  max_mana: number;
   starting_mana: number;
-  mana_growth: number;
   phys_defense: number;
   spec_defense: number;
   speed: number;
