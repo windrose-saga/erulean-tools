@@ -14,6 +14,8 @@ import {
   AUGMENT_RESOURCES,
   AUGMENT_STATS,
   AUGMENT_TYPES,
+  MANA_DELTA_ACTIONS,
+  MANA_DELTA_MODES,
   MAX_TARGETS_AUGMENT_MODES,
   RANGE_AUGMENT_MODES,
 } from '../../types/augment';
@@ -222,6 +224,29 @@ export const AugmentForm: React.FC<{ augment: Augment }> = ({ augment }) => {
               id="action_swap_props.action"
               label="Replacement Action"
               treatEmptyAsNull={false}
+            />
+          </div>
+        );
+      case 'MANA_DELTA':
+        return (
+          <div className="grid grid-cols-3 justify-evenly border rounded justify-items-center gap-3 mb-6 p-6">
+            <LabeledSelect
+              id="mana_delta_props.action"
+              label="Action Slot"
+              options={createSelectOptions(MANA_DELTA_ACTIONS)}
+            />
+            <LabeledSelect
+              id="mana_delta_props.mode"
+              label="Mode"
+              options={createSelectOptions(MANA_DELTA_MODES)}
+            />
+            <LabeledInput
+              id="mana_delta_props.amount"
+              label="Amount"
+              type="number"
+              allowFloats={false}
+              allowNegativeValue
+              required
             />
           </div>
         );

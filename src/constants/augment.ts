@@ -6,6 +6,7 @@ import {
   AugmentEffect,
   DotAugmentProps,
   FlatStatProps,
+  ManaDeltaProps,
   MaxTargetsAugmentProps,
   RangeAugmentProps,
   SetStatProps,
@@ -60,6 +61,12 @@ export const DEFAULT_ACTION_SWAP_PROPS: ActionSwapProps = {
   action: '',
 };
 
+export const DEFAULT_MANA_DELTA_AUGMENT_PROPS: ManaDeltaProps = {
+  action: 'PRIMARY',
+  mode: 'FLAT',
+  amount: 0,
+};
+
 export const DEFAULT_AUGMENT_EFFECT: AugmentEffect = {
   augment_class: 'FLAT_STAT',
   type: 'BUFF',
@@ -72,6 +79,7 @@ export const DEFAULT_AUGMENT_EFFECT: AugmentEffect = {
   aoe_radius_augment_props: DEFAULT_AOE_RADIUS_AUGMENT_PROPS,
   max_targets_augment_props: DEFAULT_MAX_TARGETS_AUGMENT_PROPS,
   action_swap_props: DEFAULT_ACTION_SWAP_PROPS,
+  mana_delta_props: DEFAULT_MANA_DELTA_AUGMENT_PROPS,
 };
 
 export const DEFAULT_SHARED_AUGMENT_DATA: SharedAugmentData = {
@@ -103,4 +111,5 @@ export const DEFAULT_AUGMENT: Augment = {
   aoe_radius_augment_props: DEFAULT_AOE_RADIUS_AUGMENT_PROPS,
   max_targets_augment_props: DEFAULT_MAX_TARGETS_AUGMENT_PROPS,
   action_swap_props: DEFAULT_ACTION_SWAP_PROPS,
+  mana_delta_props: DEFAULT_MANA_DELTA_AUGMENT_PROPS,
 };

@@ -16,6 +16,8 @@ import {
   AUGMENT_STATS,
   AUGMENT_TYPES,
   AugmentType,
+  MANA_DELTA_ACTIONS,
+  MANA_DELTA_MODES,
   MAX_TARGETS_AUGMENT_MODES,
   RANGE_AUGMENT_MODES,
 } from '../types/augment';
@@ -202,6 +204,28 @@ const AugmentEffectEntry = <T extends FieldValues>({
               id={`${prefix}.${index}.action_swap_props.action` as Path<T>}
               label="Replacement Action"
               treatEmptyAsNull={false}
+            />
+          </div>
+        );
+      case 'MANA_DELTA':
+        return (
+          <div className="grid grid-cols-3 justify-evenly border rounded justify-items-center gap-3 p-4">
+            <LabeledSelect
+              id={`${prefix}.${index}.mana_delta_props.action` as Path<T>}
+              label="Action Slot"
+              options={createSelectOptions(MANA_DELTA_ACTIONS)}
+            />
+            <LabeledSelect
+              id={`${prefix}.${index}.mana_delta_props.mode` as Path<T>}
+              label="Mode"
+              options={createSelectOptions(MANA_DELTA_MODES)}
+            />
+            <LabeledInput
+              id={`${prefix}.${index}.mana_delta_props.amount` as Path<T>}
+              label="Amount"
+              type="number"
+              allowFloats={false}
+              allowNegativeValue
             />
           </div>
         );
